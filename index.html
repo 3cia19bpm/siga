@@ -20,12 +20,8 @@
       --musgo-escuro: #1f2d20;
       --ouro: #dfbd55;
       --claro: #f2f4ee;
-      --moldura-siga: var(--musgo-escuro);
-      --altura-tela-siga: 100vh;
+      --area-segura-topo: constant(safe-area-inset-top);
       --area-segura-topo: env(safe-area-inset-top, 0px);
-      --area-segura-direita: env(safe-area-inset-right, 0px);
-      --area-segura-base: env(safe-area-inset-bottom, 0px);
-      --area-segura-esquerda: env(safe-area-inset-left, 0px);
     }
 
     * { box-sizing: border-box; }
@@ -33,55 +29,41 @@
     html,
     body {
       width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
       margin: 0;
       overflow: hidden;
       touch-action: pan-x pan-y;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
-      background: var(--moldura-siga);
+      background: var(--claro);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system,
         BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    html { height: 100%; }
-
-    body {
-      height: var(--altura-tela-siga);
-      min-height: 0;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: minmax(0, 1fr);
-      padding: var(--area-segura-topo) var(--area-segura-direita)
-        var(--area-segura-base) var(--area-segura-esquerda);
-      transition: background-color .16s ease;
-    }
-
-    body.tema-aplicacao { --moldura-siga: var(--claro); }
-
-    @supports (height: 100dvh) {
-      body { height: 100dvh; }
-    }
-
     #aplicativoSiga {
-      position: static;
+      position: fixed;
+      inset: 0;
       display: block;
-      width: 100%;
-      height: 100%;
-      min-width: 0;
-      min-height: 0;
+      width: 100vw;
+      height: 100vh;
+      min-width: 100%;
+      min-height: 100%;
       max-width: none;
       max-height: none;
       border: 0;
       background: var(--claro);
     }
 
+    @supports (height: 100dvh) {
+      #aplicativoSiga { width: 100dvw; height: 100dvh; }
+    }
+
     #carregando {
       position: fixed;
       z-index: 2;
-      top: var(--area-segura-topo);
-      right: var(--area-segura-direita);
-      bottom: var(--area-segura-base);
-      left: var(--area-segura-esquerda);
+      inset: 0;
       display: grid;
       place-items: center;
       padding: 24px;
@@ -198,29 +180,69 @@
       const quadro = document.getElementById('aplicativoSiga');
       const carregando = document.getElementById('carregando');
       const alternativa = document.getElementById('alternativa');
-      const suportaAlturaDinamica = window.CSS
-        && CSS.supports
-        && CSS.supports('height', '100dvh');
 
-      function ajustarAlturaVisivel() {
-        if (suportaAlturaDinamica) return;
-        const altura = Math.round(
-          (window.visualViewport && window.visualViewport.height)
-          || window.innerHeight
-          || document.documentElement.clientHeight
-        );
-        if (altura > 0) {
-          document.documentElement.style.setProperty('--altura-tela-siga', altura + 'px');
-        }
+      function numeroCss(valor) {
+        const numero = Number.parseFloat(String(valor || '').replace(',', '.'));
+        return Number.isFinite(numero) ? numero : 0;
+      }
+
+      function ambienteIos() {
+        return /iPhone|iPad|iPod/i.test(navigator.userAgent)
+          || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      }
+
+      function modoInstalado() {
+        return navigator.standalone === true
+          || window.matchMedia('(display-mode: standalone)').matches;
+      }
+
+      function areaSeguraTopoFallback() {
+        if (!ambienteIos() || !modoInstalado()) return 0;
+        if (window.innerWidth > window.innerHeight) return 0;
+        const altura = Math.max(screen.width || 0, screen.height || 0);
+        if (altura >= 852) return 59;
+        if (altura >= 812) return 47;
+        return 20;
+      }
+
+      function obterAreaSeguraTopo() {
+        const estilo = getComputedStyle(document.documentElement);
+        const areaCss = numeroCss(estilo.getPropertyValue('--area-segura-topo'));
+        return Math.max(0, Math.min(96, areaCss || areaSeguraTopoFallback()));
+      }
+
+      function enviarAreaSeguraAoSiga(destino) {
+        const alvo = destino && typeof destino.postMessage === 'function'
+          ? destino
+          : quadro.contentWindow;
+        if (!alvo) return;
+        alvo.postMessage({
+          origem: 'SIGA_GITHUB',
+          tipo: 'SIGA_CONFIGURAR_MOLDURA',
+          areaSeguraTopo: obterAreaSeguraTopo()
+        }, '*');
+      }
+
+      function sincronizarMoldura() {
+        enviarAreaSeguraAoSiga();
+        window.setTimeout(enviarAreaSeguraAoSiga, 120);
+        window.setTimeout(enviarAreaSeguraAoSiga, 420);
       }
 
       function aplicarTemaMoldura(tema) {
-        document.body.classList.toggle('tema-aplicacao', tema === 'aplicacao');
+        const cor = tema === 'aplicacao' ? '#f2f4ee' : '#35412e';
+        const metaTema = document.querySelector('meta[name="theme-color"]');
+        if (metaTema) metaTema.setAttribute('content', cor);
+        document.documentElement.style.backgroundColor = cor;
+        document.body.style.backgroundColor = cor;
       }
 
       function solicitarTemaAoSiga() {
         if (!quadro.contentWindow) return;
-        quadro.contentWindow.postMessage({ tipo: 'SIGA_SOLICITAR_TEMA_MOLDURA' }, '*');
+        quadro.contentWindow.postMessage({
+          origem: 'SIGA_GITHUB',
+          tipo: 'SIGA_SOLICITAR_TEMA_MOLDURA'
+        }, '*');
       }
 
       function restaurarEscalaPadrao() {
@@ -261,25 +283,28 @@
 
       quadro.addEventListener('load', function() {
         carregando.classList.add('oculto');
+        sincronizarMoldura();
         solicitarTemaAoSiga();
       });
 
       window.addEventListener('message', function(evento) {
-        if (evento.source !== quadro.contentWindow) return;
         const dados = evento.data || {};
-        if (dados.origem !== 'SIGA' || dados.tipo !== 'SIGA_TEMA_MOLDURA') return;
-        aplicarTemaMoldura(dados.tema);
+        if (dados.origem !== 'SIGA') return;
+        if (dados.tipo === 'SIGA_SOLICITAR_CONFIGURACAO_MOLDURA') {
+          enviarAreaSeguraAoSiga(evento.source);
+        }
+        if (dados.tipo === 'SIGA_TEMA_MOLDURA') {
+          aplicarTemaMoldura(dados.tema);
+        }
       });
 
-      if (!suportaAlturaDinamica) {
-        ajustarAlturaVisivel();
-        window.addEventListener('resize', ajustarAlturaVisivel, { passive: true });
-        window.addEventListener('orientationchange', function() {
-          window.setTimeout(ajustarAlturaVisivel, 80);
-        }, { passive: true });
-        if (window.visualViewport) {
-          window.visualViewport.addEventListener('resize', ajustarAlturaVisivel, { passive: true });
-        }
+      window.addEventListener('pageshow', sincronizarMoldura, { passive: true });
+      window.addEventListener('resize', sincronizarMoldura, { passive: true });
+      window.addEventListener('orientationchange', function() {
+        window.setTimeout(sincronizarMoldura, 100);
+      }, { passive: true });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', enviarAreaSeguraAoSiga, { passive: true });
       }
 
       window.setTimeout(function() {
