@@ -1,4 +1,4 @@
-const CACHE_SIGA = 'siga-github-v5.4.6';
+const CACHE_SIGA = 'siga-github-v5.4.6-r2-safe-canvas';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
