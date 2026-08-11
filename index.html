@@ -7,7 +7,7 @@
   <meta name="application-name" content="SIGA">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="SIGA">
   <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
@@ -20,6 +20,12 @@
       --musgo-escuro: #1f2d20;
       --ouro: #dfbd55;
       --claro: #f2f4ee;
+      --moldura-siga: var(--musgo-escuro);
+      --altura-tela-siga: 100vh;
+      --area-segura-topo: env(safe-area-inset-top, 0px);
+      --area-segura-direita: env(safe-area-inset-right, 0px);
+      --area-segura-base: env(safe-area-inset-bottom, 0px);
+      --area-segura-esquerda: env(safe-area-inset-left, 0px);
     }
 
     * { box-sizing: border-box; }
@@ -27,68 +33,62 @@
     html,
     body {
       width: 100%;
-      height: 100%;
-      min-height: 100%;
       margin: 0;
       overflow: hidden;
       touch-action: pan-x pan-y;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
-      background: linear-gradient(145deg, #182419, var(--musgo));
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-size: cover;
+      background: var(--moldura-siga);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system,
         BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
+    html { height: 100%; }
+
+    body {
+      height: var(--altura-tela-siga);
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+      padding: var(--area-segura-topo) var(--area-segura-direita)
+        var(--area-segura-base) var(--area-segura-esquerda);
+      transition: background-color .16s ease;
+    }
+
+    body.tema-aplicacao { --moldura-siga: var(--claro); }
+
     @supports (height: 100dvh) {
-      html,
-      body {
-        height: 100dvh;
-        min-height: 100dvh;
-      }
+      body { height: 100dvh; }
     }
 
     #aplicativoSiga {
-      position: fixed;
-      top: env(safe-area-inset-top, 0px);
-      left: 0;
+      position: static;
       display: block;
-      width: 100vw;
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
       max-width: none;
-      height: calc(100vh - env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
       max-height: none;
       border: 0;
       background: var(--claro);
     }
 
-    @supports (height: 100dvh) {
-      #aplicativoSiga {
-        height: calc(100dvh - env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-      }
-    }
-
     #carregando {
       position: fixed;
       z-index: 2;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: calc(100vh + env(safe-area-inset-bottom, 0px));
+      top: var(--area-segura-topo);
+      right: var(--area-segura-direita);
+      bottom: var(--area-segura-base);
+      left: var(--area-segura-esquerda);
       display: grid;
       place-items: center;
       padding: 24px;
-      background: transparent;
+      background: linear-gradient(145deg, #182419, var(--musgo));
       color: #fff;
       text-align: center;
       transition: opacity .22s ease, visibility .22s ease;
-    }
-
-    @supports (height: 100dvh) {
-      #carregando {
-        height: calc(100dvh + env(safe-area-inset-bottom, 0px));
-      }
     }
 
     #carregando.oculto {
@@ -198,6 +198,30 @@
       const quadro = document.getElementById('aplicativoSiga');
       const carregando = document.getElementById('carregando');
       const alternativa = document.getElementById('alternativa');
+      const suportaAlturaDinamica = window.CSS
+        && CSS.supports
+        && CSS.supports('height', '100dvh');
+
+      function ajustarAlturaVisivel() {
+        if (suportaAlturaDinamica) return;
+        const altura = Math.round(
+          (window.visualViewport && window.visualViewport.height)
+          || window.innerHeight
+          || document.documentElement.clientHeight
+        );
+        if (altura > 0) {
+          document.documentElement.style.setProperty('--altura-tela-siga', altura + 'px');
+        }
+      }
+
+      function aplicarTemaMoldura(tema) {
+        document.body.classList.toggle('tema-aplicacao', tema === 'aplicacao');
+      }
+
+      function solicitarTemaAoSiga() {
+        if (!quadro.contentWindow) return;
+        quadro.contentWindow.postMessage({ tipo: 'SIGA_SOLICITAR_TEMA_MOLDURA' }, '*');
+      }
 
       function restaurarEscalaPadrao() {
         const meta = document.querySelector('meta[name="viewport"]');
@@ -237,7 +261,26 @@
 
       quadro.addEventListener('load', function() {
         carregando.classList.add('oculto');
+        solicitarTemaAoSiga();
       });
+
+      window.addEventListener('message', function(evento) {
+        if (evento.source !== quadro.contentWindow) return;
+        const dados = evento.data || {};
+        if (dados.origem !== 'SIGA' || dados.tipo !== 'SIGA_TEMA_MOLDURA') return;
+        aplicarTemaMoldura(dados.tema);
+      });
+
+      if (!suportaAlturaDinamica) {
+        ajustarAlturaVisivel();
+        window.addEventListener('resize', ajustarAlturaVisivel, { passive: true });
+        window.addEventListener('orientationchange', function() {
+          window.setTimeout(ajustarAlturaVisivel, 80);
+        }, { passive: true });
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener('resize', ajustarAlturaVisivel, { passive: true });
+        }
+      }
 
       window.setTimeout(function() {
         if (!carregando.classList.contains('oculto')) {
