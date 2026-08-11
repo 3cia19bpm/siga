@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#35412e">
+  <meta name="application-name" content="SIGA">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SIGA">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.json">
+  <title>SIGA</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --musgo: #35412e;
+      --musgo-escuro: #1f2d20;
+      --ouro: #dfbd55;
+      --claro: #f2f4ee;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      touch-action: pan-x pan-y;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      background: var(--musgo-escuro);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #aplicativoSiga {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: var(--claro);
+    }
+
+    #carregando {
+      position: fixed;
+      z-index: 2;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: linear-gradient(145deg, #182419, var(--musgo));
+      color: #fff;
+      text-align: center;
+      transition: opacity .22s ease, visibility .22s ease;
+    }
+
+    #carregando.oculto {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .marca img {
+      width: 96px;
+      height: 96px;
+      border-radius: 23px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .28);
+    }
+
+    .marca strong {
+      display: block;
+      margin-top: 18px;
+      font-size: 24px;
+      letter-spacing: .16em;
+    }
+
+    .marca span {
+      display: block;
+      margin-top: 7px;
+      color: #dfe6d9;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    .indicador {
+      width: 116px;
+      height: 4px;
+      margin: 22px auto 0;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .18);
+    }
+
+    .indicador::after {
+      display: block;
+      width: 45%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--ouro);
+      content: "";
+      animation: carregar 1.05s ease-in-out infinite alternate;
+    }
+
+    .alternativa {
+      display: none;
+      max-width: 320px;
+      margin-top: 20px;
+      color: #e7ebdf;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .alternativa.visivel { display: block; }
+    .alternativa a { color: #ffe393; font-weight: 800; }
+
+    @keyframes carregar {
+      from { transform: translateX(-5%); }
+      to { transform: translateX(135%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .indicador::after { animation: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="aplicativoSiga"
+    title="SIGA — Sistema Integrado de Gestão Administrativa"
+    src="https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec"
+    allow="clipboard-read; clipboard-write; web-share"
+  ></iframe>
+
+  <div id="carregando" role="status" aria-live="polite">
+    <div class="marca">
+      <img src="./apple-touch-icon.png" alt="">
+      <strong>SIGA</strong>
+      <span>SISTEMA INTEGRADO DE GESTÃO ADMINISTRATIVA</span>
+      <div class="indicador" aria-hidden="true"></div>
+      <p id="alternativa" class="alternativa">
+        O carregamento está demorando.
+        <a href="https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec">
+          Abrir o SIGA diretamente
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <noscript>
+    <p>
+      <a href="https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec">
+        Abrir o SIGA
+      </a>
+    </p>
+  </noscript>
+
+  <script>
+    (function() {
+      const VIEWPORT_SIGA = 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover';
+      let gestoEscalaAtivo = false;
+      const quadro = document.getElementById('aplicativoSiga');
+      const carregando = document.getElementById('carregando');
+      const alternativa = document.getElementById('alternativa');
+
+      function restaurarEscalaPadrao() {
+        const meta = document.querySelector('meta[name="viewport"]');
+        if (!meta) return;
+        meta.setAttribute(
+          'content',
+          'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1.01,user-scalable=no,viewport-fit=cover'
+        );
+        requestAnimationFrame(function() {
+          meta.setAttribute('content', VIEWPORT_SIGA);
+        });
+      }
+
+      ['gesturestart', 'gesturechange'].forEach(function(tipo) {
+        document.addEventListener(tipo, function(evento) {
+          gestoEscalaAtivo = true;
+          evento.preventDefault();
+        }, { passive: false });
+      });
+      document.addEventListener('touchmove', function(evento) {
+        if (evento.touches.length < 2) return;
+        gestoEscalaAtivo = true;
+        evento.preventDefault();
+      }, { passive: false });
+      document.addEventListener('gestureend', function(evento) {
+        evento.preventDefault();
+        gestoEscalaAtivo = false;
+        window.setTimeout(restaurarEscalaPadrao, 40);
+      }, { passive: false });
+      document.addEventListener('touchend', function(evento) {
+        const escalaAlterada = window.visualViewport
+          && Math.abs(window.visualViewport.scale - 1) > .01;
+        if (evento.touches.length || (!gestoEscalaAtivo && !escalaAlterada)) return;
+        gestoEscalaAtivo = false;
+        window.setTimeout(restaurarEscalaPadrao, 40);
+      }, { passive: true });
+
+      quadro.addEventListener('load', function() {
+        carregando.classList.add('oculto');
+      });
+
+      window.setTimeout(function() {
+        if (!carregando.classList.contains('oculto')) {
+          alternativa.classList.add('visivel');
+        }
+      }, 12000);
+
+      if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        navigator.serviceWorker.register('./sw.js').catch(function() {});
+      }
+    })();
+  </script>
+</body>
+</html>
