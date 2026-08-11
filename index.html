@@ -22,6 +22,7 @@
       --claro: #f2f4ee;
       --area-segura-topo: constant(safe-area-inset-top);
       --area-segura-topo: env(safe-area-inset-top, 0px);
+      --extensao-inferior-siga: var(--area-segura-topo);
     }
 
     * { box-sizing: border-box; }
@@ -47,7 +48,7 @@
       inset: 0;
       display: block;
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh + var(--extensao-inferior-siga));
       min-width: 100%;
       min-height: 100%;
       max-width: none;
@@ -57,13 +58,21 @@
     }
 
     @supports (height: 100dvh) {
-      #aplicativoSiga { width: 100dvw; height: 100dvh; }
+      #aplicativoSiga {
+        width: 100dvw;
+        height: calc(100dvh + var(--extensao-inferior-siga));
+      }
     }
 
     #carregando {
       position: fixed;
       z-index: 2;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: auto;
+      left: 0;
+      width: 100vw;
+      height: calc(100vh + var(--extensao-inferior-siga));
       display: grid;
       place-items: center;
       padding: 24px;
@@ -71,6 +80,13 @@
       color: #fff;
       text-align: center;
       transition: opacity .22s ease, visibility .22s ease;
+    }
+
+    @supports (height: 100dvh) {
+      #carregando {
+        width: 100dvw;
+        height: calc(100dvh + var(--extensao-inferior-siga));
+      }
     }
 
     #carregando.oculto {
@@ -211,6 +227,16 @@
         return Math.max(0, Math.min(96, areaCss || areaSeguraTopoFallback()));
       }
 
+      function atualizarExtensaoInferior() {
+        const extensao = ambienteIos() && modoInstalado()
+          ? obterAreaSeguraTopo()
+          : 0;
+        document.documentElement.style.setProperty(
+          '--extensao-inferior-siga',
+          extensao + 'px'
+        );
+      }
+
       function enviarAreaSeguraAoSiga(destino) {
         const alvo = destino && typeof destino.postMessage === 'function'
           ? destino
@@ -224,6 +250,7 @@
       }
 
       function sincronizarMoldura() {
+        atualizarExtensaoInferior();
         enviarAreaSeguraAoSiga();
         window.setTimeout(enviarAreaSeguraAoSiga, 120);
         window.setTimeout(enviarAreaSeguraAoSiga, 420);
@@ -304,8 +331,10 @@
         window.setTimeout(sincronizarMoldura, 100);
       }, { passive: true });
       if (window.visualViewport) {
-        window.visualViewport.addEventListener('resize', enviarAreaSeguraAoSiga, { passive: true });
+        window.visualViewport.addEventListener('resize', sincronizarMoldura, { passive: true });
       }
+
+      sincronizarMoldura();
 
       window.setTimeout(function() {
         if (!carregando.classList.contains('oculto')) {
