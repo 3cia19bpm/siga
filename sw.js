@@ -1,4 +1,4 @@
-const CACHE_SIGA = 'siga-github-v5.4.6-r2-safe-canvas';
+const CACHE_SIGA = 'siga-github-v5.5.0';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
@@ -36,7 +36,7 @@ self.addEventListener('fetch', function(evento) {
   if (url.origin !== self.location.origin) return;
 
   evento.respondWith(
-    fetch(evento.request)
+    fetch(evento.request, { cache: 'no-store' })
       .then(function(resposta) {
         const copia = resposta.clone();
         caches.open(CACHE_SIGA).then(function(cache) {
