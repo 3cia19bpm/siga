@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-siga-tela="acesso">
 <head>
   <base target="_top">
   <meta charset="UTF-8">
@@ -9,6 +9,8 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
   <meta name="apple-mobile-web-app-title" content="SIGA">
   <link rel="icon" type="image/png" sizes="192x192" href="https://3cia19bpm.github.io/siga/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://3cia19bpm.github.io/siga/apple-touch-icon.png">
@@ -2137,7 +2139,7 @@
 
 
     /* =======================================================
-       SIGA v5.5.0 — identidade, organização e respostas rápidas
+       SIGA v5.5.1 — identidade, organização e respostas rápidas
        ======================================================= */
     :root {
       --brasao-19bpm: none;
@@ -2641,7 +2643,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.0 — checklist orientado por etapas
+       SIGA v5.5.1 — checklist orientado por etapas
        ======================================================= */
     #secao-checklist { --check-verde:#34482d;--check-verde-2:#4d633f;--check-ouro:#dfbd59; }
     #secao-checklist .cabecalho-secao { margin-bottom:14px; }
@@ -3053,7 +3055,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.0 — login autônomo, alinhamento e contraste
+       SIGA v5.5.1 — login autônomo, alinhamento e contraste
        ======================================================= */
     .logos {
       display:grid;
@@ -3121,7 +3123,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.0 — escala protegida e acesso centralizado
+       SIGA v5.5.1 — escala protegida e acesso centralizado
        ======================================================= */
     html,
     body {
@@ -3250,6 +3252,58 @@
       }
     }
 
+    /* =======================================================
+       SIGA v5.5.1 — viewport persistente no iOS/Android
+       A altura medida continua válida após suspender e retomar o PWA.
+       O fundo pertence à superfície ativa, não a uma faixa remendada.
+       ======================================================= */
+    :root {
+      --siga-altura-tela:100dvh;
+      --siga-fundo-acesso:
+        radial-gradient(circle at 15% 10%,rgba(200,164,58,.19),transparent 28%),
+        radial-gradient(circle at 90% 90%,rgba(77,123,81,.30),transparent 34%),
+        linear-gradient(145deg,#17251d,#465238);
+      --siga-fundo-app:
+        radial-gradient(circle at 100% 0%,rgba(47,103,62,.07),transparent 28rem),
+        linear-gradient(180deg,#f7f9f7 0,#f2f5f2 100%);
+    }
+    html,
+    body {
+      margin:0;
+      min-height:var(--siga-altura-tela);
+    }
+    html:not([data-siga-tela="app"]),
+    html:not([data-siga-tela="app"]) body {
+      background:var(--siga-fundo-acesso);
+    }
+    html[data-siga-tela="app"],
+    html[data-siga-tela="app"] body {
+      background:var(--siga-fundo-app);
+    }
+    .tela-acesso {
+      min-height:var(--siga-altura-tela);
+      background:var(--siga-fundo-acesso);
+    }
+    .app-shell,
+    .area-principal {
+      min-height:var(--siga-altura-tela);
+      background:var(--siga-fundo-app);
+    }
+    .sidebar {
+      top:0;
+      bottom:auto!important;
+      height:var(--siga-altura-tela);
+      min-height:var(--siga-altura-tela);
+      max-height:var(--siga-altura-tela);
+    }
+    .overlay-mobile,
+    .carregando {
+      top:0;
+      bottom:auto;
+      height:var(--siga-altura-tela);
+      min-height:var(--siga-altura-tela);
+    }
+
 </style>
 </head>
 <body>
@@ -3347,7 +3401,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.5.0
+        SIGA 3ª CIA — Versão 5.5.1
       </footer>
     </section>
   </main>
@@ -3420,7 +3474,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.0</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.1</footer>
     </aside>
 
     <div class="area-principal">
@@ -4487,6 +4541,90 @@
       window.setTimeout(restaurarEscalaPadraoSiga, 40);
     }, { passive: true });
 
+    const SIGA_VIEWPORT = (() => {
+      let quadroAgendado = 0;
+      let temporizadores = [];
+
+      function emModoInstalado() {
+        return window.navigator.standalone === true
+          || window.matchMedia('(display-mode: standalone)').matches;
+      }
+
+      function alturaFisicaEmCss() {
+        if (!emModoInstalado() || !window.screen) return 0;
+        const largura = Number(window.screen.width) || 0;
+        const altura = Number(window.screen.height) || 0;
+        const paisagem = window.matchMedia('(orientation: landscape)').matches;
+        return paisagem ? Math.min(largura, altura) : Math.max(largura, altura);
+      }
+
+      function medir() {
+        const visual = window.visualViewport;
+        const alturaVisual = visual
+          ? Number(visual.height || 0) + Math.max(0, Number(visual.offsetTop || 0))
+          : 0;
+        const altura = Math.ceil(Math.max(
+          Number(window.innerHeight) || 0,
+          Number(document.documentElement.clientHeight) || 0,
+          alturaVisual,
+          alturaFisicaEmCss()
+        ));
+        if (altura > 0) {
+          document.documentElement.style.setProperty('--siga-altura-tela', altura + 'px');
+        }
+      }
+
+      function sincronizarSuperficie() {
+        const app = document.getElementById('appShell');
+        const appVisivel = Boolean(app && !app.classList.contains('oculto'));
+        document.documentElement.dataset.sigaTela = appVisivel ? 'app' : 'acesso';
+      }
+
+      function atualizar() {
+        sincronizarSuperficie();
+        medir();
+        cancelAnimationFrame(quadroAgendado);
+        quadroAgendado = requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            sincronizarSuperficie();
+            medir();
+          });
+        });
+        temporizadores.forEach(window.clearTimeout);
+        temporizadores = [80, 260, 700].map(atraso =>
+          window.setTimeout(() => {
+            sincronizarSuperficie();
+            medir();
+          }, atraso)
+        );
+      }
+
+      window.addEventListener('pageshow', atualizar);
+      window.addEventListener('focus', atualizar);
+      window.addEventListener('resize', atualizar);
+      window.addEventListener('orientationchange', atualizar);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) atualizar();
+      });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', atualizar);
+        window.visualViewport.addEventListener('scroll', medir);
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const app = document.getElementById('appShell');
+        if (app) {
+          new MutationObserver(atualizar).observe(app, {
+            attributes:true,
+            attributeFilter:['class']
+          });
+        }
+        atualizar();
+      }, { once:true });
+      atualizar();
+
+      return { atualizar };
+    })();
+
     const MIDIA_CACHE = new Map();
     const estado = {
       token: localStorage.getItem('siga3cia_token') || '',
@@ -4546,9 +4684,14 @@
       const URL_WEB_APP = 'https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec';
       const ORIGEM_GITHUB = 'https://3cia19bpm.github.io';
       const pendentes = new Map();
+      const pings = new Map();
       let porta = null;
       let inicializacao = null;
+      let validacao = null;
+      let iframeAtual = null;
       let sequencia = 0;
+      let precisaValidar = true;
+      let ultimaConfirmacao = 0;
 
       function gerarChave() {
         if (window.crypto && typeof window.crypto.randomUUID === 'function') {
@@ -4580,13 +4723,41 @@
         pendentes.clear();
       }
 
+      function reiniciar(mensagem, rejeitarPendentes) {
+        pings.forEach(item => {
+          clearTimeout(item.timer);
+          item.reject(new Error(mensagem));
+        });
+        pings.clear();
+        if (rejeitarPendentes) encerrarPendentes(mensagem);
+        try { if (porta) porta.close(); } catch (erro) {}
+        porta = null;
+        inicializacao = null;
+        validacao = null;
+        precisaValidar = true;
+        if (iframeAtual) iframeAtual.remove();
+        iframeAtual = null;
+      }
+
       function receberResposta(evento) {
         const resposta = evento.data || {};
+        if (resposta.tipo === 'SIGA_PONG' && resposta.id) {
+          const ping = pings.get(resposta.id);
+          if (!ping) return;
+          pings.delete(resposta.id);
+          clearTimeout(ping.timer);
+          ultimaConfirmacao = Date.now();
+          precisaValidar = false;
+          ping.resolve();
+          return;
+        }
         if (resposta.tipo !== 'SIGA_API_RESPOSTA' || !resposta.id) return;
         const item = pendentes.get(resposta.id);
         if (!item) return;
         pendentes.delete(resposta.id);
         clearTimeout(item.timer);
+        ultimaConfirmacao = Date.now();
+        precisaValidar = false;
         if (resposta.sucesso) item.resolve(resposta.resultado);
         else item.reject(new Error(resposta.erro || 'A operação não pôde ser concluída.'));
       }
@@ -4611,6 +4782,7 @@
             concluida = true;
             limparEscuta();
             iframe.remove();
+            if (iframeAtual === iframe) iframeAtual = null;
             inicializacao = null;
             reject(new Error(mensagem));
           }
@@ -4625,11 +4797,11 @@
             porta = evento.ports[0];
             porta.onmessage = receberResposta;
             porta.onmessageerror = () => {
-              encerrarPendentes('A conexão segura com o SIGA foi interrompida. Tente novamente.');
-              porta = null;
-              inicializacao = null;
+              reiniciar('A conexão segura com o SIGA foi interrompida. Tente novamente.', true);
             };
             porta.start();
+            ultimaConfirmacao = Date.now();
+            precisaValidar = false;
             resolve(porta);
           }
 
@@ -4638,7 +4810,8 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.0';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.1';
+          iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
         });
@@ -4646,13 +4819,49 @@
         return inicializacao;
       }
 
+      function testarCanal(canal) {
+        if (validacao) return validacao;
+        const teste = new Promise((resolve, reject) => {
+          const id = 'ping-' + Date.now().toString(36) + '-' + (++sequencia).toString(36);
+          const timer = setTimeout(() => {
+            pings.delete(id);
+            reject(new Error('A conexão anterior do SIGA expirou.'));
+          }, 1800);
+          pings.set(id, { resolve, reject, timer });
+          try {
+            canal.postMessage({ tipo:'SIGA_PING', id });
+          } catch (erro) {
+            pings.delete(id);
+            clearTimeout(timer);
+            reject(erro);
+          }
+        });
+        validacao = teste.then(
+          resultado => { validacao = null; return resultado; },
+          erro => { validacao = null; throw erro; }
+        );
+        return validacao;
+      }
+
+      function garantirCanal() {
+        return iniciar().then(canal => {
+          if (!precisaValidar && Date.now() - ultimaConfirmacao < 30000) return canal;
+          return testarCanal(canal)
+            .then(() => canal)
+            .catch(() => {
+              reiniciar('Reconectando o SIGA após retomar o aplicativo.', true);
+              return iniciar();
+            });
+        });
+      }
+
       function chamar(nome, argumentos) {
-        return iniciar().then(canal => new Promise((resolve, reject) => {
+        return garantirCanal().then(canal => new Promise((resolve, reject) => {
           const id = 'siga-' + Date.now().toString(36) + '-' + (++sequencia).toString(36);
           const timer = setTimeout(() => {
             pendentes.delete(id);
             reject(new Error('O SIGA demorou além do esperado. Tente novamente.'));
-          }, 180000);
+          }, 90000);
 
           pendentes.set(id, { resolve, reject, timer });
           try {
@@ -4665,20 +4874,40 @@
           } catch (erro) {
             pendentes.delete(id);
             clearTimeout(timer);
-            porta = null;
-            inicializacao = null;
+            reiniciar('A conexão segura com o SIGA foi interrompida. Tente novamente.', true);
             reject(erro);
           }
         }));
       }
 
+      function aquecer() {
+        if (location.origin !== ORIGEM_GITHUB) return Promise.resolve();
+        return garantirCanal().catch(() => undefined);
+      }
+
+      function retomar() {
+        precisaValidar = true;
+        aquecer();
+      }
+
+      window.addEventListener('pageshow', retomar);
+      window.addEventListener('focus', retomar);
+      window.addEventListener('online', retomar);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) retomar();
+      });
+      if (location.origin === ORIGEM_GITHUB) window.setTimeout(aquecer, 0);
+
       if ('serviceWorker' in navigator && location.origin === ORIGEM_GITHUB) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./sw.js').catch(() => {});
+          navigator.serviceWorker
+            .register('./sw.js', { updateViaCache:'none' })
+            .then(registro => registro.update())
+            .catch(() => {});
         }, { once:true });
       }
 
-      return { chamar };
+      return { chamar, aquecer, retomar };
     })();
 
     function api(nome, ...argumentos) {
@@ -4993,6 +5222,7 @@
         await configurarAplicacao();
         $('telaAcesso').classList.add('oculto');
         $('appShell').classList.remove('oculto');
+        SIGA_VIEWPORT.atualizar();
         ocultarCarregando();
 
         if (ehGuardaLogada()) {
@@ -5056,16 +5286,8 @@
         $('saudacaoInicio').textContent =
           'Olá, ' + (usuario.nomeGuerra || usuario.nomeCompleto || 'policial');
       }
-      if (usuario.administrador && !guardaHibrida) {
-        await carregarStatusBancoTopo();
-      }
-      if (usuario.administrador && temPermissaoAdmin('ALERTAS_P4')) carregarResumoAlertasP4();
       if (usuarioPodeUsarAreaComum()) {
         carregarResumoInicio430();
-        await Promise.all([
-          carregarFormularioUsuario('CHECKLIST'),
-          carregarFormularioUsuario('PERMUTAS')
-        ]);
       }
     }
 
@@ -5082,7 +5304,10 @@
       $('tituloTopo').textContent=(titulos[secao]||[secao])[0]; $('subtituloTopo').textContent=(titulos[secao]||['',''])[1]; fecharMenuMobile();
       if (secao==='calendario') carregarCalendarioUsuario();
       if (secao==='checklist') carregarChecklist();
-      if (secao==='permutas') carregarMinhasPermutas();
+      if (secao==='permutas') {
+        if (!estado.formularios.PERMUTAS) carregarFormularioUsuario('PERMUTAS');
+        carregarMinhasPermutas();
+      }
       if (secao==='banco-horas') prepararBancoHoras();
       if (secao==='relatorios') carregarRelatorioUsuario();
       if (secao==='painel-admin') carregarDashboardAdmin();
@@ -5103,10 +5328,12 @@
     function abrirMenuMobile() {
       $('sidebar').classList.add('aberta');
       $('overlayMobile').classList.add('ativo');
+      SIGA_VIEWPORT.atualizar();
     }
     function fecharMenuMobile() {
       $('sidebar').classList.remove('aberta');
       $('overlayMobile').classList.remove('ativo');
+      SIGA_VIEWPORT.atualizar();
     }
 
     async function sair() {
@@ -5121,6 +5348,7 @@
     function voltarParaAcesso() {
       $('appShell').classList.add('oculto');
       $('telaAcesso').classList.remove('oculto');
+      SIGA_VIEWPORT.atualizar();
       voltarParaMatricula();
     }
 
@@ -7374,7 +7602,18 @@
         $('dashboardAdmin').innerHTML=cards.map(c=>c[3]
           ? `<button type="button" class="dashboard-card dashboard-card-atalho" onclick="navegar('${escaparAtributo(c[3])}')"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span><b>ABRIR →</b></button>`
           : `<div class="dashboard-card"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span></div>`).join('');
-      } catch(e){ tratarErro(e,$('mensagemInterna')); } finally { ocultarCarregando(); }
+      } catch(e) {
+        tratarErro(e,$('mensagemInterna'));
+      } finally {
+        ocultarCarregando();
+        if (!estado.rotinasAdminAquecidas) {
+          estado.rotinasAdminAquecidas = true;
+          window.setTimeout(carregarStatusBancoTopo, 80);
+          if (temPermissaoAdmin('ALERTAS_P4')) {
+            window.setTimeout(carregarResumoAlertasP4, 180);
+          }
+        }
+      }
     }
 
     function prepararGuarda(){
@@ -7385,7 +7624,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.0 — Corpo da Guarda em duas etapas
+       SIGA v5.5.1 — Corpo da Guarda em duas etapas
        ======================================================= */
 
     estado.guardaTipo = 'PERMUTA AUTORIZADA';
@@ -7648,7 +7887,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.0 — Relatório operacional da Guarda
+       SIGA v5.5.1 — Relatório operacional da Guarda
        ======================================================= */
 
     function prepararRelatorioGuarda() {
