@@ -1061,25 +1061,6 @@
     }
     .topbar h1 { font-size:19px;letter-spacing:-.01em; }
     .topbar-acoes { display:flex;align-items:center;gap:9px; }
-    .banco-status-topo {
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      min-height:34px;
-      padding:7px 10px;
-      border:1px solid var(--siga-line);
-      border-radius:999px;
-      background:#fff;
-      color:#516057;
-      font-size:9px;
-      font-weight:900;
-      cursor:pointer;
-    }
-    .banco-ponto {
-      width:7px;height:7px;border-radius:50%;
-      background:#23a05a;
-      box-shadow:0 0 0 3px rgba(35,160,90,.13);
-    }
 
     .conteudo-app {
       width:min(100%,1520px);
@@ -1204,7 +1185,6 @@
       .conteudo-app { padding-top:20px; }
       .hero-siga { min-height:0;padding:22px;flex-direction:column;align-items:stretch; }
       .dashboard-grade { grid-template-columns:1fr 1fr; }
-      .topbar-acoes .banco-status-topo { display:none; }
     }
 
   
@@ -2139,7 +2119,7 @@
 
 
     /* =======================================================
-       SIGA v5.5.6 — identidade, organização e respostas rápidas
+       SIGA v5.5.7 — identidade, organização e respostas rápidas
        ======================================================= */
     :root {
       --brasao-19bpm: none;
@@ -2518,12 +2498,12 @@
     }
     .linha-status-tipo-permuta .campo { width:100%;min-width:0; }
     .linha-status-tipo-permuta select { width:100%;min-width:0; }
-    .lista-permutas-compacta { display:grid;gap:8px;margin-top:14px; }
+    .lista-permutas-compacta { display:grid;gap:10px;margin-top:14px; }
     .permuta-linha {
       width:100%;
       min-width:0;
       display:grid;
-      grid-template-columns:minmax(0,1fr) 42px;
+      grid-template-columns:minmax(0,1fr) auto;
       align-items:center;
       gap:10px;
       padding:12px 13px;
@@ -2538,21 +2518,27 @@
     .permuta-linha-resumo { min-width:0; }
     .permuta-linha-resumo strong {
       display:block;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-      font-size:11.5px;
+      font-size:15px;
+      font-weight:800;
+      line-height:1.32;
+      overflow-wrap:anywhere;
     }
-    .permuta-linha-resumo small { display:block;margin-top:4px;color:#788179;font-size:8.5px;line-height:1.35; }
+    .permuta-linha-resumo small { display:block;margin-top:5px;color:#788179;font-size:11px;line-height:1.4; }
     .permuta-linha-meta { display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap; }
     .permuta-linha-meta .status {
-      min-height:20px;margin:0;padding:4px 7px;border-radius:7px;font-size:7px;
+      min-height:22px;margin:0;padding:4px 7px;border-radius:7px;font-size:8px;
     }
-    .permuta-olho {
+    .permuta-linha-acoes { display:flex;align-items:center;gap:7px; }
+    .permuta-olho,
+    .permuta-copiar {
       width:42px;height:42px;display:grid;place-items:center;
       border:1px solid #d8dfd7;border-radius:12px;background:#f3f6f1;color:#465238;cursor:pointer;
     }
-    .permuta-olho .icone-svg { width:20px;height:20px; }
+    .permuta-copiar { color:#fff;background:#4d5d3d;border-color:#4d5d3d; }
+    .permuta-olho:hover,
+    .permuta-copiar:hover { transform:translateY(-1px);filter:brightness(.98); }
+    .permuta-olho .icone-svg,
+    .permuta-copiar .icone-svg { width:20px;height:20px; }
     .modal-permuta-admin {
       position:fixed;
       inset:0;
@@ -2643,7 +2629,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — checklist orientado por etapas
+       SIGA v5.5.7 — checklist orientado por etapas
        ======================================================= */
     #secao-checklist { --check-verde:#34482d;--check-verde-2:#4d633f;--check-ouro:#dfbd59; }
     #secao-checklist .cabecalho-secao { margin-bottom:14px; }
@@ -3055,7 +3041,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — login autônomo, alinhamento e contraste
+       SIGA v5.5.7 — login autônomo, alinhamento e contraste
        ======================================================= */
     .logos {
       display:grid;
@@ -3129,7 +3115,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — escala protegida e acesso centralizado
+       SIGA v5.5.7 — escala protegida e acesso centralizado
        ======================================================= */
     html,
     body {
@@ -3259,7 +3245,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — viewport persistente no iOS/Android
+       SIGA v5.5.7 — viewport persistente no iOS/Android
        A altura medida continua válida após suspender e retomar o PWA.
        O fundo pertence à superfície ativa, não a uma faixa remendada.
        ======================================================= */
@@ -3311,13 +3297,14 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — desktop amplo e navegação discreta
+       SIGA v5.5.7 — leitura consistente e cartões responsivos
        ======================================================= */
     .sidebar-marca p {
-      font-size:7px;
-      letter-spacing:.085em;
-      line-height:1.35;
-      white-space:nowrap;
+      max-width:132px;
+      font-size:8px;
+      letter-spacing:.055em;
+      line-height:1.25;
+      white-space:normal;
     }
     .menu-lateral {
       scrollbar-width:thin;
@@ -3332,6 +3319,19 @@
     }
     .menu-lateral::-webkit-scrollbar-thumb:hover { background:rgba(234,240,231,.38); }
 
+    .topbar-acoes .status { white-space:nowrap; }
+
+    @media(min-width:900px) {
+      .lista-permutas-compacta {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+      }
+      #listaSetoresAdmin.lista-cartoes {
+        grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+        gap:12px;
+      }
+    }
+
     @media(min-width:1100px) {
       .conteudo-app {
         width:100%;
@@ -3341,6 +3341,19 @@
       .cabecalho-secao h2 { font-size:32px; }
       .cabecalho-secao p { font-size:14px; }
       .painel { padding:22px; }
+      .campo label,.rotulo { font-size:12px; }
+      input,select,textarea { font-size:14px; }
+      input,select { min-height:48px; }
+      .ajuda { font-size:10.5px; }
+      .botao { min-height:46px;font-size:11.5px; }
+      .botao-pequeno { min-height:38px;font-size:10.5px; }
+      .cartao-topo h4 { font-size:15px; }
+      .cartao-topo p { font-size:12px; }
+      .cartao-item .dado small { font-size:9px; }
+      .cartao-item .dado strong { font-size:12px; }
+      .permuta-linha { min-height:82px;padding:14px 15px; }
+      .permuta-linha-resumo strong { font-size:16px; }
+      .permuta-linha-resumo small { font-size:11.5px; }
       .dashboard-grade {
         grid-template-columns:repeat(6,minmax(150px,1fr));
         gap:14px;
@@ -3379,6 +3392,13 @@
       .grade-relatorio-guarda { grid-template-columns:minmax(0,1.9fr) minmax(470px,.8fr); }
     }
 
+    @media(max-width:520px) {
+      .permuta-linha { align-items:start; }
+      .permuta-linha-acoes { flex-direction:column; }
+      .permuta-linha-resumo strong { font-size:14px; }
+      .permuta-linha-resumo small { font-size:10px; }
+    }
+
 </style>
 </head>
 <body>
@@ -3403,6 +3423,7 @@
     <symbol id="icone-seta-esquerda" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
     <symbol id="icone-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
     <symbol id="icone-olho" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></symbol>
+    <symbol id="icone-copiar" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2"/></symbol>
   </svg>
   <div id="toastArea" class="toast-area"></div>
 
@@ -3477,7 +3498,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.5.6
+        SIGA 3ª CIA — Versão 5.5.7
       </footer>
     </section>
   </main>
@@ -3550,7 +3571,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.6</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.7</footer>
     </aside>
 
     <div class="area-principal">
@@ -3563,10 +3584,6 @@
           </div>
         </div>
         <div class="topbar-acoes">
-          <button id="botaoBancoTopo" class="banco-status-topo oculto" type="button" onclick="abrirPainelBanco()">
-            <span class="banco-ponto"></span>
-            <span id="textoBancoTopo" aria-live="polite">Banco atualizado</span>
-          </button>
           <span id="perfilTopo" class="status CONFIRMADO">USUÁRIO</span>
         </div>
       </header>
@@ -4435,11 +4452,11 @@
         </section>
 
         <section id="secao-setores" class="secao">
-          <div class="cabecalho-secao"><div><h2>Setores e acessos</h2><p>Comando e P1 delegado administram os acessos operacionais. Apenas Comandante ou Subcomandante concede a delegação de acessos ao P1.</p></div></div>
+          <div class="cabecalho-secao"><div><h2>Setores e acessos</h2><p>Comandante, Subcomandante e Gestão • P1 administram os acessos. Os perfis de comando e de Gestão • P1 somente podem ser concedidos pelo Comando.</p></div></div>
           <form id="formSetorAdmin" class="painel">
             <div class="grade-2">
               <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" required></div>
-              <div class="campo"><label for="setorSetorAdmin">Setor</label><select id="setorSetorAdmin"><option value="P1">P1</option><option value="P4">P4</option><option value="GUARDA">CORPO DA GUARDA</option><option value="P1_ACESSOS" data-somente-comando>P1 • GESTÃO DE ACESSOS</option><option value="COMANDO" data-somente-comando>COMANDO</option></select></div>
+              <div class="campo"><label for="setorSetorAdmin">Setor</label><select id="setorSetorAdmin"><option value="COMANDANTE" data-somente-comando>Comandante</option><option value="SUBCOMANDANTE" data-somente-comando>Subcomandante</option><option value="P1_GESTAO" data-somente-comando>Gestão • P1</option><option value="P1_PESSOAL">Pessoal • P1</option><option value="P2_INTELIGENCIA">Inteligência • P2</option><option value="P3_PLANEJAMENTO">Planej. • P3</option><option value="P4_LOGISTICA">Logística • P4</option><option value="GUARDA">Guarda</option></select></div>
             </div>
             <div class="grade-2">
               <div class="campo"><label for="nomeSetorAdmin">Nome (somente se não estiver cadastrado)</label><input id="nomeSetorAdmin"></div>
@@ -4753,7 +4770,6 @@
       creditoBaixaBancoHoras: null,
       timerPesquisaBancoHoras: null,
       chaveCreditoBancoHoras: '',
-      bancoAtualizadoEm: 0,
       chaveBaixaBancoHoras: '',
       permutaAdminAberta: null,
       etapaChecklistAtual: 0
@@ -4891,7 +4907,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.6';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.7';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -4991,30 +5007,6 @@
       return { chamar, aquecer, retomar };
     })();
 
-    function horaBancoAtualizado(instante) {
-      const data = instante instanceof Date ? instante : new Date(instante || Date.now());
-      return String(data.getHours()).padStart(2, '0')
-        + ':'
-        + String(data.getMinutes()).padStart(2, '0');
-    }
-
-    function registrarRespostaRecebidaDoBanco(nome, resultado) {
-      if (
-        nome === 'encerrarSessao'
-        || !estado.token
-        || resultado == null
-        || (typeof resultado === 'object' && resultado.sucesso === false)
-      ) return;
-
-      estado.bancoAtualizadoEm = Date.now();
-      const texto = 'Banco atualizado às ' + horaBancoAtualizado(estado.bancoAtualizadoEm);
-      const indicador = $('textoBancoTopo');
-      const botao = $('botaoBancoTopo');
-      if (indicador) indicador.textContent = texto;
-      if (botao) botao.title = 'Últimos dados recebidos do SIGA às '
-        + horaBancoAtualizado(estado.bancoAtualizadoEm);
-    }
-
     function api(nome, ...argumentos) {
       let chamada;
       if (window.google && google.script && google.script.run) {
@@ -5028,10 +5020,7 @@
         chamada = SIGA_PONTE.chamar(nome, argumentos);
       }
 
-      return chamada.then(resultado => {
-        registrarRespostaRecebidaDoBanco(nome, resultado);
-        return resultado;
-      });
+      return chamada;
     }
 
     let timerInatividadeSessao = null;
@@ -5428,7 +5417,7 @@
       return Boolean(
         estado.usuario &&
         estado.usuario.administrador &&
-        estado.usuario.setorAdmin === 'GUARDA'
+        normalizarSetorAdminCliente(estado.usuario.setorAdmin) === 'GUARDA'
       );
     }
 
@@ -5445,13 +5434,49 @@
       return p.includes(permissao);
     }
 
+    const ROTULOS_SETORES_ADMIN = Object.freeze({
+      COMANDANTE:'Comandante',
+      SUBCOMANDANTE:'Subcomandante',
+      P1_GESTAO:'Gestão • P1',
+      P1_PESSOAL:'Pessoal • P1',
+      P2_INTELIGENCIA:'Inteligência • P2',
+      P3_PLANEJAMENTO:'Planej. • P3',
+      P4_LOGISTICA:'Logística • P4',
+      GUARDA:'Guarda'
+    });
+
+    function normalizarSetorAdminCliente(valor) {
+      const setor = String(valor || '').trim().toUpperCase().replace(/\s+/g,'_');
+      return ({COMANDO:'COMANDANTE',P1_ACESSOS:'P1_GESTAO',P1:'P1_PESSOAL',P4:'P4_LOGISTICA'})[setor] || setor;
+    }
+
+    function rotuloSetorAdminCliente(valor) {
+      return ROTULOS_SETORES_ADMIN[normalizarSetorAdminCliente(valor)] || '';
+    }
+
+    function grupoSetorAdminCliente(valor) {
+      const setor = normalizarSetorAdminCliente(valor);
+      if (['COMANDANTE','SUBCOMANDANTE'].includes(setor)) return 'COMANDO';
+      if (['P1_GESTAO','P1_PESSOAL'].includes(setor)) return 'P1';
+      if (setor === 'P4_LOGISTICA') return 'P4';
+      return setor;
+    }
+
+    function ehComandoAdminCliente(valor) {
+      return ['COMANDANTE','SUBCOMANDANTE'].includes(normalizarSetorAdminCliente(valor));
+    }
+
     async function configurarAplicacao() {
       const usuario = estado.usuario;
-      const setorAdmin = usuario.setorAdmin || 'COMANDO';
-      const rotulosSetor = { P1_ACESSOS:'P1 + ACESSOS' };
+      const setorAdmin = normalizarSetorAdminCliente(usuario.setorAdmin);
+      const funcaoAdministrativa = rotuloSetorAdminCliente(setorAdmin);
+      const identificacaoPerfil = usuario.administrador && funcaoAdministrativa
+        ? funcaoAdministrativa
+        : 'Grade ' + (usuario.grade || 'não definida');
+      usuario.setorAdmin = setorAdmin;
       $('identificacaoSidebar').textContent = identificacaoCompactaSidebar(usuario);
-      $('matriculaSidebar').textContent = 'M.F.: ' + usuario.matricula + ' - Grade ' + (usuario.grade || 'não definida');
-      $('perfilTopo').textContent = usuario.administrador ? ('ADMIN • ' + (rotulosSetor[setorAdmin] || setorAdmin)) : 'USUÁRIO';
+      $('matriculaSidebar').textContent = 'M.F.: ' + usuario.matricula + ' - ' + identificacaoPerfil;
+      $('perfilTopo').textContent = usuario.administrador ? funcaoAdministrativa.toUpperCase() : 'USUÁRIO';
       const guardaHibrida = ehGuardaLogada();
       $('sidebar').classList.toggle('sidebar-guarda',guardaHibrida);
       $('menuUsuario').classList.toggle('oculto', usuario.administrador && !guardaHibrida);
@@ -5461,16 +5486,20 @@
         botao.classList.toggle('oculto', !temPermissaoAdmin(botao.dataset.permissao));
       });
       document.querySelectorAll('#menuAdmin [data-grupo]').forEach(rotulo => {
-        const setor = setorAdmin === 'P1_ACESSOS' ? 'P1' : setorAdmin;
+        const setor = grupoSetorAdminCliente(setorAdmin);
         rotulo.classList.toggle(
           'oculto',
           setor !== 'COMANDO' && rotulo.dataset.grupo !== setor
         );
       });
       document.querySelectorAll('#setorSetorAdmin option[data-somente-comando]').forEach(opcao => {
-        opcao.hidden = setorAdmin !== 'COMANDO';
-        opcao.disabled = setorAdmin !== 'COMANDO';
+        opcao.hidden = !ehComandoAdminCliente(setorAdmin);
+        opcao.disabled = !ehComandoAdminCliente(setorAdmin);
       });
+      const seletorSetorAdmin = $('setorSetorAdmin');
+      if (seletorSetorAdmin && seletorSetorAdmin.selectedOptions[0]?.disabled) {
+        seletorSetorAdmin.value = 'P1_PESSOAL';
+      }
       preencherPerfil();
 
       if ($('saudacaoInicio')) {
@@ -5482,7 +5511,6 @@
       }
       if (usuario.administrador && !estado.rotinasAdminAquecidas) {
         estado.rotinasAdminAquecidas = true;
-        window.setTimeout(carregarStatusBancoTopo, 60);
         if (temPermissaoAdmin('ALERTAS_P4')) window.setTimeout(carregarResumoAlertasP4, 120);
       }
     }
@@ -6864,6 +6892,74 @@
       ].map(item => `<div class="resumo"><strong>${item[1]}</strong><span>${item[0]}</span></div>`).join('');
     }
 
+    function formatarPolicialParaCopiaPermuta(valor) {
+      let restante = String(valor || '').trim().replace(/\s+/g,' ');
+      const postos = [
+        [/^(?:SUBTENENTE|ST)\b\s*/i,'ST'],
+        [/^(?:TENENTE[- ]?CORONEL|TEN\.?\s*CEL\.?|TC)\b\s*/i,'Ten Cel'],
+        [/^(?:3(?:º|°)?\s*(?:SARGENTO|SGT)|3\s+SGT)\b\s*/i,'3º Sgt'],
+        [/^(?:2(?:º|°)?\s*(?:SARGENTO|SGT)|2\s+SGT)\b\s*/i,'2º Sgt'],
+        [/^(?:1(?:º|°)?\s*(?:SARGENTO|SGT)|1\s+SGT)\b\s*/i,'1º Sgt'],
+        [/^(?:SARGENTO|SGT)\b\s*/i,'Sgt'],
+        [/^(?:SOLDADO|SD)\b\s*/i,'Sd'],
+        [/^(?:CABO|CB)\b\s*/i,'Cb'],
+        [/^(?:TENENTE|TEN)\b\s*/i,'Ten'],
+        [/^(?:CAPITÃO|CAPITAO|CAP)\b\s*/i,'Cap'],
+        [/^(?:MAJOR|MAJ)\b\s*/i,'Maj'],
+        [/^(?:CORONEL|CEL)\b\s*/i,'Cel']
+      ];
+      let posto = '';
+      postos.some(function(regra) {
+        if (!regra[0].test(restante)) return false;
+        restante = restante.replace(regra[0],'').trim();
+        posto = regra[1];
+        return true;
+      });
+      const conectivos = ['DA','DAS','DE','DO','DOS','E'];
+      const nome = restante.split(' ').filter(Boolean).map(function(parte) {
+        if (/^\d+$/.test(parte)) return parte;
+        const maiuscula = parte.toLocaleUpperCase('pt-BR');
+        if (conectivos.includes(maiuscula)) return maiuscula.toLocaleLowerCase('pt-BR');
+        const minuscula = parte.toLocaleLowerCase('pt-BR');
+        return minuscula.charAt(0).toLocaleUpperCase('pt-BR') + minuscula.slice(1);
+      }).join(' ');
+      return [posto,nome].filter(Boolean).join(' ');
+    }
+
+    async function copiarTextoAplicacao(texto) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(texto);
+        return;
+      }
+      const area = document.createElement('textarea');
+      area.value = texto;
+      area.setAttribute('readonly','');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      const copiou = document.execCommand('copy');
+      area.remove();
+      if (!copiou) throw new Error('Cópia não autorizada.');
+    }
+
+    async function copiarResumoPermutaAdmin(id) {
+      const item = (estado.permutasAdmin || []).find(function(permuta) {
+        return String(permuta.id) === String(id);
+      });
+      if (!item) return;
+      const texto = formatarPolicialParaCopiaPermuta(item.solicitante)
+        + ' / '
+        + formatarPolicialParaCopiaPermuta(item.substituto)
+        + ' (perm)';
+      try {
+        await copiarTextoAplicacao(texto);
+        toast('Permuta copiada: ' + texto);
+      } catch (erro) {
+        tratarErro(new Error('Não foi possível copiar a permuta automaticamente.'),$('mensagemInterna'));
+      }
+    }
+
     function renderizarPermutasAdmin() {
       if (!estado.permutasAdmin.length) {
         $('listaPermutasAdmin').innerHTML = '<div class="vazio">Nenhuma permuta encontrada.</div>';
@@ -6880,9 +6976,14 @@
             <strong>${escaparHtml(item.solicitante)} → ${escaparHtml(item.substituto)}</strong>
             <div class="permuta-linha-meta"><small>${escaparHtml(item.tipo)} • ${formatarDataCurtaPermuta(item.dataServico)}${turno}${item.criadoEm ? ' • enviada ' + formatarDataHoraCurtaPermuta(item.criadoEm) : ''}</small>${excecao}</div>
           </div>
-          <button class="permuta-olho" type="button" aria-label="Ver solicitação de ${escaparAtributo(item.solicitante)}" title="Ver detalhes" onclick="abrirDetalhePermutaAdmin('${escaparAtributo(item.id)}')">
-            <svg class="icone-svg" aria-hidden="true"><use href="#icone-olho"></use></svg>
-          </button>
+          <div class="permuta-linha-acoes">
+            <button class="permuta-copiar" type="button" aria-label="Copiar resumo da permuta" title="Copiar permuta" onclick="copiarResumoPermutaAdmin('${escaparAtributo(item.id)}')">
+              <svg class="icone-svg" aria-hidden="true"><use href="#icone-copiar"></use></svg>
+            </button>
+            <button class="permuta-olho" type="button" aria-label="Ver solicitação de ${escaparAtributo(item.solicitante)}" title="Ver detalhes" onclick="abrirDetalhePermutaAdmin('${escaparAtributo(item.id)}')">
+              <svg class="icone-svg" aria-hidden="true"><use href="#icone-olho"></use></svg>
+            </button>
+          </div>
         </article>`;
       }).join('');
     }
@@ -7036,7 +7137,7 @@
       if (!lista.length) return '<div class="vazio">Nenhum registro encontrado.</div>';
       return lista.map(h => `
         <article class="cartao-item">
-          <div class="cartao-topo"><div><h4>${escaparHtml(h.subtipo)}</h4><p>${formatarData(h.dataInicio)} a ${formatarData(h.dataFim)} • ${h.dias} dia(s)</p></div>${(h.tipo!=='LICENÇA'||estado.usuario?.setorAdmin==='P1')?`<button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirHistorico('${escaparHtml(h.id)}')">EXCLUIR</button>`:''}</div>
+          <div class="cartao-topo"><div><h4>${escaparHtml(h.subtipo)}</h4><p>${formatarData(h.dataInicio)} a ${formatarData(h.dataFim)} • ${h.dias} dia(s)</p></div>${(h.tipo!=='LICENÇA'||grupoSetorAdminCliente(estado.usuario?.setorAdmin)==='P1')?`<button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirHistorico('${escaparHtml(h.id)}')">EXCLUIR</button>`:''}</div>
           ${h.observacao ? `<p style="font-size:11px;color:var(--texto-suave)">${escaparHtml(h.observacao)}</p>` : ''}
           <small class="ajuda">Registrado em ${escaparHtml(h.criadoEm || '—')} por ${escaparHtml(h.administrador || '—')}</small>
         </article>`).join('');
@@ -7578,7 +7679,7 @@
     }
     async function excluirChecklistAdmin(id){if(!confirm('Excluir definitivamente este checklist?'))return;try{const r=await api('adminExcluirChecklist',estado.token,id);toast(r.mensagem);carregarChecklistsAdmin();}catch(e){tratarErro(e);}}
 
-    function modulosEditorPermitidos(){const a=[];if(temPermissaoAdmin('FORMULARIOS_CHECKLIST')||estado.usuario.setorAdmin==='P4'||estado.usuario.setorAdmin==='COMANDO')a.push('CHECKLIST');if(temPermissaoAdmin('FORMULARIOS_PERMUTAS')||estado.usuario.setorAdmin==='P1'||estado.usuario.setorAdmin==='COMANDO')a.push('PERMUTAS');return a;}
+    function modulosEditorPermitidos(){const a=[];if(temPermissaoAdmin('FORMULARIOS_CHECKLIST'))a.push('CHECKLIST');if(temPermissaoAdmin('FORMULARIOS_PERMUTAS'))a.push('PERMUTAS');return a;}
     async function abrirEditorFormularios(){
       const mods=modulosEditorPermitidos(); $('botoesModuloFormulario').innerHTML=mods.map(m=>`<button class="subaba ${m===estado.moduloEditor?'ativa':''}" type="button" onclick="carregarFormularioAdmin('${m}')">${m}</button>`).join(''); if(!mods.length)return;
       if(!estado.moduloEditor||!mods.includes(estado.moduloEditor))await carregarFormularioAdmin(mods[0]); else renderizarEditorFormulario();
@@ -7654,13 +7755,15 @@
     async function carregarSetoresAdmin(){if(!temPermissaoAdmin('SETORES'))return;try{const r=await api('adminListarSetores',estado.token);estado.administradoresSetores=r.administradores||[];renderizarSetoresAdmin();}catch(e){tratarErro(e);}}
     function renderizarSetoresAdmin(){
       const l=estado.administradoresSetores||[];
-      const operadorComando=(estado.usuario?.setorAdmin||'')==='COMANDO';
+      const operadorComando=ehComandoAdminCliente(estado.usuario?.setorAdmin);
       $('listaSetoresAdmin').innerHTML=l.length?l.map(a=>{
-        const acessoProtegido=['COMANDO','P1_ACESSOS'].includes(String(a.setor||'').toUpperCase());
+        const setorNormalizado=normalizarSetorAdminCliente(a.setor);
+        const acessoProtegido=['COMANDANTE','SUBCOMANDANTE','P1_GESTAO'].includes(setorNormalizado);
         const acao=operadorComando||!acessoProtegido
           ? `<button class="botao botao-perigo botao-pequeno" type="button" onclick="removerSetorAdmin('${escaparHtml(a.matricula)}')">REMOVER ACESSO</button>`
           : '<span class="status CONFIRMADO">GERENCIADO PELO COMANDO</span>';
-        return `<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(a.responsavel)}</h4><p>M.F. ${escaparHtml(a.matricula)}</p></div><span class="status CONFIRMADO">${escaparHtml(a.setor)}</span></div>${acao}</article>`;
+        const rotulo=a.setorRotulo||rotuloSetorAdminCliente(setorNormalizado)||setorNormalizado;
+        return `<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(a.responsavel)}</h4><p>M.F. ${escaparHtml(a.matricula)}</p></div><span class="status CONFIRMADO">${escaparHtml(rotulo)}</span></div>${acao}</article>`;
       }).join(''):'<div class="vazio">Nenhum administrador cadastrado.</div>';
     }
     async function removerSetorAdmin(m){if(!confirm('Remover este acesso administrativo?'))return;try{const r=await api('adminRemoverSetor',estado.token,m);estado.administradoresSetores=r.dados.administradores||[];toast(r.mensagem);renderizarSetoresAdmin();}catch(e){tratarErro(e);}}
@@ -7850,7 +7953,6 @@
         ocultarCarregando();
         if (!estado.rotinasAdminAquecidas) {
           estado.rotinasAdminAquecidas = true;
-          window.setTimeout(carregarStatusBancoTopo, 80);
           if (temPermissaoAdmin('ALERTAS_P4')) {
             window.setTimeout(carregarResumoAlertasP4, 180);
           }
@@ -7866,7 +7968,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — Corpo da Guarda em duas etapas
+       SIGA v5.5.7 — Corpo da Guarda em duas etapas
        ======================================================= */
 
     estado.guardaTipo = 'PERMUTA AUTORIZADA';
@@ -8129,7 +8231,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.6 — Relatório operacional da Guarda
+       SIGA v5.5.7 — Relatório operacional da Guarda
        ======================================================= */
 
     function prepararRelatorioGuarda() {
@@ -8501,63 +8603,6 @@
         toast('Relatório copiado. Agora é só colar no WhatsApp.');
       } catch (e) {
         tratarErro(new Error('Não foi possível copiar automaticamente. Toque e segure sobre o texto para copiá-lo.'),$('mensagemInterna'));
-      }
-    }
-
-  
-    async function carregarStatusBancoTopo() {
-      try {
-        const r = await api('obterStatusBancoSIGA', estado.token);
-        estado.statusBanco = r;
-        if (!r.visivel) return;
-        $('botaoBancoTopo').classList.remove('oculto');
-        const horario = estado.bancoAtualizadoEm || Date.now();
-        estado.bancoAtualizadoEm = horario;
-        $('textoBancoTopo').textContent = 'Banco atualizado às ' + horaBancoAtualizado(horario);
-        $('botaoBancoTopo').title = 'Últimos dados recebidos do SIGA às '
-          + horaBancoAtualizado(horario);
-        if ($('painelBancoSiga')) {
-          $('painelBancoSiga').classList.toggle(
-            'oculto',
-            (estado.usuario.setorAdmin || '') !== 'COMANDO'
-          );
-        }
-        if ($('ultimaSyncBanco')) {
-          $('ultimaSyncBanco').textContent = r.ultimaSincronizacao || '—';
-        }
-      } catch (e) {}
-    }
-
-    function abrirPainelBanco() {
-      if ((estado.usuario?.setorAdmin || '') === 'COMANDO') {
-        navegar('painel-admin');
-        setTimeout(function(){
-          $('painelBancoSiga')?.scrollIntoView({behavior:'smooth',block:'center'});
-        },80);
-      }
-    }
-
-    function abrirBancoSiga() {
-      const url = estado.statusBanco?.bancoUrl;
-      if (url) window.open(url,'_blank','noopener');
-    }
-
-    async function sincronizarBancoAgora() {
-      if ((estado.usuario?.setorAdmin || '') !== 'COMANDO') return;
-      mostrarCarregando('Sincronizando banco mestre...');
-      try {
-        const r = await api('adminSincronizarAgora', estado.token);
-        if (r.emAndamento) {
-          mostrarMensagem($('mensagemInterna'),r.mensagem,'info');
-          return;
-        }
-        mostrarMensagem($('mensagemInterna'),r.mensagem + '\n' + r.sincronizadoEm,'sucesso');
-        await carregarStatusBancoTopo();
-        await carregarDashboardAdmin();
-      } catch (e) {
-        tratarErro(e,$('mensagemInterna'));
-      } finally {
-        ocultarCarregando();
       }
     }
 
