@@ -38,13 +38,6 @@
         BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    /*
-      HOTFIX 5.9.1:
-      O iframe precisa ter dimensões explícitas. Em 5.9.0, width:auto/height:auto
-      em um elemento substituído (iframe) permitia cair no tamanho intrínseco
-      do navegador, aproximadamente 300x150 CSS px. A geometria abaixo replica
-      o comportamento estável da 5.6.0.
-    */
     #aplicativoSiga {
       position: fixed;
       inset: 0;
@@ -142,7 +135,6 @@
     title="SIGA — Sistema Integrado de Gestão Administrativa"
     src="https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec"
     allow="clipboard-read; clipboard-write; web-share"
-    style="position:fixed;inset:0;width:100%;height:100%;border:0"
   ></iframe>
 
   <div id="carregando" role="status" aria-live="polite">
@@ -175,22 +167,6 @@
       const quadro = document.getElementById('aplicativoSiga');
       const carregando = document.getElementById('carregando');
       const alternativa = document.getElementById('alternativa');
-
-      function garantirQuadroTelaInteira() {
-        if (!quadro) return;
-        quadro.style.position = 'fixed';
-        quadro.style.inset = '0';
-        quadro.style.width = '100%';
-        quadro.style.height = '100%';
-        quadro.style.minWidth = '100%';
-        quadro.style.minHeight = '100%';
-        quadro.style.border = '0';
-      }
-
-      garantirQuadroTelaInteira();
-      window.addEventListener('resize', garantirQuadroTelaInteira);
-      window.addEventListener('orientationchange', garantirQuadroTelaInteira);
-      window.addEventListener('pageshow', garantirQuadroTelaInteira);
 
       function restaurarEscalaPadrao() {
         const meta = document.querySelector('meta[name="viewport"]');
@@ -229,10 +205,8 @@
       }, { passive: true });
 
       quadro.addEventListener('load', function() {
-        garantirQuadroTelaInteira();
         carregando.classList.add('oculto');
       });
-
 
       window.setTimeout(function() {
         if (!carregando.classList.contains('oculto')) {
@@ -241,9 +215,7 @@
       }, 12000);
 
       if ('serviceWorker' in navigator && location.protocol === 'https:') {
-        navigator.serviceWorker.register('./sw.js?v=5.9.1')
-          .then(function(registro) { return registro.update(); })
-          .catch(function() {});
+        navigator.serviceWorker.register('./sw.js').catch(function() {});
       }
     })();
   </script>
