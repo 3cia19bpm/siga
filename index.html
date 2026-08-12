@@ -8,7 +8,7 @@
   <meta name="application-name" content="SIGA">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="preconnect" href="https://script.google.com">
   <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
   <meta name="apple-mobile-web-app-title" content="SIGA">
@@ -3851,6 +3851,403 @@
       .painel { padding:14px!important; }
     }
 
+
+
+    /* =======================================================
+       SIGA v5.7.2 — PADRONIZAÇÃO VISUAL P1
+       Revisão orientada pelos painéis reais de Gestão • P1.
+       Desktop mais organizado; mobile continua ocupando 100% da tela.
+       ======================================================= */
+    :root {
+      --siga-content-rail:1220px;
+      --siga-radius-card:18px;
+      --siga-space-1:6px;
+      --siga-space-2:10px;
+      --siga-space-3:14px;
+      --siga-space-4:18px;
+      --siga-space-5:22px;
+      --siga-control-h:48px;
+      --siga-shadow-panel:0 10px 28px rgba(27,49,32,.065);
+    }
+
+    /* Marca lateral: nome institucional em uma única linha e menos ruído visual. */
+    .sidebar-marca > div:last-child { min-width:0; }
+    .sidebar-marca p {
+      max-width:none!important;
+      white-space:nowrap!important;
+      overflow:visible!important;
+      font-size:clamp(8.2px,.50vw,9.5px)!important;
+      letter-spacing:.085em!important;
+      line-height:1.2!important;
+    }
+    .sidebar::after { opacity:.018!important; }
+
+    /* O clique no menu não cria um contorno dourado duplicado ao redor do item ativo. */
+    .menu-item:focus-visible {
+      outline:none!important;
+      box-shadow:inset 0 0 0 1px rgba(230,196,91,.38)!important;
+    }
+    .menu-item.ativo:focus-visible {
+      box-shadow:inset 4px 0 0 var(--siga-gold),inset 0 0 0 1px rgba(230,196,91,.16)!important;
+    }
+
+    /* Trilho único de conteúdo. */
+    .conteudo-app {
+      width:min(var(--siga-content-rail),100%)!important;
+      max-width:var(--siga-content-rail)!important;
+      padding-top:26px!important;
+      padding-right:24px!important;
+      padding-left:24px!important;
+    }
+    .secao { width:100%; }
+    .cabecalho-secao {
+      min-height:68px;
+      margin-bottom:18px!important;
+      align-items:flex-end!important;
+    }
+    .cabecalho-secao > div { min-width:0; }
+    .cabecalho-secao h2 {
+      font-size:clamp(31px,1.92vw,38px)!important;
+      line-height:1.04!important;
+      letter-spacing:-.037em!important;
+    }
+    .cabecalho-secao p {
+      max-width:900px!important;
+      margin-top:6px!important;
+      font-size:clamp(12px,.68vw,13.5px)!important;
+      line-height:1.42!important;
+    }
+    .banco-horas-cabecalho .rotulo-suave { display:none!important; }
+    .banco-horas-cabecalho { align-items:flex-end!important; }
+
+    /* Cartões e painéis compartilham a mesma geometria. */
+    .painel,
+    .dashboard-card,
+    .resumo,
+    .cartao-item,
+    .cartao-saldo-horas {
+      border-radius:var(--siga-radius-card)!important;
+      border-color:#d9e1d8!important;
+      box-shadow:var(--siga-shadow-panel)!important;
+    }
+    .painel {
+      padding:20px!important;
+      margin-bottom:18px!important;
+    }
+    .painel h3 {
+      margin-bottom:12px!important;
+      font-size:clamp(16px,.96vw,18.5px)!important;
+      line-height:1.2!important;
+    }
+    .cartao-topo { gap:16px;align-items:flex-start; }
+    .cartao-topo p,.subtitulo { line-height:1.42!important; }
+
+    /* Métricas mais compactas e alinhadas. */
+    .resumos {
+      gap:12px!important;
+      margin-bottom:18px!important;
+    }
+    .resumo {
+      min-height:108px;
+      padding:16px 17px!important;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .resumo strong {
+      font-size:clamp(27px,1.8vw,33px)!important;
+      line-height:1!important;
+      letter-spacing:-.035em;
+    }
+    .resumo span {
+      margin-top:8px!important;
+      font-size:9px!important;
+      letter-spacing:.045em!important;
+    }
+    .dashboard-grade {
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important;
+      gap:12px!important;
+      margin-bottom:18px!important;
+    }
+    .dashboard-card {
+      min-height:112px!important;
+      padding:16px 18px!important;
+    }
+    .dashboard-card strong { font-size:clamp(27px,1.85vw,34px)!important; }
+    .dashboard-card b { margin-top:10px;font-size:9px;letter-spacing:.05em; }
+
+    /* Visão geral: organização do sistema em matriz 2x2 em telas amplas. */
+    #secao-painel-admin .painel .grade-dados {
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:10px!important;
+    }
+    #secao-painel-admin .painel .grade-dados .dado {
+      min-height:72px;
+      padding:13px 14px!important;
+      border-radius:13px!important;
+    }
+
+    /* Controles: altura, raio e contraste únicos. */
+    input,select { min-height:var(--siga-control-h)!important; }
+    input,select,textarea {
+      border-radius:12px!important;
+      border-color:#d4ddd2!important;
+    }
+    .campo label,.rotulo {
+      margin-bottom:6px!important;
+      font-size:10.5px!important;
+      line-height:1.25!important;
+    }
+    .ajuda,.filtro-automatico-nota { line-height:1.35!important; }
+
+    .botao {
+      min-height:44px;
+      border-radius:12px!important;
+      color:#fff!important;
+      font-size:10.5px!important;
+      letter-spacing:.015em!important;
+      font-weight:850!important;
+    }
+    .botao.botao-secundario,
+    #secao-banco-horas .botao-atualizar-banco {
+      background:#fff!important;
+      color:#26362a!important;
+      border:1px solid #bcc8ba!important;
+      box-shadow:0 5px 13px rgba(31,53,37,.055)!important;
+      -webkit-text-fill-color:#26362a!important;
+    }
+    .botao.botao-secundario:hover,
+    #secao-banco-horas .botao-atualizar-banco:hover {
+      background:#f4f7f2!important;
+      border-color:#9cab98!important;
+    }
+    .botao:disabled {
+      opacity:1!important;
+      background:#e8ede6!important;
+      border-color:#d7ded5!important;
+      color:#899389!important;
+      box-shadow:none!important;
+      -webkit-text-fill-color:#899389!important;
+    }
+    .botao.botao-secundario:disabled {
+      background:#f2f4f1!important;
+      color:#9aa29a!important;
+      -webkit-text-fill-color:#9aa29a!important;
+    }
+
+    /* Banco de horas: cabeçalho e cartões no mesmo ritmo das demais guias. */
+    #secao-banco-horas .resumo-banco-horas {
+      gap:12px!important;
+      margin-bottom:18px!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas {
+      min-height:112px!important;
+      padding:17px 18px!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas strong {
+      font-size:clamp(27px,1.8vw,34px)!important;
+      line-height:1!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas span { margin-top:8px!important; }
+
+    /* Permutas: filtros ocupam a grade inteira, sem o vazio da segunda linha. */
+    #secao-admin-permutas .filtros-permutas-admin {
+      grid-template-columns:repeat(12,minmax(0,1fr))!important;
+      gap:10px!important;
+    }
+    #secao-admin-permutas .filtro-pesquisa-permuta { grid-column:span 6!important; }
+    #secao-admin-permutas .filtros-permutas-admin > .campo:nth-child(2),
+    #secao-admin-permutas .filtros-permutas-admin > .campo:nth-child(3) { grid-column:span 3!important; }
+    #secao-admin-permutas .filtro-data-permuta,
+    #secao-admin-permutas .filtro-ordem-permuta { grid-column:span 6!important; }
+    #secao-admin-permutas .lista-permutas-compacta { gap:10px!important; }
+    #secao-admin-permutas .permuta-linha { min-height:104px; }
+
+    /* Efetivo: distribuição por grade vira uma leitura compacta e não compete com os números principais. */
+    #resumoEfetivo .resumo-distribuicao { justify-content:center; }
+    .grade-chips {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:6px;
+      width:100%;
+    }
+    .grade-chip {
+      min-width:0;
+      display:flex!important;
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+      margin:0!important;
+      padding:8px 6px;
+      border:1px solid #dfe5dc;
+      border-radius:10px;
+      background:#f5f7f3;
+      color:#405043!important;
+      text-transform:none!important;
+      letter-spacing:0!important;
+    }
+    .grade-chip b { font-size:9px; }
+    .grade-chip em { color:#203524;font-size:15px;font-style:normal;font-weight:900; }
+    #painelConfigEscala .aviso-inline {
+      min-height:var(--siga-control-h);
+      padding:12px 14px!important;
+      border:1px solid #dde5da;
+      border-radius:12px;
+      background:#f6f8f5;
+      line-height:1.42;
+    }
+    #matrizReferenciasEscala { gap:8px!important; }
+
+    /* Entrada no efetivo: usa a largura disponível sem deixar um terço vazio. */
+    #formPreCadastroP1 .grade-3 {
+      grid-template-columns:repeat(6,minmax(0,1fr))!important;
+      gap:12px!important;
+    }
+    #formPreCadastroP1 .grade-3 > .campo:nth-child(-n+3) { grid-column:span 2; }
+    #formPreCadastroP1 .grade-3 > .campo:nth-child(4),
+    #formPreCadastroP1 .grade-3 > .campo:nth-child(5) { grid-column:span 3; }
+    #formPreCadastroP1 .grade-3 > .campo:nth-child(6) { grid-column:span 3; }
+    #formPreCadastroP1 .grade-3:has(#campoPreNumeralP1:not(.oculto)) > .campo:nth-child(n+4) { grid-column:span 2; }
+
+    /* Editor de formulários: remove espaço morto de controles que não se aplicam ao tipo de campo. */
+    #secao-formularios > .painel:first-of-type { padding:18px 20px!important; }
+    #secao-formularios .subnavegacao { margin-bottom:14px!important; }
+    #secao-formularios .acoes-em-linha { gap:8px!important;margin-top:12px!important; }
+    #listaCamposFormularioAdmin {
+      display:grid!important;
+      gap:12px!important;
+    }
+    #listaCamposFormularioAdmin .cartao-item {
+      margin:0!important;
+      padding:16px 18px!important;
+      border-left:1px solid var(--siga-line)!important;
+    }
+    #listaCamposFormularioAdmin .cartao-topo { margin-bottom:12px!important; }
+    #listaCamposFormularioAdmin textarea[data-edit-label],
+    #listaCamposFormularioAdmin textarea[data-edit-opcoes] {
+      min-height:66px!important;
+    }
+    #listaCamposFormularioAdmin .campo:has(> textarea[data-edit-opcoes]:disabled),
+    #listaCamposFormularioAdmin .campo:has(> input[data-edit-arquivo]:disabled) {
+      display:none!important;
+    }
+    #listaCamposFormularioAdmin .confirmacao { min-height:48px;align-items:center; }
+    #listaCamposFormularioAdmin .acoes-em-linha { margin-top:10px!important; }
+
+    /* Setores e consultas: densidade consistente com os demais módulos. */
+    #secao-setores #listaSetoresAdmin { gap:12px!important; }
+    #secao-setores #listaSetoresAdmin .cartao-item { min-height:118px; }
+    #secao-consultas > .painel:first-of-type { padding:18px!important; }
+    #secao-consultas .filtro-automatico-nota { display:block;margin-top:9px; }
+
+    /* Desktop e notebook: alterações de composição. */
+    @media(min-width:981px) {
+      .topbar { min-height:64px!important;padding-top:9px!important;padding-bottom:9px!important; }
+      .topbar h1 { font-size:20px!important; }
+      .topbar p { font-size:9.5px!important; }
+      .menu-item { min-height:50px!important; }
+      .menu-grupo-titulo { margin-top:13px!important; }
+      #secao-admin-permutas .lista-permutas-compacta { grid-template-columns:repeat(3,minmax(0,1fr))!important; }
+    }
+
+    /* Notebooks menores: mesma hierarquia, sem apertar os controles. */
+    @media(min-width:981px) and (max-width:1240px) {
+      :root { --siga-content-rail:1080px; }
+      .conteudo-app { padding-right:20px!important;padding-left:20px!important; }
+      #secao-admin-permutas .lista-permutas-compacta { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+      #secao-painel-admin .painel .grade-dados { grid-template-columns:1fr 1fr!important; }
+    }
+
+    /* Mobile permanece full-width, conforme requisito do projeto. */
+    @media(max-width:980px) {
+      .conteudo-app {
+        width:100%!important;
+        max-width:none!important;
+        padding-right:calc(12px + env(safe-area-inset-right))!important;
+        padding-left:calc(12px + env(safe-area-inset-left))!important;
+      }
+      .cabecalho-secao { min-height:0;align-items:flex-start!important; }
+      .sidebar-marca p { font-size:9px!important;white-space:nowrap!important; }
+      #secao-painel-admin .painel .grade-dados { grid-template-columns:1fr!important; }
+      #secao-admin-permutas .filtros-permutas-admin { grid-template-columns:1fr 1fr!important; }
+      #secao-admin-permutas .filtro-pesquisa-permuta { grid-column:1/-1!important; }
+      #secao-admin-permutas .filtros-permutas-admin > .campo:nth-child(2),
+      #secao-admin-permutas .filtros-permutas-admin > .campo:nth-child(3),
+      #secao-admin-permutas .filtro-data-permuta,
+      #secao-admin-permutas .filtro-ordem-permuta { grid-column:auto!important; }
+      #formPreCadastroP1 .grade-3 { grid-template-columns:1fr!important; }
+      #formPreCadastroP1 .grade-3 > .campo { grid-column:auto!important; }
+    }
+
+    @media(max-width:620px) {
+      .resumo { min-height:96px;padding:14px!important; }
+      .grade-chips { grid-template-columns:1fr 1fr; }
+      .dashboard-card { min-height:104px!important; }
+      #secao-formularios .acoes-em-linha .botao { width:100%; }
+    }
+
+
+    /* =======================================================
+       SIGA v5.7.2 — ÁREA SEGURA REAL NO CELULAR
+       A interface usa 100% da largura útil, mas nenhum conteúdo
+       funcional fica sob a barra de status, recorte ou indicador.
+       ======================================================= */
+    :root {
+      --siga-viewport-top:0px;
+      --siga-safe-top:max(env(safe-area-inset-top, 0px), var(--siga-viewport-top));
+      --siga-safe-right:env(safe-area-inset-right, 0px);
+      --siga-safe-bottom:env(safe-area-inset-bottom, 0px);
+      --siga-safe-left:env(safe-area-inset-left, 0px);
+    }
+
+    @media(max-width:980px) {
+      /* O fundo continua de ponta a ponta; só o conteúdo respeita a área segura. */
+      .app-shell,
+      .area-principal {
+        width:100%!important;
+        max-width:none!important;
+      }
+      .sidebar {
+        top:0!important;
+        padding-top:var(--siga-safe-top)!important;
+        padding-right:var(--siga-safe-right)!important;
+        padding-bottom:var(--siga-safe-bottom)!important;
+        padding-left:var(--siga-safe-left)!important;
+      }
+      .topbar {
+        min-height:calc(62px + var(--siga-safe-top))!important;
+        padding-top:calc(9px + var(--siga-safe-top))!important;
+        padding-right:calc(12px + var(--siga-safe-right))!important;
+        padding-bottom:9px!important;
+        padding-left:calc(12px + var(--siga-safe-left))!important;
+      }
+      .conteudo-app {
+        width:100%!important;
+        max-width:none!important;
+        padding-right:calc(12px + var(--siga-safe-right))!important;
+        padding-left:calc(12px + var(--siga-safe-left))!important;
+        padding-bottom:calc(70px + var(--siga-safe-bottom))!important;
+      }
+      .overlay-mobile,
+      .carregando {
+        padding-top:var(--siga-safe-top)!important;
+        padding-right:var(--siga-safe-right)!important;
+        padding-bottom:var(--siga-safe-bottom)!important;
+        padding-left:var(--siga-safe-left)!important;
+      }
+    }
+
+    @media(max-width:660px) {
+      .tela-acesso {
+        width:100%!important;
+        padding-top:calc(12px + var(--siga-safe-top))!important;
+        padding-right:calc(12px + var(--siga-safe-right))!important;
+        padding-bottom:calc(12px + var(--siga-safe-bottom))!important;
+        padding-left:calc(12px + var(--siga-safe-left))!important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3950,7 +4347,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.7.0
+        SIGA 3ª CIA — Versão 5.7.2
       </footer>
     </section>
   </main>
@@ -4023,7 +4420,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.0</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.2</footer>
     </aside>
 
     <div class="area-principal">
@@ -4423,7 +4820,7 @@
 
 
         <section id="secao-painel-admin" class="secao">
-          <div class="cabecalho-secao"><div><h2>Visão Geral</h2><p>Indicadores do setor e atalhos operacionais.</p></div></div>
+          <div class="cabecalho-secao"><div><h2>Visão geral</h2><p>Indicadores do setor e atalhos operacionais.</p></div></div>
           <div id="dashboardAdmin" class="dashboard-grade"></div>
           <div class="painel">
             <h3 style="margin-top:0">Organização do SIGA</h3>
@@ -4906,7 +5303,7 @@
         </section>
 
         <section id="secao-formularios" class="secao">
-          <div class="cabecalho-secao"><div><h2>Editor de Formulários</h2><p>P4 administra o Checklist; P1 administra Permutas. Campos de sistema aparecem bloqueados para preservar o fluxo.</p></div></div>
+          <div class="cabecalho-secao"><div><h2>Editor de formulários</h2><p>P4 administra o Checklist; P1 administra Permutas. Campos de sistema aparecem bloqueados para preservar o fluxo.</p></div></div>
           <div class="painel">
             <div id="botoesModuloFormulario" class="subnavegacao"></div>
             <div class="grade-2">
@@ -5136,6 +5533,8 @@
         if (altura > 0) {
           document.documentElement.style.setProperty('--siga-altura-tela', altura + 'px');
         }
+        const topoVisual = visual ? Math.max(0, Number(visual.offsetTop || 0)) : 0;
+        document.documentElement.style.setProperty('--siga-viewport-top', Math.ceil(topoVisual) + 'px');
       }
 
       function sincronizarSuperficie() {
@@ -5378,7 +5777,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.0';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.2';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -5992,7 +6391,7 @@
       const titulos = {
         inicio:['Início','Área do policial'], calendario:['Calendário','Escala pessoal prevista'], checklist:['Checklist de Viatura','Controle operacional da frota'], permutas:['Permutas','Solicitações e acompanhamento'], 'banco-horas':['Banco de horas','Créditos registrados em livro e baixas de utilização'],
         relatorios:['Relatórios','Resumo individual'], perfil:['Perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Gestão de afastamentos do P1'],
-        'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão Geral','Painel administrativo'], guarda:['Corpo da Guarda','Registro das alterações da escala impressa'], 'relatorio-guarda':['Relatório da Guarda','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
+        'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão geral','Painel administrativo'], guarda:['Corpo da Guarda','Registro das alterações da escala impressa'], 'relatorio-guarda':['Relatório da Guarda','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
         consultas:['Consultas','Ficha completa e histórico'], efetivo:['Efetivo','Gestão do quadro de policiais']
       };
       $('tituloTopo').textContent=(titulos[secao]||[secao])[0]; $('subtituloTopo').textContent=(titulos[secao]||['',''])[1]; fecharMenuMobile();
@@ -7670,16 +8069,14 @@
 
     function renderizarResumoEfetivo(resumo) {
       const grades = resumo.grades || {};
-      const grupos = Object.keys(grades)
-        .filter(g => Number(grades[g] || 0) > 0)
-        .map(g => 'Grade ' + g + ': ' + Number(grades[g] || 0))
-        .join(' • ');
-      $('resumoEfetivo').innerHTML = [
-        ['Total', resumo.total],
-        ['Ativos', resumo.ativos],
-        ['Sem grade', resumo.semGrade || 0],
-        ['Distribuição', grupos || 'Nenhuma grade atribuída']
-      ].map(item => `<div class="resumo"><strong>${escaparHtml(String(item[1]))}</strong><span>${escaparHtml(item[0])}</span></div>`).join('');
+      const chips = ['1','2','3','4'].map(g =>
+        `<span class="grade-chip"><b>G${g}</b><em>${Number(grades[g] || 0)}</em></span>`
+      ).join('');
+      $('resumoEfetivo').innerHTML = `
+        <div class="resumo"><strong>${escaparHtml(String(resumo.total || 0))}</strong><span>Total</span></div>
+        <div class="resumo"><strong>${escaparHtml(String(resumo.ativos || 0))}</strong><span>Ativos</span></div>
+        <div class="resumo"><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong><span>Sem grade</span></div>
+        <div class="resumo resumo-distribuicao"><div class="grade-chips">${chips}</div><span>Distribuição</span></div>`;
     }
 
     function renderizarEfetivo() {
