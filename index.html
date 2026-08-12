@@ -2139,7 +2139,7 @@
 
 
     /* =======================================================
-       SIGA v5.5.3 — identidade, organização e respostas rápidas
+       SIGA v5.5.5 — identidade, organização e respostas rápidas
        ======================================================= */
     :root {
       --brasao-19bpm: none;
@@ -2643,7 +2643,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.3 — checklist orientado por etapas
+       SIGA v5.5.5 — checklist orientado por etapas
        ======================================================= */
     #secao-checklist { --check-verde:#34482d;--check-verde-2:#4d633f;--check-ouro:#dfbd59; }
     #secao-checklist .cabecalho-secao { margin-bottom:14px; }
@@ -3055,7 +3055,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.3 — login autônomo, alinhamento e contraste
+       SIGA v5.5.5 — login autônomo, alinhamento e contraste
        ======================================================= */
     .logos {
       display:grid;
@@ -3129,7 +3129,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.3 — escala protegida e acesso centralizado
+       SIGA v5.5.5 — escala protegida e acesso centralizado
        ======================================================= */
     html,
     body {
@@ -3259,7 +3259,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.3 — viewport persistente no iOS/Android
+       SIGA v5.5.5 — viewport persistente no iOS/Android
        A altura medida continua válida após suspender e retomar o PWA.
        O fundo pertence à superfície ativa, não a uma faixa remendada.
        ======================================================= */
@@ -3308,6 +3308,75 @@
       bottom:auto;
       height:var(--siga-altura-tela);
       min-height:var(--siga-altura-tela);
+    }
+
+    /* =======================================================
+       SIGA v5.5.5 — desktop amplo e navegação discreta
+       ======================================================= */
+    .sidebar-marca p {
+      font-size:7px;
+      letter-spacing:.085em;
+      line-height:1.35;
+      white-space:nowrap;
+    }
+    .menu-lateral {
+      scrollbar-width:thin;
+      scrollbar-color:rgba(234,240,231,.24) transparent;
+      scrollbar-gutter:auto;
+    }
+    .menu-lateral::-webkit-scrollbar { width:4px; }
+    .menu-lateral::-webkit-scrollbar-track { background:transparent; }
+    .menu-lateral::-webkit-scrollbar-thumb {
+      border-radius:999px;
+      background:rgba(234,240,231,.24);
+    }
+    .menu-lateral::-webkit-scrollbar-thumb:hover { background:rgba(234,240,231,.38); }
+
+    @media(min-width:1100px) {
+      .conteudo-app {
+        width:100%;
+        max-width:1720px;
+        padding:30px 30px 76px;
+      }
+      .cabecalho-secao h2 { font-size:32px; }
+      .cabecalho-secao p { font-size:14px; }
+      .painel { padding:22px; }
+      .dashboard-grade {
+        grid-template-columns:repeat(6,minmax(150px,1fr));
+        gap:14px;
+      }
+      .dashboard-card { min-height:138px;padding:20px; }
+      .dashboard-card small { font-size:10px; }
+      .dashboard-card strong { font-size:34px; }
+      .dashboard-card span { font-size:12.5px; }
+
+      .cautela-card { padding:18px; }
+      .cautelas-grid { gap:12px; }
+      .cautelas-grid>div { padding:13px;border-radius:13px; }
+      .cautelas-grid small { margin-bottom:7px;font-size:9px; }
+      .select-cautela { min-height:44px;padding:8px 10px;font-size:12px; }
+
+      .grade-relatorio-guarda {
+        grid-template-columns:minmax(0,1.75fr) minmax(420px,.85fr);
+        gap:20px;
+      }
+      .filtros-relatorio-guarda { gap:16px; }
+      .situacao-relatorio-guarda { min-height:48px;font-size:12px; }
+      .resumo-editor-relatorio { gap:12px; }
+      .resumo-editor-relatorio label { padding:14px; }
+      .resumo-editor-relatorio label span { font-size:9.5px; }
+      .resumo-editor-relatorio input { height:47px;font-size:22px; }
+      .unidade-relatorio { padding:17px; }
+      .unidade-relatorio-topo h4 { font-size:15px; }
+      .interruptor-relatorio { font-size:10px; }
+      .previa-whatsapp-relatorio pre { font-size:12px;line-height:1.62; }
+      .item-historico-relatorio strong { font-size:11px; }
+      .item-historico-relatorio small { font-size:9px; }
+    }
+
+    @media(min-width:1500px) {
+      .conteudo-app { max-width:1840px;padding-right:42px;padding-left:42px; }
+      .grade-relatorio-guarda { grid-template-columns:minmax(0,1.9fr) minmax(470px,.8fr); }
     }
 
 </style>
@@ -3408,7 +3477,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.5.3
+        SIGA 3ª CIA — Versão 5.5.5
       </footer>
     </section>
   </main>
@@ -3481,7 +3550,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.3</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.5</footer>
     </aside>
 
     <div class="area-principal">
@@ -3496,7 +3565,7 @@
         <div class="topbar-acoes">
           <button id="botaoBancoTopo" class="banco-status-topo oculto" type="button" onclick="abrirPainelBanco()">
             <span class="banco-ponto"></span>
-            <span id="textoBancoTopo">Banco SIGA</span>
+            <span id="textoBancoTopo" aria-live="polite">Banco atualizado</span>
           </button>
           <span id="perfilTopo" class="status CONFIRMADO">USUÁRIO</span>
         </div>
@@ -4366,11 +4435,11 @@
         </section>
 
         <section id="secao-setores" class="secao">
-          <div class="cabecalho-secao"><div><h2>Setores Administrativos</h2><p>Defina quem atua no P1, P4, Guarda ou Comando.</p></div></div>
+          <div class="cabecalho-secao"><div><h2>Setores e acessos</h2><p>Comando e P1 delegado administram os acessos operacionais. Apenas Comandante ou Subcomandante concede a delegação de acessos ao P1.</p></div></div>
           <form id="formSetorAdmin" class="painel">
             <div class="grade-2">
               <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" required></div>
-              <div class="campo"><label for="setorSetorAdmin">Setor</label><select id="setorSetorAdmin"><option value="P1">P1</option><option value="P4">P4</option><option value="GUARDA">CORPO DA GUARDA</option><option value="COMANDO">COMANDO</option></select></div>
+              <div class="campo"><label for="setorSetorAdmin">Setor</label><select id="setorSetorAdmin"><option value="P1">P1</option><option value="P4">P4</option><option value="GUARDA">CORPO DA GUARDA</option><option value="P1_ACESSOS" data-somente-comando>P1 • GESTÃO DE ACESSOS</option><option value="COMANDO" data-somente-comando>COMANDO</option></select></div>
             </div>
             <div class="grade-2">
               <div class="campo"><label for="nomeSetorAdmin">Nome (somente se não estiver cadastrado)</label><input id="nomeSetorAdmin"></div>
@@ -4633,8 +4702,12 @@
     })();
 
     const MIDIA_CACHE = new Map();
+    const CHAVE_SESSAO_SIGA = 'siga3cia_token';
+    const CHAVE_ATIVIDADE_SIGA = 'siga3cia_ultima_atividade';
+    const LIMITE_INATIVIDADE_MS = 15 * 60 * 1000;
+    try { localStorage.removeItem(CHAVE_SESSAO_SIGA); } catch (erro) {}
     const estado = {
-      token: localStorage.getItem('siga3cia_token') || '',
+      token: sessionStorage.getItem(CHAVE_SESSAO_SIGA) || '',
       usuario: null,
       configuracao: null,
       matriculaAtual: '',
@@ -4680,6 +4753,7 @@
       creditoBaixaBancoHoras: null,
       timerPesquisaBancoHoras: null,
       chaveCreditoBancoHoras: '',
+      bancoAtualizadoEm: 0,
       chaveBaixaBancoHoras: '',
       permutaAdminAberta: null,
       etapaChecklistAtual: 0
@@ -4817,7 +4891,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.3';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.5';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -4917,16 +4991,115 @@
       return { chamar, aquecer, retomar };
     })();
 
+    function horaBancoAtualizado(instante) {
+      const data = instante instanceof Date ? instante : new Date(instante || Date.now());
+      return String(data.getHours()).padStart(2, '0')
+        + ':'
+        + String(data.getMinutes()).padStart(2, '0');
+    }
+
+    function registrarRespostaRecebidaDoBanco(nome, resultado) {
+      if (
+        nome === 'encerrarSessao'
+        || !estado.token
+        || resultado == null
+        || (typeof resultado === 'object' && resultado.sucesso === false)
+      ) return;
+
+      estado.bancoAtualizadoEm = Date.now();
+      const texto = 'Banco atualizado às ' + horaBancoAtualizado(estado.bancoAtualizadoEm);
+      const indicador = $('textoBancoTopo');
+      const botao = $('botaoBancoTopo');
+      if (indicador) indicador.textContent = texto;
+      if (botao) botao.title = 'Últimos dados recebidos do SIGA às '
+        + horaBancoAtualizado(estado.bancoAtualizadoEm);
+    }
+
     function api(nome, ...argumentos) {
+      let chamada;
       if (window.google && google.script && google.script.run) {
-        return new Promise((resolve, reject) => {
+        chamada = new Promise((resolve, reject) => {
           google.script.run
             .withSuccessHandler(resolve)
             .withFailureHandler(erro => reject(new Error(erro && erro.message ? erro.message : String(erro))))
             [nome](...argumentos);
         });
+      } else {
+        chamada = SIGA_PONTE.chamar(nome, argumentos);
       }
-      return SIGA_PONTE.chamar(nome, argumentos);
+
+      return chamada.then(resultado => {
+        registrarRespostaRecebidaDoBanco(nome, resultado);
+        return resultado;
+      });
+    }
+
+    let timerInatividadeSessao = null;
+    let encerrandoSessaoAutomaticamente = false;
+    let ultimaPersistenciaAtividade = 0;
+
+    function limparSessaoLocal() {
+      try {
+        sessionStorage.removeItem(CHAVE_SESSAO_SIGA);
+        sessionStorage.removeItem(CHAVE_ATIVIDADE_SIGA);
+        localStorage.removeItem(CHAVE_SESSAO_SIGA);
+      } catch (erro) {}
+      clearTimeout(timerInatividadeSessao);
+      timerInatividadeSessao = null;
+    }
+
+    function obterUltimaAtividadeSessao() {
+      const valor = Number(sessionStorage.getItem(CHAVE_ATIVIDADE_SIGA) || 0);
+      return Number.isFinite(valor) ? valor : 0;
+    }
+
+    function agendarExpiracaoSessao() {
+      clearTimeout(timerInatividadeSessao);
+      if (!estado.token) return;
+      const ultima = obterUltimaAtividadeSessao() || Date.now();
+      const restante = Math.max(250, LIMITE_INATIVIDADE_MS - (Date.now() - ultima));
+      timerInatividadeSessao = setTimeout(verificarInatividadeSessao, restante);
+    }
+
+    function registrarAtividadeSessao(forcar) {
+      if (!estado.token || encerrandoSessaoAutomaticamente) return;
+      const agora = Date.now();
+      if (!forcar && agora - ultimaPersistenciaAtividade < 5000) return;
+      ultimaPersistenciaAtividade = agora;
+      sessionStorage.setItem(CHAVE_ATIVIDADE_SIGA, String(agora));
+      agendarExpiracaoSessao();
+    }
+
+    function verificarInatividadeSessao() {
+      if (!estado.token || encerrandoSessaoAutomaticamente) return;
+      const ultima = obterUltimaAtividadeSessao();
+      if (!ultima || Date.now() - ultima >= LIMITE_INATIVIDADE_MS) {
+        encerrarSessaoAutomaticamente('Sessão encerrada após 15 minutos sem uso.');
+        return;
+      }
+      agendarExpiracaoSessao();
+    }
+
+    function encerrarSessaoAutomaticamente(mensagem) {
+      if (encerrandoSessaoAutomaticamente) return;
+      encerrandoSessaoAutomaticamente = true;
+      const token = estado.token;
+      estado.token = '';
+      estado.usuario = null;
+      limparSessaoLocal();
+      if (token) api('encerrarSessao', token).catch(function(){});
+      voltarParaAcesso();
+      mostrarMensagem($('mensagemAcesso'), mensagem || 'Sua sessão foi encerrada.', 'info');
+      encerrandoSessaoAutomaticamente = false;
+    }
+
+    function verificarSessaoAoRetomar() {
+      if (!estado.token) {
+        if ($('appShell') && !$('appShell').classList.contains('oculto')) voltarParaAcesso();
+        return;
+      }
+      verificarInatividadeSessao();
+      if (estado.token && temPermissaoAdmin('ALERTAS_P4')) carregarResumoAlertasP4();
     }
 
     function mostrarCarregando(texto) {
@@ -4961,7 +5134,7 @@
         mensagem = 'O SIGA está concluindo outra operação. Aguarde alguns segundos e tente novamente.';
       }
       if (/sessão|sessao|acesso deste usuário/i.test(mensagem)) {
-        localStorage.removeItem('siga3cia_token');
+        limparSessaoLocal();
         estado.token = '';
         voltarParaAcesso();
       }
@@ -5228,7 +5401,9 @@
         estado.token = token;
         estado.usuario = resposta.usuario;
         estado.configuracao = resposta.configuracao;
-        localStorage.setItem('siga3cia_token', token);
+        estado.rotinasAdminAquecidas = false;
+        sessionStorage.setItem(CHAVE_SESSAO_SIGA, token);
+        registrarAtividadeSessao(true);
         await configurarAplicacao();
         $('telaAcesso').classList.add('oculto');
         $('appShell').classList.remove('oculto');
@@ -5243,7 +5418,7 @@
           navegar('inicio');
         }
       } catch (erro) {
-        localStorage.removeItem('siga3cia_token');
+        limparSessaoLocal();
         estado.token = '';
         tratarErro(erro, $('mensagemAcesso'));
       }
@@ -5272,9 +5447,11 @@
 
     async function configurarAplicacao() {
       const usuario = estado.usuario;
+      const setorAdmin = usuario.setorAdmin || 'COMANDO';
+      const rotulosSetor = { P1_ACESSOS:'P1 + ACESSOS' };
       $('identificacaoSidebar').textContent = identificacaoCompactaSidebar(usuario);
       $('matriculaSidebar').textContent = 'M.F.: ' + usuario.matricula + ' - Grade ' + (usuario.grade || 'não definida');
-      $('perfilTopo').textContent = usuario.administrador ? ('ADMIN • ' + (usuario.setorAdmin || 'COMANDO')) : 'USUÁRIO';
+      $('perfilTopo').textContent = usuario.administrador ? ('ADMIN • ' + (rotulosSetor[setorAdmin] || setorAdmin)) : 'USUÁRIO';
       const guardaHibrida = ehGuardaLogada();
       $('sidebar').classList.toggle('sidebar-guarda',guardaHibrida);
       $('menuUsuario').classList.toggle('oculto', usuario.administrador && !guardaHibrida);
@@ -5284,11 +5461,15 @@
         botao.classList.toggle('oculto', !temPermissaoAdmin(botao.dataset.permissao));
       });
       document.querySelectorAll('#menuAdmin [data-grupo]').forEach(rotulo => {
-        const setor = usuario.setorAdmin || 'COMANDO';
+        const setor = setorAdmin === 'P1_ACESSOS' ? 'P1' : setorAdmin;
         rotulo.classList.toggle(
           'oculto',
           setor !== 'COMANDO' && rotulo.dataset.grupo !== setor
         );
+      });
+      document.querySelectorAll('#setorSetorAdmin option[data-somente-comando]').forEach(opcao => {
+        opcao.hidden = setorAdmin !== 'COMANDO';
+        opcao.disabled = setorAdmin !== 'COMANDO';
       });
       preencherPerfil();
 
@@ -5298,6 +5479,11 @@
       }
       if (usuarioPodeUsarAreaComum()) {
         carregarResumoInicio430();
+      }
+      if (usuario.administrador && !estado.rotinasAdminAquecidas) {
+        estado.rotinasAdminAquecidas = true;
+        window.setTimeout(carregarStatusBancoTopo, 60);
+        if (temPermissaoAdmin('ALERTAS_P4')) window.setTimeout(carregarResumoAlertasP4, 120);
       }
     }
 
@@ -5348,7 +5534,7 @@
 
     async function sair() {
       const token = estado.token;
-      localStorage.removeItem('siga3cia_token');
+      limparSessaoLocal();
       estado.token = '';
       estado.usuario = null;
       try { if (token) await api('encerrarSessao', token); } catch (erro) {}
@@ -7063,6 +7249,21 @@
     }
 
     function configurarEventos() {
+      ['pointerdown','keydown','input','change'].forEach(tipo => {
+        document.addEventListener(tipo, () => registrarAtividadeSessao(false), { passive:true });
+      });
+      document.addEventListener('scroll', () => registrarAtividadeSessao(false), { passive:true, capture:true });
+      window.addEventListener('pageshow', verificarSessaoAoRetomar);
+      window.addEventListener('focus', verificarSessaoAoRetomar);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) verificarSessaoAoRetomar();
+      });
+      window.addEventListener('pagehide', () => {
+        estado.token = '';
+        estado.usuario = null;
+        limparSessaoLocal();
+      });
+
       document.querySelectorAll('[data-foco-campo]').forEach(area => {
         area.addEventListener('click', () => {
           const campo = $(area.dataset.focoCampo);
@@ -7311,11 +7512,12 @@
     function agendarAlertasP4(){clearTimeout(timerAlertasP4);timerAlertasP4=setTimeout(()=>carregarAlertasP4(true),240);}
 
     async function carregarResumoAlertasP4(){
-      if(!temPermissaoAdmin('ALERTAS_P4'))return;
+      if(!temPermissaoAdmin('ALERTAS_P4')||estado.resumoAlertasP4EmAndamento)return;
+      estado.resumoAlertasP4EmAndamento=true;
       try{
         const r=await api('p4ResumoAlertasCautela',estado.token),b=$('badgeAlertasP4'),n=Number(r.pendentes||0);
         b.textContent=n;b.classList.toggle('oculto',n<1);
-      }catch(e){}
+      }catch(e){}finally{estado.resumoAlertasP4EmAndamento=false;}
     }
 
     async function carregarAlertasP4(silencioso){
@@ -7450,14 +7652,32 @@
     async function restaurarFormularioAdmin(){if(!confirm('Restaurar o formulário padrão? As personalizações atuais serão substituídas.'))return;mostrarCarregando('Restaurando...');try{const r=await api('adminRestaurarFormularioPadrao',estado.token,estado.moduloEditor);estado.formularioEditor=r.formulario;ocultarCarregando();toast('Formulário padrão restaurado.');renderizarEditorFormulario();}catch(e){tratarErro(e);}}
 
     async function carregarSetoresAdmin(){if(!temPermissaoAdmin('SETORES'))return;try{const r=await api('adminListarSetores',estado.token);estado.administradoresSetores=r.administradores||[];renderizarSetoresAdmin();}catch(e){tratarErro(e);}}
-    function renderizarSetoresAdmin(){const l=estado.administradoresSetores||[];$('listaSetoresAdmin').innerHTML=l.length?l.map(a=>`<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(a.responsavel)}</h4><p>M.F. ${escaparHtml(a.matricula)}</p></div><span class="status CONFIRMADO">${escaparHtml(a.setor)}</span></div><button class="botao botao-perigo botao-pequeno" type="button" onclick="removerSetorAdmin('${escaparHtml(a.matricula)}')">REMOVER ACESSO</button></article>`).join(''):'<div class="vazio">Nenhum administrador cadastrado.</div>';}
+    function renderizarSetoresAdmin(){
+      const l=estado.administradoresSetores||[];
+      const operadorComando=(estado.usuario?.setorAdmin||'')==='COMANDO';
+      $('listaSetoresAdmin').innerHTML=l.length?l.map(a=>{
+        const acessoProtegido=['COMANDO','P1_ACESSOS'].includes(String(a.setor||'').toUpperCase());
+        const acao=operadorComando||!acessoProtegido
+          ? `<button class="botao botao-perigo botao-pequeno" type="button" onclick="removerSetorAdmin('${escaparHtml(a.matricula)}')">REMOVER ACESSO</button>`
+          : '<span class="status CONFIRMADO">GERENCIADO PELO COMANDO</span>';
+        return `<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(a.responsavel)}</h4><p>M.F. ${escaparHtml(a.matricula)}</p></div><span class="status CONFIRMADO">${escaparHtml(a.setor)}</span></div>${acao}</article>`;
+      }).join(''):'<div class="vazio">Nenhum administrador cadastrado.</div>';
+    }
     async function removerSetorAdmin(m){if(!confirm('Remover este acesso administrativo?'))return;try{const r=await api('adminRemoverSetor',estado.token,m);estado.administradoresSetores=r.dados.administradores||[];toast(r.mensagem);renderizarSetoresAdmin();}catch(e){tratarErro(e);}}
 
     document.addEventListener('DOMContentLoaded', async () => {
       configurarEventos();
       carregarBrasoes();
-      if (estado.token) await entrarAplicacao(estado.token);
-      else setTimeout(() => $('matriculaInicial').focus(), 80);
+      const ultimaAtividade = obterUltimaAtividadeSessao();
+      if (estado.token && ultimaAtividade && Date.now() - ultimaAtividade < LIMITE_INATIVIDADE_MS) {
+        await entrarAplicacao(estado.token);
+      } else {
+        if (estado.token) {
+          estado.token = '';
+          limparSessaoLocal();
+        }
+        setTimeout(() => $('matriculaInicial').focus(), 80);
+      }
     });
   
 
@@ -7646,7 +7866,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.3 — Corpo da Guarda em duas etapas
+       SIGA v5.5.5 — Corpo da Guarda em duas etapas
        ======================================================= */
 
     estado.guardaTipo = 'PERMUTA AUTORIZADA';
@@ -7909,7 +8129,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.3 — Relatório operacional da Guarda
+       SIGA v5.5.5 — Relatório operacional da Guarda
        ======================================================= */
 
     function prepararRelatorioGuarda() {
@@ -8291,7 +8511,11 @@
         estado.statusBanco = r;
         if (!r.visivel) return;
         $('botaoBancoTopo').classList.remove('oculto');
-        $('textoBancoTopo').textContent = 'Banco • ' + (r.ultimaSincronizacao || 'pendente');
+        const horario = estado.bancoAtualizadoEm || Date.now();
+        estado.bancoAtualizadoEm = horario;
+        $('textoBancoTopo').textContent = 'Banco atualizado às ' + horaBancoAtualizado(horario);
+        $('botaoBancoTopo').title = 'Últimos dados recebidos do SIGA às '
+          + horaBancoAtualizado(horario);
         if ($('painelBancoSiga')) {
           $('painelBancoSiga').classList.toggle(
             'oculto',
