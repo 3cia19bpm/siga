@@ -2119,7 +2119,7 @@
 
 
     /* =======================================================
-       SIGA v5.5.7 — identidade, organização e respostas rápidas
+       SIGA v5.6.0 — identidade, organização e respostas rápidas
        ======================================================= */
     :root {
       --brasao-19bpm: none;
@@ -2486,18 +2486,10 @@
       align-items:end;
     }
     .filtros-permutas-admin .campo { margin:0; }
-    .filtros-permutas-admin .filtro-pesquisa-permuta,
-    .filtros-permutas-admin .filtro-data-permuta { grid-column:1/-1; }
-    .linha-status-tipo-permuta {
-      grid-column:1/-1;
-      display:grid!important;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-      gap:10px;
-      width:100%;
-      min-width:0;
-    }
-    .linha-status-tipo-permuta .campo { width:100%;min-width:0; }
-    .linha-status-tipo-permuta select { width:100%;min-width:0; }
+    .filtros-permutas-admin .filtro-pesquisa-permuta { grid-column:1/-1; }
+    .filtros-permutas-admin .campo { min-width:0; }
+    .filtros-permutas-admin input,
+    .filtros-permutas-admin select { width:100%;min-width:0; }
     .lista-permutas-compacta { display:grid;gap:10px;margin-top:14px; }
     .permuta-linha {
       width:100%;
@@ -2518,8 +2510,8 @@
     .permuta-linha-resumo { min-width:0; }
     .permuta-linha-resumo strong {
       display:block;
-      font-size:15px;
-      font-weight:800;
+      font-size:14px;
+      font-weight:700;
       line-height:1.32;
       overflow-wrap:anywhere;
     }
@@ -2612,10 +2604,16 @@
 
     @media(min-width:900px) {
       .filtros-permutas-admin {
-        grid-template-columns:minmax(280px,1.5fr) minmax(130px,.55fr) minmax(130px,.55fr) minmax(155px,.65fr);
+        grid-template-columns:minmax(280px,1.5fr) repeat(2,minmax(140px,.7fr));
       }
-      .filtros-permutas-admin .filtro-pesquisa-permuta,
-      .filtros-permutas-admin .filtro-data-permuta { grid-column:auto; }
+      .filtros-permutas-admin .filtro-pesquisa-permuta { grid-column:span 2; }
+    }
+
+    @media(min-width:1280px) {
+      .filtros-permutas-admin {
+        grid-template-columns:minmax(300px,1.7fr) repeat(4,minmax(130px,.65fr));
+      }
+      .filtros-permutas-admin .filtro-pesquisa-permuta { grid-column:auto; }
     }
 
     @media(max-width:700px) {
@@ -2629,7 +2627,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — checklist orientado por etapas
+       SIGA v5.6.0 — checklist orientado por etapas
        ======================================================= */
     #secao-checklist { --check-verde:#34482d;--check-verde-2:#4d633f;--check-ouro:#dfbd59; }
     #secao-checklist .cabecalho-secao { margin-bottom:14px; }
@@ -3041,7 +3039,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — login autônomo, alinhamento e contraste
+       SIGA v5.6.0 — login autônomo, alinhamento e contraste
        ======================================================= */
     .logos {
       display:grid;
@@ -3115,7 +3113,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — escala protegida e acesso centralizado
+       SIGA v5.6.0 — escala protegida e acesso centralizado
        ======================================================= */
     html,
     body {
@@ -3245,7 +3243,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — viewport persistente no iOS/Android
+       SIGA v5.6.0 — viewport persistente no iOS/Android
        A altura medida continua válida após suspender e retomar o PWA.
        O fundo pertence à superfície ativa, não a uma faixa remendada.
        ======================================================= */
@@ -3297,7 +3295,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — leitura consistente e cartões responsivos
+       SIGA v5.6.0 — leitura consistente e cartões responsivos
        ======================================================= */
     .sidebar-marca p {
       max-width:132px;
@@ -3352,7 +3350,7 @@
       .cartao-item .dado small { font-size:9px; }
       .cartao-item .dado strong { font-size:12px; }
       .permuta-linha { min-height:82px;padding:14px 15px; }
-      .permuta-linha-resumo strong { font-size:16px; }
+      .permuta-linha-resumo strong { font-size:14.5px; }
       .permuta-linha-resumo small { font-size:11.5px; }
       .dashboard-grade {
         grid-template-columns:repeat(6,minmax(150px,1fr));
@@ -3387,15 +3385,16 @@
       .item-historico-relatorio small { font-size:9px; }
     }
 
-    @media(min-width:1500px) {
+    @media(min-width:1350px) {
       .conteudo-app { max-width:1840px;padding-right:42px;padding-left:42px; }
+      .lista-permutas-compacta { grid-template-columns:repeat(3,minmax(0,1fr)); }
       .grade-relatorio-guarda { grid-template-columns:minmax(0,1.9fr) minmax(470px,.8fr); }
     }
 
     @media(max-width:520px) {
       .permuta-linha { align-items:start; }
       .permuta-linha-acoes { flex-direction:column; }
-      .permuta-linha-resumo strong { font-size:14px; }
+      .permuta-linha-resumo strong { font-size:13.5px; }
       .permuta-linha-resumo small { font-size:10px; }
     }
 
@@ -3498,7 +3497,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.5.7
+        SIGA 3ª CIA — Versão 5.6.0
       </footer>
     </section>
   </main>
@@ -3571,7 +3570,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.5.7</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.6.0</footer>
     </aside>
 
     <div class="area-principal">
@@ -4278,11 +4277,10 @@
           <div class="painel">
             <div class="filtros filtros-automaticos filtros-permutas-admin">
               <div class="campo filtro-pesquisa-permuta"><label for="filtroPermutasAdmin">Pesquisar</label><input id="filtroPermutasAdmin" type="search" autocomplete="off" placeholder="Solicitante, substituto, matrícula ou modalidade"></div>
-              <div class="linha-status-tipo-permuta">
-                <div class="campo"><label for="statusPermutasAdmin">Status</label><select id="statusPermutasAdmin"><option value="TODOS">TODOS</option><option value="APROVADA">REGULARES</option><option value="NEGADA">NEGADAS</option><option value="CANCELADA">CANCELADAS</option></select></div>
-                <div class="campo"><label for="tipoPermutasAdmin">Tipo</label><select id="tipoPermutasAdmin"><option value="TODOS">TODOS</option><option value="CASADA">CASADA</option><option value="AVULSA">AVULSA</option></select></div>
-              </div>
+              <div class="campo"><label for="statusPermutasAdmin">Status</label><select id="statusPermutasAdmin"><option value="TODOS">TODOS</option><option value="APROVADA">REGULARES</option><option value="NEGADA">NEGADAS</option><option value="CANCELADA">CANCELADAS</option></select></div>
+              <div class="campo"><label for="tipoPermutasAdmin">Tipo</label><select id="tipoPermutasAdmin"><option value="TODOS">TODOS</option><option value="CASADA">CASADA</option><option value="AVULSA">AVULSA</option></select></div>
               <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="date"></div>
+              <div class="campo filtro-ordem-permuta"><label for="ordemPermutasAdmin">Ordenar</label><select id="ordemPermutasAdmin"><option value="DATA_ASC" selected>DATA CRESCENTE</option><option value="DATA_DESC">DATA DECRESCENTE</option><option value="SOLICITANTE_ASC">SOLICITANTE A–Z</option><option value="SUBSTITUTO_ASC">SUBSTITUTO A–Z</option></select></div>
             </div>
             <div id="listaPermutasAdmin" class="lista-permutas-compacta"></div>
           </div>
@@ -4319,12 +4317,32 @@
           </div>
 
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
-            <div class="cartao-topo"><div><h3 style="margin:0">Entrada no efetivo</h3><p>Cadastre os dados básicos. No primeiro acesso o policial completa o restante e cria sua senha.</p></div></div>
-            <div class="grade-4">
+            <div class="cartao-topo"><div><h3 style="margin:0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
+            <div class="grade-3">
               <div class="campo"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" required></div>
               <div class="campo"><label>Nome completo</label><input id="preNomeP1" required></div>
               <div class="campo"><label>Nome de guerra</label><input id="preNomeGuerraP1" required></div>
-              <div class="campo"><label>Numeral <small>(se houver)</small></label><input id="preNumeralP1" inputmode="numeric"></div>
+              <div class="campo"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" placeholder="(85) 99999-9999" required></div>
+              <div class="campo">
+                <label>Posto/graduação</label>
+                <select id="prePostoP1" required onchange="atualizarNumeralPreCadastroP1()">
+                  <option value="">SELECIONE</option>
+                  <option value="SOLDADO">SOLDADO</option>
+                  <option value="CABO">CABO</option>
+                  <option value="3º SARGENTO">3º SARGENTO</option>
+                  <option value="2º SARGENTO">2º SARGENTO</option>
+                  <option value="1º SARGENTO">1º SARGENTO</option>
+                  <option value="SUBTENENTE">SUBTENENTE</option>
+                  <option value="ASPIRANTE">ASPIRANTE</option>
+                  <option value="2º TENENTE">2º TENENTE</option>
+                  <option value="1º TENENTE">1º TENENTE</option>
+                  <option value="CAPITÃO">CAPITÃO</option>
+                  <option value="MAJOR">MAJOR</option>
+                  <option value="TENENTE-CORONEL">TENENTE-CORONEL</option>
+                  <option value="CORONEL">CORONEL</option>
+                </select>
+              </div>
+              <div id="campoPreNumeralP1" class="campo oculto"><label>Numeral <small>(se houver)</small></label><input id="preNumeralP1" inputmode="numeric" disabled></div>
             </div>
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
           </form>
@@ -4907,7 +4925,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.5.7';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.6.0';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -5346,7 +5364,6 @@
           <div class="campo"><label>Posto/graduação</label><select name="postoGraduacao" id="cadastroPosto" required><option value="">SELECIONE</option>${postos.map(p => `<option value="${p}" ${p === conhecido.postoGraduacao ? 'selected' : ''}>${p}</option>`).join('')}</select></div>
           <div class="campo"><label>Numeral</label><input name="numeral" id="cadastroNumeral" inputmode="numeric" value="${escaparHtml(conhecido.numeral || '')}"></div>
         </div>
-        <div class="aviso-inline"><strong>Grade:</strong> é definida administrativamente pelo P1/Comando após o cadastro. O policial não escolhe a grade.</div>
         <div class="campo"><label>Unidade</label><input value="3ª CIA / 19º BPM" readonly></div>
         <div class="grade-2">
           <div class="campo"><label>Criar senha</label><input name="senha" type="password" inputmode="numeric" minlength="4" maxlength="32" required><small class="ajuda">De 4 a 32 dígitos numéricos.</small></div>
@@ -6965,7 +6982,22 @@
         $('listaPermutasAdmin').innerHTML = '<div class="vazio">Nenhuma permuta encontrada.</div>';
         return;
       }
-      $('listaPermutasAdmin').innerHTML = estado.permutasAdmin.map(item => {
+      const ordem = $('ordemPermutasAdmin')?.value || 'DATA_ASC';
+      const listaOrdenada = estado.permutasAdmin.slice().sort(function(a,b) {
+        const dataA = String(a.dataServico || a.criadoEm || '');
+        const dataB = String(b.dataServico || b.criadoEm || '');
+        if (ordem === 'DATA_DESC') {
+          return dataB.localeCompare(dataA) || String(a.solicitante || '').localeCompare(String(b.solicitante || ''),'pt-BR');
+        }
+        if (ordem === 'SOLICITANTE_ASC') {
+          return String(a.solicitante || '').localeCompare(String(b.solicitante || ''),'pt-BR',{numeric:true,sensitivity:'base'}) || dataA.localeCompare(dataB);
+        }
+        if (ordem === 'SUBSTITUTO_ASC') {
+          return String(a.substituto || '').localeCompare(String(b.substituto || ''),'pt-BR',{numeric:true,sensitivity:'base'}) || dataA.localeCompare(dataB);
+        }
+        return dataA.localeCompare(dataB) || String(a.solicitante || '').localeCompare(String(b.solicitante || ''),'pt-BR',{numeric:true,sensitivity:'base'});
+      });
+      $('listaPermutasAdmin').innerHTML = listaOrdenada.map(item => {
         const status = String(item.status || '').toUpperCase();
         const excecao = ['NEGADA','CANCELADA','PENDENTE'].includes(status)
           ? `<span class="status ${escaparHtml(status)}">${escaparHtml(status)}</span>` : '';
@@ -7379,6 +7411,7 @@
       $('statusPermutasAdmin').addEventListener('change', () => carregarPermutasAdmin(true));
       $('tipoPermutasAdmin').addEventListener('change', () => carregarPermutasAdmin(true));
       $('dataPermutasAdmin').addEventListener('change', () => carregarPermutasAdmin(true));
+      $('ordemPermutasAdmin').addEventListener('change', renderizarPermutasAdmin);
 
       $('filtroChecklistAdmin').addEventListener('input', () =>
         agendarFiltroAutomatico('checklist', () => carregarChecklistsAdmin(true), 280));
@@ -7789,10 +7822,21 @@
       try {
         const r=await api('p1PreCadastrarPolicial',estado.token,{
           matricula:$('preMatriculaP1').value,nomeCompleto:$('preNomeP1').value,
-          nomeGuerra:$('preNomeGuerraP1').value,numeral:$('preNumeralP1').value
+          nomeGuerra:$('preNomeGuerraP1').value,contato:$('preContatoP1').value,
+          postoGraduacao:$('prePostoP1').value,numeral:$('preNumeralP1').value
         });
-        evento.target.reset(); ocultarCarregando(); toast(r.mensagem);
+        evento.target.reset(); atualizarNumeralPreCadastroP1(); ocultarCarregando(); toast(r.mensagem);
       } catch(e){tratarErro(e);}
+    }
+
+    function atualizarNumeralPreCadastroP1() {
+      const posto=$('prePostoP1'),campo=$('campoPreNumeralP1'),numeral=$('preNumeralP1');
+      if(!posto||!campo||!numeral)return;
+      const usa=postoUsaNumeral(posto.value);
+      campo.classList.toggle('oculto',!usa);
+      numeral.disabled=!usa;
+      numeral.required=usa;
+      if(!usa)numeral.value='';
     }
 
     async function excluirPolicialP1() {
@@ -7936,6 +7980,7 @@
         const r=await api('adminResumoOperacional',estado.token);
         const i=r.indicadores||{}; const setor=r.setor||'';
         const cards=[];
+        if(i.totalPoliciais!==undefined) cards.push(['Total de policiais',i.totalPoliciais,'Cadastrados no efetivo','admin-policiais']);
         if(i.permutasPendentes!==undefined && Number(i.permutasPendentes)>0) cards.push(['Permutas em migração',i.permutasPendentes,'Serão regularizadas automaticamente']);
         if(i.permutasHoje!==undefined) cards.push(['Permutas hoje',i.permutasHoje,'Autorizadas para a data atual']);
         if(i.checklistsHoje!==undefined) cards.push(['Checklists hoje',i.checklistsHoje,'Registros enviados ao P4']);
@@ -7968,7 +8013,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — Corpo da Guarda em duas etapas
+       SIGA v5.6.0 — Corpo da Guarda em duas etapas
        ======================================================= */
 
     estado.guardaTipo = 'PERMUTA AUTORIZADA';
@@ -8231,7 +8276,7 @@
     }
 
     /* =======================================================
-       SIGA v5.5.7 — Relatório operacional da Guarda
+       SIGA v5.6.0 — Relatório operacional da Guarda
        ======================================================= */
 
     function prepararRelatorioGuarda() {
