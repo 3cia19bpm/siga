@@ -3854,7 +3854,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.6 — PADRONIZAÇÃO VISUAL P1
+       SIGA v5.7.7 — PADRONIZAÇÃO VISUAL P1
        Revisão orientada pelos painéis reais de Gestão • P1.
        Desktop mais organizado; mobile continua ocupando 100% da tela.
        ======================================================= */
@@ -4189,7 +4189,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.6 — ÁREA SEGURA REAL NO CELULAR
+       SIGA v5.7.7 — ÁREA SEGURA REAL NO CELULAR
        A interface usa 100% da largura útil, mas nenhum conteúdo
        funcional fica sob a barra de status, recorte ou indicador.
        ======================================================= */
@@ -4250,7 +4250,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.6 — REFINAMENTO MOBILE GESTÃO • P1
+       SIGA v5.7.7 — REFINAMENTO MOBILE GESTÃO • P1
        Baseado na revisão visual das telas reais em iPhone.
        Objetivos: menu lateral mais estreito, densidade consistente,
        títulos/controles equilibrados e melhor aproveitamento vertical.
@@ -4544,7 +4544,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.6 — REVISÃO MOBILE DO USUÁRIO
+       SIGA v5.7.7 — REVISÃO MOBILE DO USUÁRIO
        Ajustes derivados da conferência das telas reais do perfil comum:
        marca lateral restaurada, rodapé corrigido e melhor densidade
        sem reduzir a área útil nem alterar regras de negócio.
@@ -4695,7 +4695,7 @@
   
 
     /* =======================================================
-       SIGA v5.7.6 — CABEÇALHO FIXO, PROGRESSO ACOMPANHÁVEL
+       SIGA v5.7.7 — CABEÇALHO FIXO, PROGRESSO ACOMPANHÁVEL
        e reorganização visual do fluxo de permutas.
        ======================================================= */
     :root {
@@ -5195,7 +5195,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.6 — CABEÇALHO FIXO REAL + STICKY SEM CONTÊINER FALSO
+       SIGA v5.7.7 — CABEÇALHO FIXO REAL + STICKY SEM CONTÊINER FALSO
        Corrige o comportamento do iOS ao rolar e a sobreposição do menu.
        ======================================================= */
     :root {
@@ -5293,6 +5293,174 @@
       .checklist-progresso-fixo .progresso {
         margin:7px 0 5px!important;
       }
+    }
+
+
+    /* =======================================================
+       SIGA v5.7.7 — REVISÃO PROFISSIONAL DO PERFIL USUÁRIO
+       e melhor aproveitamento das telas desktop.
+       ======================================================= */
+    .limite-permuta-detalhes[hidden] { display:none!important; }
+
+    .menu-badge {
+      margin-left:auto;
+      min-width:20px;
+      height:20px;
+      display:grid;
+      place-items:center;
+      padding:0 6px;
+      border-radius:999px;
+      background:#ead06d;
+      color:#263523;
+      font-size:9px;
+      font-weight:900;
+    }
+
+    .perfil-painel-topo {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:16px;
+    }
+    .perfil-painel-topo h3 { margin:3px 0 0!important; }
+    .perfil-painel-topo p {
+      max-width:800px;
+      margin:6px 0 0;
+      color:var(--siga-muted);
+      font-size:12.5px;
+      line-height:1.5;
+    }
+    .perfil-dado-bloqueado,
+    .contador-solicitacoes-p1 {
+      flex:0 0 auto;
+      padding:8px 11px;
+      border-radius:999px;
+      background:#eef2eb;
+      color:#566456;
+      font-size:9px;
+      font-weight:850;
+      letter-spacing:.04em;
+    }
+    .perfil-solicitacao-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .perfil-fluxo-p1 {
+      display:grid;
+      grid-template-columns:38px minmax(0,1fr);
+      gap:12px;
+      align-items:start;
+      margin:16px 0;
+      padding:14px 16px;
+      border:1px solid #dce4d9;
+      border-radius:15px;
+      background:#f5f8f3;
+    }
+    .perfil-fluxo-icone {
+      width:38px;height:38px;display:grid;place-items:center;
+      border-radius:12px;background:#e7eee3;color:#315a3a;
+    }
+    .perfil-fluxo-icone svg { width:20px;height:20px; }
+    .perfil-fluxo-p1 strong { display:block;color:#26382b;font-size:12.5px; }
+    .perfil-fluxo-p1 span:not(.perfil-fluxo-icone) { display:block;margin-top:4px;color:#68756c;font-size:11.5px;line-height:1.45; }
+
+    .status-solicitacao-perfil:empty { display:none; }
+    .perfil-status-card {
+      margin:0 0 16px;
+      padding:16px;
+      border:1px solid #dbe3d8;
+      border-radius:16px;
+      background:#fbfcfa;
+    }
+    .perfil-status-pendente { border-left:4px solid #d2ad37; }
+    .perfil-status-deferida { border-left:4px solid #3e7c4e; }
+    .perfil-status-indeferida { border-left:4px solid #a84b45; }
+    .perfil-status-topo { display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px; }
+    .perfil-status-topo small { color:#7b877f;font-size:9.5px; }
+    .perfil-status-card > strong { display:block;color:#24372a;font-size:15px; }
+    .perfil-status-card > p { margin:4px 0 12px;color:#68756c;font-size:11.5px;line-height:1.45; }
+    .mudancas-perfil { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px; }
+    .mudanca-perfil-item { padding:10px 11px;border-radius:12px;background:#f1f4ef;min-width:0; }
+    .mudanca-perfil-item small { display:block;margin-bottom:5px;color:#718074;font-size:8px;font-weight:900;letter-spacing:.06em;text-transform:uppercase; }
+    .mudanca-perfil-item span { display:block;overflow-wrap:anywhere;color:#4b5a4e;font-size:10.5px;line-height:1.4; }
+    .mudanca-perfil-item b { margin:0 4px;color:#95a096; }
+    .mudanca-perfil-item strong { color:#213529; }
+    .perfil-justificativa { margin-top:10px;padding:10px 12px;border-radius:12px;background:#f8eeee; }
+    .perfil-justificativa small { display:block;margin-bottom:4px;color:#8b4b47;font-size:8px;font-weight:900;letter-spacing:.06em; }
+    .perfil-justificativa span { color:#66413e;font-size:11px;line-height:1.45; }
+    .perfil-analise-meta { margin-top:10px;color:#78847b;font-size:9.5px; }
+
+    .solicitacoes-perfil-p1 { border-left:4px solid #d4b043!important; }
+    .lista-solicitacoes-perfil-p1 { display:grid;gap:12px; }
+    .solicitacao-perfil-p1-card {
+      padding:15px 16px;
+      border:1px solid #dce4da;
+      border-radius:16px;
+      background:#fbfcfa;
+    }
+    .solicitacao-p1-cabecalho { display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px; }
+    .solicitacao-p1-cabecalho small { display:block;color:#7a867e;font-size:9px;letter-spacing:.03em; }
+    .solicitacao-p1-cabecalho strong { display:block;margin-top:3px;color:#23362a;font-size:14px; }
+    .solicitacao-p1-grade { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px; }
+    .solicitacao-p1-comparacao { padding:11px 12px;border-radius:12px;background:#f1f4ef;min-width:0; }
+    .solicitacao-p1-comparacao small { display:block;margin-bottom:6px;color:#6d7a70;font-size:8px;font-weight:900;letter-spacing:.06em;text-transform:uppercase; }
+    .solicitacao-p1-comparacao div { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:7px;align-items:center; }
+    .solicitacao-p1-comparacao span,.solicitacao-p1-comparacao strong { overflow-wrap:anywhere;font-size:10.5px;line-height:1.35; }
+    .solicitacao-p1-comparacao span { color:#778279; }
+    .solicitacao-p1-comparacao strong { color:#213629; }
+    .solicitacao-p1-comparacao b { color:#9aa49b; }
+    .solicitacao-p1-justificativa { margin-top:12px; }
+    .solicitacao-p1-justificativa textarea { min-height:64px!important; }
+    .solicitacao-p1-acoes { display:flex;gap:9px;justify-content:flex-end;margin-top:10px; }
+    .solicitacao-p1-acoes .botao { min-width:120px; }
+
+    @media(min-width:981px) {
+      html[data-siga-perfil="usuario"] { --siga-content-rail:1360px; }
+      html[data-siga-perfil="usuario"] .conteudo-app {
+        padding-top:30px!important;
+        padding-right:26px!important;
+        padding-left:26px!important;
+      }
+      html[data-siga-perfil="usuario"] .topbar {
+        padding-left:max(24px,calc((100vw - var(--siga-sidebar-prof) - 1360px)/2 + 26px))!important;
+        padding-right:max(24px,calc((100vw - var(--siga-sidebar-prof) - 1360px)/2 + 26px))!important;
+      }
+      html[data-siga-perfil="usuario"] .cabecalho-secao { margin-bottom:20px!important; }
+      html[data-siga-perfil="usuario"] .cabecalho-secao h2 { font-size:clamp(34px,2.05vw,40px)!important; }
+      html[data-siga-perfil="usuario"] .cabecalho-secao p { font-size:14px!important; }
+      html[data-siga-perfil="usuario"] .painel { padding:22px!important; }
+      html[data-siga-perfil="usuario"] #fichaPerfil {
+        display:grid!important;
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+        gap:10px!important;
+      }
+      html[data-siga-perfil="usuario"] #fichaPerfil .dado {
+        min-height:72px!important;
+        padding:13px 14px!important;
+        border-radius:13px!important;
+      }
+      html[data-siga-perfil="usuario"] #fichaPerfil .dado small { font-size:9px!important; }
+      html[data-siga-perfil="usuario"] #fichaPerfil .dado strong { font-size:12.5px!important;line-height:1.35!important; }
+      html[data-siga-perfil="usuario"] #secao-relatorios th { font-size:10px!important; }
+      html[data-siga-perfil="usuario"] #secao-relatorios td { font-size:12px!important; }
+      html[data-siga-perfil="usuario"] #secao-permutas .form-etapa-cabecalho strong,
+      html[data-siga-perfil="usuario"] #secao-permutas .papel-permuta-topo strong { font-size:19px!important; }
+      html[data-siga-perfil="usuario"] #secao-permutas .campo label { font-size:13px!important; }
+      html[data-siga-perfil="usuario"] #secao-checklist .checklist-corpo { font-size:12.5px;line-height:1.55; }
+      html[data-siga-perfil="usuario"] #secao-checklist .confirmacao label,
+      html[data-siga-perfil="usuario"] #secao-checklist .checklist-texto-orientacao { font-size:12.5px!important;line-height:1.55!important; }
+    }
+
+    @media(max-width:980px) {
+      .perfil-solicitacao-grid,
+      .mudancas-perfil,
+      .solicitacao-p1-grade { grid-template-columns:1fr!important; }
+      .perfil-dado-bloqueado { display:none; }
+      .perfil-painel-topo { flex-direction:column;gap:8px; }
+      .solicitacao-p1-acoes { flex-direction:column; }
+      .solicitacao-p1-acoes .botao { width:100%; }
     }
 </style>
 </head>
@@ -5393,7 +5561,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.7.6
+        SIGA 3ª CIA — Versão 5.7.7
       </footer>
     </section>
   </main>
@@ -5446,7 +5614,7 @@
 
         <div class="menu-grupo-titulo" data-grupo="P1">P1 • PESSOAL</div>
         <button class="menu-item" data-secao="admin-permutas" data-permissao="PERMUTAS" onclick="navegar('admin-permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
-        <button class="menu-item" data-secao="admin-policiais" data-permissao="POLICIAIS" onclick="navegar('admin-policiais')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Policiais</span></button>
+        <button class="menu-item" data-secao="admin-policiais" data-permissao="POLICIAIS" onclick="navegar('admin-policiais')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Policiais</span><span id="badgeSolicitacoesPerfilP1" class="menu-badge oculto">0</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="P4">P4 • FROTA</div>
         <button class="menu-item" data-secao="admin-checklist" data-permissao="CHECKLIST" onclick="navegar('admin-checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
@@ -5466,7 +5634,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.6</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.7</footer>
     </aside>
 
     <div class="area-principal">
@@ -5825,36 +5993,53 @@
           <div class="cabecalho-secao">
             <div>
               <h2>Perfil</h2>
-              <p>Consulte e mantenha seus dados atualizados.</p>
+              <p>Consulte seus dados funcionais e solicite ao P1 a atualização dos dados pessoais autorizados.</p>
             </div>
           </div>
 
-          <div class="painel">
-            <h3>Ficha funcional</h3>
+          <div class="painel perfil-ficha-painel">
+            <div class="perfil-painel-topo">
+              <div>
+                <span class="rotulo-suave">DADOS FUNCIONAIS</span>
+                <h3>Ficha funcional</h3>
+              </div>
+              <span class="perfil-dado-bloqueado">Dados administrativos protegidos</span>
+            </div>
             <div id="fichaPerfil" class="perfil-completo"></div>
           </div>
 
-          <form id="formPerfil" class="painel">
-            <h3>Atualizar dados</h3>
-            <div class="grade-2">
-              <div class="campo"><label for="perfilEmail">E-mail</label><input id="perfilEmail" type="email" required></div>
-              <div class="campo"><label for="perfilContato">Contato / WhatsApp</label><input id="perfilContato" type="tel" inputmode="numeric" required></div>
+          <form id="formPerfil" class="painel perfil-solicitacao-painel">
+            <div class="perfil-painel-topo">
+              <div>
+                <span class="rotulo-suave">ATUALIZAÇÃO CADASTRAL</span>
+                <h3>Solicitar alterações</h3>
+                <p>Você pode solicitar alteração apenas de e-mail, Contato / WhatsApp e nome de guerra. O cadastro só será modificado após deferimento do P1.</p>
+              </div>
             </div>
-            <div class="grade-3">
-              <div class="campo"><label for="perfilPosto">Posto/graduação</label><select id="perfilPosto" required></select></div>
-              <div class="campo"><label for="perfilNumeral">Numeral</label><input id="perfilNumeral" type="text" inputmode="numeric"></div>
-              <div class="campo"><label>Grade</label><input id="perfilGrade" type="text" readonly><small class="ajuda">Definida administrativamente pelo P1/Comando.</small></div>
-              <div class="campo"><label>Regime de turno</label><input id="perfilTurnoFixo" type="text" readonly><small class="ajuda">Também definido administrativamente.</small></div>
+
+            <div class="perfil-solicitacao-grid">
+              <div class="campo"><label for="perfilEmail">E-mail</label><input id="perfilEmail" type="email" autocomplete="email" required></div>
+              <div class="campo"><label for="perfilContato">Contato / WhatsApp</label><input id="perfilContato" type="tel" inputmode="tel" autocomplete="tel" required></div>
+              <div class="campo"><label for="perfilNomeGuerra">Nome de guerra</label><input id="perfilNomeGuerra" type="text" autocomplete="off" required></div>
             </div>
-            <div class="grade-2">
-              <div class="campo"><label for="perfilNomeGuerra">Nome de guerra</label><input id="perfilNomeGuerra" type="text" required></div>
-              <div class="campo"><label for="perfilPromocao">Data da última promoção</label><input id="perfilPromocao" type="date" required></div>
+
+            <div class="perfil-fluxo-p1">
+              <span class="perfil-fluxo-icone" aria-hidden="true"><svg class="icone-svg"><use href="#icone-info"></use></svg></span>
+              <div><strong>Análise administrativa do P1</strong><span>A solicitação fica registrada com data, policial e decisão. Enquanto estiver pendente, uma nova solicitação não poderá ser enviada.</span></div>
             </div>
-            <button class="botao" type="submit">SALVAR ALTERAÇÕES</button>
+
+            <div id="statusSolicitacaoPerfil" class="status-solicitacao-perfil" aria-live="polite"></div>
+            <button id="botaoSolicitarPerfil" class="botao" type="submit">SOLICITAR ALTERAÇÕES</button>
           </form>
 
-          <form id="formSenha" class="painel">
-            <h3>Alterar senha</h3>
+          <form id="formSenha" class="painel perfil-senha-painel">
+            <div class="perfil-painel-topo">
+              <div>
+                <span class="rotulo-suave">SEGURANÇA</span>
+                <h3>Alterar senha</h3>
+                <p>A senha é pessoal e pode ser alterada diretamente pelo próprio usuário.</p>
+              </div>
+            </div>
             <div class="grade-3">
               <div class="campo"><label for="senhaAtual">Senha atual</label><input id="senhaAtual" type="password" inputmode="numeric" required></div>
               <div class="campo"><label for="novaSenha">Nova senha</label><input id="novaSenha" type="password" inputmode="numeric" minlength="4" maxlength="32" required></div>
@@ -6209,6 +6394,20 @@
             <div>
               <h2>Policiais — P1</h2>
               <p>Localize o policial e registre afastamentos e licenças administrativas.</p>
+            </div>
+          </div>
+
+          <div id="painelSolicitacoesPerfilP1" class="painel solicitacoes-perfil-p1">
+            <div class="perfil-painel-topo solicitacoes-p1-topo">
+              <div>
+                <span class="rotulo-suave">ANÁLISE CADASTRAL</span>
+                <h3>Solicitações de atualização</h3>
+                <p>Analise pedidos de alteração de e-mail, Contato / WhatsApp e nome de guerra. O deferimento atualiza o cadastro do policial imediatamente.</p>
+              </div>
+              <span id="contadorSolicitacoesPerfilP1" class="contador-solicitacoes-p1">0 pendentes</span>
+            </div>
+            <div id="listaSolicitacoesPerfilP1" class="lista-solicitacoes-perfil-p1">
+              <div class="vazio compacto">Carregando solicitações...</div>
             </div>
           </div>
 
@@ -6681,6 +6880,8 @@
       timerPesquisaRelatorioGuarda: null,
       policiaisRelatorioGuarda: [],
       bancoHoras: null,
+      solicitacaoPerfil: null,
+      solicitacoesPerfilP1: [],
       policiaisBancoHoras: [],
       policialBancoHoras: null,
       creditoBaixaBancoHoras: null,
@@ -6823,7 +7024,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.6';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.7';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -7393,6 +7594,7 @@
       $('matriculaSidebar').textContent = 'M.F.: ' + usuario.matricula + ' - ' + identificacaoPerfil;
       $('perfilTopo').textContent = usuario.administrador ? funcaoAdministrativa.toUpperCase() : 'USUÁRIO';
       const guardaHibrida = ehGuardaLogada();
+      document.documentElement.dataset.sigaPerfil = usuario.administrador && !guardaHibrida ? 'admin' : 'usuario';
       $('sidebar').classList.toggle('sidebar-guarda',guardaHibrida);
       $('menuUsuario').classList.toggle('oculto', usuario.administrador && !guardaHibrida);
       $('menuAdmin').classList.toggle('oculto', !usuario.administrador || guardaHibrida);
@@ -7427,6 +7629,7 @@
       if (usuario.administrador && !estado.rotinasAdminAquecidas) {
         estado.rotinasAdminAquecidas = true;
         if (temPermissaoAdmin('ALERTAS_P4')) window.setTimeout(carregarResumoAlertasP4, 120);
+        if (temPermissaoAdmin('POLICIAIS')) window.setTimeout(() => carregarSolicitacoesPerfilP1(true), 180);
       }
     }
 
@@ -7436,7 +7639,7 @@
       document.querySelectorAll('.menu-item[data-secao]').forEach(item => item.classList.toggle('ativo', item.dataset.secao === secao));
       const titulos = {
         inicio:['Início','Área do policial'], calendario:['Calendário','Escala pessoal prevista'], checklist:['Checklist de Viatura','Controle operacional da frota'], permutas:['Permutas','Solicitações e acompanhamento'], 'banco-horas':['Banco de horas','Créditos registrados em livro e baixas de utilização'],
-        relatorios:['Relatórios','Resumo individual'], perfil:['Perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Gestão de afastamentos do P1'],
+        relatorios:['Relatórios','Resumo individual'], perfil:['Perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Efetivo, solicitações e afastamentos do P1'],
         'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão geral','Painel administrativo'], guarda:['Corpo da Guarda','Registro das alterações da escala impressa'], 'relatorio-guarda':['Relatório da Guarda','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
         consultas:['Consultas','Ficha completa e histórico'], efetivo:['Efetivo','Gestão do quadro de policiais']
       };
@@ -7449,11 +7652,12 @@
       }
       if (secao==='banco-horas') prepararBancoHoras();
       if (secao==='relatorios') carregarRelatorioUsuario();
+      if (secao==='perfil') carregarSolicitacaoPerfilUsuario();
       if (secao==='painel-admin') carregarDashboardAdmin();
       if (secao==='guarda') prepararGuarda();
       if (secao==='relatorio-guarda') prepararRelatorioGuarda();
       if (secao==='admin-permutas') carregarPermutasAdmin();
-      if (secao==='admin-policiais') { $('resultadosPoliciaisP1').innerHTML='<div class="vazio compacto">Comece a digitar para localizar um policial.</div>'; }
+      if (secao==='admin-policiais') { $('resultadosPoliciaisP1').innerHTML='<div class="vazio compacto">Comece a digitar para localizar um policial.</div>'; carregarSolicitacoesPerfilP1(); }
       if (secao==='admin-checklist') carregarChecklistsAdmin();
       if (secao==='p4-alertas') carregarAlertasP4();
       if (secao==='formularios') abrirEditorFormularios();
@@ -8802,34 +9006,148 @@
 
     function preencherPerfil() {
       const u = estado.usuario;
-      const postos = estado.configuracao.postosGraduacoes || [];
-      $('perfilPosto').innerHTML = postos.map(p => `<option value="${escaparHtml(p)}">${escaparHtml(p)}</option>`).join('');
-      $('perfilEmail').value = u.email || '';
-      $('perfilContato').value = u.contato || '';
-      $('perfilPosto').value = u.postoGraduacao || '';
-      $('perfilNumeral').value = u.numeral || '';
-      $('perfilNomeGuerra').value = u.nomeGuerra || '';
-      $('perfilPromocao').value = u.dataUltimaPromocao || '';
-      $('perfilGrade').value = u.grade || 'NÃO DEFINIDA';
-      if ($('perfilTurnoFixo')) $('perfilTurnoFixo').value = u.turnoFixo === 'A' ? 'BIKE • FIXO A' : u.turnoFixo === 'B' ? 'BIKE • FIXO B' : u.turnoFixo === 'AB' ? 'GUARDA • 24h AB' : 'VIATURA / BASES • 12h A/B';
-      atualizarNumeralPerfil();
-      $('fichaPerfil').innerHTML = dadosPerfilHtml(u);
+      if ($('perfilEmail')) $('perfilEmail').value = u.email || '';
+      if ($('perfilContato')) $('perfilContato').value = u.contato || '';
+      if ($('perfilNomeGuerra')) $('perfilNomeGuerra').value = u.nomeGuerra || '';
+      if ($('fichaPerfil')) $('fichaPerfil').innerHTML = dadosPerfilHtml(u);
+      renderizarStatusSolicitacaoPerfil();
     }
 
     function dadosPerfilHtml(u) {
       const dados = [
         ['Nome completo', u.nomeCompleto], ['Identificação', montarIdentificacao(u)], ['Matrícula', u.matricula], ['Grade', u.grade || 'Não definida'], ['Regime', u.turnoFixo ? ('Fixo ' + u.turnoFixo) : 'Alternância A/B'],
         ['Data de nascimento', formatarData(u.dataNascimento)], ['Posto/graduação', u.postoGraduacao], ['Numeral', u.numeral || 'Não se aplica'], ['Nome de guerra', u.nomeGuerra],
-        ['E-mail', u.email], ['Contato', u.contato], ['Unidade', u.opmExibicao || u.opm], ['Última promoção', formatarData(u.dataUltimaPromocao)]
+        ['E-mail', u.email], ['Contato / WhatsApp', u.contato], ['Unidade', u.opmExibicao || u.opm], ['Última promoção', formatarData(u.dataUltimaPromocao)]
       ];
       return dados.map(d => `<div class="dado"><small>${escaparHtml(d[0])}</small><strong>${escaparHtml(d[1] || '—')}</strong></div>`).join('');
     }
 
-    function atualizarNumeralPerfil() {
-      const usa = postoUsaNumeral($('perfilPosto').value);
-      $('perfilNumeral').disabled = !usa;
-      $('perfilNumeral').required = usa;
-      if (!usa) $('perfilNumeral').value = '';
+    function mudancasSolicitacaoPerfilHtml(s) {
+      if (!s) return '';
+      const campos = [
+        ['E-mail',s.emailAtual,s.emailSolicitado],
+        ['Contato / WhatsApp',s.contatoAtual,s.contatoSolicitado],
+        ['Nome de guerra',s.nomeGuerraAtual,s.nomeGuerraSolicitado]
+      ].filter(item => String(item[1] || '') !== String(item[2] || ''));
+      return campos.map(item => `<div class="mudanca-perfil-item"><small>${escaparHtml(item[0])}</small><span>${escaparHtml(item[1] || '—')} <b>→</b> <strong>${escaparHtml(item[2] || '—')}</strong></span></div>`).join('');
+    }
+
+    function renderizarStatusSolicitacaoPerfil() {
+      const alvo = $('statusSolicitacaoPerfil');
+      if (!alvo) return;
+      const s = estado.solicitacaoPerfil;
+      const botao = $('botaoSolicitarPerfil');
+      const pendente = Boolean(s && s.status === 'PENDENTE');
+      if (botao) {
+        botao.disabled = pendente;
+        botao.textContent = pendente ? 'AGUARDANDO ANÁLISE DO P1' : 'SOLICITAR ALTERAÇÕES';
+      }
+      if (!s) { alvo.innerHTML = ''; return; }
+      const mapa = {
+        PENDENTE:['PENDENTE','Aguardando análise do P1','Sua solicitação está registrada e ainda não alterou a ficha funcional.'],
+        DEFERIDA:['DEFERIDA','Solicitação deferida','Os dados autorizados foram atualizados pelo P1.'],
+        INDEFERIDA:['INDEFERIDA','Solicitação indeferida','Os dados atuais foram mantidos.']
+      };
+      const info = mapa[s.status] || [s.status || 'REGISTRADA','Solicitação registrada',''];
+      alvo.innerHTML = `<div class="perfil-status-card perfil-status-${String(s.status || '').toLowerCase()}">
+        <div class="perfil-status-topo"><span class="status ${escaparHtml(info[0])}">${escaparHtml(info[0])}</span><small>${escaparHtml(s.solicitadoEm || '')}</small></div>
+        <strong>${escaparHtml(info[1])}</strong>
+        <p>${escaparHtml(info[2])}</p>
+        <div class="mudancas-perfil">${mudancasSolicitacaoPerfilHtml(s)}</div>
+        ${s.status === 'INDEFERIDA' && s.justificativa ? `<div class="perfil-justificativa"><small>JUSTIFICATIVA DO P1</small><span>${escaparHtml(s.justificativa)}</span></div>` : ''}
+        ${s.analisadoEm ? `<div class="perfil-analise-meta">Analisada em ${escaparHtml(s.analisadoEm)}${s.analisadoPor ? ' • ' + escaparHtml(s.analisadoPor) : ''}</div>` : ''}
+      </div>`;
+    }
+
+    async function carregarSolicitacaoPerfilUsuario(silencioso) {
+      if (!estado.usuario || !usuarioPodeUsarAreaComum()) return;
+      try {
+        const resposta = await api('obterSolicitacaoPerfilUsuario', estado.token);
+        estado.solicitacaoPerfil = resposta.solicitacao || null;
+        if (estado.solicitacaoPerfil && estado.solicitacaoPerfil.status === 'DEFERIDA') {
+          const app = await api('carregarAplicacao', estado.token);
+          const mudou = !estado.usuario ||
+            estado.usuario.email !== app.usuario.email ||
+            estado.usuario.contato !== app.usuario.contato ||
+            estado.usuario.nomeGuerra !== app.usuario.nomeGuerra;
+          if (mudou) {
+            estado.usuario = app.usuario;
+            estado.configuracao = app.configuracao;
+            await configurarAplicacao();
+          }
+        }
+        renderizarStatusSolicitacaoPerfil();
+      } catch (erro) {
+        if (!silencioso) tratarErro(erro, $('mensagemInterna'));
+      }
+    }
+
+    function compararSolicitacaoPerfilP1Html(item) {
+      const campos = [
+        ['E-mail',item.emailAtual,item.emailSolicitado],
+        ['Contato / WhatsApp',item.contatoAtual,item.contatoSolicitado],
+        ['Nome de guerra',item.nomeGuerraAtual,item.nomeGuerraSolicitado]
+      ].filter(c => String(c[1] || '') !== String(c[2] || ''));
+      return campos.map(c => `<div class="solicitacao-p1-comparacao"><small>${escaparHtml(c[0])}</small><div><span>${escaparHtml(c[1] || '—')}</span><b>→</b><strong>${escaparHtml(c[2] || '—')}</strong></div></div>`).join('');
+    }
+
+    function renderizarSolicitacoesPerfilP1() {
+      const lista = $('listaSolicitacoesPerfilP1');
+      if (!lista) return;
+      const todas = estado.solicitacoesPerfilP1 || [];
+      const pendentes = todas.filter(item => item.status === 'PENDENTE');
+      const contador = $('contadorSolicitacoesPerfilP1');
+      if (contador) contador.textContent = `${pendentes.length} ${pendentes.length === 1 ? 'pendente' : 'pendentes'}`;
+      const badge = $('badgeSolicitacoesPerfilP1');
+      if (badge) {
+        badge.textContent = String(pendentes.length);
+        badge.classList.toggle('oculto', !pendentes.length);
+      }
+      if (!pendentes.length) {
+        lista.innerHTML = '<div class="vazio compacto">Nenhuma solicitação de atualização aguardando análise.</div>';
+        return;
+      }
+      lista.innerHTML = pendentes.map(item => `<article class="solicitacao-perfil-p1-card">
+        <div class="solicitacao-p1-cabecalho">
+          <div><small>M.F. ${escaparHtml(item.matricula || '—')} • ${escaparHtml(item.solicitadoEm || '')}</small><strong>${escaparHtml(item.identificacao || 'Policial')}</strong></div>
+          <span class="status PENDENTE">PENDENTE</span>
+        </div>
+        <div class="solicitacao-p1-grade">${compararSolicitacaoPerfilP1Html(item)}</div>
+        <div class="campo solicitacao-p1-justificativa"><label for="justPerfil-${escaparAtributo(item.id)}">Justificativa <span class="opcional">obrigatória ao indeferir</span></label><textarea id="justPerfil-${escaparAtributo(item.id)}" maxlength="1500" rows="2" placeholder="Informe o motivo apenas se a solicitação for indeferida."></textarea></div>
+        <div class="solicitacao-p1-acoes">
+          <button class="botao" type="button" onclick="analisarSolicitacaoPerfilP1('${escaparAtributo(item.id)}','DEFERIDA')">DEFERIR</button>
+          <button class="botao botao-perigo" type="button" onclick="analisarSolicitacaoPerfilP1('${escaparAtributo(item.id)}','INDEFERIDA')">INDEFERIR</button>
+        </div>
+      </article>`).join('');
+    }
+
+    async function carregarSolicitacoesPerfilP1(silencioso) {
+      if (!estado.usuario || !estado.usuario.administrador || !temPermissaoAdmin('POLICIAIS')) return;
+      try {
+        const resposta = await api('adminListarSolicitacoesPerfil', estado.token);
+        estado.solicitacoesPerfilP1 = resposta.solicitacoes || [];
+        renderizarSolicitacoesPerfilP1();
+      } catch (erro) {
+        if (!silencioso) tratarErro(erro, $('mensagemInterna'));
+      }
+    }
+
+    async function analisarSolicitacaoPerfilP1(id, decisao) {
+      const campo = $('justPerfil-' + id);
+      const justificativa = campo ? campo.value.trim() : '';
+      if (decisao === 'INDEFERIDA' && !justificativa) {
+        if (campo) { campo.setCustomValidity('Informe a justificativa para indeferir.'); campo.reportValidity(); campo.setCustomValidity(''); campo.focus(); }
+        return;
+      }
+      if (decisao === 'DEFERIDA' && !confirm('Deferir esta solicitação e atualizar o cadastro do policial?')) return;
+      if (decisao === 'INDEFERIDA' && !confirm('Indeferir esta solicitação mantendo o cadastro atual?')) return;
+      mostrarCarregando(decisao === 'DEFERIDA' ? 'Deferindo solicitação...' : 'Indeferindo solicitação...');
+      try {
+        const resposta = await api('adminAnalisarSolicitacaoPerfil', estado.token, id, decisao, justificativa);
+        await carregarSolicitacoesPerfilP1(true);
+        ocultarCarregando();
+        toast(resposta.mensagem);
+      } catch (erro) { tratarErro(erro); }
     }
 
     async function carregarPermutasAdmin(silencioso) {
@@ -9515,21 +9833,17 @@
         } catch (erro) { tratarErro(erro); }
       });
 
-      $('perfilPosto').addEventListener('change', atualizarNumeralPerfil);
       $('formPerfil').addEventListener('submit', async e => {
         e.preventDefault();
-        mostrarCarregando('Atualizando perfil...');
+        mostrarCarregando('Enviando solicitação ao P1...');
         try {
-          const resposta = await api('atualizarPerfil', estado.token, {
+          const resposta = await api('solicitarAtualizacaoPerfil', estado.token, {
             email: $('perfilEmail').value,
             contato: $('perfilContato').value,
-            postoGraduacao: $('perfilPosto').value,
-            numeral: $('perfilNumeral').value,
-            nomeGuerra: $('perfilNomeGuerra').value,
-            dataUltimaPromocao: $('perfilPromocao').value
+            nomeGuerra: $('perfilNomeGuerra').value
           });
-          estado.usuario = resposta.usuario;
-          configurarAplicacao();
+          estado.solicitacaoPerfil = resposta.solicitacao || null;
+          renderizarStatusSolicitacaoPerfil();
           ocultarCarregando();
           toast(resposta.mensagem);
         } catch (erro) { tratarErro(erro); }
