@@ -3854,7 +3854,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.4 — PADRONIZAÇÃO VISUAL P1
+       SIGA v5.7.5 — PADRONIZAÇÃO VISUAL P1
        Revisão orientada pelos painéis reais de Gestão • P1.
        Desktop mais organizado; mobile continua ocupando 100% da tela.
        ======================================================= */
@@ -4189,7 +4189,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.4 — ÁREA SEGURA REAL NO CELULAR
+       SIGA v5.7.5 — ÁREA SEGURA REAL NO CELULAR
        A interface usa 100% da largura útil, mas nenhum conteúdo
        funcional fica sob a barra de status, recorte ou indicador.
        ======================================================= */
@@ -4250,7 +4250,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.4 — REFINAMENTO MOBILE GESTÃO • P1
+       SIGA v5.7.5 — REFINAMENTO MOBILE GESTÃO • P1
        Baseado na revisão visual das telas reais em iPhone.
        Objetivos: menu lateral mais estreito, densidade consistente,
        títulos/controles equilibrados e melhor aproveitamento vertical.
@@ -4544,7 +4544,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.4 — REVISÃO MOBILE DO USUÁRIO
+       SIGA v5.7.5 — REVISÃO MOBILE DO USUÁRIO
        Ajustes derivados da conferência das telas reais do perfil comum:
        marca lateral restaurada, rodapé corrigido e melhor densidade
        sem reduzir a área útil nem alterar regras de negócio.
@@ -4692,7 +4692,507 @@
       #secao-perfil #fichaPerfil .dado strong { font-size:10.5px!important; }
     }
 
-  </style>
+  
+
+    /* =======================================================
+       SIGA v5.7.5 — CABEÇALHO FIXO, PROGRESSO ACOMPANHÁVEL
+       e reorganização visual do fluxo de permutas.
+       ======================================================= */
+    :root {
+      --siga-topbar-sticky:72px;
+    }
+
+    .topbar {
+      position:sticky!important;
+      top:0!important;
+      z-index:120!important;
+      background:rgba(255,255,255,.96)!important;
+      -webkit-backdrop-filter:blur(14px);
+      backdrop-filter:blur(14px);
+    }
+
+    .checklist-progresso-fixo {
+      top:calc(var(--siga-topbar-sticky) + 8px)!important;
+      z-index:110!important;
+      box-shadow:0 10px 24px rgba(24,39,29,.10)!important;
+    }
+
+    #secao-permutas .subnavegacao {
+      margin-bottom:18px!important;
+      gap:10px!important;
+    }
+
+    #secao-permutas .subaba {
+      min-height:52px!important;
+      font-size:13px!important;
+      letter-spacing:.06em!important;
+    }
+
+    #secao-permutas .permuta-cabecalho-card {
+      display:grid!important;
+      grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr)!important;
+      gap:14px!important;
+      align-items:stretch!important;
+      padding:18px 20px!important;
+      margin-bottom:16px!important;
+      border-radius:22px!important;
+    }
+
+    #secao-permutas .permuta-identidade,
+    #secao-permutas .permuta-seguranca {
+      min-height:0!important;
+      padding:16px 18px!important;
+      border-radius:18px!important;
+    }
+
+    #secao-permutas .permuta-avatar {
+      width:54px!important;
+      height:54px!important;
+      flex:0 0 54px!important;
+      border-radius:16px!important;
+    }
+
+    #secao-permutas .permuta-avatar svg {
+      width:24px!important;
+      height:24px!important;
+    }
+
+    #secao-permutas .permuta-identidade strong {
+      font-size:18px!important;
+      line-height:1.12!important;
+      margin:3px 0 4px!important;
+    }
+
+    #secao-permutas .permuta-identidade small,
+    #secao-permutas .permuta-seguranca small {
+      font-size:10px!important;
+      letter-spacing:.14em!important;
+    }
+
+    #secao-permutas .permuta-identidade span:not(.permuta-avatar) {
+      font-size:13px!important;
+      line-height:1.42!important;
+    }
+
+    #secao-permutas .permuta-seguranca {
+      background:#f6f8f4!important;
+      border:1px solid #dde4d8!important;
+    }
+
+    #secao-permutas .permuta-seguranca > span {
+      width:40px!important;
+      height:40px!important;
+      border-radius:13px!important;
+    }
+
+    #secao-permutas .permuta-seguranca strong {
+      font-size:12.5px!important;
+      line-height:1.35!important;
+    }
+
+    #secao-permutas .limite-permuta-card {
+      display:block!important;
+      padding:18px 20px!important;
+      margin:0 0 18px!important;
+      border-radius:22px!important;
+      background:#f9fbf8!important;
+      border:1px solid #e0e7dd!important;
+      box-shadow:0 8px 24px rgba(27,49,32,.05)!important;
+    }
+
+    .limite-permuta-resumo {
+      display:grid!important;
+      grid-template-columns:auto minmax(0,1fr) auto!important;
+      gap:14px!important;
+      align-items:center!important;
+    }
+
+    .limite-permuta-resumo-alerta {
+      align-items:flex-start!important;
+    }
+
+    .limite-permuta-numero {
+      display:grid!important;
+      place-items:center!important;
+      width:64px!important;
+      height:64px!important;
+      border-radius:18px!important;
+      font-size:30px!important;
+      font-weight:800!important;
+      color:#fff!important;
+      background:linear-gradient(135deg,#61754a 0%,#0f4f2b 100%)!important;
+      box-shadow:none!important;
+    }
+
+    .limite-permuta-principal {
+      min-width:0!important;
+    }
+
+    .rotulo-limite-permuta {
+      display:block!important;
+      margin-bottom:6px!important;
+      color:#667467!important;
+      font-size:10px!important;
+      font-weight:700!important;
+      letter-spacing:.16em!important;
+    }
+
+    .limite-permuta-principal strong {
+      display:block!important;
+      color:#203629!important;
+      font-size:18px!important;
+      line-height:1.16!important;
+    }
+
+    .limite-permuta-principal small {
+      display:block!important;
+      margin-top:6px!important;
+      color:#66746a!important;
+      font-size:13px!important;
+      line-height:1.5!important;
+    }
+
+    .limite-info-botao {
+      display:grid!important;
+      place-items:center!important;
+      width:44px!important;
+      height:44px!important;
+      border:1px solid #c7d3c6!important;
+      border-radius:14px!important;
+      background:#fff!important;
+      color:#294030!important;
+      font-size:20px!important;
+      font-weight:800!important;
+      line-height:1!important;
+      box-shadow:none!important;
+      cursor:pointer!important;
+      transition:transform .18s ease, background-color .18s ease, border-color .18s ease;
+    }
+
+    .limite-info-botao[aria-expanded="true"] {
+      background:#edf2eb!important;
+      border-color:#8c9a8a!important;
+      transform:translateY(-1px);
+    }
+
+    .limite-info-botao:disabled {
+      opacity:.58!important;
+      cursor:default!important;
+    }
+
+    .limite-info-botao span {
+      display:block!important;
+      transform:translateY(-1px)!important;
+    }
+
+    .limite-permuta-detalhes {
+      display:grid!important;
+      gap:10px!important;
+      margin-top:14px!important;
+      padding:14px 16px!important;
+      border-radius:16px!important;
+      border:1px solid #dde4da!important;
+      background:#fff!important;
+    }
+
+    .limite-permuta-detalhe-item {
+      display:grid!important;
+      gap:3px!important;
+    }
+
+    .limite-permuta-detalhe-item strong {
+      color:#334536!important;
+      font-size:12px!important;
+      line-height:1.25!important;
+    }
+
+    .limite-permuta-detalhe-item span {
+      color:#59695d!important;
+      font-size:13px!important;
+      line-height:1.48!important;
+    }
+
+    #secao-permutas .fluxo-permuta {
+      gap:18px!important;
+    }
+
+    #secao-permutas .papel-permuta,
+    #secao-permutas .form-etapa,
+    #secao-permutas .acao-final-form {
+      border-radius:22px!important;
+      overflow:hidden!important;
+      box-shadow:0 8px 24px rgba(27,49,32,.05)!important;
+    }
+
+    #secao-permutas .papel-permuta-topo {
+      padding:18px 20px 10px!important;
+    }
+
+    #secao-permutas .papel-permuta-topo strong,
+    #secao-permutas .form-etapa-cabecalho strong,
+    #secao-permutas .acao-final-form strong {
+      font-size:18px!important;
+      line-height:1.15!important;
+    }
+
+    #secao-permutas .papel-permuta-topo small,
+    #secao-permutas .form-etapa-cabecalho small,
+    #secao-permutas .acao-final-form small {
+      margin-top:6px!important;
+      font-size:13px!important;
+      line-height:1.5!important;
+    }
+
+    #secao-permutas .papel-permuta-opcoes {
+      gap:12px!important;
+      padding:14px 18px 18px!important;
+    }
+
+    #secao-permutas .papel-permuta-opcao span {
+      min-height:78px!important;
+      padding:16px 16px 16px 50px!important;
+      border-radius:16px!important;
+      font-size:15px!important;
+      line-height:1.38!important;
+    }
+
+    #secao-permutas .papel-contexto {
+      margin:0 18px 18px!important;
+      padding:14px 16px!important;
+      border-radius:16px!important;
+      font-size:13px!important;
+      line-height:1.5!important;
+    }
+
+    #secao-permutas .form-etapa-cabecalho {
+      padding:16px 18px!important;
+      align-items:center!important;
+    }
+
+    #secao-permutas .form-etapa-indice {
+      width:44px!important;
+      height:44px!important;
+      flex:0 0 44px!important;
+      border-radius:14px!important;
+      font-size:20px!important;
+    }
+
+    #secao-permutas .form-etapa-corpo {
+      padding:18px 18px 4px!important;
+    }
+
+    #secao-permutas .form-etapa-corpo > .campo,
+    #secao-permutas .form-etapa-corpo > .grade-2,
+    #secao-permutas .form-etapa-corpo > .grade-3,
+    #secao-permutas .form-etapa-corpo > .nota-contextual,
+    #secao-permutas .form-etapa-corpo > .confirm-card {
+      margin-bottom:16px!important;
+    }
+
+    #secao-permutas .campo label,
+    #secao-permutas .rotulo {
+      margin-bottom:8px!important;
+      color:#23352a!important;
+      font-size:14px!important;
+      line-height:1.35!important;
+      letter-spacing:0!important;
+    }
+
+    #secao-permutas .ajuda,
+    #secao-permutas .filtro-automatico-nota {
+      font-size:11.5px!important;
+      line-height:1.46!important;
+    }
+
+    #secao-permutas input,
+    #secao-permutas select,
+    #secao-permutas textarea {
+      font-size:16px!important;
+      border-radius:14px!important;
+    }
+
+    #secao-permutas input,
+    #secao-permutas select {
+      min-height:54px!important;
+    }
+
+    #secao-permutas textarea {
+      min-height:112px!important;
+    }
+
+    #secao-permutas .opcao-radio span {
+      min-height:54px!important;
+      padding:14px!important;
+      border-radius:15px!important;
+      font-size:15px!important;
+    }
+
+    #secao-permutas .confirm-card,
+    #secao-permutas .nota-contextual {
+      padding:15px 16px!important;
+      border-radius:16px!important;
+    }
+
+    #secao-permutas .acao-final-form {
+      padding:18px 20px!important;
+      margin-top:2px!important;
+      gap:18px!important;
+    }
+
+    #secao-permutas .acao-final-form .botao {
+      min-height:52px!important;
+      padding-inline:20px!important;
+      font-size:13px!important;
+    }
+
+    @media(min-width:981px) {
+      .checklist-progresso-fixo {
+        top:calc(var(--siga-topbar-sticky) + 12px)!important;
+      }
+
+      #secao-permutas .painel {
+        padding:22px!important;
+      }
+    }
+
+    @media(max-width:620px) {
+      .sidebar {
+        display:flex!important;
+        flex-direction:column!important;
+      }
+
+      .menu-lateral {
+        flex:1 1 auto!important;
+      }
+
+      .sidebar-rodape {
+        margin-top:auto!important;
+        padding:11px 12px 14px!important;
+      }
+
+      .topbar {
+        box-shadow:0 8px 22px rgba(24,39,29,.08)!important;
+      }
+
+      .checklist-progresso-fixo {
+        top:calc(var(--siga-topbar-sticky) + 6px)!important;
+      }
+
+      #secao-permutas .painel {
+        padding:14px!important;
+      }
+
+      #secao-permutas .permuta-cabecalho-card {
+        grid-template-columns:1fr!important;
+        padding:16px!important;
+        gap:12px!important;
+      }
+
+      #secao-permutas .permuta-identidade,
+      #secao-permutas .permuta-seguranca,
+      #secao-permutas .limite-permuta-card {
+        padding:16px!important;
+      }
+
+      #secao-permutas .permuta-identidade strong {
+        font-size:16px!important;
+      }
+
+      #secao-permutas .permuta-identidade span:not(.permuta-avatar),
+      #secao-permutas .permuta-seguranca strong,
+      .limite-permuta-principal small,
+      .limite-permuta-detalhe-item span {
+        font-size:12.5px!important;
+      }
+
+      .limite-permuta-resumo {
+        gap:12px!important;
+      }
+
+      .limite-permuta-numero {
+        width:54px!important;
+        height:54px!important;
+        border-radius:16px!important;
+        font-size:26px!important;
+      }
+
+      .limite-info-botao {
+        width:40px!important;
+        height:40px!important;
+        border-radius:13px!important;
+      }
+
+      .limite-permuta-principal strong {
+        font-size:16px!important;
+      }
+
+      #secao-permutas .fluxo-permuta {
+        gap:16px!important;
+      }
+
+      #secao-permutas .papel-permuta-topo,
+      #secao-permutas .form-etapa-cabecalho {
+        padding:15px 16px!important;
+      }
+
+      #secao-permutas .papel-permuta-topo strong,
+      #secao-permutas .form-etapa-cabecalho strong,
+      #secao-permutas .acao-final-form strong {
+        font-size:16px!important;
+      }
+
+      #secao-permutas .papel-permuta-topo small,
+      #secao-permutas .form-etapa-cabecalho small,
+      #secao-permutas .acao-final-form small {
+        font-size:11.5px!important;
+      }
+
+      #secao-permutas .papel-permuta-opcoes {
+        grid-template-columns:1fr!important;
+        padding:10px 14px 14px!important;
+      }
+
+      #secao-permutas .papel-permuta-opcao span {
+        min-height:72px!important;
+        padding:14px 14px 14px 46px!important;
+        font-size:14.5px!important;
+      }
+
+      #secao-permutas .papel-contexto {
+        margin:0 14px 14px!important;
+      }
+
+      #secao-permutas .form-etapa-corpo {
+        padding:16px 14px 2px!important;
+      }
+
+      #secao-permutas .campo label,
+      #secao-permutas .rotulo {
+        font-size:13px!important;
+      }
+
+      #secao-permutas .ajuda,
+      #secao-permutas .filtro-automatico-nota {
+        font-size:11px!important;
+      }
+
+      #secao-permutas .confirm-card,
+      #secao-permutas .nota-contextual {
+        padding:14px 14px!important;
+      }
+
+      #secao-permutas .acao-final-form {
+        flex-direction:column!important;
+        align-items:stretch!important;
+        padding:16px!important;
+      }
+
+      #secao-permutas .acao-final-form .botao {
+        width:100%!important;
+        justify-content:center!important;
+      }
+    }
+</style>
 </head>
 <body>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -4791,7 +5291,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.7.4
+        SIGA 3ª CIA — Versão 5.7.5
       </footer>
     </section>
   </main>
@@ -4864,7 +5364,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.4</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.5</footer>
     </aside>
 
     <div class="area-principal">
@@ -6221,7 +6721,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.4';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.5';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -7936,9 +8436,17 @@
       if (estado.papelPermuta === 'SUBSTITUTO' && (!estado.substituto || !estado.substituto.id)) {
         estado.requisicoes.limite++;
         box.innerHTML = `
-          <div class="limite-permuta-numero">?</div>
-          <div><strong>Selecione o titular do serviço</strong><small>O saldo mensal será calculado automaticamente para o policial cujo serviço você irá cobrir.</small></div>
-          <div class="limite-meta">Cálculo automático</div>`;
+          <div class="limite-permuta-resumo limite-permuta-resumo-alerta">
+            <div class="limite-permuta-numero">?</div>
+            <div class="limite-permuta-principal">
+              <span class="rotulo-limite-permuta">CÁLCULO AUTOMÁTICO</span>
+              <strong>Selecione o titular do serviço</strong>
+              <small>O saldo mensal será calculado automaticamente para o policial cujo serviço você irá cobrir.</small>
+            </div>
+            <button type="button" class="limite-info-botao" disabled aria-label="Detalhes indisponíveis até selecionar o titular" title="Selecione o titular para ver os detalhes">
+              <span aria-hidden="true">i</span>
+            </button>
+          </div>`;
         return;
       }
 
@@ -7958,19 +8466,62 @@
 
         if (!l.configurado) {
           box.innerHTML = `
-            <div class="limite-permuta-numero">—</div>
-            <div><strong>Limite mensal ainda não calculado</strong><small>${escaparHtml(l.mensagem || 'Grade/calendário não configurado.')}</small></div>
-            <div class="limite-meta">P1 / Comando</div>`;
+            <div class="limite-permuta-resumo limite-permuta-resumo-alerta">
+              <div class="limite-permuta-numero">—</div>
+              <div class="limite-permuta-principal">
+                <span class="rotulo-limite-permuta">LIMITE MENSAL</span>
+                <strong>Limite mensal ainda não calculado</strong>
+                <small>${escaparHtml(l.mensagem || 'Grade/calendário não configurado.')}</small>
+              </div>
+              <button type="button" class="limite-info-botao" disabled aria-label="Detalhes indisponíveis" title="Aguardando configuração">
+                <span aria-hidden="true">i</span>
+              </button>
+            </div>`;
           return;
         }
 
+        const restantes = Number(l.restantes || 0);
+        const utilizadas = Number(l.utilizadas || 0);
+        const limiteNormativo = Number(l.limiteNormativo || 5);
+        const totalServicosMes = Number(l.totalServicosMes || 0);
+        const limite50 = Number(l.limite50 || 0);
+        const saldoPor50 = Number(l.saldoPor50 || 0);
+        const titulo = estado.papelPermuta === 'SUBSTITUTO'
+          ? 'Saldo mensal do titular'
+          : 'Saldo mensal de permutas';
+        const descricao = restantes === 1
+          ? '1 disponível'
+          : `${restantes} disponíveis`;
+
         box.innerHTML = `
-          <div class="limite-permuta-numero">${Number(l.restantes || 0)}</div>
-          <div>
-            <strong>Permutas avulsas restantes neste mês</strong>
-            <small>Foram utilizadas ${Number(l.utilizadas || 0)} de até ${Number(l.limiteNormativo || 5)} solicitações. Sua escala possui ${Number(l.totalServicosMes || 0)} unidade(s) de serviço; 50% = ${Number(l.limite50 || 0)}.</small>
+          <div class="limite-permuta-resumo">
+            <div class="limite-permuta-numero">${restantes}</div>
+            <div class="limite-permuta-principal">
+              <span class="rotulo-limite-permuta">LIMITE MENSAL</span>
+              <strong>${escaparHtml(titulo)}</strong>
+              <small>${escaparHtml(descricao)}</small>
+            </div>
+            <button
+              type="button"
+              class="limite-info-botao"
+              aria-expanded="false"
+              aria-controls="limitePermutaDetalhes"
+              aria-label="Mostrar detalhes do limite mensal"
+              title="Ver detalhes do cálculo"
+              onclick="alternarDetalhesLimitePermuta(this)">
+              <span aria-hidden="true">i</span>
+            </button>
           </div>
-          <div class="limite-meta">Saldo 50%: ${Number(l.saldoPor50 || 0)}<br>AB utiliza 2</div>`;
+          <div id="limitePermutaDetalhes" class="limite-permuta-detalhes" hidden>
+            <div class="limite-permuta-detalhe-item">
+              <strong>Permutas avulsas restantes neste mês</strong>
+              <span>Foram utilizadas ${utilizadas} de até ${limiteNormativo} solicitações. Sua escala possui ${totalServicosMes} unidade(s) de serviço; 50% = ${limite50}.</span>
+            </div>
+            <div class="limite-permuta-detalhe-item">
+              <strong>Regra de consumo</strong>
+              <span>Saldo 50%: ${saldoPor50}. No regime A/B, cada permuta utiliza 2 unidades.</span>
+            </div>
+          </div>`;
       } catch (e) {
         if (requisicao === estado.requisicoes.limite) box.innerHTML = '';
       }
@@ -9951,6 +10502,57 @@
       }
     }
 
-  </script>
+  
+
+    const SIGA_STICKY = (() => {
+      let quadro = 0;
+
+      function medirTopbar() {
+        const topo = document.querySelector('.topbar');
+        const altura = topo ? Math.ceil(topo.getBoundingClientRect().height || topo.offsetHeight || 0) : 0;
+        if (altura > 0) {
+          document.documentElement.style.setProperty('--siga-topbar-sticky', altura + 'px');
+        }
+      }
+
+      function atualizar() {
+        cancelAnimationFrame(quadro);
+        quadro = requestAnimationFrame(medirTopbar);
+      }
+
+      window.addEventListener('resize', atualizar);
+      window.addEventListener('orientationchange', atualizar);
+      window.addEventListener('pageshow', atualizar);
+      window.addEventListener('focus', atualizar);
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', atualizar);
+        window.visualViewport.addEventListener('scroll', atualizar);
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const topo = document.querySelector('.topbar');
+        if (topo && window.ResizeObserver) {
+          new ResizeObserver(atualizar).observe(topo);
+        }
+        atualizar();
+      }, { once:true });
+      atualizar();
+
+      return { atualizar };
+    })();
+
+    function alternarDetalhesLimitePermuta(botao) {
+      if (!botao) return;
+      const alvoId = botao.getAttribute('aria-controls');
+      const painel = alvoId ? document.getElementById(alvoId) : null;
+      if (!painel) return;
+      const expandido = botao.getAttribute('aria-expanded') === 'true';
+      painel.hidden = expandido;
+      botao.setAttribute('aria-expanded', String(!expandido));
+      botao.setAttribute('aria-label', expandido
+        ? 'Mostrar detalhes do limite mensal'
+        : 'Ocultar detalhes do limite mensal');
+      botao.title = expandido ? 'Ver detalhes do cálculo' : 'Ocultar detalhes do cálculo';
+    }
+</script>
 </body>
 </html>
