@@ -3854,7 +3854,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.5 — PADRONIZAÇÃO VISUAL P1
+       SIGA v5.7.6 — PADRONIZAÇÃO VISUAL P1
        Revisão orientada pelos painéis reais de Gestão • P1.
        Desktop mais organizado; mobile continua ocupando 100% da tela.
        ======================================================= */
@@ -4189,7 +4189,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.5 — ÁREA SEGURA REAL NO CELULAR
+       SIGA v5.7.6 — ÁREA SEGURA REAL NO CELULAR
        A interface usa 100% da largura útil, mas nenhum conteúdo
        funcional fica sob a barra de status, recorte ou indicador.
        ======================================================= */
@@ -4250,7 +4250,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.5 — REFINAMENTO MOBILE GESTÃO • P1
+       SIGA v5.7.6 — REFINAMENTO MOBILE GESTÃO • P1
        Baseado na revisão visual das telas reais em iPhone.
        Objetivos: menu lateral mais estreito, densidade consistente,
        títulos/controles equilibrados e melhor aproveitamento vertical.
@@ -4544,7 +4544,7 @@
 
 
     /* =======================================================
-       SIGA v5.7.5 — REVISÃO MOBILE DO USUÁRIO
+       SIGA v5.7.6 — REVISÃO MOBILE DO USUÁRIO
        Ajustes derivados da conferência das telas reais do perfil comum:
        marca lateral restaurada, rodapé corrigido e melhor densidade
        sem reduzir a área útil nem alterar regras de negócio.
@@ -4695,7 +4695,7 @@
   
 
     /* =======================================================
-       SIGA v5.7.5 — CABEÇALHO FIXO, PROGRESSO ACOMPANHÁVEL
+       SIGA v5.7.6 — CABEÇALHO FIXO, PROGRESSO ACOMPANHÁVEL
        e reorganização visual do fluxo de permutas.
        ======================================================= */
     :root {
@@ -5192,6 +5192,108 @@
         justify-content:center!important;
       }
     }
+
+
+    /* =======================================================
+       SIGA v5.7.6 — CABEÇALHO FIXO REAL + STICKY SEM CONTÊINER FALSO
+       Corrige o comportamento do iOS ao rolar e a sobreposição do menu.
+       ======================================================= */
+    :root {
+      --siga-topbar-sticky:72px;
+    }
+
+    /*
+     * overflow-x:hidden em ancestrais transforma o eixo vertical em um
+     * scroll container em WebKit. Isso fazia position:sticky parar de
+     * acompanhar a janela. Mantemos o corte horizontal no documento,
+     * sem criar um contêiner de rolagem intermediário.
+     */
+    html[data-siga-tela="app"],
+    html[data-siga-tela="app"] body {
+      overflow-x:clip!important;
+      overflow-y:visible!important;
+    }
+    .app-shell,
+    .area-principal,
+    .conteudo-app,
+    .secao {
+      overflow:visible!important;
+    }
+
+    /*
+     * O título superior não é mais sticky: é realmente fixo na viewport.
+     * A área principal reserva exatamente sua altura medida em tempo real.
+     */
+    .topbar {
+      position:fixed!important;
+      top:0!important;
+      left:var(--siga-sidebar-prof)!important;
+      right:0!important;
+      width:auto!important;
+      z-index:120!important;
+      background:rgba(255,255,255,.965)!important;
+      -webkit-backdrop-filter:blur(16px)!important;
+      backdrop-filter:blur(16px)!important;
+      box-shadow:0 7px 20px rgba(24,39,29,.055)!important;
+    }
+    .area-principal {
+      padding-top:var(--siga-topbar-sticky)!important;
+    }
+
+    /*
+     * O progresso do Checklist continua sticky, mas agora seu ancestral
+     * não interrompe a aderência. Ele para exatamente abaixo do topbar.
+     */
+    .checklist-progresso-fixo {
+      position:sticky!important;
+      top:calc(var(--siga-topbar-sticky) + 8px)!important;
+      z-index:110!important;
+    }
+
+    @media(min-width:1180px) {
+      .checklist-progresso-fixo {
+        top:calc(var(--siga-topbar-sticky) + 12px)!important;
+      }
+    }
+
+    @media(max-width:980px) {
+      :root {
+        --siga-topbar-sticky:calc(58px + var(--siga-safe-top));
+      }
+      .topbar {
+        left:0!important;
+        right:0!important;
+      }
+      .area-principal {
+        margin-left:0!important;
+        padding-top:var(--siga-topbar-sticky)!important;
+      }
+
+      /* O menu precisa ficar acima do cabeçalho fixo quando estiver aberto. */
+      .sidebar {
+        z-index:210!important;
+      }
+      .overlay-mobile {
+        z-index:200!important;
+      }
+
+      .checklist-progresso-fixo {
+        top:calc(var(--siga-topbar-sticky) + 6px)!important;
+      }
+    }
+
+    @media(max-width:620px) {
+      /* Barra de progresso compacta somente enquanto acompanha a rolagem. */
+      .checklist-progresso-fixo {
+        border-radius:16px!important;
+      }
+      .checklist-progresso-topo {
+        gap:10px!important;
+      }
+      .checklist-progresso-fixo .progresso {
+        margin:7px 0 5px!important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -5291,7 +5393,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.7.5
+        SIGA 3ª CIA — Versão 5.7.6
       </footer>
     </section>
   </main>
@@ -5364,7 +5466,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.5</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.6</footer>
     </aside>
 
     <div class="area-principal">
@@ -6721,7 +6823,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.5';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.7.6';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -10532,6 +10634,14 @@
         const topo = document.querySelector('.topbar');
         if (topo && window.ResizeObserver) {
           new ResizeObserver(atualizar).observe(topo);
+        }
+        if (topo && window.MutationObserver) {
+          new MutationObserver(atualizar).observe(topo, {
+            childList:true,
+            subtree:true,
+            characterData:true,
+            attributes:true
+          });
         }
         atualizar();
       }, { once:true });
