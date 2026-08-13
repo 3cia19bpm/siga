@@ -6390,6 +6390,99 @@
       }
     }
 
+
+
+    /* =======================================================
+       SIGA v5.9.0 — CENTRAL DE NOTIFICAÇÕES, HISTÓRICO,
+       COMPARATIVO DO COMANDO E VALIDAÇÃO PREVENTIVA
+       ======================================================= */
+    .botao-notificacoes {
+      position:relative;
+      width:42px;height:42px;display:grid;place-items:center;
+      border:1px solid #d8dfd5;border-radius:14px;background:#fff;color:#28402f;
+      box-shadow:0 6px 16px rgba(27,49,32,.05);cursor:pointer;
+    }
+    .botao-notificacoes .icone-svg { width:20px;height:20px; }
+    .badge-notificacoes {
+      position:absolute;right:-5px;top:-5px;min-width:20px;height:20px;padding:0 5px;
+      display:grid;place-items:center;border-radius:999px;background:#a97912;color:#fff;
+      border:2px solid #fff;font-size:9px;font-weight:900;line-height:1;
+    }
+    .badge-notificacoes.oculto { display:none!important; }
+    .overlay-notificacoes {
+      position:fixed;inset:0;z-index:128;background:rgba(20,31,23,.28);backdrop-filter:blur(2px);
+    }
+    .painel-notificacoes {
+      position:fixed;z-index:129;top:calc(var(--siga-topbar-sticky) + 10px);right:18px;
+      width:min(410px,calc(100vw - 32px));max-height:calc(100dvh - var(--siga-topbar-sticky) - 28px);
+      display:flex;flex-direction:column;overflow:hidden;border:1px solid #d8dfd5;border-radius:22px;
+      background:#fff;box-shadow:0 28px 70px rgba(20,35,24,.24);
+    }
+    .painel-notificacoes.oculto,.overlay-notificacoes.oculto { display:none!important; }
+    .notificacoes-topo { display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:17px 18px;border-bottom:1px solid #e3e8e0;background:#fbfcfa; }
+    .notificacoes-topo h3 { margin:2px 0 0;font-size:18px;color:#203124; }
+    .notificacoes-acoes { display:flex;align-items:center;gap:8px; }
+    .botao-texto-notificacao { border:0;background:transparent;color:#607250;font-size:10px;font-weight:850;letter-spacing:.08em;cursor:pointer;padding:8px; }
+    .botao-fechar-notificacao { width:34px;height:34px;border:1px solid #d8dfd5;border-radius:11px;background:#fff;font-size:20px;line-height:1;cursor:pointer;color:#34493a; }
+    .lista-notificacoes { overflow:auto;padding:10px;display:grid;gap:8px; }
+    .notificacao-item { width:100%;display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;text-align:left;padding:12px;border:1px solid #dde4da;border-radius:16px;background:#fff;cursor:pointer; }
+    .notificacao-item.nao-lida { background:#f7faf5;border-color:#cdd8c8;box-shadow:inset 4px 0 0 #d4b043; }
+    .notificacao-icone { width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#eef3eb;color:#324b36;font-size:16px;font-weight:900; }
+    .notificacao-item.prioridade-alta .notificacao-icone,.notificacao-item.prioridade-crítica .notificacao-icone { background:#fff2d6;color:#7b580d; }
+    .notificacao-item strong { display:block;color:#203124;font-size:12.5px;line-height:1.32; }
+    .notificacao-item p { margin:4px 0 0;color:#657266;font-size:11px;line-height:1.45; }
+    .notificacao-meta { display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:7px;color:#829083;font-size:9px;font-weight:750;text-transform:uppercase;letter-spacing:.08em; }
+    .notificacoes-vazio { padding:34px 20px;text-align:center;color:#718071;font-size:12px;line-height:1.5; }
+
+    .historico-registro { margin-top:14px;padding:14px;border:1px solid #dce3d9;border-radius:16px;background:#f8faf7; }
+    .historico-registro h4 { margin:0 0 10px;color:#24362a;font-size:13px; }
+    .historico-eventos { display:grid;gap:8px; }
+    .historico-evento { position:relative;padding:10px 11px 10px 30px;border-radius:13px;background:#fff;border:1px solid #e0e5de; }
+    .historico-evento::before { content:'';position:absolute;left:12px;top:15px;width:8px;height:8px;border-radius:50%;background:#6e815d;box-shadow:0 0 0 4px #edf2e9; }
+    .historico-evento strong { display:block;color:#27382b;font-size:11.5px; }
+    .historico-evento p { margin:3px 0 0;color:#687669;font-size:10.5px;line-height:1.42; }
+    .historico-evento small { display:block;margin-top:5px;color:#879287;font-size:9px; }
+
+    .validacao-preventiva { margin:0 0 16px;padding:14px 15px;border:1px solid #dce3d8;border-radius:18px;background:linear-gradient(180deg,#fbfcfa 0%,#f5f8f3 100%); }
+    .validacao-preventiva.oculto { display:none!important; }
+    .validacao-preventiva-topo { display:flex;justify-content:space-between;align-items:flex-start;gap:12px; }
+    .validacao-preventiva-topo h4 { margin:2px 0 0;color:#203124;font-size:14px; }
+    .validacao-preventiva-topo p { margin:5px 0 0;color:#6b796c;font-size:11px;line-height:1.45; }
+    .lista-validacao-preventiva { display:grid;gap:7px;margin-top:11px; }
+    .validacao-item { display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;padding:9px 10px;border-radius:12px;background:#fff;border:1px solid #e1e6de; }
+    .validacao-item .marca { width:24px;height:24px;display:grid;place-items:center;border-radius:8px;background:#eef3eb;color:#36513b;font-weight:900;font-size:11px; }
+    .validacao-item.erro .marca { background:#fde8e5;color:#8a3027; }
+    .validacao-item.aviso .marca { background:#fff3da;color:#7d5c14; }
+    .validacao-item strong { display:block;color:#26372b;font-size:11px; }
+    .validacao-item span { display:block;margin-top:2px;color:#6b786c;font-size:10px;line-height:1.4; }
+
+    .painel-comparativo-comando { margin-top:2px; }
+    .comparativo-topo { display:flex;justify-content:space-between;align-items:flex-start;gap:14px; }
+    .comparativo-periodos { display:flex;gap:6px;flex-wrap:wrap; }
+    .comparativo-periodos button { min-width:46px;height:34px;border:1px solid #d6ded3;border-radius:11px;background:#fff;color:#53634f;font-size:10px;font-weight:850;cursor:pointer; }
+    .comparativo-periodos button.ativo { background:#29462d;color:#fff;border-color:#29462d; }
+    .comparativo-resumo { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-top:14px; }
+    .comparativo-kpi { padding:11px;border:1px solid #dde4da;border-radius:14px;background:#fafbf9; }
+    .comparativo-kpi small { display:block;color:#748174;font-size:8.5px;font-weight:850;letter-spacing:.1em;text-transform:uppercase; }
+    .comparativo-kpi strong { display:block;margin-top:5px;color:#233529;font-size:21px; }
+    .comparativo-grafico { display:grid;grid-template-columns:repeat(var(--comparativo-colunas,7),minmax(20px,1fr));align-items:end;gap:7px;min-height:210px;margin-top:16px;padding:16px 12px 8px;border:1px solid #e1e6de;border-radius:16px;background:linear-gradient(180deg,#fbfcfa,#f6f8f4);overflow-x:auto; }
+    .comparativo-dia { display:grid;grid-template-rows:1fr auto;gap:7px;min-width:30px;height:178px; }
+    .comparativo-barras { display:flex;align-items:flex-end;justify-content:center;gap:2px;height:145px;border-bottom:1px solid #dce3d9; }
+    .comparativo-barra { width:5px;min-height:2px;border-radius:5px 5px 0 0;background:#3e5d42; }
+    .comparativo-barra.checklist { background:#708b62; }
+    .comparativo-barra.perfil { background:#d4b043; }
+    .comparativo-barra.auditoria { background:#9aa79a; }
+    .comparativo-dia small { text-align:center;color:#7b887c;font-size:8px;font-weight:750;white-space:nowrap; }
+    .comparativo-legenda { display:flex;flex-wrap:wrap;gap:8px 15px;margin-top:10px;color:#667467;font-size:9px; }
+    .comparativo-legenda span::before { content:'';display:inline-block;width:8px;height:8px;margin-right:5px;border-radius:3px;background:#3e5d42; }
+    .comparativo-legenda .leg-check::before { background:#708b62; }.comparativo-legenda .leg-perfil::before { background:#d4b043; }.comparativo-legenda .leg-audit::before { background:#9aa79a; }
+
+    @media(max-width:760px) {
+      .painel-notificacoes { top:calc(var(--siga-topbar-sticky) + 6px);right:8px;left:8px;width:auto;max-height:calc(100dvh - var(--siga-topbar-sticky) - 14px);border-radius:20px; }
+      .comparativo-resumo { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .comparativo-grafico { grid-template-columns:repeat(var(--comparativo-colunas,7),38px); }
+    }
+
 </style>
 </head>
 <body>
@@ -6413,6 +6506,7 @@
     <symbol id="icone-seta-direita" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
     <symbol id="icone-seta-esquerda" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
     <symbol id="icone-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="icone-sino" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></symbol>
     <symbol id="icone-olho" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></symbol>
     <symbol id="icone-copiar" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2"/></symbol>
   </svg>
@@ -6489,7 +6583,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.8.0
+        SIGA 3ª CIA — Versão 5.9.0
       </footer>
     </section>
   </main>
@@ -6562,7 +6656,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.8.0</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0</footer>
     </aside>
 
     <div class="area-principal">
@@ -6575,9 +6669,19 @@
           </div>
         </div>
         <div class="topbar-acoes">
+          <button id="botaoNotificacoes" class="botao-notificacoes" type="button" aria-label="Abrir notificações" aria-expanded="false" onclick="alternarPainelNotificacoes()"><svg class="icone-svg" aria-hidden="true"><use href="#icone-sino"></use></svg><span id="badgeNotificacoes" class="badge-notificacoes oculto">0</span></button>
           <span id="perfilTopo" class="status CONFIRMADO">USUÁRIO</span>
         </div>
       </header>
+
+      <div id="overlayNotificacoes" class="overlay-notificacoes oculto" onclick="fecharPainelNotificacoes()"></div>
+      <aside id="painelNotificacoes" class="painel-notificacoes oculto" aria-hidden="true" aria-label="Central de notificações">
+        <div class="notificacoes-topo">
+          <div><span class="rotulo-suave">CENTRAL PESSOAL</span><h3>Notificações</h3></div>
+          <div class="notificacoes-acoes"><button class="botao-texto-notificacao" type="button" onclick="marcarTodasNotificacoesLidasCliente()">MARCAR LIDAS</button><button class="botao-fechar-notificacao" type="button" aria-label="Fechar notificações" onclick="fecharPainelNotificacoes()">×</button></div>
+        </div>
+        <div id="listaNotificacoes" class="lista-notificacoes"><div class="notificacoes-vazio">Carregando notificações...</div></div>
+      </aside>
 
       <div class="conteudo-app">
         <div id="mensagemInterna" class="mensagem" role="status" aria-live="polite"></div>
@@ -6709,6 +6813,8 @@
 
             <div id="conteudoChecklistVeiculo"></div>
 
+            <div id="validacaoPreventivaChecklist" class="validacao-preventiva oculto" aria-live="polite"></div>
+
             <div class="checklist-navegacao">
               <button id="botaoAnteriorChecklist" class="botao botao-secundario" type="button">VOLTAR</button>
               <button id="botaoProximaChecklist" class="botao" type="button">PRÓXIMA ETAPA</button>
@@ -6775,6 +6881,7 @@
                 </div>
               </section>
               <div id="conteudoPermutaDinamica"></div>
+              <div id="validacaoPreventivaPermuta" class="validacao-preventiva oculto" aria-live="polite"></div>
               <div class="acao-final-form">
                 <div>
                   <strong>Revise antes de enviar</strong>
@@ -6810,6 +6917,7 @@
                   <button class="modal-permuta-fechar" type="button" aria-label="Fechar detalhes" onclick="fecharDetalheMinhaPermuta()">×</button>
                 </div>
                 <div id="detalhesMinhaPermuta" class="detalhes-permuta-admin detalhes-minha-permuta"></div>
+                <div id="historicoMinhaPermuta" class="historico-registro"><h4>Histórico do registro</h4><div class="historico-eventos"><div class="vazio compacto">Carregando histórico...</div></div></div>
               </div>
             </div>
           </div>
@@ -6965,6 +7073,7 @@
             </div>
 
             <div id="statusSolicitacaoPerfil" class="status-solicitacao-perfil" aria-live="polite"></div>
+            <div id="historicoPerfilUsuario" class="historico-registro oculto"><h4>Histórico da solicitação</h4><div class="historico-eventos"></div></div>
             <button id="botaoSolicitarPerfil" class="botao" type="submit">SOLICITAR ALTERAÇÕES</button>
           </form>
 
@@ -7000,6 +7109,14 @@
               <span id="statusCentralPendenciasAdmin" class="status-siga neutro">Carregando</span>
             </div>
             <div id="listaCentralPendenciasAdmin" class="central-pendencias-lista"></div>
+          </div>
+
+          <div id="comparativoComando" class="painel painel-comparativo-comando oculto">
+            <div class="comparativo-topo">
+              <div><span class="rotulo-suave">ANÁLISE POR PERÍODO</span><h3>Movimentação operacional</h3><p>Comparativo de permutas, checklists, solicitações cadastrais e eventos de auditoria.</p></div>
+              <div class="comparativo-periodos"><button type="button" data-dias="7" class="ativo" onclick="carregarComparativoComando(7)">7 DIAS</button><button type="button" data-dias="14" onclick="carregarComparativoComando(14)">14 DIAS</button><button type="button" data-dias="30" onclick="carregarComparativoComando(30)">30 DIAS</button></div>
+            </div>
+            <div id="conteudoComparativoComando"><div class="vazio compacto">Carregando comparativo...</div></div>
           </div>
 
           <div class="painel">
@@ -7855,7 +7972,14 @@
       chaveCreditoBancoHoras: '',
       chaveBaixaBancoHoras: '',
       permutaAdminAberta: null,
-      etapaChecklistAtual: 0
+      etapaChecklistAtual: 0,
+      notificacoes: [],
+      notificacoesNaoLidas: 0,
+      timerNotificacoes: null,
+      comparativoDias: 7,
+      confirmacaoAlertasChecklist: false,
+      timerValidacaoPermuta: null,
+      seqValidacaoPermuta: 0
     };
 
     const $ = id => document.getElementById(id);
@@ -8593,6 +8717,8 @@
         seletorSetorAdmin.value = 'P1_PESSOAL';
       }
       preencherPerfil();
+      carregarNotificacoes(true);
+      if (!estado.timerNotificacoes) estado.timerNotificacoes=window.setInterval(function(){carregarNotificacoes(true);},90000);
 
       if ($('saudacaoInicio')) {
         $('saudacaoInicio').textContent =
@@ -8606,6 +8732,132 @@
         if (temPermissaoAdmin('ALERTAS_P4')) window.setTimeout(carregarResumoAlertasP4, 120);
         if (temPermissaoAdmin('POLICIAIS')) window.setTimeout(() => carregarSolicitacoesPerfilP1(true), 180);
       }
+    }
+
+
+    function iconeCategoriaNotificacao(categoria) {
+      const c=String(categoria||'').toUpperCase();
+      if (c.indexOf('ALERTA')>=0) return '!';
+      if (c.indexOf('PERMUTA')>=0) return '↔';
+      if (c.indexOf('CHECKLIST')>=0) return '✓';
+      if (c.indexOf('PERFIL')>=0) return '○';
+      if (c.indexOf('PEND')>=0) return '•';
+      return 'i';
+    }
+
+    function renderizarNotificacoes() {
+      const area=$('listaNotificacoes'); const badge=$('badgeNotificacoes');
+      if (!area || !badge) return;
+      const lista=estado.notificacoes||[];
+      const naoLidas=Number(estado.notificacoesNaoLidas||0);
+      badge.textContent=naoLidas>99?'99+':String(naoLidas);
+      badge.classList.toggle('oculto',naoLidas<=0);
+      $('botaoNotificacoes')?.setAttribute('aria-label',naoLidas?`Abrir notificações. ${naoLidas} não lidas`:'Abrir notificações');
+      area.innerHTML=lista.length?lista.map(function(n){
+        const lida=String(n.status||'').toUpperCase()==='LIDA';
+        const prioridade=String(n.prioridade||'NORMAL').toLowerCase().replace(/[áàãâ]/g,'a').replace(/[íìî]/g,'i');
+        return `<button type="button" class="notificacao-item ${lida?'':'nao-lida'} prioridade-${escaparAtributo(prioridade)}" onclick="abrirNotificacaoCliente('${escaparAtributo(n.id)}')">
+          <span class="notificacao-icone">${escaparHtml(iconeCategoriaNotificacao(n.categoria))}</span>
+          <span><strong>${escaparHtml(n.titulo||'Notificação')}</strong><p>${escaparHtml(n.mensagem||'')}</p><span class="notificacao-meta"><span>${escaparHtml(n.categoria||'SIGA')}</span><span>${escaparHtml(n.criadaEm||'')}</span>${lida?'<span>Lida</span>':'<span>Nova</span>'}</span></span>
+        </button>`;
+      }).join(''):'<div class="notificacoes-vazio"><strong>Nenhuma notificação.</strong><br>Decisões, alertas e movimentações importantes aparecerão aqui.</div>';
+    }
+
+    async function carregarNotificacoes(silencioso) {
+      if (!estado.token || !estado.usuario) return;
+      try {
+        const r=await api('listarNotificacoes',estado.token,50);
+        estado.notificacoes=r.notificacoes||[];
+        estado.notificacoesNaoLidas=Number(r.naoLidas||0);
+        renderizarNotificacoes();
+      } catch(erro) { if(!silencioso) tratarErro(erro,$('mensagemInterna')); }
+    }
+
+    function abrirPainelNotificacoes() {
+      $('painelNotificacoes').classList.remove('oculto');
+      $('overlayNotificacoes').classList.remove('oculto');
+      $('painelNotificacoes').setAttribute('aria-hidden','false');
+      $('botaoNotificacoes').setAttribute('aria-expanded','true');
+      carregarNotificacoes(true);
+    }
+    function fecharPainelNotificacoes() {
+      $('painelNotificacoes').classList.add('oculto');
+      $('overlayNotificacoes').classList.add('oculto');
+      $('painelNotificacoes').setAttribute('aria-hidden','true');
+      $('botaoNotificacoes').setAttribute('aria-expanded','false');
+    }
+    function alternarPainelNotificacoes() {
+      if ($('painelNotificacoes').classList.contains('oculto')) abrirPainelNotificacoes(); else fecharPainelNotificacoes();
+    }
+    async function abrirNotificacaoCliente(id) {
+      const item=(estado.notificacoes||[]).find(function(n){return String(n.id)===String(id);});
+      if(!item) return;
+      if(String(item.status||'').toUpperCase()!=='LIDA') {
+        try { await api('marcarNotificacaoLida',estado.token,id); } catch(e) {}
+        item.status='LIDA'; estado.notificacoesNaoLidas=Math.max(0,Number(estado.notificacoesNaoLidas||0)-1); renderizarNotificacoes();
+      }
+      fecharPainelNotificacoes();
+      if(item.rota) navegar(item.rota);
+    }
+    async function marcarTodasNotificacoesLidasCliente() {
+      try { await api('marcarTodasNotificacoesLidas',estado.token); estado.notificacoes.forEach(function(n){n.status='LIDA';}); estado.notificacoesNaoLidas=0; renderizarNotificacoes(); }
+      catch(erro){tratarErro(erro,$('mensagemInterna'));}
+    }
+
+    function renderizarHistoricoRegistro(eventos, alvoId) {
+      const alvo=$(alvoId); if(!alvo) return;
+      const lista=Array.isArray(eventos)?eventos:[];
+      alvo.classList.remove('oculto');
+      const area=alvo.querySelector('.historico-eventos')||alvo;
+      area.innerHTML=lista.length?lista.map(function(e){return `<article class="historico-evento"><strong>${escaparHtml(e.acao||'Evento')}</strong>${e.detalhes?'<p>'+escaparHtml(e.detalhes)+'</p>':''}<small>${escaparHtml(e.dataHora||'')} ${e.responsavel?'• '+escaparHtml(e.responsavel):''} ${e.status?'• '+escaparHtml(e.status):''}</small></article>`;}).join(''):'<div class="vazio compacto">Nenhum evento adicional registrado para este item.</div>';
+    }
+    async function carregarHistoricoRegistroCliente(tipo,id,alvoId) {
+      if(!id) return;
+      try { const r=await api('obterHistoricoRegistro',estado.token,tipo,id); renderizarHistoricoRegistro(r.eventos||[],alvoId); }
+      catch(e){ const alvo=$(alvoId); if(alvo){alvo.classList.remove('oculto'); const area=alvo.querySelector('.historico-eventos')||alvo; area.innerHTML='<div class="vazio compacto">Histórico indisponível neste momento.</div>';}}
+    }
+
+    function htmlValidacaoPreventiva(r, tipo) {
+      const erros=(r&&r.erros)||[]; const avisos=(r&&r.avisos)||[]; const verificacoes=(r&&r.verificacoes)||[]; const alertas=(r&&r.alertas)||[];
+      const lista=tipo==='CHECKLIST'?alertas:erros.concat(avisos,verificacoes);
+      const titulo=tipo==='CHECKLIST'?'Conferência operacional preventiva':'Validação preventiva da solicitação';
+      const subtitulo=tipo==='CHECKLIST'?'O SIGA destaca condições que merecem ciência antes do envio. O registro continua necessário para rastreabilidade.':'Conflitos, limite e vínculo dos policiais são verificados antes da gravação.';
+      const itens=lista.length?lista.map(function(x){
+        const nivel=String(x.nivel||x.gravidade||'INFO').toUpperCase(); const cls=nivel==='ERRO'||nivel==='CRÍTICA'?'erro':(nivel==='ALTA'||nivel==='MÉDIA'||nivel==='AVISO'?'aviso':'');
+        return `<div class="validacao-item ${cls}"><span class="marca">${cls==='erro'?'!':(cls==='aviso'?'△':'✓')}</span><span><strong>${escaparHtml(x.titulo||nivel)}</strong><span>${escaparHtml(x.mensagem||'')}</span></span></div>`;
+      }).join(''):'<div class="validacao-item"><span class="marca">✓</span><span><strong>Nenhuma inconsistência preventiva identificada</strong><span>Os dados podem seguir para a próxima etapa de validação.</span></span></div>';
+      const confirmar=tipo==='CHECKLIST'&&alertas.length&&!estado.confirmacaoAlertasChecklist?'<button class="botao botao-secundario" type="button" onclick="confirmarAlertasChecklist()">CONFIRMO A CIÊNCIA DOS ALERTAS</button>':'';
+      return `<div class="validacao-preventiva-topo"><div><span class="rotulo-suave">VALIDAÇÃO ANTES DE GRAVAR</span><h4>${titulo}</h4><p>${subtitulo}</p></div>${confirmar}</div><div class="lista-validacao-preventiva">${itens}</div>`;
+    }
+    function confirmarAlertasChecklist(){ estado.confirmacaoAlertasChecklist=true; const p=$('validacaoPreventivaChecklist'); if(p){const bot=p.querySelector('.validacao-preventiva-topo .botao');if(bot)bot.remove();} toast('Ciência registrada para este envio. Revise e envie novamente o checklist.'); }
+
+    async function executarValidacaoPreventivaPermuta(forcarExibicao) {
+      const conteudo=$('conteudoPermutaDinamica'); const painel=$('validacaoPreventivaPermuta');
+      if(!conteudo||!painel||!estado.token) return null;
+      const respostas=respostasAtuaisFormulario(conteudo); respostas.substitutoId=estado.substituto?estado.substituto.id:''; respostas.papelSolicitacao=estado.papelPermuta||'TITULAR';
+      const temContexto=Boolean(respostas.tipo||respostas.dataServico||respostas.substitutoId);
+      if(!temContexto&&!forcarExibicao){painel.classList.add('oculto');return null;}
+      const seq=++estado.seqValidacaoPermuta;
+      try { const r=await api('validarPermutaPreventiva',estado.token,{respostas}); if(seq!==estado.seqValidacaoPermuta)return null; painel.innerHTML=htmlValidacaoPreventiva(r,'PERMUTA');painel.classList.remove('oculto');return r; }
+      catch(e){if(forcarExibicao) tratarErro(e,$('mensagemInterna'));return null;}
+    }
+    function agendarValidacaoPreventivaPermuta(){window.clearTimeout(estado.timerValidacaoPermuta);estado.timerValidacaoPermuta=window.setTimeout(function(){executarValidacaoPreventivaPermuta(false);},650);}
+
+    function renderizarComparativoComando(r) {
+      const area=$('conteudoComparativoComando'); if(!area) return;
+      const serie=r.serie||[]; const totais=r.totais||{}; const max=Math.max(1,...serie.map(function(x){return Math.max(x.permutas||0,x.checklists||0,x.perfil||0,x.auditoria||0);}));
+      area.innerHTML=`<div class="comparativo-resumo"><div class="comparativo-kpi"><small>Permutas</small><strong>${Number(totais.permutas||0)}</strong></div><div class="comparativo-kpi"><small>Checklists</small><strong>${Number(totais.checklists||0)}</strong></div><div class="comparativo-kpi"><small>Solicitações perfil</small><strong>${Number(totais.perfil||0)}</strong></div><div class="comparativo-kpi"><small>Auditoria</small><strong>${Number(totais.auditoria||0)}</strong></div><div class="comparativo-kpi"><small>Média diária</small><strong>${Number(r.mediaDiaria||0)}</strong></div></div>
+      <div class="comparativo-grafico" style="--comparativo-colunas:${Math.max(7,serie.length)}">${serie.map(function(x){const label=String(x.data||'').slice(5).split('-').reverse().join('/'); const h=function(v){return Math.max(2,Math.round((Number(v||0)/max)*135));}; return `<div class="comparativo-dia" title="${escaparAtributo(x.data)} • Total ${Number(x.total||0)}"><div class="comparativo-barras"><span class="comparativo-barra" style="height:${h(x.permutas)}px" title="Permutas: ${x.permutas}"></span><span class="comparativo-barra checklist" style="height:${h(x.checklists)}px" title="Checklists: ${x.checklists}"></span><span class="comparativo-barra perfil" style="height:${h(x.perfil)}px" title="Perfil: ${x.perfil}"></span><span class="comparativo-barra auditoria" style="height:${h(x.auditoria)}px" title="Auditoria: ${x.auditoria}"></span></div><small>${label}</small></div>`;}).join('')}</div>
+      <div class="comparativo-legenda"><span>Permutas</span><span class="leg-check">Checklists</span><span class="leg-perfil">Solicitações cadastrais</span><span class="leg-audit">Auditoria</span><strong>Variação entre metades do período: ${Number(r.variacao||0)>0?'+':''}${Number(r.variacao||0)}%</strong></div>`;
+    }
+    async function carregarComparativoComando(dias) {
+      if(!ehComandoAdminCliente(estado.usuario&&estado.usuario.setorAdmin)) return;
+      estado.comparativoDias=Number(dias||7);
+      $('comparativoComando')?.classList.remove('oculto');
+      document.querySelectorAll('.comparativo-periodos button').forEach(function(b){b.classList.toggle('ativo',Number(b.dataset.dias)===estado.comparativoDias);});
+      const area=$('conteudoComparativoComando'); if(area) area.innerHTML='<div class="vazio compacto">Atualizando comparativo...</div>';
+      try { const r=await api('adminComparativoOperacional',estado.token,estado.comparativoDias); renderizarComparativoComando(r); }
+      catch(e){ if(area) area.innerHTML='<div class="vazio compacto">Comparativo temporariamente indisponível.</div>'; }
     }
 
     function navegar(secao) {
@@ -8677,6 +8929,8 @@
       limparSessaoLocal();
       estado.token = '';
       estado.usuario = null;
+      if (estado.timerNotificacoes) { window.clearInterval(estado.timerNotificacoes); estado.timerNotificacoes=null; }
+      estado.notificacoes=[]; estado.notificacoesNaoLidas=0; renderizarNotificacoes(); fecharPainelNotificacoes();
       try { if (token) await api('encerrarSessao', token); } catch (erro) {}
       voltarParaAcesso();
     }
@@ -9454,6 +9708,8 @@
         ${item.status === 'PENDENTE' && item.podeCancelar ? `<button class="botao botao-perigo botao-largo" type="button" onclick="cancelarPermutaUsuario('${escaparAtributo(item.id)}')">CANCELAR SOLICITAÇÃO</button>` : ''}`;
       $('modalMinhaPermuta').classList.remove('oculto');
       document.body.style.overflow='hidden';
+      const hist=$('historicoMinhaPermuta'); if(hist){hist.classList.remove('oculto'); const area=hist.querySelector('.historico-eventos'); if(area) area.innerHTML='<div class="vazio compacto">Carregando histórico...</div>'; }
+      carregarHistoricoRegistroCliente('PERMUTA',item.id,'historicoMinhaPermuta');
     }
 
     function fecharDetalheMinhaPermuta() {
@@ -10119,6 +10375,8 @@
           }
         }
         renderizarStatusSolicitacaoPerfil();
+        if (estado.solicitacaoPerfil && estado.solicitacaoPerfil.id) carregarHistoricoRegistroCliente('PERFIL',estado.solicitacaoPerfil.id,'historicoPerfilUsuario');
+        else $('historicoPerfilUsuario')?.classList.add('oculto');
       } catch (erro) {
         if (!silencioso) tratarErro(erro, $('mensagemInterna'));
       }
@@ -10746,6 +11004,7 @@
         if (!$('modalPermutaAdmin').classList.contains('oculto')) fecharDetalhePermutaAdmin();
         if (!$('modalMinhaPermuta').classList.contains('oculto')) fecharDetalheMinhaPermuta();
         if (!$('modalBaixaBancoHoras').classList.contains('oculto')) fecharBaixaBancoHoras();
+        if (!$('painelNotificacoes').classList.contains('oculto')) fecharPainelNotificacoes();
       });
 
       $('formSetorAdmin').addEventListener('submit', async e => {
@@ -10821,17 +11080,30 @@
           return;
         }
 
-        mostrarCarregando('Preparando checklist...');
+        mostrarCarregando('Validando checklist...');
         try {
           const dados = coletarDadosChecklist();
+          const preventiva = await api('validarChecklistPreventivo', estado.token, dados);
+          const painelPrev = $('validacaoPreventivaChecklist');
+          if (painelPrev) { painelPrev.innerHTML=htmlValidacaoPreventiva(preventiva,'CHECKLIST'); painelPrev.classList.remove('oculto'); }
+          if ((preventiva.alertas||[]).length && !estado.confirmacaoAlertasChecklist) {
+            ocultarCarregando();
+            toast('O SIGA identificou condições que merecem sua ciência antes do envio.','aviso');
+            painelPrev?.scrollIntoView({behavior:'smooth',block:'center'});
+            return;
+          }
+          $('textoCarregando').textContent = 'Preparando anexos...';
           dados.fotos = await enviarFotosChecklist();
           $('textoCarregando').textContent = 'Registrando checklist...';
 
           const resposta = await api('salvarChecklist', estado.token, dados);
           ocultarCarregando();
           toast(resposta.mensagem + ' Protocolo: ' + resposta.protocolo);
+          carregarNotificacoes(true);
 
           e.target.reset();
+          estado.confirmacaoAlertasChecklist=false;
+          $('validacaoPreventivaChecklist')?.classList.add('oculto');
           renderizarChecklistVeicular();
           renderizarHistoricoChecklist((resposta.resultado && resposta.resultado.historico) || []);
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -10858,22 +11130,37 @@
           return;
         }
 
-        mostrarCarregando('Enviando solicitação...');
+        mostrarCarregando('Validando solicitação...');
         try {
           const respostas = respostasAtuaisFormulario($('conteudoPermutaDinamica'));
           respostas.substitutoId = estado.substituto ? estado.substituto.id : '';
+          respostas.papelSolicitacao = estado.papelPermuta || 'TITULAR';
+          const preventiva = await api('validarPermutaPreventiva', estado.token, { respostas });
+          const painelPrev = $('validacaoPreventivaPermuta');
+          if (painelPrev) { painelPrev.innerHTML=htmlValidacaoPreventiva(preventiva,'PERMUTA'); painelPrev.classList.remove('oculto'); }
+          if (!preventiva.valido) {
+            ocultarCarregando();
+            toast('Revise as inconsistências indicadas antes de registrar a permuta.','aviso');
+            painelPrev?.scrollIntoView({behavior:'smooth',block:'center'});
+            return;
+          }
+          $('textoCarregando').textContent='Registrando solicitação...';
           const resposta = await api('criarPermuta', estado.token, { respostas });
           ocultarCarregando();
           toast(resposta.mensagem);
+          carregarNotificacoes(true);
           estado.minhasPermutas = resposta.permutas || [];
           invalidarCalendarioLocal();
           e.target.reset();
           removerSubstituto();
+          $('validacaoPreventivaPermuta')?.classList.add('oculto');
           renderizarPermutaDinamica();
           alternarPermutasUsuario('minhas');
           renderizarMinhasPermutas();
         } catch (erro) { tratarErro(erro); }
       });
+      $('formPermuta').addEventListener('change',agendarValidacaoPreventivaPermuta);
+
 
       $('formPerfil').addEventListener('submit', async e => {
         e.preventDefault();
@@ -10886,6 +11173,8 @@
           });
           estado.solicitacaoPerfil = resposta.solicitacao || null;
           renderizarStatusSolicitacaoPerfil();
+          if (estado.solicitacaoPerfil && estado.solicitacaoPerfil.id) carregarHistoricoRegistroCliente('PERFIL',estado.solicitacaoPerfil.id,'historicoPerfilUsuario');
+          carregarNotificacoes(true);
           ocultarCarregando();
           toast(resposta.mensagem);
         } catch (erro) { tratarErro(erro); }
@@ -11378,6 +11667,7 @@
           : `<div class="dashboard-card"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span></div>`).join('');
         renderizarCentralPendenciasAdmin(i);
         renderizarAuditoriaDashboardAdmin(auditoria.registros || []);
+        if (comando) carregarComparativoComando(estado.comparativoDias||7); else $('comparativoComando')?.classList.add('oculto');
       } catch(e) {
         tratarErro(e,$('mensagemInterna'));
       } finally {
