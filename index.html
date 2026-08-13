@@ -6484,269 +6484,564 @@
     }
 
 
+
     /* =======================================================
-       SIGA v5.9.1 — IDENTIFICAÇÃO FUNCIONAL + UX DE PERMUTAS
-       Padrão único: POSTO NUMERAL NOME - M.F.: 000.000-0-X
+       SIGA v5.9.0 — AUDITORIA VISUAL: PESQUISA DE POLICIAIS
+       E REORGANIZAÇÃO PROFISSIONAL DA GUIA DE PERMUTAS
        ======================================================= */
+    .resultado-pessoa.resultado-policial-padronizado,
+    .resultado-pesquisa.resultado-policial-padronizado,
+    .pesquisa-resultados .resultado-pesquisa,
+    .pesquisa-resultados .resultado-pessoa {
+      width:100%;
+      min-height:58px;
+      padding:12px 14px;
+      border:1px solid #d6dfd3;
+      border-radius:14px;
+      background:#fff;
+      color:#203126;
+      text-align:left;
+      box-shadow:0 3px 10px rgba(24,42,29,.035);
+    }
+    .pesquisa-resultados .resultado-pesquisa + .resultado-pesquisa,
+    .pesquisa-resultados .resultado-pessoa + .resultado-pessoa { margin-top:7px; }
+    .resultado-policial-padronizado strong,
+    .pesquisa-resultados .resultado-pesquisa strong {
+      display:block;
+      color:#1f3225;
+      font-size:13px;
+      line-height:1.35;
+      font-weight:850;
+      overflow-wrap:anywhere;
+    }
+    .resultado-policial-padronizado span,
+    .pesquisa-resultados .resultado-pesquisa span {
+      display:block;
+      margin-top:4px;
+      color:#748177;
+      font-size:10.5px;
+      line-height:1.35;
+    }
+    .resultado-policial-padronizado:hover,
+    .resultado-policial-padronizado:focus-visible,
+    .pesquisa-resultados .resultado-pesquisa:hover,
+    .pesquisa-resultados .resultado-pesquisa:focus-visible {
+      border-color:#aebda9;
+      background:#f8faf7;
+      box-shadow:0 8px 18px rgba(27,49,32,.07);
+    }
 
-    .resultado-policial-padronizado strong {
-      display:block!important;
-      color:#203124!important;
-      font-size:12.5px!important;
+
+    #resultadosPoliciaisP1 {
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:8px!important;
+    }
+    .resultado-policial-compacto {
+      min-height:58px!important;
+      padding:11px 12px!important;
+      border-radius:14px!important;
+      border-color:#d7dfd4!important;
+      background:#fff!important;
+      box-shadow:0 3px 10px rgba(24,42,29,.035)!important;
+    }
+    .resultado-policial-compacto strong {
+      font-size:11.5px!important;
       line-height:1.35!important;
-      font-weight:850!important;
-      overflow-wrap:anywhere!important;
     }
-    .resultado-policial-padronizado span {
-      display:block!important;
-      margin-top:4px!important;
-      color:#748076!important;
-      font-size:9.5px!important;
-      line-height:1.3!important;
+    #policialSelecionadoBancoHoras,
+    #substitutoSelecionado.pessoa-selecionada {
+      border:1px solid #afc9a8!important;
+      background:linear-gradient(180deg,#f7fbf5 0%,#eef6ec 100%)!important;
+      box-shadow:inset 4px 0 0 #d4b043,0 8px 20px rgba(31,53,35,.055)!important;
+      border-radius:16px!important;
     }
+    #policialSelecionadoBancoHoras strong,
+    #substitutoSelecionado .substituto-dados strong {
+      color:#1d3023!important;
+      font-size:14px!important;
+      line-height:1.35!important;
+      overflow-wrap:anywhere;
+    }
+    #policialSelecionadoBancoHoras span,
+    #substitutoSelecionado .substituto-dados span {
+      color:#718075!important;
+      font-size:10.5px!important;
+    }
+    #selecionadoGuardaPolicial,
+    #selecionadoSubstitutoGuarda {
+      display:block;
+      margin-top:8px;
+      padding:10px 12px;
+      border:1px solid #d7dfd4;
+      border-radius:12px;
+      background:#f5f7f3;
+      color:#26372b!important;
+      font-size:11.5px!important;
+      font-weight:800;
+      line-height:1.35;
+      overflow-wrap:anywhere;
+    }
+    #selecionadoGuardaPolicial:empty,
+    #selecionadoSubstitutoGuarda:empty { display:none; }
 
-    #secao-permutas {
-      --permuta-borda:#d9e1d7;
-      --permuta-fundo:#f6f8f4;
-      --permuta-texto:#203124;
-      --permuta-suave:#68766b;
+    #secao-permutas .cabecalho-secao {
+      margin-bottom:16px!important;
     }
-    #secao-permutas #painelNovaPermuta {
-      width:min(100%,920px);
-      margin-inline:auto;
+    #secao-permutas .cabecalho-secao p {
+      max-width:720px;
     }
     #secao-permutas .subnavegacao {
-      display:grid!important;
-      grid-template-columns:repeat(2,minmax(0,1fr))!important;
-      gap:4px!important;
+      position:relative;
+      max-width:520px;
+      margin-bottom:16px!important;
       padding:4px!important;
-      margin-bottom:14px!important;
-      border:1px solid #dde4da!important;
-      border-radius:14px!important;
-      background:#eef2ec!important;
+      gap:4px!important;
+      border:1px solid #d8dfd5!important;
+      border-radius:16px!important;
+      background:#f4f6f2!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.9)!important;
     }
     #secao-permutas .subaba {
-      min-height:42px!important;
-      padding:8px 12px!important;
+      min-height:44px!important;
+      border-radius:12px!important;
       border:0!important;
-      border-radius:10px!important;
       background:transparent!important;
-      color:#617062!important;
-      font-size:10.5px!important;
-      font-weight:850!important;
-      letter-spacing:.07em!important;
+      color:#6e7a70!important;
+      font-size:11px!important;
+      font-weight:900!important;
+      letter-spacing:.08em!important;
       box-shadow:none!important;
     }
     #secao-permutas .subaba.ativa {
-      background:#fff!important;
-      color:#29412f!important;
-      box-shadow:0 3px 10px rgba(27,49,32,.07)!important;
+      background:linear-gradient(135deg,#36553a 0%,#173d25 100%)!important;
+      color:#fff!important;
+      box-shadow:0 7px 15px rgba(20,53,31,.15)!important;
     }
 
-    #secao-permutas .permuta-cabecalho-card {
-      display:grid!important;
-      grid-template-columns:minmax(0,1fr) auto!important;
-      gap:10px!important;
-      padding:0!important;
-      margin-bottom:12px!important;
-      border:0!important;
-      border-radius:0!important;
-      background:transparent!important;
-      box-shadow:none!important;
+    .permuta-fluxo-mapa {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      margin:0 0 14px;
     }
-    #secao-permutas .permuta-identidade,
-    #secao-permutas .permuta-seguranca {
-      min-height:72px!important;
-      padding:12px 14px!important;
-      border:1px solid var(--permuta-borda)!important;
-      border-radius:16px!important;
-      background:#fff!important;
-      box-shadow:0 5px 16px rgba(27,49,32,.045)!important;
+    .permuta-fluxo-passo {
+      min-width:0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid #dde4da;
+      border-radius:14px;
+      background:rgba(255,255,255,.82);
     }
-    #secao-permutas .permuta-avatar {
-      width:42px!important;
-      height:42px!important;
-      flex-basis:42px!important;
-      border-radius:12px!important;
+    .permuta-fluxo-passo > span {
+      width:30px;height:30px;flex:0 0 30px;
+      display:grid;place-items:center;
+      border-radius:10px;
+      background:#e8eee4;
+      color:#3f5537;
+      font-size:11px;
+      font-weight:950;
     }
-    #secao-permutas .permuta-identidade small,
-    #secao-permutas .permuta-seguranca small {
-      font-size:8.5px!important;
-      letter-spacing:.09em!important;
+    .permuta-fluxo-passo strong {
+      display:block;
+      color:#26382b;
+      font-size:11.5px;
+      line-height:1.2;
     }
-    #secao-permutas .permuta-identidade strong {
-      margin:3px 0 2px!important;
-      font-size:13.5px!important;
-      line-height:1.32!important;
+    .permuta-fluxo-passo small {
+      display:block;
+      margin-top:2px;
+      color:#7a867d;
+      font-size:8.5px;
+      line-height:1.25;
     }
-    #secao-permutas .permuta-identidade span:not(.permuta-avatar) {
-      font-size:10.5px!important;
-      line-height:1.35!important;
-    }
-    #secao-permutas .permuta-seguranca {
-      max-width:280px!important;
-      gap:9px!important;
-      background:#f8faf7!important;
-    }
-    #secao-permutas .permuta-seguranca > span {
-      width:32px!important;
-      height:32px!important;
-      border-radius:10px!important;
-    }
-    #secao-permutas .permuta-seguranca strong { font-size:10.5px!important; }
 
+    .permuta-resumo-inicial {
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(310px,.85fr);
+      gap:12px;
+      align-items:stretch;
+      margin-bottom:16px;
+    }
+    #secao-permutas .permuta-cabecalho-card,
     #secao-permutas .limite-permuta-card {
-      margin:0 0 12px!important;
-      padding:12px 14px!important;
-      border-radius:16px!important;
-      box-shadow:none!important;
+      margin:0!important;
+      min-height:100%;
+      border:1px solid #d9e0d6!important;
+      background:#fff!important;
+      box-shadow:0 10px 24px rgba(28,47,32,.05)!important;
     }
-    #secao-permutas .limite-permuta-resumo { gap:10px!important; }
-    #secao-permutas .limite-permuta-numero {
-      width:46px!important;height:46px!important;border-radius:13px!important;font-size:21px!important;
+    #secao-permutas .permuta-cabecalho-card {
+      grid-template-columns:1fr!important;
+      gap:10px!important;
+      padding:16px!important;
     }
-    #secao-permutas .limite-permuta-principal strong { font-size:13.5px!important; }
-    #secao-permutas .limite-permuta-principal small {
-      margin-top:3px!important;font-size:10.5px!important;line-height:1.35!important;
+    #secao-permutas .permuta-identidade {
+      padding:12px!important;
+      border:0!important;
+      background:linear-gradient(135deg,#f7faf5 0%,#edf3e9 100%)!important;
     }
-    #secao-permutas .limite-info-botao {
-      width:36px!important;height:36px!important;border-radius:11px!important;font-size:16px!important;
+    #secao-permutas .permuta-seguranca {
+      min-height:auto!important;
+      padding:10px 12px!important;
+      border:0!important;
+      background:#f8f9f6!important;
     }
+    #secao-permutas .permuta-identidade strong { font-size:16px!important; }
+    #secao-permutas .permuta-identidade span:not(.permuta-avatar) { font-size:11.5px!important; }
+    #secao-permutas .permuta-seguranca strong { font-size:11.5px!important; }
+    #secao-permutas .permuta-seguranca small { font-size:9.5px!important;line-height:1.35!important; }
+    #secao-permutas .limite-permuta-card { padding:16px!important; }
+    #secao-permutas .limite-permuta-numero { width:54px!important;height:54px!important;border-radius:16px!important;font-size:25px!important; }
+    #secao-permutas .limite-permuta-principal strong { font-size:15px!important; }
+    #secao-permutas .limite-permuta-principal small { font-size:10.5px!important;line-height:1.4!important; }
+    #secao-permutas .limite-info-botao { width:38px!important;height:38px!important;border-radius:12px!important;font-size:17px!important; }
 
-    #secao-permutas .fluxo-permuta { gap:11px!important; }
+    #secao-permutas .fluxo-permuta { gap:12px!important; }
     #secao-permutas .papel-permuta,
     #secao-permutas .form-etapa,
     #secao-permutas .acao-final-form {
-      border:1px solid var(--permuta-borda)!important;
-      border-radius:16px!important;
+      position:relative;
+      border:1px solid #d7dfd4!important;
+      border-radius:18px!important;
       background:#fff!important;
-      box-shadow:0 5px 17px rgba(27,49,32,.045)!important;
+      box-shadow:0 9px 24px rgba(27,49,32,.045)!important;
     }
-    #secao-permutas .papel-permuta-topo { padding:13px 14px 7px!important; }
+    #secao-permutas .papel-permuta::before,
+    #secao-permutas .form-etapa::before,
+    #secao-permutas .acao-final-form::before {
+      content:'';
+      position:absolute;
+      left:0;top:16px;bottom:16px;
+      width:4px;
+      border-radius:0 6px 6px 0;
+      background:#d4b043;
+      opacity:.78;
+      pointer-events:none;
+    }
+    #secao-permutas .papel-permuta-topo,
+    #secao-permutas .form-etapa-cabecalho {
+      padding:14px 16px 12px!important;
+      border-bottom:1px solid #e4e9e1!important;
+      background:linear-gradient(180deg,#ffffff 0%,#fafbf9 100%)!important;
+    }
     #secao-permutas .papel-permuta-topo strong,
     #secao-permutas .form-etapa-cabecalho strong,
     #secao-permutas .acao-final-form strong {
-      font-size:13.5px!important;line-height:1.3!important;
+      font-size:16px!important;
+      letter-spacing:-.02em!important;
     }
     #secao-permutas .papel-permuta-topo small,
     #secao-permutas .form-etapa-cabecalho small,
     #secao-permutas .acao-final-form small {
-      margin-top:3px!important;font-size:10px!important;line-height:1.4!important;
-    }
-
-    #secao-permutas .papel-permuta-opcoes { gap:8px!important;padding:8px 12px 12px!important; }
-    #secao-permutas .papel-permuta-opcao span {
-      min-height:56px!important;padding:10px 11px 10px 39px!important;border-radius:12px!important;
-      font-size:11.5px!important;line-height:1.35!important;
-    }
-    #secao-permutas .papel-permuta-opcao span::before { left:13px!important; }
-    #secao-permutas .papel-contexto {
-      margin:0 12px 12px!important;padding:10px 11px!important;border-radius:12px!important;
-      font-size:10.5px!important;line-height:1.4!important;
-    }
-
-    #secao-permutas .form-etapa-cabecalho {
-      padding:11px 13px!important;gap:10px!important;background:#fafbfa!important;
+      font-size:10.5px!important;
+      line-height:1.4!important;
+      color:#758178!important;
     }
     #secao-permutas .form-etapa-indice {
-      width:36px!important;height:36px!important;flex-basis:36px!important;border-radius:11px!important;font-size:15px!important;
+      width:40px!important;height:40px!important;flex:0 0 40px!important;
+      border-radius:13px!important;
+      background:linear-gradient(145deg,#526440 0%,#34452d 100%)!important;
+      color:#fff!important;
+      font-size:17px!important;
+      box-shadow:0 5px 12px rgba(53,73,45,.16)!important;
     }
-    #secao-permutas .form-etapa-corpo { padding:13px 13px 2px!important; }
+    #secao-permutas .papel-permuta-opcoes {
+      gap:10px!important;
+      padding:13px 16px!important;
+    }
+    #secao-permutas .papel-permuta-opcao span {
+      min-height:64px!important;
+      padding:14px 14px 14px 46px!important;
+      border:1px solid #d9e1d6!important;
+      border-radius:14px!important;
+      background:#fbfcfa!important;
+      font-size:13px!important;
+      font-weight:800!important;
+    }
+    #secao-permutas .papel-permuta-opcao input:checked + span {
+      border-color:#7b8d68!important;
+      background:#f0f4ed!important;
+      box-shadow:inset 4px 0 0 #4d613d!important;
+    }
+    #secao-permutas .papel-contexto {
+      margin:0 16px 14px!important;
+      padding:11px 13px!important;
+      border:1px solid #e1e6de!important;
+      border-radius:13px!important;
+      background:#f7f9f5!important;
+      font-size:10.5px!important;
+    }
+    #secao-permutas .form-etapa-corpo { padding:15px 16px 2px!important; }
     #secao-permutas .form-etapa-corpo > .campo,
     #secao-permutas .form-etapa-corpo > .grade-2,
     #secao-permutas .form-etapa-corpo > .grade-3,
     #secao-permutas .form-etapa-corpo > .nota-contextual,
-    #secao-permutas .form-etapa-corpo > .confirm-card {
-      margin-bottom:11px!important;
-    }
+    #secao-permutas .form-etapa-corpo > .confirm-card { margin-bottom:13px!important; }
     #secao-permutas .campo label,
     #secao-permutas .rotulo {
-      margin-bottom:6px!important;font-size:11.5px!important;font-weight:850!important;
-    }
-    #secao-permutas .ajuda { font-size:10px!important;line-height:1.35!important; }
-    #secao-permutas input,
-    #secao-permutas select,
-    #secao-permutas textarea {
-      border-radius:12px!important;font-size:14px!important;
+      margin-bottom:6px!important;
+      font-size:12.5px!important;
+      font-weight:850!important;
     }
     #secao-permutas input,
-    #secao-permutas select { min-height:48px!important;padding:10px 12px!important; }
-    #secao-permutas textarea { min-height:82px!important;padding:11px 12px!important; }
-
-    #secao-permutas .nota-contextual,
-    #secao-permutas .confirm-card { padding:10px 11px!important;border-radius:12px!important; }
-    #secao-permutas .nota-contextual p,
-    #secao-permutas .confirm-texto { font-size:10.5px!important;line-height:1.42!important; }
-
-    #secao-permutas .opcoes-radio { gap:7px!important; }
+    #secao-permutas select { min-height:50px!important;font-size:14px!important;border-radius:13px!important; }
+    #secao-permutas textarea { min-height:98px!important;font-size:14px!important;border-radius:13px!important; }
     #secao-permutas .opcao-radio span {
-      min-height:48px!important;padding:9px 10px!important;border-radius:12px!important;
-      font-size:12px!important;line-height:1.2!important;
+      min-height:50px!important;
+      padding:12px!important;
+      border-radius:13px!important;
+      font-size:13px!important;
     }
-    #secao-permutas [data-campo-wrapper="turnoServico"] .opcoes-radio,
-    #secao-permutas [data-campo-wrapper="turnoContrapartida"] .opcoes-radio {
-      grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    #secao-permutas .nota-contextual,
+    #secao-permutas .confirm-card {
+      padding:12px 13px!important;
+      border-radius:13px!important;
+      font-size:11.5px!important;
+      line-height:1.45!important;
     }
-    #secao-permutas [data-campo-wrapper="modalidade"] .opcoes-radio {
-      grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    }
-
-    #secao-permutas #resultadosSubstituto { margin-top:6px!important;gap:6px!important; }
-    #secao-permutas #resultadosSubstituto .resultado-pessoa {
-      min-height:48px!important;padding:10px 12px!important;border-radius:12px!important;background:#fbfcfa!important;
-    }
-    #secao-permutas #resultadosSubstituto .resultado-pessoa strong {
-      font-size:11.5px!important;line-height:1.35!important;
-    }
-
-    #substitutoSelecionado.pessoa-selecionada {
-      min-height:0!important;padding:11px 76px 11px 12px!important;border:1px solid #a9c5ac!important;
-      border-radius:13px!important;background:#f2f8f1!important;box-shadow:none!important;
-    }
-    #substitutoSelecionado .substituto-dados small {
-      display:block!important;margin-bottom:3px!important;color:#607163!important;font-size:8px!important;
-      font-weight:900!important;letter-spacing:.08em!important;
-    }
-    #substitutoSelecionado .substituto-dados strong {
-      margin:0!important;color:#203124!important;font-size:12px!important;line-height:1.35!important;
-    }
-    #substitutoSelecionado .substituto-dados span { display:none!important; }
-    #substitutoSelecionado .alterar-substituto {
-      top:50%!important;right:10px!important;transform:translateY(-50%)!important;
-      min-height:31px!important;padding:6px 8px!important;border-radius:9px!important;font-size:7.5px!important;
-    }
-
     #secao-permutas .acao-final-form {
-      display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;
-      gap:12px!important;padding:13px 14px!important;
+      padding:15px 16px!important;
+      gap:14px!important;
+      align-items:center!important;
     }
     #secao-permutas .acao-final-form .botao {
-      min-height:46px!important;padding:10px 15px!important;font-size:10.5px!important;border-radius:12px!important;
+      min-height:48px!important;
+      border-radius:13px!important;
+      font-size:11.5px!important;
+    }
+
+    @media(max-width:760px) {
+      #resultadosPoliciaisP1 { grid-template-columns:1fr!important; }
+      .resultado-policial-compacto { min-height:56px!important;padding:11px 12px!important; }
+      .resultado-policial-compacto strong { font-size:13px!important; }
+      .resultado-policial-padronizado strong,
+      .pesquisa-resultados .resultado-pesquisa strong { font-size:14px!important; }
+      .resultado-policial-padronizado span,
+      .pesquisa-resultados .resultado-pesquisa span { font-size:11.5px!important; }
+      #policialSelecionadoBancoHoras strong,
+      #substitutoSelecionado .substituto-dados strong { font-size:14.5px!important; }
+
+      #secao-permutas .subnavegacao { max-width:none;margin-bottom:13px!important; }
+      .permuta-fluxo-mapa { grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:12px; }
+      .permuta-fluxo-passo { padding:9px 10px;gap:8px;border-radius:12px; }
+      .permuta-fluxo-passo > span { width:28px;height:28px;flex-basis:28px;border-radius:9px; }
+      .permuta-fluxo-passo strong { font-size:11px; }
+      .permuta-fluxo-passo small { font-size:8px; }
+      .permuta-resumo-inicial { grid-template-columns:1fr;gap:9px;margin-bottom:12px; }
+      #secao-permutas .permuta-cabecalho-card,
+      #secao-permutas .limite-permuta-card { border-radius:16px!important; }
+      #secao-permutas .permuta-cabecalho-card { padding:12px!important; }
+      #secao-permutas .permuta-identidade { padding:10px!important; }
+      #secao-permutas .permuta-avatar { width:46px!important;height:46px!important;flex-basis:46px!important;border-radius:13px!important; }
+      #secao-permutas .permuta-identidade strong { font-size:15px!important; }
+      #secao-permutas .limite-permuta-card { padding:13px!important; }
+      #secao-permutas .fluxo-permuta { gap:10px!important; }
+      #secao-permutas .papel-permuta,
+      #secao-permutas .form-etapa,
+      #secao-permutas .acao-final-form { border-radius:16px!important; }
+      #secao-permutas .papel-permuta::before,
+      #secao-permutas .form-etapa::before,
+      #secao-permutas .acao-final-form::before { top:13px;bottom:13px;width:3px; }
+      #secao-permutas .papel-permuta-topo,
+      #secao-permutas .form-etapa-cabecalho { padding:13px 14px 11px!important; }
+      #secao-permutas .papel-permuta-topo strong,
+      #secao-permutas .form-etapa-cabecalho strong,
+      #secao-permutas .acao-final-form strong { font-size:16px!important; }
+      #secao-permutas .papel-permuta-topo small,
+      #secao-permutas .form-etapa-cabecalho small,
+      #secao-permutas .acao-final-form small { font-size:11.5px!important; }
+      #secao-permutas .papel-permuta-opcoes { grid-template-columns:1fr!important;padding:11px 13px!important; }
+      #secao-permutas .papel-contexto { margin:0 13px 12px!important;font-size:11.5px!important; }
+      #secao-permutas .form-etapa-corpo { padding:14px 13px 2px!important; }
+      #secao-permutas .campo label,#secao-permutas .rotulo { font-size:14px!important; }
+      #secao-permutas input,#secao-permutas select { min-height:54px!important;font-size:16px!important; }
+      #secao-permutas textarea { font-size:16px!important; }
+      #secao-permutas .opcao-radio span { min-height:54px!important;font-size:14px!important; }
+      #secao-permutas .nota-contextual,#secao-permutas .confirm-card { font-size:12.5px!important; }
+      #secao-permutas .acao-final-form { flex-direction:column!important;align-items:stretch!important;padding:14px!important; }
+      #secao-permutas .acao-final-form .botao { width:100%!important;justify-content:center!important;min-height:52px!important;font-size:12.5px!important; }
+    }
+
+
+    /* =======================================================
+       SIGA v5.9.0 — ficha funcional reorganizada
+       Mantém todos os dados, com agrupamento semântico e
+       densidade adequada para celular, tablet e desktop.
+       ======================================================= */
+    #secao-perfil #fichaPerfil.perfil-completo {
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:18px!important;
+    }
+
+    #secao-perfil .perfil-ficha-grupo {
+      display:grid;
+      gap:10px;
+      padding-top:2px;
+    }
+
+    #secao-perfil .perfil-ficha-grupo + .perfil-ficha-grupo {
+      padding-top:16px;
+      border-top:1px solid #e1e6de;
+    }
+
+    #secao-perfil .perfil-ficha-grupo-topo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    #secao-perfil .perfil-ficha-grupo-indice {
+      width:34px;
+      height:34px;
+      flex:0 0 34px;
+      display:grid;
+      place-items:center;
+      border-radius:11px;
+      background:linear-gradient(145deg,#566a43 0%,#31472e 100%);
+      color:#fff;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.04em;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    #secao-perfil .perfil-ficha-grupo-topo > div {
+      min-width:0;
+    }
+
+    #secao-perfil .perfil-ficha-grupo-topo strong {
+      display:block;
+      color:#223629;
+      font-size:14px;
+      line-height:1.2;
+    }
+
+    #secao-perfil .perfil-ficha-grupo-topo small {
+      display:block;
+      margin-top:2px;
+      color:#7a867e;
+      font-size:10.5px;
+      line-height:1.35;
+    }
+
+    #secao-perfil .perfil-ficha-grade {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:9px;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-card-dado {
+      min-width:0;
+      min-height:72px!important;
+      padding:12px 13px!important;
+      border:1px solid #e0e5dc!important;
+      border-radius:14px!important;
+      background:linear-gradient(180deg,#f7f8f5 0%,#f2f4ef 100%)!important;
+      box-shadow:none!important;
+      display:flex!important;
+      flex-direction:column!important;
+      justify-content:center!important;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-card-dado small {
+      margin:0 0 6px!important;
+      color:#748177!important;
+      font-size:8.5px!important;
+      line-height:1.25!important;
+      font-weight:900!important;
+      letter-spacing:.055em!important;
+      text-transform:uppercase!important;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-card-dado strong {
+      color:#1f3025!important;
+      font-size:12.5px!important;
+      line-height:1.35!important;
+      overflow-wrap:anywhere;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-dado-largo {
+      grid-column:span 2!important;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-dado-duplo {
+      grid-column:span 2!important;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-dado-destaque {
+      position:relative;
+      overflow:hidden;
+      border-color:#cfd9ca!important;
+      background:linear-gradient(135deg,#f4f8f1 0%,#eef3eb 100%)!important;
+      padding-left:17px!important;
+    }
+
+    #secao-perfil #fichaPerfil .perfil-dado-destaque::before {
+      content:'';
+      position:absolute;
+      left:0;
+      top:10px;
+      bottom:10px;
+      width:4px;
+      border-radius:0 999px 999px 0;
+      background:#d8b64a;
+    }
+
+    @media(max-width:980px) {
+      #secao-perfil .perfil-ficha-grade {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      #secao-perfil #fichaPerfil .perfil-dado-largo,
+      #secao-perfil #fichaPerfil .perfil-dado-duplo {
+        grid-column:span 2!important;
+      }
     }
 
     @media(max-width:620px) {
-      #secao-permutas .painel { padding:10px!important; }
-      #secao-permutas .cabecalho-secao { margin-bottom:10px!important; }
-      #secao-permutas .cabecalho-secao p { font-size:11px!important; }
-      #secao-permutas .permuta-cabecalho-card { grid-template-columns:1fr!important; }
-      #secao-permutas .permuta-seguranca { display:none!important; }
-      #secao-permutas .permuta-identidade { min-height:64px!important;padding:10px 12px!important; }
-      #secao-permutas .permuta-avatar { width:38px!important;height:38px!important;flex-basis:38px!important; }
-      #secao-permutas .permuta-identidade strong { font-size:12px!important; }
-      #secao-permutas .permuta-identidade span:not(.permuta-avatar) { font-size:9.5px!important; }
-      #secao-permutas .papel-permuta-opcoes { grid-template-columns:1fr!important; }
-      #secao-permutas .papel-permuta-opcao span { min-height:50px!important; }
-      #secao-permutas .form-etapa-cabecalho { padding:10px 11px!important; }
-      #secao-permutas .form-etapa-corpo { padding:11px 10px 1px!important; }
-      #secao-permutas .form-etapa-indice { width:34px!important;height:34px!important;flex-basis:34px!important; }
-      #secao-permutas .opcao-radio span { min-height:46px!important;padding:8px 7px!important;font-size:11px!important; }
-      #secao-permutas [data-campo-wrapper="modalidade"] .opcoes-radio { gap:7px!important; }
-      #secao-permutas .acao-final-form {
-        grid-template-columns:1fr!important;gap:9px!important;padding:12px!important;
+      #secao-perfil .perfil-ficha-painel {
+        padding:18px 16px!important;
       }
-      #secao-permutas .acao-final-form .botao { width:100%!important; }
+      #secao-perfil #fichaPerfil.perfil-completo {
+        gap:16px!important;
+      }
+      #secao-perfil .perfil-ficha-grupo + .perfil-ficha-grupo {
+        padding-top:14px;
+      }
+      #secao-perfil .perfil-ficha-grade {
+        gap:8px;
+      }
+      #secao-perfil .perfil-ficha-grupo-topo strong {
+        font-size:13.5px;
+      }
+      #secao-perfil .perfil-ficha-grupo-topo small {
+        font-size:10px;
+      }
+      #secao-perfil #fichaPerfil .perfil-card-dado {
+        min-height:70px!important;
+        padding:11px 12px!important;
+        border-radius:13px!important;
+      }
+      #secao-perfil #fichaPerfil .perfil-card-dado small {
+        font-size:8px!important;
+      }
+      #secao-perfil #fichaPerfil .perfil-card-dado strong {
+        font-size:11.5px!important;
+      }
+      #secao-perfil .perfil-grupo-identificacao .perfil-card-dado,
+      #secao-perfil .perfil-grupo-pessoal .perfil-card-dado:nth-child(3),
+      #secao-perfil .perfil-grupo-pessoal .perfil-card-dado:nth-child(4) {
+        grid-column:1/-1!important;
+      }
+      #secao-perfil .perfil-grupo-vinculo .perfil-card-dado:nth-child(5),
+      #secao-perfil .perfil-grupo-vinculo .perfil-card-dado:nth-child(6),
+      #secao-perfil .perfil-grupo-vinculo .perfil-card-dado:nth-child(7) {
+        grid-column:1/-1!important;
+      }
     }
-
 </style>
 </head>
 <body>
@@ -6847,7 +7142,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.1
+        SIGA 3ª CIA — Versão 5.9.0
       </footer>
     </section>
   </main>
@@ -6920,7 +7215,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.1</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0</footer>
     </aside>
 
     <div class="area-principal">
@@ -7106,6 +7401,14 @@
           </div>
 
           <div id="painelNovaPermuta">
+            <div class="permuta-fluxo-mapa" aria-label="Etapas da solicitação de permuta">
+              <div class="permuta-fluxo-passo"><span>1</span><div><strong>Serviço</strong><small>Tipo, data e turno</small></div></div>
+              <div class="permuta-fluxo-passo"><span>2</span><div><strong>Policiais</strong><small>Titular e substituto</small></div></div>
+              <div class="permuta-fluxo-passo"><span>3</span><div><strong>Requisitos</strong><small>Modalidade e IN 001/2019</small></div></div>
+              <div class="permuta-fluxo-passo"><span>4</span><div><strong>Confirmar</strong><small>Declarações e envio</small></div></div>
+            </div>
+
+            <div class="permuta-resumo-inicial">
             <div class="permuta-cabecalho-card">
               <div class="permuta-identidade">
                 <span class="permuta-avatar"><svg class="icone-svg" aria-hidden="true"><use href="#icone-permuta"></use></svg></span>
@@ -7122,6 +7425,7 @@
             </div>
 
             <div id="limitePermutaUsuario" class="limite-permuta-card"></div>
+            </div>
 
             <form id="formPermuta" class="fluxo-permuta">
               <section class="papel-permuta" aria-labelledby="tituloPapelPermuta">
@@ -7761,7 +8065,7 @@
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
             <div class="cartao-topo"><div><h3 style="margin:0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
             <div class="grade-3">
-              <div class="campo"><label>Matrícula</label><input id="preMatriculaP1" inputmode="text" autocapitalize="characters" maxlength="12" required></div>
+              <div class="campo"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" required></div>
               <div class="campo"><label>Nome completo</label><input id="preNomeP1" required></div>
               <div class="campo"><label>Nome de guerra</label><input id="preNomeGuerraP1" required></div>
               <div class="campo"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" placeholder="(85) 99999-9999" required></div>
@@ -7915,7 +8219,7 @@
           <div class="cabecalho-secao"><div><h2>Setores e acessos</h2><p>Comandante, Subcomandante e Gestão • P1 administram os acessos. Os perfis de comando e de Gestão • P1 somente podem ser concedidos pelo Comando.</p></div></div>
           <form id="formSetorAdmin" class="painel">
             <div class="grade-2">
-              <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="text" autocapitalize="characters" maxlength="12" required></div>
+              <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" required></div>
               <div class="campo"><label for="setorSetorAdmin">Setor</label><select id="setorSetorAdmin"><option value="COMANDANTE" data-somente-comando>Comandante</option><option value="SUBCOMANDANTE" data-somente-comando>Subcomandante</option><option value="P1_GESTAO" data-somente-comando>Gestão • P1</option><option value="P1_PESSOAL">Pessoal • P1</option><option value="P2_INTELIGENCIA">Inteligência • P2</option><option value="P3_PLANEJAMENTO">Planej. • P3</option><option value="P4_LOGISTICA">Logística • P4</option><option value="GUARDA">Guarda</option></select></div>
             </div>
             <div class="grade-2">
@@ -8617,38 +8921,6 @@
 
     function somenteNumeros(valor) { return String(valor || '').replace(/\D/g, ''); }
 
-    function normalizarMatriculaUi(valor) {
-      const limpo = String(valor == null ? '' : valor)
-        .toLocaleUpperCase('pt-BR')
-        .replace(/[^0-9X]/g, '');
-      if (/^\d{7}X$/.test(limpo)) return limpo;
-      return limpo.replace(/X/g, '').slice(0, 8);
-    }
-
-    function formatarMatriculaUi(valor) {
-      const matricula = normalizarMatriculaUi(valor);
-      if (/^\d{7}[0-9X]$/.test(matricula)) {
-        return matricula.slice(0,3) + '.' + matricula.slice(3,6) + '-' +
-          matricula.slice(6,7) + '-' + matricula.slice(7);
-      }
-      if (/^\d{7}$/.test(matricula)) {
-        return matricula.slice(0,3) + '.' + matricula.slice(3,6) + '-' + matricula.slice(6);
-      }
-      return matricula || '—';
-    }
-
-    function identificacaoPolicialPadrao(usuario) {
-      const u = usuario || {};
-      const identificacao = String(
-        u.identificacao ||
-        [abreviarPostoUi(u.postoGraduacao), u.numeral, u.nomeGuerra || u.nomeCompleto]
-          .filter(Boolean).join(' ')
-      ).trim();
-      const matricula = formatarMatriculaUi(u.matricula);
-      return [identificacao, matricula && matricula !== '—' ? 'M.F.: ' + matricula : '']
-        .filter(Boolean).join(' - ');
-    }
-
     function dataHojeIso() {
       const agora = new Date();
       const local = new Date(agora.getTime() - agora.getTimezoneOffset() * 60000);
@@ -8662,6 +8934,28 @@
     }
 
     function formatarDataHora(valor) { return valor || '—'; }
+
+    function formatarMatriculaFuncional(valor) {
+      if (valor === null || valor === undefined) return '—';
+      const original = String(valor).trim().toUpperCase();
+      if (!original) return '—';
+      const limpa = original.replace(/[^0-9X]/g, '');
+      if (/^\d{7}[0-9X]$/.test(limpa)) {
+        return limpa.slice(0,3) + '.' + limpa.slice(3,6) + '-' + limpa.slice(6,7) + '-' + limpa.slice(7,8);
+      }
+      return original;
+    }
+
+    function identificacaoPolicialExibicao(policial) {
+      const p = policial || {};
+      const identificacao = String(p.identificacao || p.nomeGuerra || p.nomeCompleto || '').trim();
+      const matricula = formatarMatriculaFuncional(p.matricula);
+      return identificacao + (matricula !== '—' ? ' - M.F.: ' + matricula : '');
+    }
+
+    function htmlIdentificacaoPolicial(policial) {
+      return escaparHtml(identificacaoPolicialExibicao(policial));
+    }
 
     function formatarDataCurtaPermuta(valor) {
       if (!valor) return '—';
@@ -8686,9 +8980,9 @@
       return valor && valor !== '—' ? ' • Turno ' + escaparHtml(valor) : '';
     }
 
-    function metaPolicialPermuta(matricula) {
+    function metaPolicialPermuta(matricula, grade) {
       if (!matricula || String(matricula).trim() === '—') return '';
-      return 'M.F.: ' + escaparHtml(formatarMatriculaUi(matricula));
+      return 'M.F.: ' + escaparHtml(formatarMatriculaFuncional(matricula));
     }
 
     function montarDetalhesPermutaPadrao(item) {
@@ -8697,8 +8991,8 @@
         ? `<span class="status ${escaparHtml(status)}">${escaparHtml(status)}</span>` : '';
       const modalidade = item.modalidade && String(item.modalidade).trim() !== '—'
         ? `<span>${escaparHtml(item.modalidade)}</span>` : '';
-      const metaTitular = metaPolicialPermuta(item.matriculaSolicitante);
-      const metaSubstituto = metaPolicialPermuta(item.matriculaSubstituto);
+      const metaTitular = metaPolicialPermuta(item.matriculaSolicitante, item.gradeSolicitante);
+      const metaSubstituto = metaPolicialPermuta(item.matriculaSubstituto, item.gradeSubstituto);
       const origem = item.criadoPor || item.solicitante || '';
       const papel = item.papelCriador === 'SUBSTITUTO' ? 'substituto' : 'titular';
       const contrapartida = item.dataContrapartida
@@ -8715,8 +9009,8 @@
         </div>
         <p class="detalhe-permuta-origem">Enviada por ${escaparHtml(origem)} como ${papel}${item.criadoEm ? ' em ' + formatarDataHoraCurtaPermuta(item.criadoEm) : ''}.</p>
         <div class="detalhe-permuta-pessoas">
-          <div class="detalhe-permuta-pessoa"><small>Titular</small><strong>${escaparHtml(item.solicitante || '—')}${metaTitular ? ' - ' + metaTitular : ''}</strong></div>
-          <div class="detalhe-permuta-pessoa"><small>Substituto</small><strong>${escaparHtml(item.substituto || '—')}${metaSubstituto ? ' - ' + metaSubstituto : ''}</strong></div>
+          <div class="detalhe-permuta-pessoa"><small>Titular</small><strong>${escaparHtml(item.solicitante || '—')}</strong>${metaTitular ? `<span>${metaTitular}</span>` : ''}</div>
+          <div class="detalhe-permuta-pessoa"><small>Substituto</small><strong>${escaparHtml(item.substituto || '—')}</strong>${metaSubstituto ? `<span>${metaSubstituto}</span>` : ''}</div>
         </div>
         <div class="detalhe-permuta-agenda">
           <div class="detalhe-permuta-data"><small>Serviço</small><strong>${formatarDataCurtaPermuta(item.dataServico)}${turnoDetalhePermuta(item.turnoServico)}</strong></div>
@@ -8757,7 +9051,7 @@
     }
 
     function montarIdentificacao(usuario) {
-      return [abreviarPostoUi(usuario.postoGraduacao), usuario.numeral, usuario.nomeGuerra || usuario.nomeCompleto]
+      return [usuario.postoGraduacao, usuario.numeral, usuario.nomeGuerra || usuario.nomeCompleto]
         .filter(Boolean).join(' ');
     }
 
@@ -8979,7 +9273,7 @@
         : 'Grade ' + (usuario.grade || 'não definida');
       usuario.setorAdmin = setorAdmin;
       $('identificacaoSidebar').textContent = identificacaoCompactaSidebar(usuario);
-      $('matriculaSidebar').textContent = 'M.F.: ' + formatarMatriculaUi(usuario.matricula) + ' - ' + identificacaoPerfil;
+      $('matriculaSidebar').textContent = 'M.F.: ' + usuario.matricula + ' - ' + identificacaoPerfil;
       $('perfilTopo').textContent = usuario.administrador ? funcaoAdministrativa.toUpperCase() : 'USUÁRIO';
       const guardaHibrida = ehGuardaLogada();
       document.documentElement.dataset.sigaPerfil = usuario.administrador && !guardaHibrida ? 'admin' : 'usuario';
@@ -9493,8 +9787,9 @@
       const papelMarcado = document.querySelector('input[name="papelPermuta"]:checked');
       estado.papelPermuta = papelMarcado && papelMarcado.value === 'SUBSTITUTO' ? 'SUBSTITUTO' : 'TITULAR';
 
-      $('identificacaoPermutaUsuario').textContent = identificacaoPolicialPadrao(estado.usuario);
-      $('dadosPermutaUsuario').textContent = 'Identificação vinculada ao seu login';
+      $('identificacaoPermutaUsuario').textContent = montarIdentificacao(estado.usuario);
+      $('dadosPermutaUsuario').textContent =
+        'M.F.: ' + formatarMatriculaFuncional(estado.usuario.matricula || '—');
 
       montarFormularioDinamico($('conteudoPermutaDinamica'),config,'PERMUTAS');
 
@@ -9870,7 +10165,7 @@
           const resposta = await api('buscarPoliciaisPermuta', estado.token, termo);
           const policiais = resposta.policiais || [];
           $('resultadosSubstituto').innerHTML = policiais.length
-            ? policiais.map(p => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" data-policial='${escaparHtml(JSON.stringify(p))}'><strong>${escaparHtml(identificacaoPolicialPadrao(p))}</strong></button>`).join('')
+            ? policiais.map(p => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" data-policial='${escaparHtml(JSON.stringify(p))}'><strong>${htmlIdentificacaoPolicial(p)}</strong><span>Toque para selecionar</span></button>`).join('')
             : '<div class="vazio" style="padding:14px">Nenhum policial localizado.</div>';
           document.querySelectorAll('[data-policial]').forEach(botao => {
             botao.addEventListener('click', () => selecionarSubstituto(JSON.parse(botao.dataset.policial)));
@@ -9892,7 +10187,8 @@
       $('substitutoSelecionado').innerHTML = `
         <div class="substituto-dados">
           <small>${estado.papelPermuta === 'SUBSTITUTO' ? 'TITULAR DO SERVIÇO' : 'IRÁ ASSUMIR O SERVIÇO'}</small>
-          <strong>${escaparHtml(identificacaoPolicialPadrao(policial))}</strong>
+          <strong>${htmlIdentificacaoPolicial(policial)}</strong>
+          <span>Policial selecionado para esta solicitação</span>
         </div>
         <button class="alterar-substituto" type="button" onclick="removerSubstituto()">ALTERAR</button>`;
       atualizarLimitePermutaTela();
@@ -10116,7 +10412,7 @@
         estado.policiaisBancoHoras = resposta.policiais || [];
         $('resultadosPolicialBancoHoras').innerHTML = estado.policiaisBancoHoras.length
           ? estado.policiaisBancoHoras.map(function(policial) {
-              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBancoHoras('${escaparAtributo(policial.id)}')"><strong>${escaparHtml(identificacaoPolicialPadrao(policial))}</strong></button>`;
+              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBancoHoras('${escaparAtributo(policial.id)}')"><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Toque para selecionar</span></button>`;
             }).join('')
           : '<div class="resultado-pesquisa"><span>Nenhum policial encontrado.</span></div>';
       } catch (erro) {
@@ -10134,7 +10430,7 @@
       estado.chaveCreditoBancoHoras = novaChaveOperacaoBancoHoras('credito');
       $('pesquisaPolicialBancoHoras').value = policial.identificacao || '';
       $('resultadosPolicialBancoHoras').innerHTML = '';
-      $('policialSelecionadoBancoHoras').innerHTML = `<div><strong>${escaparHtml(identificacaoPolicialPadrao(policial))}</strong></div><button type="button" onclick="limparPolicialBancoHoras()">TROCAR</button>`;
+      $('policialSelecionadoBancoHoras').innerHTML = `<div><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Policial selecionado</span></div><button type="button" onclick="limparPolicialBancoHoras()">TROCAR</button>`;
       $('policialSelecionadoBancoHoras').classList.remove('oculto');
     }
 
@@ -10603,12 +10899,42 @@
     }
 
     function dadosPerfilHtml(u) {
-      const dados = [
-        ['Nome completo', u.nomeCompleto], ['Identificação', montarIdentificacao(u)], ['Matrícula', u.matricula], ['Grade', u.grade || 'Não definida'], ['Regime', u.turnoFixo ? ('Fixo ' + u.turnoFixo) : 'Alternância A/B'],
-        ['Data de nascimento', formatarData(u.dataNascimento)], ['Posto/graduação', u.postoGraduacao], ['Numeral', u.numeral || 'Não se aplica'], ['Nome de guerra', u.nomeGuerra],
-        ['E-mail', u.email], ['Contato / WhatsApp', u.contato], ['Unidade', u.opmExibicao || u.opm], ['Última promoção', formatarData(u.dataUltimaPromocao)]
-      ];
-      return dados.map(d => `<div class="dado"><small>${escaparHtml(d[0])}</small><strong>${escaparHtml(d[1] || '—')}</strong></div>`).join('');
+      const dado = function(rotulo, valor, classe) {
+        return `<div class="dado perfil-card-dado ${classe || ''}"><small>${escaparHtml(rotulo)}</small><strong>${escaparHtml(valor || '—')}</strong></div>`;
+      };
+      const grupo = function(indice, titulo, subtitulo, classe, conteudo) {
+        return `<section class="perfil-ficha-grupo ${classe || ''}">
+          <div class="perfil-ficha-grupo-topo">
+            <span class="perfil-ficha-grupo-indice" aria-hidden="true">${indice}</span>
+            <div><strong>${escaparHtml(titulo)}</strong><small>${escaparHtml(subtitulo)}</small></div>
+          </div>
+          <div class="perfil-ficha-grade">${conteudo}</div>
+        </section>`;
+      };
+
+      const identificacao = grupo('01','Identificação','Quem é o policial no cadastro institucional.','perfil-grupo-identificacao',
+        dado('Nome completo',u.nomeCompleto,'perfil-dado-largo') +
+        dado('Identificação',montarIdentificacao(u),'perfil-dado-largo perfil-dado-destaque')
+      );
+
+      const vinculo = grupo('02','Vínculo funcional','Dados administrativos, graduação, escala e unidade.','perfil-grupo-vinculo',
+        dado('Matrícula',u.matricula,'') +
+        dado('Numeral',u.numeral || 'Não se aplica','') +
+        dado('Posto/graduação',u.postoGraduacao,'') +
+        dado('Grade',u.grade || 'Não definida','') +
+        dado('Regime',u.turnoFixo ? ('Fixo ' + u.turnoFixo) : 'Alternância A/B','perfil-dado-duplo') +
+        dado('Unidade',u.opmExibicao || u.opm,'perfil-dado-duplo') +
+        dado('Última promoção',formatarData(u.dataUltimaPromocao),'perfil-dado-duplo')
+      );
+
+      const pessoais = grupo('03','Dados pessoais e contato','Informações pessoais mantidas na mesma ficha funcional.','perfil-grupo-pessoal',
+        dado('Data de nascimento',formatarData(u.dataNascimento),'') +
+        dado('Nome de guerra',u.nomeGuerra,'') +
+        dado('E-mail',u.email,'perfil-dado-duplo') +
+        dado('Contato / WhatsApp',u.contato,'perfil-dado-duplo')
+      );
+
+      return identificacao + vinculo + pessoais;
     }
 
     function mudancasSolicitacaoPerfilHtml(s) {
@@ -10951,7 +11277,7 @@
         if (requisicao !== estado.requisicoes.consulta) return;
         const usuarios = resposta.usuarios || [];
         $('resultadosConsultaAdmin').innerHTML = usuarios.length
-          ? usuarios.slice(0, 20).map(u => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" onclick="abrirFichaConsulta('${escaparHtml(u.id)}')"><strong>${escaparHtml(identificacaoPolicialPadrao(u))}</strong><span>${escaparHtml(u.statusCadastro || '')}</span></button>`).join('')
+          ? usuarios.slice(0, 20).map(u => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" onclick="abrirFichaConsulta('${escaparHtml(u.id)}')"><strong>${htmlIdentificacaoPolicial(u)}</strong><span>${escaparHtml(u.statusCadastro || 'CONFIRMADO')}</span></button>`).join('')
           : '<div class="vazio">Nenhum policial localizado.</div>';
       } catch (erro) {
         if (requisicao === estado.requisicoes.consulta) tratarErro(erro);
@@ -10973,7 +11299,7 @@
         $('painelFichaConsulta').classList.remove('oculto');
         $('areaHistoricoConsulta').classList.add('oculto');
         $('nomeFichaConsulta').textContent = montarIdentificacao(resposta.usuario);
-        $('subtituloFichaConsulta').textContent = 'M.F.: ' + formatarMatriculaUi(resposta.usuario.matricula);
+        $('subtituloFichaConsulta').textContent = 'M.F.: ' + formatarMatriculaFuncional(resposta.usuario.matricula);
         $('dadosFichaConsulta').innerHTML = dadosPerfilHtml(resposta.usuario) + `
           <div class="dado"><small>Status</small><strong>${escaparHtml(resposta.usuario.statusCadastro)}</strong></div>
           <div class="dado"><small>Criado em</small><strong>${escaparHtml(resposta.usuario.criadoEm || '—')}</strong></div>
@@ -11779,7 +12105,7 @@
           const status=p.statusCadastro&&p.statusCadastro!=='CONFIRMADO'
             ? `<span class="mini-status status-neutro">${escaparHtml(p.statusCadastro)}</span>`:'';
           return `<button class="resultado-policial-compacto" type="button" onclick="selecionarPolicialP1('${escaparAtributo(p.id)}')">
-                    <strong>${escaparHtml(identificacaoPolicialPadrao(p))}</strong>
+                    <strong>${htmlIdentificacaoPolicial(p)}</strong>
                     ${(lic||status)?'<span class="mini-status-wrap">'+status+lic+'</span>':''}
                   </button>`;
         }).join('');
@@ -11794,12 +12120,9 @@
       const p = lista.find(function(item) { return String(item.id) === String(usuarioId); });
       if (!p) return;
       $('usuarioIdLicencaP1').value = p.id;
-      $('nomePolicialP1').textContent = p.identificacao || p.nomeCompleto || '';
+      $('nomePolicialP1').textContent = identificacaoPolicialExibicao(p);
       $('dadosPolicialP1').textContent =
-        'M.F.: ' + (p.matricula || '') +
-        ' • ' + (p.statusCadastro || 'CONFIRMADO') +
-        ' • Grade: ' + (p.grade || '—') +
-        (p.opm ? ' • ' + p.opm : '');
+        (p.statusCadastro || 'CONFIRMADO') + (p.opm ? ' • ' + p.opm : '');
       $('painelPolicialP1').classList.remove('oculto');
       $('inicioLicencaP1').value = dataHojeIso();
       await carregarHistoricoPolicialP1(p.id);
@@ -12046,8 +12369,8 @@
         area.innerHTML = estado.guardaPoliciaisBusca.map(function(p) {
           return `<button type="button" class="resultado-pesquisa"
             onclick="selecionarPolicialGuarda350('${escaparAtributo(p.id)}','${alvo}')">
-            <strong>${escaparHtml(identificacaoPolicialPadrao(p))}</strong>
-            ${p.turno ? '<span>Turno ' + escaparHtml(p.turno) + '</span>' : ''}
+            <strong>${htmlIdentificacaoPolicial(p)}</strong>
+            <span>${p.turno ? 'Turno ' + escaparHtml(p.turno) : 'Toque para selecionar'}</span>
           </button>`;
         }).join('');
       } catch (e) {
@@ -12064,12 +12387,12 @@
       if (alvo === 'substituto') {
         $('usuarioSubstitutoGuardaId').value = p.id;
         $('pesquisaSubstitutoGuarda').value = p.identificacao || '';
-        $('selecionadoSubstitutoGuarda').textContent = identificacaoPolicialPadrao(p);
+        $('selecionadoSubstitutoGuarda').textContent = identificacaoPolicialExibicao(p);
         $('resultadosSubstitutoGuarda').innerHTML = '';
       } else {
         $('usuarioGuardaId').value = p.id;
         $('pesquisaGuardaPolicial').value = p.identificacao || '';
-        $('selecionadoGuardaPolicial').textContent = identificacaoPolicialPadrao(p);
+        $('selecionadoGuardaPolicial').textContent = identificacaoPolicialExibicao(p);
         $('resultadosGuardaPolicial').innerHTML = '';
       }
     }
@@ -12231,11 +12554,11 @@
         const b = lista.find(function(p){return String(p.id)===String(substitutoId);});
         if(a){
           $('pesquisaGuardaPolicial').value=a.identificacao||'';
-          $('selecionadoGuardaPolicial').textContent=identificacaoPolicialPadrao(a);
+          $('selecionadoGuardaPolicial').textContent=identificacaoPolicialExibicao(a);
         }
         if(b){
           $('pesquisaSubstitutoGuarda').value=b.identificacao||'';
-          $('selecionadoSubstitutoGuarda').textContent=identificacaoPolicialPadrao(b);
+          $('selecionadoSubstitutoGuarda').textContent=identificacaoPolicialExibicao(b);
         }
       } catch(e) {}
     }
@@ -12388,7 +12711,7 @@
         estado.policiaisRelatorioGuarda = resposta.policiais || [];
         area.innerHTML = estado.policiaisRelatorioGuarda.length
           ? estado.policiaisRelatorioGuarda.slice(0,12).map(function(p) {
-              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialRelatorioGuarda('${escaparAtributo(p.id)}','${alvo}',${Number.isInteger(indice) ? indice : -1})"><strong>${escaparHtml(identificacaoPolicialPadrao(p))}</strong><span>${p.contato ? escaparHtml(p.contato) : 'Contato não cadastrado'}</span></button>`;
+              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialRelatorioGuarda('${escaparAtributo(p.id)}','${alvo}',${Number.isInteger(indice) ? indice : -1})"><strong>${htmlIdentificacaoPolicial(p)}</strong><span>${p.contato ? 'Contato: ' + escaparHtml(p.contato) : 'Contato não cadastrado'}</span></button>`;
             }).join('')
           : '<div class="vazio compacto">Nenhum policial localizado.</div>';
       } catch (erro) {
