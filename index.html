@@ -7042,6 +7042,511 @@
         grid-column:1/-1!important;
       }
     }
+
+
+    /* =======================================================
+       SIGA v5.9.0 — EDITOR DE FORMULÁRIOS PROFISSIONAL
+       Permutas e Checklist: hierarquia, contraste, densidade,
+       edição progressiva e responsividade sem alterar regras.
+       ======================================================= */
+    #secao-formularios {
+      --editor-verde:#193b27;
+      --editor-verde-2:#3f5a35;
+      --editor-verde-3:#667655;
+      --editor-ouro:#d8b64c;
+      --editor-ouro-claro:#fff4c9;
+      --editor-linha:#d7dfd4;
+      --editor-fundo:#f7f9f6;
+      --editor-ink:#203126;
+      --editor-muted:#6d7a70;
+    }
+
+    #secao-formularios .editor-formulario-cabecalho {
+      margin-bottom:18px!important;
+    }
+    #secao-formularios .editor-formulario-cabecalho h2 {
+      margin-top:4px!important;
+      font-size:clamp(34px,3.1vw,50px)!important;
+      letter-spacing:-.045em!important;
+    }
+    #secao-formularios .editor-formulario-cabecalho p {
+      max-width:820px!important;
+      font-size:clamp(13px,.9vw,16px)!important;
+      line-height:1.55!important;
+    }
+    .editor-kicker,
+    .editor-painel-rotulo {
+      display:block;
+      color:#71806f;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    #secao-formularios .editor-formulario-painel,
+    #secao-formularios .editor-toolbar-campos {
+      padding:20px!important;
+      border:1px solid var(--editor-linha)!important;
+      border-radius:22px!important;
+      background:rgba(255,255,255,.96)!important;
+      box-shadow:0 12px 30px rgba(28,45,31,.06)!important;
+    }
+    #secao-formularios .editor-formulario-painel { margin-bottom:16px!important; }
+    #secao-formularios .editor-toolbar-campos { margin-bottom:14px!important; }
+
+    .editor-formulario-topo {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+      padding-bottom:17px;
+      margin-bottom:17px;
+      border-bottom:1px solid #e3e8e0;
+    }
+    #secao-formularios .editor-modulos {
+      display:inline-grid!important;
+      grid-auto-flow:column;
+      grid-auto-columns:minmax(150px,1fr);
+      width:auto!important;
+      min-width:310px;
+      margin:7px 0 0!important;
+      padding:5px!important;
+      gap:5px!important;
+      background:#f2f5f0!important;
+      border:1px solid #d9e0d6!important;
+      border-radius:15px!important;
+    }
+    #secao-formularios .editor-modulos .subaba {
+      min-height:44px!important;
+      padding:10px 18px!important;
+      border:0!important;
+      border-radius:11px!important;
+      color:#5d6b5d!important;
+      background:transparent!important;
+      font-size:11px!important;
+      font-weight:900!important;
+      letter-spacing:.08em!important;
+      box-shadow:none!important;
+    }
+    #secao-formularios .editor-modulos .subaba.ativa {
+      color:#fff!important;
+      background:linear-gradient(135deg,#365331 0%,#173b27 100%)!important;
+      box-shadow:0 7px 15px rgba(27,54,35,.15)!important;
+    }
+
+    .editor-resumo-formulario {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:7px;
+      max-width:440px;
+    }
+    .editor-resumo-chip {
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      min-height:34px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f3f5f1;
+      border:1px solid #e0e5dc;
+      color:#657267;
+      font-size:10px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .editor-resumo-chip b { color:#203126;font-size:13px; }
+    .editor-resumo-sistema { background:#eef3ec; }
+
+    .editor-geral-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+      gap:14px;
+    }
+    #secao-formularios .editor-campo-geral { margin:0!important; }
+    #secao-formularios .editor-campo-geral label,
+    #secao-formularios .editor-busca-campos label {
+      margin-bottom:7px!important;
+      font-size:11px!important;
+      color:#35483a!important;
+      letter-spacing:.02em!important;
+    }
+    #secao-formularios .editor-campo-geral input,
+    #secao-formularios .editor-busca-campos input {
+      min-height:50px!important;
+      background:#fbfcfa!important;
+      border:1px solid #cfd9cd!important;
+      color:#203126!important;
+      font-size:14px!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.8)!important;
+    }
+
+    .editor-formulario-acoes {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin-top:16px;
+    }
+    .editor-btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:48px;
+      padding:11px 15px;
+      border:1px solid transparent;
+      border-radius:13px;
+      font:inherit;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.04em;
+      cursor:pointer;
+      transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background-color .16s ease;
+    }
+    .editor-btn:hover { transform:translateY(-1px); }
+    .editor-btn:active { transform:translateY(0); }
+    .editor-btn .icone-svg { width:18px;height:18px; }
+    .editor-btn-icone { font-size:19px;font-weight:700;line-height:1; }
+    .editor-btn-novo {
+      color:#fff!important;
+      -webkit-text-fill-color:#fff!important;
+      background:linear-gradient(135deg,#5c744b 0%,#274c31 100%)!important;
+      border-color:#3f5f3d!important;
+      box-shadow:0 8px 18px rgba(39,76,49,.15)!important;
+    }
+    .editor-btn-salvar {
+      color:#fff!important;
+      -webkit-text-fill-color:#fff!important;
+      background:linear-gradient(135deg,#274a31 0%,#123221 100%)!important;
+      border-color:#183b26!important;
+      box-shadow:0 8px 18px rgba(20,52,32,.18)!important;
+    }
+    .editor-btn-restaurar,
+    .editor-btn-neutro {
+      color:#344638!important;
+      -webkit-text-fill-color:#344638!important;
+      background:#fff!important;
+      border-color:#cbd5c8!important;
+      box-shadow:0 4px 10px rgba(35,52,38,.045)!important;
+    }
+    .editor-btn-restaurar:hover,
+    .editor-btn-neutro:hover { background:#f5f7f3!important;border-color:#aebcac!important; }
+
+    .editor-formulario-nota {
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      margin-top:13px;
+      padding:11px 13px;
+      border-radius:13px;
+      border:1px solid #dde4d9;
+      background:#f5f8f3;
+      color:#617064;
+      font-size:11px;
+      line-height:1.5;
+    }
+    .editor-formulario-nota .icone-svg { flex:0 0 17px;width:17px;height:17px;margin-top:1px;color:#607353; }
+    .editor-formulario-nota strong { color:#314337; }
+
+    .editor-toolbar-campos {
+      display:grid;
+      grid-template-columns:minmax(0,.85fr) minmax(460px,1.15fr);
+      align-items:end;
+      gap:20px;
+    }
+    .editor-toolbar-titulo h3 {
+      margin:3px 0 4px!important;
+      color:#213328;
+      font-size:20px!important;
+      letter-spacing:-.025em;
+    }
+    .editor-toolbar-titulo p { margin:0;color:#6a786d;font-size:11px;line-height:1.48; }
+    .editor-toolbar-controles {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:end;
+      gap:10px;
+    }
+    .editor-busca-campos { margin:0!important; }
+    .editor-input-com-icone { position:relative; }
+    .editor-input-com-icone .icone-svg {
+      position:absolute;left:13px;top:50%;transform:translateY(-50%);
+      width:17px;height:17px;color:#778578;pointer-events:none;
+    }
+    #secao-formularios .editor-input-com-icone input { padding-left:40px!important; }
+    .editor-toolbar-acoes { display:flex;gap:7px; }
+    .editor-btn-compacto { min-height:50px;padding-inline:12px;font-size:9.5px;white-space:nowrap; }
+
+    #secao-formularios .editor-lista-campos {
+      display:grid!important;
+      gap:13px!important;
+    }
+    .editor-campo-card {
+      position:relative;
+      overflow:hidden;
+      margin:0!important;
+      padding:0!important;
+      border:1px solid #d8dfd5!important;
+      border-radius:20px!important;
+      background:#fff!important;
+      box-shadow:0 9px 22px rgba(29,46,32,.05)!important;
+    }
+    .editor-campo-card::before {
+      content:'';
+      position:absolute;left:0;top:0;bottom:0;width:5px;
+      background:#c8d2c5;
+    }
+    .editor-campo-card.editor-campo-obrigatorio::before { background:linear-gradient(180deg,#e3c85a,#c99c20); }
+    .editor-campo-card.editor-campo-personalizado::before { background:#5f7754; }
+    .editor-campo-card.editor-campo-personalizado.editor-campo-obrigatorio::before { background:linear-gradient(180deg,#d8b64c,#6c7b55); }
+
+    .editor-campo-cabecalho {
+      display:grid;
+      grid-template-columns:52px minmax(0,1fr) auto;
+      gap:13px;
+      align-items:center;
+      min-height:86px;
+      padding:14px 16px 14px 18px;
+      background:linear-gradient(180deg,#fff 0%,#fbfcfa 100%);
+    }
+    .editor-campo-sistema .editor-campo-cabecalho { background:linear-gradient(180deg,#fbfdf9 0%,#f4f7f2 100%); }
+    .editor-campo-indice {
+      display:grid;place-items:center;
+      width:48px;height:48px;
+      border-radius:15px;
+      background:#405735;
+      color:#fff;
+      font-size:15px;font-weight:950;letter-spacing:.05em;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.1);
+    }
+    .editor-campo-identidade { min-width:0; }
+    .editor-campo-titulo-linha { display:flex;align-items:center;gap:9px;min-width:0; }
+    .editor-campo-titulo-linha h4 {
+      min-width:0;
+      margin:0!important;
+      color:#203126!important;
+      font-size:16px!important;
+      line-height:1.28!important;
+      letter-spacing:-.015em;
+      overflow-wrap:anywhere;
+    }
+    .editor-campo-meta { display:flex;flex-wrap:wrap;gap:5px 9px;margin-top:6px; }
+    .editor-campo-meta span {
+      position:relative;
+      color:#7a867b;
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+    .editor-campo-meta span+span::before { content:'•';margin-right:9px;color:#acb5aa; }
+    .editor-campo-meta .editor-meta-sistema { color:#526a50; }
+
+    .editor-status {
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:26px;padding:5px 9px;border-radius:999px;
+      font-size:8px;font-weight:950;letter-spacing:.09em;white-space:nowrap;
+    }
+    .editor-status-obrigatorio { background:#fff0b9;color:#8a5d00;border:1px solid #f4df91; }
+    .editor-status-opcional { background:#eef1eb;color:#5c6a59;border:1px solid #e2e6df; }
+
+    .editor-campo-expandir {
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      min-width:96px;min-height:40px;padding:8px 11px;
+      border:1px solid #ccd6c9;border-radius:11px;
+      background:#fff;color:#354a39;
+      font-size:9px;font-weight:900;letter-spacing:.06em;
+      cursor:pointer;box-shadow:0 3px 8px rgba(36,55,39,.04);
+    }
+    .editor-campo-expandir:hover { background:#f5f8f3;border-color:#afbdac; }
+    .editor-campo-expandir .icone-svg { width:15px;height:15px; }
+    .editor-campo-expandir[aria-expanded="true"] { background:#edf3ea;border-color:#b7c6b3;color:#29452f; }
+
+    .editor-campo-corpo {
+      display:grid;
+      gap:14px;
+      padding:17px 18px 18px 22px;
+      border-top:1px solid #e2e7df;
+      background:#fff;
+    }
+    .editor-campo-corpo[hidden] { display:none!important; }
+    .editor-aviso-sistema {
+      display:flex;align-items:flex-start;gap:9px;
+      padding:10px 12px;
+      border:1px solid #dce4d8;border-radius:12px;
+      background:#f4f7f2;color:#657267;
+      font-size:10.5px;line-height:1.48;
+    }
+    .editor-aviso-sistema .icone-svg { flex:0 0 16px;width:16px;height:16px;color:#5f7455;margin-top:1px; }
+
+    .editor-config-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);
+      gap:14px;
+      align-items:start;
+    }
+    #secao-formularios .editor-campo-corpo .campo { margin:0!important; }
+    #secao-formularios .editor-campo-corpo .campo label {
+      margin-bottom:7px!important;
+      color:#304235!important;
+      font-size:10.5px!important;
+      font-weight:900!important;
+      letter-spacing:.025em!important;
+    }
+    .editor-label-dica { color:#829084;font-size:9px;font-weight:700;letter-spacing:0;text-transform:none; }
+    #secao-formularios .editor-campo-corpo input,
+    #secao-formularios .editor-campo-corpo select,
+    #secao-formularios .editor-campo-corpo textarea {
+      width:100%;
+      min-height:48px!important;
+      border:1px solid #ced8cc!important;
+      border-radius:12px!important;
+      background:#fcfdfb!important;
+      color:#24362a!important;
+      font-size:13px!important;
+      line-height:1.45!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.9)!important;
+    }
+    #secao-formularios .editor-campo-corpo textarea[data-edit-label] { min-height:72px!important;resize:vertical; }
+    #secao-formularios .editor-config-opcoes textarea { min-height:104px!important;resize:vertical; }
+    #secao-formularios .editor-campo-corpo input[readonly],
+    #secao-formularios .editor-campo-corpo select:disabled {
+      background:#eef2ec!important;
+      color:#6c786e!important;
+      -webkit-text-fill-color:#6c786e!important;
+      opacity:1!important;
+      cursor:not-allowed;
+    }
+    .editor-ajuda { display:block;margin-top:5px;color:#879187;font-size:9.5px;line-height:1.4; }
+
+    .editor-campo-configuracao-final {
+      display:grid;
+      grid-template-columns:minmax(280px,.7fr) minmax(0,1.3fr);
+      gap:14px;
+      align-items:stretch;
+      padding-top:1px;
+    }
+    .editor-toggle-obrigatorio {
+      display:flex;align-items:center;gap:11px;
+      min-height:62px;padding:10px 12px;
+      border:1px solid #d9e0d6;border-radius:13px;
+      background:#f8faf7;cursor:pointer;
+    }
+    .editor-toggle-obrigatorio input { position:absolute;opacity:0;pointer-events:none; }
+    .editor-toggle-caixa {
+      position:relative;flex:0 0 40px;width:40px;height:24px;border-radius:999px;
+      background:#d8ded5;border:1px solid #c8d0c5;transition:.18s ease;
+    }
+    .editor-toggle-caixa::after {
+      content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;
+      background:#fff;box-shadow:0 2px 5px rgba(26,44,31,.2);transition:.18s ease;
+    }
+    .editor-toggle-obrigatorio input:checked + .editor-toggle-caixa { background:#526b45;border-color:#526b45; }
+    .editor-toggle-obrigatorio input:checked + .editor-toggle-caixa::after { transform:translateX(16px); }
+    .editor-toggle-texto { display:grid;gap:2px;min-width:0; }
+    .editor-toggle-texto strong { color:#26392d;font-size:11px; }
+    .editor-toggle-texto small { color:#7d897f;font-size:9.5px;line-height:1.35; }
+
+    .editor-campo-acoes {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr)) auto;
+      gap:8px;
+      align-items:stretch;
+    }
+    .editor-acao {
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      min-height:48px;padding:9px 12px;
+      border-radius:12px;border:1px solid #cbd5c9;
+      background:#fff;color:#33483a;-webkit-text-fill-color:#33483a;
+      font:inherit;cursor:pointer;box-shadow:none;
+    }
+    .editor-acao span { font-size:17px;line-height:1;color:#61755b; }
+    .editor-acao b { font-size:9.5px;letter-spacing:.07em; }
+    .editor-acao:hover { background:#f3f7f1;border-color:#afbdac; }
+    .editor-acao:disabled {
+      opacity:1!important;background:#eef1ed!important;border-color:#e0e5de!important;
+      color:#a0aaa1!important;-webkit-text-fill-color:#a0aaa1!important;cursor:not-allowed!important;
+    }
+    .editor-acao:disabled span { color:#aab2aa!important; }
+    .editor-acao-excluir {
+      min-width:145px;
+      color:#8c3731!important;-webkit-text-fill-color:#8c3731!important;
+      border-color:#e2c5c1!important;background:#fffafa!important;
+    }
+    .editor-acao-excluir span { color:#a2463e; }
+    .editor-acao-excluir:hover { background:#fff2f0;border-color:#dcaeaa; }
+
+    .editor-vazio-filtro {
+      min-height:120px!important;
+      display:grid!important;place-items:center!important;
+      border:1px dashed #cfd8cc!important;
+      border-radius:18px!important;
+      background:#fafbf9!important;
+    }
+
+    @media(max-width:980px) {
+      #secao-formularios .editor-formulario-cabecalho h2 { font-size:clamp(31px,7vw,42px)!important; }
+      .editor-formulario-topo { flex-direction:column;gap:12px; }
+      #secao-formularios .editor-modulos { width:100%!important;min-width:0;grid-auto-columns:1fr; }
+      .editor-resumo-formulario { max-width:none;justify-content:flex-start; }
+      .editor-toolbar-campos { grid-template-columns:1fr!important;gap:14px!important; }
+      .editor-toolbar-controles { grid-template-columns:1fr!important; }
+      .editor-toolbar-acoes { display:grid;grid-template-columns:1fr 1fr; }
+      .editor-config-grid { grid-template-columns:1fr!important; }
+      .editor-campo-configuracao-final { grid-template-columns:1fr!important; }
+    }
+
+    @media(max-width:620px) {
+      #secao-formularios .editor-formulario-cabecalho { margin-bottom:14px!important; }
+      #secao-formularios .editor-formulario-cabecalho h2 { font-size:33px!important;line-height:1.04!important; }
+      #secao-formularios .editor-formulario-cabecalho p { font-size:13px!important;line-height:1.48!important; }
+      #secao-formularios .editor-formulario-painel,
+      #secao-formularios .editor-toolbar-campos { padding:15px!important;border-radius:19px!important; }
+      .editor-formulario-acoes { grid-template-columns:1fr 1fr;gap:8px; }
+      .editor-btn { min-height:50px;font-size:10px;padding-inline:10px; }
+      .editor-btn-restaurar { grid-column:1/-1; }
+      .editor-formulario-nota { font-size:10px; }
+      .editor-geral-grid { grid-template-columns:1fr;gap:11px; }
+      #secao-formularios .editor-campo-geral input { font-size:16px!important; }
+      .editor-resumo-chip { min-height:31px;padding:6px 9px;font-size:9px; }
+      .editor-resumo-chip b { font-size:12px; }
+      .editor-toolbar-titulo h3 { font-size:18px!important; }
+      .editor-toolbar-titulo p { font-size:10.5px; }
+      .editor-toolbar-acoes { gap:7px; }
+      .editor-btn-compacto { min-height:44px;font-size:8.5px; }
+
+      .editor-campo-cabecalho {
+        grid-template-columns:46px minmax(0,1fr) auto;
+        gap:10px;
+        min-height:82px;
+        padding:13px 12px 13px 15px;
+      }
+      .editor-campo-indice { width:43px;height:43px;border-radius:14px;font-size:14px; }
+      .editor-campo-titulo-linha { align-items:flex-start;flex-direction:column;gap:6px; }
+      .editor-campo-titulo-linha h4 { font-size:15px!important; }
+      .editor-status { min-height:23px;font-size:7.5px;padding:4px 8px; }
+      .editor-campo-meta { gap:4px 7px;margin-top:5px; }
+      .editor-campo-meta span { font-size:8px; }
+      .editor-campo-meta span+span::before { margin-right:7px; }
+      .editor-campo-expandir { min-width:42px;width:42px;height:42px;padding:0;border-radius:12px; }
+      .editor-campo-expandir span { display:none; }
+      .editor-campo-expandir .icone-svg { width:17px;height:17px; }
+      .editor-campo-corpo { padding:15px 13px 15px 18px;gap:13px; }
+      .editor-aviso-sistema { font-size:10px; }
+      #secao-formularios .editor-campo-corpo .campo label { font-size:11px!important; }
+      #secao-formularios .editor-campo-corpo input,
+      #secao-formularios .editor-campo-corpo select,
+      #secao-formularios .editor-campo-corpo textarea { font-size:16px!important; }
+      #secao-formularios .editor-campo-corpo textarea[data-edit-label] { min-height:70px!important; }
+      .editor-ajuda { font-size:9px; }
+      .editor-toggle-obrigatorio { min-height:64px; }
+      .editor-toggle-texto strong { font-size:11px; }
+      .editor-toggle-texto small { font-size:9px; }
+      .editor-campo-acoes { grid-template-columns:1fr 1fr; }
+      .editor-acao { min-height:48px; }
+      .editor-acao-excluir { grid-column:1/-1;min-width:0; }
+    }
+
 </style>
 </head>
 <body>
@@ -8199,20 +8704,74 @@
         </section>
 
         <section id="secao-formularios" class="secao">
-          <div class="cabecalho-secao"><div><h2>Editor de formulários</h2><p>P4 administra o Checklist; P1 administra Permutas. Campos de sistema aparecem bloqueados para preservar o fluxo.</p></div></div>
-          <div class="painel">
-            <div id="botoesModuloFormulario" class="subnavegacao"></div>
-            <div class="grade-2">
-              <div class="campo"><label for="tituloFormularioAdmin">Título</label><input id="tituloFormularioAdmin" maxlength="200"></div>
-              <div class="campo"><label for="descricaoFormularioAdmin">Descrição</label><input id="descricaoFormularioAdmin" maxlength="800"></div>
-            </div>
-            <div class="acoes-em-linha">
-              <button class="botao" type="button" onclick="adicionarCampoFormularioAdmin()">+ NOVO CAMPO</button>
-              <button class="botao botao-secundario" type="button" onclick="salvarFormularioAdmin()">SALVAR FORMULÁRIO</button>
-              <button class="botao botao-secundario" type="button" onclick="restaurarFormularioAdmin()">RESTAURAR PADRÃO</button>
+          <div class="cabecalho-secao editor-formulario-cabecalho">
+            <div>
+              <span class="editor-kicker">CONFIGURAÇÃO OPERACIONAL</span>
+              <h2>Editor de formulários</h2>
+              <p>P4 administra o Checklist; P1 administra Permutas. Edite o conteúdo com segurança sem alterar a lógica protegida dos campos de sistema.</p>
             </div>
           </div>
-          <div id="listaCamposFormularioAdmin" class="lista-cartoes"></div>
+
+          <div class="painel editor-formulario-painel">
+            <div class="editor-formulario-topo">
+              <div>
+                <span class="editor-painel-rotulo">FORMULÁRIO EM EDIÇÃO</span>
+                <div id="botoesModuloFormulario" class="subnavegacao editor-modulos"></div>
+              </div>
+              <div id="resumoEditorFormulario" class="editor-resumo-formulario" aria-live="polite"></div>
+            </div>
+
+            <div class="editor-geral-grid">
+              <div class="campo editor-campo-geral">
+                <label for="tituloFormularioAdmin">Título do formulário</label>
+                <input id="tituloFormularioAdmin" maxlength="200" placeholder="Título apresentado ao usuário">
+              </div>
+              <div class="campo editor-campo-geral">
+                <label for="descricaoFormularioAdmin">Descrição</label>
+                <input id="descricaoFormularioAdmin" maxlength="800" placeholder="Orientação curta sobre a finalidade do formulário">
+              </div>
+            </div>
+
+            <div class="editor-formulario-acoes">
+              <button class="editor-btn editor-btn-novo" type="button" onclick="adicionarCampoFormularioAdmin()">
+                <span class="editor-btn-icone" aria-hidden="true">+</span><span>NOVO CAMPO</span>
+              </button>
+              <button class="editor-btn editor-btn-salvar" type="button" onclick="salvarFormularioAdmin()">
+                <svg class="icone-svg" aria-hidden="true"><use href="#icone-checklist"></use></svg><span>SALVAR FORMULÁRIO</span>
+              </button>
+              <button class="editor-btn editor-btn-restaurar" type="button" onclick="restaurarFormularioAdmin()">
+                <span class="editor-btn-icone" aria-hidden="true">↺</span><span>RESTAURAR PADRÃO</span>
+              </button>
+            </div>
+
+            <div class="editor-formulario-nota">
+              <svg class="icone-svg" aria-hidden="true"><use href="#icone-info"></use></svg>
+              <span>As alterações só entram em vigor depois de <strong>Salvar formulário</strong>. Campos identificados como <strong>Sistema</strong> mantêm as regras essenciais do SIGA protegidas.</span>
+            </div>
+          </div>
+
+          <div class="painel editor-toolbar-campos">
+            <div class="editor-toolbar-titulo">
+              <span class="editor-painel-rotulo">ESTRUTURA DO FORMULÁRIO</span>
+              <h3>Campos e etapas</h3>
+              <p>Localize rapidamente um campo, abra somente o que precisa editar e reorganize a sequência sem perder o contexto.</p>
+            </div>
+            <div class="editor-toolbar-controles">
+              <div class="campo editor-busca-campos">
+                <label for="filtroCamposFormularioAdmin">Localizar campo</label>
+                <div class="editor-input-com-icone">
+                  <svg class="icone-svg" aria-hidden="true"><use href="#icone-pesquisa"></use></svg>
+                  <input id="filtroCamposFormularioAdmin" type="search" autocomplete="off" placeholder="Rótulo, ID ou tipo" oninput="filtrarCamposFormularioAdmin()">
+                </div>
+              </div>
+              <div class="editor-toolbar-acoes" aria-label="Exibição dos campos">
+                <button type="button" class="editor-btn editor-btn-compacto editor-btn-neutro" onclick="expandirCamposFormularioAdmin(true)">EXPANDIR TODOS</button>
+                <button type="button" class="editor-btn editor-btn-compacto editor-btn-neutro" onclick="expandirCamposFormularioAdmin(false)">RECOLHER</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="listaCamposFormularioAdmin" class="lista-cartoes editor-lista-campos"></div>
         </section>
 
         <section id="secao-setores" class="secao">
@@ -11956,45 +12515,153 @@
       if(!f)return;
       $('tituloFormularioAdmin').value=f.titulo||'';
       $('descricaoFormularioAdmin').value=f.descricao||'';
+      const campos=f.campos||[];
       const tiposEditaveis=['SECTION','INFO','TEXT','TEXTAREA','NUMBER','DATE','SELECT','RADIO','CHECKBOX','CONFIRM','IMAGE','GALLERY'];
-      $('listaCamposFormularioAdmin').innerHTML=(f.campos||[]).map((c,i)=>`
-        <article class="cartao-item">
-          <div class="cartao-topo">
-            <div>
-              <h4>${i+1}. ${escaparHtml(c.label||c.id)}</h4>
-              <p>${escaparHtml(rotuloTipoCampo(c.tipo))} • ID ${escaparHtml(c.id)} ${c.sistema?'• CAMPO DE SISTEMA':''}</p>
+
+      if(!(estado.editorCamposExpandidos instanceof Set)||estado.editorModuloExpansao!==estado.moduloEditor){
+        estado.editorCamposExpandidos=new Set();
+        estado.editorModuloExpansao=estado.moduloEditor;
+        if(campos[0])estado.editorCamposExpandidos.add(String(campos[0].id));
+      }
+
+      const obrigatorios=campos.filter(c=>c.obrigatorio).length;
+      const sistema=campos.filter(c=>c.sistema).length;
+      const personalizados=Math.max(0,campos.length-sistema);
+      const resumo=$('resumoEditorFormulario');
+      if(resumo)resumo.innerHTML=`
+        <span class="editor-resumo-chip"><b>${campos.length}</b> campos</span>
+        <span class="editor-resumo-chip"><b>${obrigatorios}</b> obrigatórios</span>
+        <span class="editor-resumo-chip editor-resumo-sistema"><b>${sistema}</b> sistema</span>
+        <span class="editor-resumo-chip"><b>${personalizados}</b> personalizados</span>`;
+
+      $('listaCamposFormularioAdmin').innerHTML=campos.map((c,i)=>{
+        const id=String(c.id||('campo_'+i));
+        const aberto=estado.editorCamposExpandidos.has(id);
+        const tipo=rotuloTipoCampo(c.tipo);
+        const busca=[c.label,c.id,tipo,c.sistema?'sistema':'',c.obrigatorio?'obrigatorio':'opcional'].join(' ').toLowerCase();
+        const editLabel=(c.tipo==='INFO'||String(c.label||'').length>75)
+          ? `<textarea rows="2" data-edit-label="${i}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>${escaparHtml(c.label||'')}</textarea>`
+          : `<input data-edit-label="${i}" value="${escaparAtributo(c.label||'')}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>`;
+        const temOpcoes=['SELECT','RADIO','GALLERY'].includes(c.tipo);
+        const ehImagem=c.tipo==='IMAGE';
+        return `
+        <article class="editor-campo-card ${c.sistema?'editor-campo-sistema':'editor-campo-personalizado'} ${c.obrigatorio?'editor-campo-obrigatorio':''}" data-editor-campo-id="${escaparAtributo(id)}" data-editor-busca="${escaparAtributo(busca)}">
+          <div class="editor-campo-cabecalho">
+            <div class="editor-campo-indice" aria-hidden="true">${String(i+1).padStart(2,'0')}</div>
+            <div class="editor-campo-identidade">
+              <div class="editor-campo-titulo-linha">
+                <h4>${escaparHtml(c.label||c.id)}</h4>
+                <span class="editor-status ${c.obrigatorio?'editor-status-obrigatorio':'editor-status-opcional'}">${c.obrigatorio?'OBRIGATÓRIO':'OPCIONAL'}</span>
+              </div>
+              <div class="editor-campo-meta">
+                <span>${escaparHtml(tipo)}</span>
+                <span>ID ${escaparHtml(c.id)}</span>
+                ${c.sistema?'<span class="editor-meta-sistema">SISTEMA</span>':'<span>PERSONALIZÁVEL</span>'}
+              </div>
             </div>
-            <span class="status ${c.obrigatorio?'PENDENTE':'CONFIRMADO'}">${c.obrigatorio?'OBRIGATÓRIO':'OPCIONAL'}</span>
+            <button type="button" class="editor-campo-expandir" aria-expanded="${aberto?'true':'false'}" aria-label="${aberto?'Recolher':'Editar'} campo ${i+1}" onclick="alternarCampoEditorFormulario('${escaparAtributo(id)}',this)">
+              <svg class="icone-svg" aria-hidden="true"><use href="#icone-editar"></use></svg>
+              <span>${aberto?'RECOLHER':'EDITAR'}</span>
+            </button>
           </div>
-          <div class="grade-2">
-            <div class="campo">
-              <label>Rótulo / texto</label>
-              <textarea data-edit-label="${i}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>${escaparHtml(c.label||'')}</textarea>
+
+          <div class="editor-campo-corpo" ${aberto?'':'hidden'}>
+            ${c.sistema?`<div class="editor-aviso-sistema"><svg class="icone-svg" aria-hidden="true"><use href="#icone-info"></use></svg><span>Campo estrutural do SIGA. Controles bloqueados preservam validações e integrações do fluxo operacional.</span></div>`:''}
+
+            <div class="editor-config-grid">
+              <div class="campo editor-config-rotulo">
+                <label>Rótulo / texto exibido</label>
+                ${editLabel}
+                <small class="editor-ajuda">É o texto que o usuário verá durante o preenchimento.</small>
+              </div>
+              <div class="campo editor-config-tipo">
+                <label>Tipo de campo</label>
+                <select data-edit-tipo="${i}" ${c.sistema?'disabled':''}>
+                  ${tiposEditaveis.map(t=>`<option value="${t}" ${t===c.tipo?'selected':''}>${escaparHtml(rotuloTipoCampo(t))}</option>`).join('')}
+                </select>
+                <small class="editor-ajuda">${c.sistema?'Tipo protegido pelo sistema.':'Define como a resposta será coletada.'}</small>
+              </div>
             </div>
-            <div class="campo">
-              <label>Tipo de campo</label>
-              <select data-edit-tipo="${i}" ${c.sistema?'disabled':''}>
-                ${tiposEditaveis.map(t=>`<option value="${t}" ${t===c.tipo?'selected':''}>${escaparHtml(rotuloTipoCampo(t))}</option>`).join('')}
-              </select>
+
+            ${temOpcoes?`<div class="campo editor-config-opcoes">
+              <label>${c.tipo==='GALLERY'?'Arquivos da galeria':'Opções de resposta'} <span class="editor-label-dica">uma linha por item</span></label>
+              <textarea rows="4" data-edit-opcoes="${i}">${escaparHtml((c.tipo==='GALLERY'?c.arquivos:c.opcoes||[]).join('\n'))}</textarea>
+              <small class="editor-ajuda">A ordem das linhas será a ordem apresentada ao usuário.</small>
+            </div>`:`<textarea data-edit-opcoes="${i}" disabled hidden></textarea>`}
+
+            ${ehImagem?`<div class="campo editor-config-midia">
+              <label>Arquivo de mídia</label>
+              <input data-edit-arquivo="${i}" value="${escaparAtributo(c.arquivo||'')}" placeholder="Nome ou referência do arquivo de imagem">
+              <small class="editor-ajuda">Use somente o arquivo associado a este campo de imagem.</small>
+            </div>`:`<input data-edit-arquivo="${i}" value="${escaparAtributo(c.arquivo||'')}" disabled hidden>`}
+
+            <div class="editor-campo-configuracao-final">
+              <label class="editor-toggle-obrigatorio">
+                <input type="checkbox" data-edit-obrig="${i}" ${c.obrigatorio?'checked':''}>
+                <span class="editor-toggle-caixa" aria-hidden="true"></span>
+                <span class="editor-toggle-texto"><strong>Campo obrigatório</strong><small>O usuário precisa preencher este item para concluir o formulário.</small></span>
+              </label>
+
+              <div class="editor-campo-acoes">
+                <button class="editor-acao editor-acao-mover" type="button" aria-label="Mover campo ${i+1} para cima" onclick="moverCampoFormulario(${i},-1)" ${i===0?'disabled':''}><span aria-hidden="true">↑</span><b>SUBIR</b></button>
+                <button class="editor-acao editor-acao-mover" type="button" aria-label="Mover campo ${i+1} para baixo" onclick="moverCampoFormulario(${i},1)" ${i===(campos.length-1)?'disabled':''}><span aria-hidden="true">↓</span><b>DESCER</b></button>
+                ${c.sistema?'':`<button class="editor-acao editor-acao-excluir" type="button" onclick="excluirCampoFormulario(${i})"><span aria-hidden="true">×</span><b>EXCLUIR CAMPO</b></button>`}
+              </div>
             </div>
           </div>
-          <div class="campo">
-            <label>Opções / arquivos da galeria (uma linha por item)</label>
-            <textarea data-edit-opcoes="${i}" ${!['SELECT','RADIO','GALLERY'].includes(c.tipo)?'disabled':''}>${escaparHtml((c.tipo==='GALLERY'?c.arquivos:c.opcoes||[]).join('\n'))}</textarea>
-          </div>
-          <div class="grade-2">
-            <label class="confirmacao"><input type="checkbox" data-edit-obrig="${i}" ${c.obrigatorio?'checked':''}><span>Obrigatório</span></label>
-            <div class="campo"><label>Arquivo de mídia (IMAGEM)</label><input data-edit-arquivo="${i}" value="${escaparHtml(c.arquivo||'')}" ${c.tipo!=='IMAGE'?'disabled':''}></div>
-          </div>
-          <div class="acoes-em-linha">
-            <button class="botao botao-secundario botao-pequeno" type="button" aria-label="Mover campo para cima" onclick="moverCampoFormulario(${i},-1)" ${i===0?'disabled':''}>↑</button>
-            <button class="botao botao-secundario botao-pequeno" type="button" aria-label="Mover campo para baixo" onclick="moverCampoFormulario(${i},1)" ${i===(f.campos.length-1)?'disabled':''}>↓</button>
-            ${c.sistema?'':'<button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirCampoFormulario('+i+')">EXCLUIR</button>'}
-          </div>
-        </article>`).join('');
+        </article>`;
+      }).join('');
+
+      filtrarCamposFormularioAdmin();
     }
+
+    function alternarCampoEditorFormulario(id,botao){
+      id=String(id||'');
+      if(!(estado.editorCamposExpandidos instanceof Set))estado.editorCamposExpandidos=new Set();
+      const card=document.querySelector(`[data-editor-campo-id="${CSS.escape(id)}"]`);
+      if(!card)return;
+      const corpo=card.querySelector('.editor-campo-corpo');
+      const aberto=!corpo.hidden;
+      corpo.hidden=aberto;
+      if(aberto)estado.editorCamposExpandidos.delete(id);else estado.editorCamposExpandidos.add(id);
+      if(botao){
+        botao.setAttribute('aria-expanded',String(!aberto));
+        const span=botao.querySelector('span');if(span)span.textContent=aberto?'EDITAR':'RECOLHER';
+        botao.setAttribute('aria-label',(aberto?'Editar':'Recolher')+' campo');
+      }
+    }
+
+    function expandirCamposFormularioAdmin(expandir){
+      const f=estado.formularioEditor;if(!f)return;
+      if(!(estado.editorCamposExpandidos instanceof Set))estado.editorCamposExpandidos=new Set();
+      if(expandir)(f.campos||[]).forEach(c=>estado.editorCamposExpandidos.add(String(c.id||'')));else estado.editorCamposExpandidos.clear();
+      document.querySelectorAll('#listaCamposFormularioAdmin .editor-campo-card').forEach(card=>{
+        const id=String(card.dataset.editorCampoId||'');
+        const corpo=card.querySelector('.editor-campo-corpo');
+        const botao=card.querySelector('.editor-campo-expandir');
+        if(corpo)corpo.hidden=!expandir;
+        if(botao){botao.setAttribute('aria-expanded',String(expandir));const span=botao.querySelector('span');if(span)span.textContent=expandir?'RECOLHER':'EDITAR';}
+      });
+    }
+
+    function filtrarCamposFormularioAdmin(){
+      const campo=$('filtroCamposFormularioAdmin');
+      const termo=String(campo&&campo.value||'').trim().toLowerCase();
+      let visiveis=0;
+      document.querySelectorAll('#listaCamposFormularioAdmin .editor-campo-card').forEach(card=>{
+        const mostra=!termo||String(card.dataset.editorBusca||'').includes(termo);
+        card.hidden=!mostra;
+        if(mostra)visiveis++;
+      });
+      const lista=$('listaCamposFormularioAdmin');
+      if(lista)lista.classList.toggle('editor-lista-filtrada',!!termo);
+      const vazio=document.getElementById('editorFiltroVazio');
+      if(vazio)vazio.remove();
+      if(termo&&!visiveis&&lista)lista.insertAdjacentHTML('beforeend','<div id="editorFiltroVazio" class="vazio editor-vazio-filtro">Nenhum campo corresponde à pesquisa.</div>');
+    }
+
     function sincronizarEditorFormulario(){const f=estado.formularioEditor;if(!f)return;f.titulo=$('tituloFormularioAdmin').value;f.descricao=$('descricaoFormularioAdmin').value;(f.campos||[]).forEach((c,i)=>{const l=document.querySelector(`[data-edit-label="${i}"]`);const t=document.querySelector(`[data-edit-tipo="${i}"]`);const o=document.querySelector(`[data-edit-opcoes="${i}"]`);const q=document.querySelector(`[data-edit-obrig="${i}"]`);const a=document.querySelector(`[data-edit-arquivo="${i}"]`);if(l)c.label=l.value;if(t&&!t.disabled)c.tipo=t.value;if(o&&!o.disabled){const linhas=o.value.split('\n').map(x=>x.trim()).filter(Boolean);if(c.tipo==='GALLERY')c.arquivos=linhas;else c.opcoes=linhas;}if(q)c.obrigatorio=q.checked;if(a&&!a.disabled)c.arquivo=a.value.trim();});}
-    function adicionarCampoFormularioAdmin(){sincronizarEditorFormulario();const id='campo_'+Date.now();estado.formularioEditor.campos.push({id,tipo:'TEXT',label:'NOVO CAMPO',obrigatorio:false,opcoes:[]});renderizarEditorFormulario();setTimeout(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}),50);}
+    function adicionarCampoFormularioAdmin(){sincronizarEditorFormulario();const id='campo_'+Date.now();estado.formularioEditor.campos.push({id,tipo:'TEXT',label:'NOVO CAMPO',obrigatorio:false,opcoes:[]});if(!(estado.editorCamposExpandidos instanceof Set))estado.editorCamposExpandidos=new Set();estado.editorCamposExpandidos.add(id);const filtro=$('filtroCamposFormularioAdmin');if(filtro)filtro.value='';renderizarEditorFormulario();setTimeout(()=>{const card=document.querySelector(`[data-editor-campo-id="${CSS.escape(id)}"]`);if(card)card.scrollIntoView({behavior:'smooth',block:'center'});},80);}
     function excluirCampoFormulario(i){sincronizarEditorFormulario();if(!confirm('Excluir este campo do formulário?'))return;estado.formularioEditor.campos.splice(i,1);renderizarEditorFormulario();}
     function moverCampoFormulario(i,d){sincronizarEditorFormulario();const j=i+d;if(j<0||j>=estado.formularioEditor.campos.length)return;const a=estado.formularioEditor.campos;[a[i],a[j]]=[a[j],a[i]];renderizarEditorFormulario();}
     async function salvarFormularioAdmin(){sincronizarEditorFormulario();mostrarCarregando('Salvando formulário...');try{const r=await api('adminSalvarFormulario',estado.token,estado.moduloEditor,estado.formularioEditor);estado.formularioEditor=r.formulario;ocultarCarregando();toast(r.mensagem);renderizarEditorFormulario();}catch(e){tratarErro(e);}}
