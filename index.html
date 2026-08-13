@@ -5462,6 +5462,934 @@
       .solicitacao-p1-acoes { flex-direction:column; }
       .solicitacao-p1-acoes .botao { width:100%; }
     }
+
+
+    /* =======================================================
+       SIGA v5.7.8 — PADRONIZAÇÃO GLOBAL, PAINEL OPERACIONAL
+       Cartões padronizados, loader com setas do SIGA,
+       visão operacional estruturada e refinamentos visuais.
+       ======================================================= */
+
+    :root {
+      --siga-acento-amarelo: #d4b043;
+      --siga-acento-amarelo-claro: rgba(212,176,67,.16);
+      --siga-circulo-suave: rgba(214,221,210,.55);
+      --siga-circulo-suave-2: rgba(214,221,210,.26);
+      --siga-superficie-card: #fbfcfa;
+      --siga-borda-card: #d7ddd4;
+    }
+
+    .dashboard-card,
+    .resumo,
+    .grade-dados .dado {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .dashboard-card,
+    .resumo {
+      background: var(--siga-superficie-card)!important;
+      border: 1px solid var(--siga-borda-card)!important;
+      box-shadow: 0 14px 30px rgba(28, 42, 29, .05)!important;
+    }
+
+    .dashboard-card::before,
+    .resumo::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 6px;
+      border-radius: 0 999px 999px 0;
+      background: linear-gradient(180deg, #e5c960 0%, var(--siga-acento-amarelo) 100%);
+      box-shadow: 0 0 0 1px rgba(212,176,67,.08);
+      z-index: 0;
+    }
+
+    .dashboard-card::after,
+    .resumo::after {
+      content: '';
+      position: absolute;
+      right: -54px;
+      bottom: -62px;
+      width: 164px;
+      height: 164px;
+      border-radius: 50%;
+      border: 15px solid var(--siga-circulo-suave);
+      box-shadow: inset 0 0 0 32px var(--siga-circulo-suave-2);
+      opacity: .78;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .dashboard-card > *,
+    .resumo > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard-card {
+      text-align: left;
+      gap: 6px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .dashboard-card-atalho:hover,
+    .dashboard-card-atalho:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(28, 42, 29, .08)!important;
+      border-color: #c9d3c4!important;
+    }
+
+    .dashboard-card small,
+    .resumo small {
+      letter-spacing: .14em;
+    }
+
+    .dashboard-card b {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: .14em;
+      color: #617050;
+    }
+
+    .dashboard-card b::after {
+      content: '↗';
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .grade-dados .dado {
+      border: 1px solid #dbe1d7;
+      background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(248,249,246,.98) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .dado-navegavel {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .dado-navegavel:hover,
+    .dado-navegavel:focus-visible {
+      transform: translateY(-1px);
+      border-color: #ccd6c8;
+      box-shadow: 0 12px 26px rgba(27,49,32,.08);
+    }
+
+    .dado-rodape-atalho {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      color: #667755;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .dado-rodape-atalho::after {
+      content: '→';
+      font-size: 13px;
+    }
+
+    .carregando {
+      backdrop-filter: blur(5px);
+      background: rgba(225, 230, 222, .72)!important;
+    }
+
+    .carregando-caixa {
+      min-width: min(88vw, 420px);
+      padding: 26px 24px 22px;
+      border-radius: 26px;
+      border: 1px solid rgba(53,65,46,.08);
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 28px 55px rgba(28,42,29,.18);
+    }
+
+    .spinner.siga-loader {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 16px;
+      border: none!important;
+      animation: none!important;
+    }
+
+    .siga-loader .loader-core {
+      position: absolute;
+      inset: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #1f4429 0%, #234c2e 44%, #425c23 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 22px rgba(18,36,21,.22);
+      color: #f2f4ee;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-indent: .18em;
+    }
+
+    .siga-loader .loader-arrows {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      color: var(--siga-acento-amarelo);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      text-shadow: 0 2px 12px rgba(212,176,67,.32);
+    }
+
+    .siga-loader .loader-arrows::before {
+      content: '›››';
+    }
+
+    .siga-loader .loader-arrows-a {
+      top: 10px;
+      left: 12px;
+      animation: sigaSetasA 1.15s ease-in-out infinite;
+    }
+
+    .siga-loader .loader-arrows-b {
+      right: 10px;
+      bottom: 12px;
+      transform: rotate(180deg);
+      animation: sigaSetasB 1.15s ease-in-out infinite .22s;
+    }
+
+    .siga-loader::before,
+    .siga-loader::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border-radius: 32px;
+      border: 2px solid rgba(53,65,46,.10);
+    }
+
+    .siga-loader::after {
+      inset: 0;
+      border-color: rgba(212,176,67,.26);
+      animation: sigaPulso 1.35s ease-in-out infinite;
+    }
+
+    #textoCarregando {
+      display: block;
+      font-size: 17px;
+      font-weight: 900;
+      color: #203124;
+      letter-spacing: -.02em;
+      text-align: center;
+    }
+
+    .cabecalho-relatorio-guarda p {
+      max-width: 720px;
+    }
+
+    .painel-resumo-operacional {
+      display: grid;
+      gap: 14px;
+    }
+
+    .painel-resumo-relatorio {
+      display: grid;
+      gap: 12px;
+    }
+
+    .resumo-hero-relatorio {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .resumo-hero-relatorio .item {
+      padding: 12px 13px;
+      border-radius: 16px;
+      border: 1px solid #d8dfd4;
+      background: linear-gradient(180deg, #fbfcfa 0%, #f5f7f3 100%);
+    }
+
+    .resumo-hero-relatorio .item small,
+    .bloco-resumo-operacional small {
+      display: block;
+      margin-bottom: 4px;
+      color: #70806d;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .resumo-hero-relatorio .item strong {
+      display: block;
+      color: #223327;
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .grid-resumo-operacional {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mini-card-resumo {
+      padding: 12px 10px;
+      border-radius: 16px;
+      border: 1px solid #dae0d6;
+      background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(246,248,244,.98) 100%);
+      text-align: center;
+    }
+
+    .mini-card-resumo strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      color: #1f3322;
+    }
+
+    .mini-card-resumo span {
+      display: block;
+      margin-top: 6px;
+      color: #65735f;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .bloco-resumo-operacional {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid #d9dfd5;
+      background: #fbfcfa;
+    }
+
+    .bloco-resumo-operacional h4 {
+      margin: 0 0 10px;
+      color: #203124;
+      font-size: 15px;
+    }
+
+    .resumo-linhas {
+      display: grid;
+      gap: 10px;
+    }
+
+    .resumo-linha {
+      display: grid;
+      gap: 4px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: #f4f6f2;
+      border: 1px solid #e1e6de;
+    }
+
+    .resumo-linha strong {
+      color: #213225;
+      font-size: 13px;
+    }
+
+    .resumo-linha p,
+    .resumo-linha span {
+      margin: 0;
+      color: #62725d;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .resumo-linha em {
+      font-style: normal;
+      color: #203124;
+      font-weight: 700;
+    }
+
+    .bloco-auditoria-relatorio {
+      background: linear-gradient(180deg, #fbfcfa 0%, #f1f5ef 100%);
+    }
+
+    .bloco-auditoria-relatorio.pendente {
+      border-color: rgba(212,176,67,.44);
+      background: linear-gradient(180deg, rgba(255,250,237,.96) 0%, rgba(250,246,231,.92) 100%);
+    }
+
+    .lista-auditoria-relatorio {
+      margin: 0;
+      padding-left: 18px;
+      color: #5c6a57;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .bloco-whatsapp-relatorio {
+      border: 1px solid #d9dfd5;
+      border-radius: 16px;
+      background: #f8faf7;
+      overflow: hidden;
+    }
+
+    .bloco-whatsapp-relatorio summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 12px 14px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      color: #617050;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bloco-whatsapp-relatorio summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .bloco-whatsapp-relatorio summary::after {
+      content: '+';
+      font-size: 18px;
+      line-height: 1;
+      color: #70806d;
+    }
+
+    .bloco-whatsapp-relatorio[open] summary::after {
+      content: '–';
+    }
+
+    .bloco-whatsapp-relatorio pre {
+      margin: 0;
+      border-top: 1px solid #dfe5dc;
+      border-radius: 0;
+      background: #fff;
+      max-height: 320px;
+    }
+
+    .botao-copiar-relatorio {
+      background: linear-gradient(135deg, #2c4a2f 0%, #48602d 100%)!important;
+    }
+
+    @keyframes sigaPulso {
+      0%, 100% { transform: scale(.94); opacity: .45; }
+      50% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes sigaSetasA {
+      0% { transform: translate(0, 0); opacity: .35; }
+      45% { transform: translate(12px, 6px); opacity: 1; }
+      100% { transform: translate(20px, 11px); opacity: .25; }
+    }
+
+    @keyframes sigaSetasB {
+      0% { transform: rotate(180deg) translate(0, 0); opacity: .25; }
+      45% { transform: rotate(180deg) translate(12px, 6px); opacity: 1; }
+      100% { transform: rotate(180deg) translate(18px, 9px); opacity: .32; }
+    }
+
+    @media(max-width:980px) {
+      .grid-resumo-operacional {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .resumo-hero-relatorio {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:620px) {
+      .dashboard-card::before,
+      .resumo::before {
+        top: 12px;
+        bottom: 12px;
+        width: 5px;
+      }
+      .dashboard-card::after,
+      .resumo::after {
+        right: -66px;
+        bottom: -72px;
+        width: 156px;
+        height: 156px;
+        border-width: 13px;
+      }
+      .grid-resumo-operacional {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .resumo-hero-relatorio {
+        grid-template-columns: 1fr;
+      }
+      .spinner.siga-loader {
+        width: 92px;
+        height: 92px;
+      }
+      .siga-loader .loader-core {
+        inset: 22px;
+        border-radius: 22px;
+        font-size: 14px;
+      }
+      .carregando-caixa {
+        padding: 22px 18px 18px;
+        border-radius: 22px;
+      }
+      #textoCarregando {
+        font-size: 15px;
+      }
+    }
+
+
+
+    /* =======================================================
+       SIGA v5.8.0 — SEGUNDA RODADA DE UX E GOVERNANÇA
+       Central de pendências, auditoria do Comando, navegação
+       mais previsível e refinamento responsivo global.
+       ======================================================= */
+    :root {
+      --siga-space-1: 6px;
+      --siga-space-2: 10px;
+      --siga-space-3: 14px;
+      --siga-space-4: 18px;
+      --siga-space-5: 24px;
+      --siga-space-6: 32px;
+      --siga-success: #2f6b43;
+      --siga-warning: #9a6a08;
+      --siga-danger: #9d3d36;
+      --siga-info: #3f5f78;
+    }
+
+    .secao.ativa {
+      animation: sigaSecaoEntrada .18s ease-out;
+    }
+
+    .secao.ativa > .cabecalho-secao:first-child {
+      padding-top: 2px;
+    }
+
+    .secao .painel + .painel {
+      margin-top: 0;
+    }
+
+    .status-siga {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 28px;
+      padding: 5px 9px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .status-siga::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .82;
+    }
+    .status-siga.sucesso { color: var(--siga-success); background:#edf6ef; border-color:#cfe3d3; }
+    .status-siga.aviso { color: var(--siga-warning); background:#fff7e5; border-color:#ead9ae; }
+    .status-siga.erro { color: var(--siga-danger); background:#fff0ee; border-color:#e6c4c0; }
+    .status-siga.info { color: var(--siga-info); background:#eef4f7; border-color:#d3e0e7; }
+    .status-siga.neutro { color:#647168; background:#f1f3f0; border-color:#dce1da; }
+
+    .painel-central-pendencias {
+      display: grid;
+      gap: 14px;
+      padding: 18px!important;
+      background: linear-gradient(180deg, #fbfcfa 0%, #f5f7f3 100%)!important;
+    }
+
+    .central-pendencias-topo,
+    .auditoria-topo {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .central-pendencias-topo h3,
+    .auditoria-topo h3 {
+      margin: 3px 0 0!important;
+    }
+
+    .central-pendencias-topo p,
+    .auditoria-topo p {
+      margin: 6px 0 0;
+      color: var(--siga-muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .central-pendencias-lista {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .pendencia-operacional {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid #d8dfd5;
+      border-radius: 16px;
+      background: #fff;
+      color: #223327;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .pendencia-operacional:hover,
+    .pendencia-operacional:focus-visible {
+      transform: translateY(-1px);
+      border-color: #c6d1c3;
+      box-shadow: 0 12px 24px rgba(28,42,29,.07);
+    }
+    .pendencia-operacional .pendencia-numero {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #f2f4ef;
+      color: #34472f;
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .pendencia-operacional.prioridade .pendencia-numero {
+      background: #fff3d7;
+      color: #7a5607;
+    }
+    .pendencia-operacional strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+    .pendencia-operacional small {
+      display: block;
+      margin-top: 3px;
+      color: #70806f;
+      font-size: 10.5px;
+      line-height: 1.4;
+    }
+    .pendencia-seta {
+      color: #74816e;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .central-pendencias-vazia {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 72px;
+      padding: 14px 16px;
+      border: 1px solid #d5e2d5;
+      border-radius: 16px;
+      background: #f3f8f2;
+      color: #31563a;
+    }
+    .central-pendencias-vazia .icone-ok {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 36px;
+      border-radius: 50%;
+      background: #dcebdc;
+      font-weight: 900;
+    }
+    .central-pendencias-vazia strong { display:block; font-size:13px; }
+    .central-pendencias-vazia span { display:block; margin-top:2px; font-size:11px; color:#647565; }
+
+    .painel-auditoria-admin {
+      padding: 18px!important;
+    }
+
+    .linha-tempo-auditoria {
+      position: relative;
+      display: grid;
+      gap: 0;
+      margin-top: 4px;
+    }
+    .auditoria-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 112px minmax(0,1fr);
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid #e4e9e1;
+    }
+    .auditoria-item:last-child { border-bottom: 0; }
+    .auditoria-item time {
+      color: #718072;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .auditoria-conteudo { min-width:0; }
+    .auditoria-cabecalho {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .auditoria-cabecalho strong {
+      color: #233428;
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
+    .auditoria-conteudo p {
+      margin: 5px 0 0;
+      color: #657365;
+      font-size: 11px;
+      line-height: 1.48;
+      overflow-wrap: anywhere;
+    }
+    .auditoria-responsavel {
+      display: inline-flex;
+      margin-top: 6px;
+      color: #7b877d;
+      font-size: 9.5px;
+      font-weight: 700;
+    }
+
+    .grade-dados [data-org-setores].oculto { display:none!important; }
+
+    .tabela-wrap thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .subnavegacao {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .subaba {
+      transition: background-color .15s ease, color .15s ease, transform .15s ease;
+    }
+    .subaba:active { transform: translateY(1px); }
+
+    .campo input[readonly],
+    .campo input:disabled,
+    .campo select:disabled,
+    .campo textarea:disabled {
+      cursor: not-allowed;
+    }
+
+    .conteudo-app [id^="secao-"] {
+      scroll-margin-top: calc(var(--siga-topbar-sticky) + 12px);
+    }
+
+    @keyframes sigaSecaoEntrada {
+      from { opacity: .78; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(min-width:1180px) {
+      #secao-painel-admin .dashboard-grade {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      #secao-painel-admin .dashboard-card {
+        min-height: 122px!important;
+      }
+      #secao-painel-admin .painel-central-pendencias,
+      #secao-painel-admin .painel-auditoria-admin {
+        margin-top: 2px;
+      }
+    }
+
+    @media(max-width:760px) {
+      .central-pendencias-lista {
+        grid-template-columns: 1fr;
+      }
+      .central-pendencias-topo,
+      .auditoria-topo {
+        flex-direction: column;
+      }
+      .auditoria-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .auditoria-item time {
+        font-size: 9px;
+      }
+    }
+
+    @media(max-width:620px) {
+      #secao-painel-admin .dashboard-grade {
+        grid-template-columns: repeat(2, minmax(0,1fr))!important;
+      }
+      #secao-painel-admin .dashboard-card {
+        min-height: 100px!important;
+      }
+      .painel-central-pendencias,
+      .painel-auditoria-admin {
+        padding: 15px!important;
+      }
+      .pendencia-operacional {
+        padding: 12px;
+        gap: 10px;
+      }
+      .pendencia-operacional .pendencia-numero {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 18px;
+      }
+      .central-pendencias-topo p,
+      .auditoria-topo p {
+        font-size: 11px;
+      }
+    }
+
+
+
+    /* SIGA v5.8.0 — central pessoal, relatório do Comando e tabelas móveis. */
+    .central-usuario-inicio {
+      display:grid;
+      gap:12px;
+      padding:16px 18px!important;
+      margin:0 0 18px!important;
+      background:linear-gradient(180deg,#fbfcfa 0%,#f6f8f4 100%)!important;
+    }
+    .central-usuario-inicio.oculto { display:none!important; }
+    .central-usuario-topo {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .central-usuario-topo h3 { margin:2px 0 0!important; }
+    .central-usuario-lista { display:grid;gap:8px; }
+    .acao-usuario-pendente {
+      width:100%;
+      display:grid;
+      grid-template-columns:auto minmax(0,1fr) auto;
+      align-items:center;
+      gap:11px;
+      padding:12px 13px;
+      border:1px solid #dce2d8;
+      border-radius:15px;
+      background:#fff;
+      color:#243629;
+      text-align:left;
+      cursor:pointer;
+      transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;
+    }
+    .acao-usuario-pendente:hover,
+    .acao-usuario-pendente:focus-visible {
+      transform:translateY(-1px);
+      border-color:#c9d4c5;
+      box-shadow:0 10px 22px rgba(27,49,32,.06);
+    }
+    .acao-usuario-icone {
+      width:38px;height:38px;display:grid;place-items:center;
+      border-radius:12px;background:#eef3eb;color:#38533c;
+      font-size:17px;font-weight:900;
+    }
+    .acao-usuario-pendente.prioridade .acao-usuario-icone { background:#fff3d8;color:#7d5b0d; }
+    .acao-usuario-pendente strong { display:block;font-size:12.5px;line-height:1.3; }
+    .acao-usuario-pendente small { display:block;margin-top:3px;color:#6d7a6d;font-size:10.5px;line-height:1.4; }
+    .acao-usuario-seta { color:#73806e;font-size:20px; }
+
+    #secao-relatorio-guarda.modo-comando-relatorio .grade-relatorio-guarda {
+      grid-template-columns:1fr!important;
+      max-width:1100px;
+      margin-inline:auto;
+    }
+    #secao-relatorio-guarda.modo-comando-relatorio #editorRelatorioGuarda > .painel,
+    #secao-relatorio-guarda.modo-comando-relatorio #editorRelatorioGuarda > #pendenciasRelatorioGuarda,
+    #secao-relatorio-guarda.modo-comando-relatorio #editorRelatorioGuarda > #salvarRelatorioGuarda {
+      display:none!important;
+    }
+    #secao-relatorio-guarda.modo-comando-relatorio #editorRelatorioGuarda {
+      display:block!important;
+      min-height:0;
+    }
+    #secao-relatorio-guarda.modo-comando-relatorio #avisoModoComandoRelatorio {
+      display:block!important;
+      margin:0 0 12px!important;
+    }
+    #secao-relatorio-guarda.modo-comando-relatorio .coluna-previa-relatorio {
+      width:100%;
+      max-width:none;
+    }
+    #secao-relatorio-guarda.modo-comando-relatorio .painel-resumo-operacional {
+      padding:22px!important;
+    }
+
+    @media(max-width:620px) {
+      .central-usuario-inicio { padding:14px!important; }
+      .central-usuario-topo { flex-direction:column; }
+      .acao-usuario-pendente { padding:11px; }
+
+      .tabela-wrap.tabela-responsiva {
+        overflow:visible!important;
+        border:0!important;
+        background:transparent!important;
+      }
+      .tabela-responsiva table,
+      .tabela-responsiva tbody,
+      .tabela-responsiva tr,
+      .tabela-responsiva td {
+        display:block!important;
+        width:100%!important;
+        min-width:0!important;
+      }
+      .tabela-responsiva table { background:transparent!important; }
+      .tabela-responsiva thead {
+        position:absolute!important;
+        width:1px!important;height:1px!important;
+        overflow:hidden!important;
+        clip:rect(0 0 0 0)!important;
+        white-space:nowrap!important;
+      }
+      .tabela-responsiva tr {
+        margin-bottom:10px;
+        padding:10px 12px;
+        border:1px solid #dbe1d7;
+        border-radius:15px;
+        background:#fff;
+        box-shadow:0 7px 18px rgba(27,49,32,.045);
+      }
+      .tabela-responsiva td {
+        display:grid!important;
+        grid-template-columns:minmax(110px,.9fr) minmax(0,1.25fr)!important;
+        gap:10px;
+        padding:7px 0!important;
+        border:0!important;
+        border-bottom:1px solid #edf0eb!important;
+        font-size:11.5px!important;
+        line-height:1.4;
+        overflow-wrap:anywhere;
+      }
+      .tabela-responsiva td:last-child { border-bottom:0!important; }
+      .tabela-responsiva td::before {
+        content:attr(data-label);
+        color:#748075;
+        font-size:8.5px;
+        font-weight:900;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -5492,7 +6420,7 @@
 
   <div id="carregando" class="carregando oculto" aria-live="polite">
     <div class="carregando-caixa">
-      <div class="spinner"></div>
+      <div class="spinner siga-loader" aria-hidden="true"><span class="loader-core">SIGA</span><span class="loader-arrows loader-arrows-a"></span><span class="loader-arrows loader-arrows-b"></span></div>
       <span id="textoCarregando">Processando...</span>
     </div>
   </div>
@@ -5561,7 +6489,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.7.7
+        SIGA 3ª CIA — Versão 5.8.0
       </footer>
     </section>
   </main>
@@ -5634,7 +6562,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.7.7</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.8.0</footer>
     </aside>
 
     <div class="area-principal">
@@ -5665,6 +6593,14 @@
 
           <div id="resumoEscalaInicio" class="resumos resumo-inicio-escala"></div>
 
+          <div id="centralUsuarioInicio" class="painel central-usuario-inicio oculto">
+            <div class="central-usuario-topo">
+              <div><span class="rotulo-suave">MINHA SITUAÇÃO</span><h3>O que merece atenção</h3></div>
+              <span id="statusCentralUsuarioInicio" class="status-siga neutro">Sem alertas</span>
+            </div>
+            <div id="listaCentralUsuarioInicio" class="central-usuario-lista"></div>
+          </div>
+
           <div class="atalhos-siga">
             <button class="atalho-siga" type="button" onclick="navegar('calendario')">
               <span class="atalho-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-calendario"></use></svg></span>
@@ -5688,7 +6624,7 @@
             </button>
             <button class="atalho-siga" type="button" onclick="navegar('perfil')">
               <span class="atalho-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-usuario"></use></svg></span>
-              <span><strong>Meu perfil</strong><small>Cadastro, grade e senha</small></span>
+              <span><strong>Meu perfil</strong><small>Dados, solicitações e senha</small></span>
               <span class="atalho-seta"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></span>
             </button>
           </div>
@@ -6053,14 +6989,39 @@
         <section id="secao-painel-admin" class="secao">
           <div class="cabecalho-secao"><div><h2>Visão geral</h2><p>Indicadores do setor e atalhos operacionais.</p></div></div>
           <div id="dashboardAdmin" class="dashboard-grade"></div>
+
+          <div id="centralPendenciasAdmin" class="painel painel-central-pendencias">
+            <div class="central-pendencias-topo">
+              <div>
+                <span class="rotulo-suave">PRIORIDADES OPERACIONAIS</span>
+                <h3>Central de pendências</h3>
+                <p>Mostra somente itens que exigem análise, conferência ou conclusão pelo setor logado.</p>
+              </div>
+              <span id="statusCentralPendenciasAdmin" class="status-siga neutro">Carregando</span>
+            </div>
+            <div id="listaCentralPendenciasAdmin" class="central-pendencias-lista"></div>
+          </div>
+
           <div class="painel">
             <h3 style="margin-top:0">Organização do SIGA</h3>
             <div class="grade-dados">
-              <div class="dado"><small>P1</small><strong>Permutas, policiais, licenças e afastamentos.</strong></div>
-              <div class="dado"><small>P4</small><strong>Checklist, frota e formulário operacional.</strong></div>
-              <div class="dado"><small>CORPO DA GUARDA</small><strong>Livro de alterações e relatório operacional diário com mensagem pronta para o WhatsApp.</strong></div>
-              <div class="dado"><small>COMANDO</small><strong>Governança, visão consolidada, consulta dos relatórios da Guarda e permissões.</strong></div>
+              <button type="button" class="dado dado-navegavel" data-org-setores="P1,COMANDO" onclick="navegar('admin-policiais')"><small>P1</small><strong>Permutas, policiais, licenças, afastamentos e análise das solicitações cadastrais.</strong><span class="dado-rodape-atalho">Abrir gestão de pessoal</span></button>
+              <button type="button" class="dado dado-navegavel" data-org-setores="P4,COMANDO" onclick="navegar('admin-checklist')"><small>P4</small><strong>Checklist, cautelas, frota e formulário operacional com acompanhamento concentrado.</strong><span class="dado-rodape-atalho">Abrir gestão de frota</span></button>
+              <button type="button" class="dado dado-navegavel" data-org-setores="COMANDO" onclick="navegar('relatorio-guarda')"><small>CORPO DA GUARDA</small><strong>Livro de alterações e relatório operacional diário exibido em tela, com cópia opcional para o WhatsApp.</strong><span class="dado-rodape-atalho">Abrir painel operacional</span></button>
+              <button type="button" class="dado dado-navegavel" data-org-setores="COMANDO" onclick="navegar('setores')"><small>COMANDO</small><strong>Governança, visão consolidada, auditoria administrativa, permissões e padronização do fluxo.</strong><span class="dado-rodape-atalho">Abrir administração</span></button>
             </div>
+          </div>
+
+          <div id="auditoriaDashboardAdmin" class="painel painel-auditoria-admin oculto">
+            <div class="auditoria-topo">
+              <div>
+                <span class="rotulo-suave">RASTREABILIDADE DO COMANDO</span>
+                <h3>Atividade administrativa recente</h3>
+                <p>Eventos gravados na trilha de auditoria já existente no SIGA, apresentados em ordem cronológica reversa.</p>
+              </div>
+              <span class="status-siga info">Somente leitura</span>
+            </div>
+            <div id="listaAuditoriaAdmin" class="linha-tempo-auditoria"></div>
           </div>
         </section>
 
@@ -6221,7 +7182,7 @@
             <div>
               <span class="rotulo-suave">CORPO DA GUARDA • INFORMAÇÃO ÚNICA</span>
               <h2>Relatório operacional</h2>
-              <p>A Guarda registra uma vez; o Comando acompanha aqui e o texto do WhatsApp é montado automaticamente.</p>
+              <p>A Guarda registra uma vez; o Comando acompanha tudo em um painel organizado na tela. A mensagem pronta para o WhatsApp fica disponível apenas como apoio operacional.</p>
             </div>
             <span id="statusRelatorioGuarda" class="status status-RASCUNHO">RASCUNHO</span>
           </div>
@@ -6244,7 +7205,7 @@
           <div class="grade-relatorio-guarda">
             <div id="editorRelatorioGuarda" class="coluna-relatorio-guarda">
               <div id="avisoModoComandoRelatorio" class="mensagem info oculto">
-                Visualização do Comando: os dados abaixo são publicados pela Guarda. Você pode consultar e copiar o relatório.
+                Visualização do Comando: o painel abaixo organiza automaticamente os dados do turno. A mensagem pronta para o WhatsApp permanece disponível apenas como apoio.
               </div>
 
               <div class="painel">
@@ -6321,16 +7282,21 @@
             </div>
 
             <aside class="coluna-previa-relatorio">
-              <div class="painel previa-whatsapp-relatorio">
+              <div class="painel previa-whatsapp-relatorio painel-resumo-operacional">
                 <div class="cartao-topo">
                   <div>
-                    <span class="rotulo-suave">PRONTO PARA O WHATSAPP</span>
-                    <h3 style="margin:3px 0 0">Mensagem gerada</h3>
+                    <span class="rotulo-suave">PAINEL OPERACIONAL CONSOLIDADO</span>
+                    <h3 style="margin:3px 0 0">Resumo do turno em tela</h3>
+                    <p>As informações ficam organizadas diretamente no aplicativo para leitura rápida do Comando.</p>
                   </div>
-                  <svg class="icone-svg" aria-hidden="true"><use href="#icone-checklist"></use></svg>
+                  <svg class="icone-svg" aria-hidden="true"><use href="#icone-painel"></use></svg>
                 </div>
-                <pre id="textoWhatsAppRelatorioGuarda">Carregando relatório...</pre>
-                <button class="botao botao-largo botao-copiar-relatorio" type="button" onclick="copiarRelatorioGuarda()">COPIAR RELATÓRIO</button>
+                <div id="painelResumoRelatorioGuarda" class="painel-resumo-relatorio"></div>
+                <details class="bloco-whatsapp-relatorio">
+                  <summary>Mensagem auxiliar para WhatsApp</summary>
+                  <pre id="textoWhatsAppRelatorioGuarda">Carregando relatório...</pre>
+                </details>
+                <button class="botao botao-largo botao-copiar-relatorio" type="button" onclick="copiarRelatorioGuarda()">COPIAR MENSAGEM DO WHATSAPP</button>
               </div>
 
               <div class="painel">
@@ -7211,9 +8177,13 @@
     function mostrarCarregando(texto) {
       $('textoCarregando').textContent = texto || 'Processando...';
       $('carregando').classList.remove('oculto');
+      document.documentElement.setAttribute('aria-busy','true');
     }
 
-    function ocultarCarregando() { $('carregando').classList.add('oculto'); }
+    function ocultarCarregando() {
+      $('carregando').classList.add('oculto');
+      document.documentElement.removeAttribute('aria-busy');
+    }
 
     function toast(texto, tipo) {
       const item = document.createElement('div');
@@ -7609,6 +8579,11 @@
           setor !== 'COMANDO' && rotulo.dataset.grupo !== setor
         );
       });
+      document.querySelectorAll('[data-org-setores]').forEach(function(cartao) {
+        const grupoAtual = grupoSetorAdminCliente(setorAdmin);
+        const gruposPermitidos = String(cartao.dataset.orgSetores || '').split(',').map(function(item){ return item.trim(); }).filter(Boolean);
+        cartao.classList.toggle('oculto', gruposPermitidos.indexOf(grupoAtual) === -1);
+      });
       document.querySelectorAll('#setorSetorAdmin option[data-somente-comando]').forEach(opcao => {
         opcao.hidden = !ehComandoAdminCliente(setorAdmin);
         opcao.disabled = !ehComandoAdminCliente(setorAdmin);
@@ -7634,16 +8609,34 @@
     }
 
     function navegar(secao) {
-      document.querySelectorAll('.secao').forEach(item => item.classList.remove('ativa'));
-      const alvo = $('secao-' + secao); if (alvo) alvo.classList.add('ativa');
-      document.querySelectorAll('.menu-item[data-secao]').forEach(item => item.classList.toggle('ativo', item.dataset.secao === secao));
+      document.querySelectorAll('.secao').forEach(function(item) {
+        item.classList.remove('ativa');
+        item.setAttribute('aria-hidden','true');
+      });
+      const alvo = $('secao-' + secao);
+      if (alvo) {
+        alvo.classList.add('ativa');
+        alvo.setAttribute('aria-hidden','false');
+      }
+      document.querySelectorAll('.menu-item[data-secao]').forEach(function(item) {
+        const ativo = item.dataset.secao === secao;
+        item.classList.toggle('ativo', ativo);
+        if (ativo) item.setAttribute('aria-current','page');
+        else item.removeAttribute('aria-current');
+      });
       const titulos = {
         inicio:['Início','Área do policial'], calendario:['Calendário','Escala pessoal prevista'], checklist:['Checklist de Viatura','Controle operacional da frota'], permutas:['Permutas','Solicitações e acompanhamento'], 'banco-horas':['Banco de horas','Créditos registrados em livro e baixas de utilização'],
         relatorios:['Relatórios','Resumo individual'], perfil:['Perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Efetivo, solicitações e afastamentos do P1'],
         'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão geral','Painel administrativo'], guarda:['Corpo da Guarda','Registro das alterações da escala impressa'], 'relatorio-guarda':['Relatório da Guarda','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
         consultas:['Consultas','Ficha completa e histórico'], efetivo:['Efetivo','Gestão do quadro de policiais']
       };
-      $('tituloTopo').textContent=(titulos[secao]||[secao])[0]; $('subtituloTopo').textContent=(titulos[secao]||['',''])[1]; fecharMenuMobile();
+      const tituloAtual=(titulos[secao]||[secao])[0];
+      const subtituloAtual=(titulos[secao]||['',''])[1];
+      $('tituloTopo').textContent=tituloAtual;
+      $('subtituloTopo').textContent=subtituloAtual;
+      document.title='SIGA • '+tituloAtual;
+      fecharMenuMobile();
+      window.scrollTo({top:0,left:0,behavior:'auto'});
       if (secao==='calendario') carregarCalendarioUsuario();
       if (secao==='checklist') carregarChecklist();
       if (secao==='permutas') {
@@ -8701,6 +9694,47 @@
       return valor ? valor.charAt(0).toUpperCase() + valor.slice(1) : '';
     }
 
+    function renderizarCentralUsuarioInicio(calendarioResposta, solicitacaoPerfil) {
+      const painel = $('centralUsuarioInicio');
+      const lista = $('listaCentralUsuarioInicio');
+      const status = $('statusCentralUsuarioInicio');
+      if (!painel || !lista || !status) return;
+      const r = calendarioResposta || {};
+      const cal = r.calendario || {};
+      const limite = r.limitePermutas || {};
+      const hojeIso = dataHojeIso();
+      const itemHoje = (cal.dias || []).find(function(d){ return d.data === hojeIso; });
+      const itens = [];
+
+      if (solicitacaoPerfil && String(solicitacaoPerfil.status || '').toUpperCase() === 'PENDENTE') {
+        itens.push({icone:'i',titulo:'Atualização cadastral aguardando análise do P1',descricao:'Acompanhe o andamento em Meu perfil.',secao:'perfil',prioridade:true});
+      }
+      if (itemHoje && itemHoje.configurado && itemHoje.turno) {
+        itens.push({icone:'✓',titulo:'Serviço previsto hoje • turno '+itemHoje.turno,descricao:'O checklist da viatura está disponível para preenchimento.',secao:'checklist',prioridade:false});
+      }
+      if (limite.configurado && Number(limite.restantes || 0) <= 1) {
+        const restantes = Number(limite.restantes || 0);
+        itens.push({icone:String(restantes),titulo:restantes === 0 ? 'Limite mensal de permutas atingido' : 'Resta 1 permuta avulsa no mês',descricao:'Consulte os detalhes do cálculo antes de iniciar uma nova solicitação.',secao:'permutas',prioridade:true});
+      }
+
+      painel.classList.toggle('oculto', !itens.length);
+      if (!itens.length) {
+        lista.innerHTML='';
+        status.textContent='Sem alertas';
+        status.className='status-siga sucesso';
+        return;
+      }
+      status.textContent=itens.length + (itens.length === 1 ? ' item' : ' itens');
+      status.className='status-siga ' + (itens.some(function(item){return item.prioridade;}) ? 'aviso' : 'info');
+      lista.innerHTML=itens.map(function(item){
+        return `<button type="button" class="acao-usuario-pendente ${item.prioridade?'prioridade':''}" onclick="navegar('${escaparAtributo(item.secao)}')">
+          <span class="acao-usuario-icone">${escaparHtml(item.icone)}</span>
+          <span><strong>${escaparHtml(item.titulo)}</strong><small>${escaparHtml(item.descricao)}</small></span>
+          <span class="acao-usuario-seta" aria-hidden="true">›</span>
+        </button>`;
+      }).join('');
+    }
+
     async function carregarResumoInicio430() {
       if (!usuarioPodeUsarAreaComum()) return;
       const hoje = new Date();
@@ -8724,8 +9758,16 @@
             <span>${escaparHtml(item[0])}</span>
             <small style="display:block;margin-top:4px;color:#7b877f;font-size:8px">${escaparHtml(item[2])}</small>
           </div>`).join('');
+        renderizarCentralUsuarioInicio(r, estado.solicitacaoPerfil);
+        api('obterSolicitacaoPerfilUsuario',estado.token).then(function(respostaPerfil) {
+          estado.solicitacaoPerfil = respostaPerfil.solicitacao || null;
+          renderizarCentralUsuarioInicio(r, estado.solicitacaoPerfil);
+        }).catch(function() {
+          renderizarCentralUsuarioInicio(r, estado.solicitacaoPerfil);
+        });
       } catch (e) {
         $('resumoEscalaInicio').innerHTML = '';
+        if ($('centralUsuarioInicio')) $('centralUsuarioInicio').classList.add('oculto');
       }
     }
 
@@ -8975,7 +10017,7 @@
 
     function criarTabela(cabecalhos, linhas) {
       if (!linhas.length) return '<div class="vazio">Nenhum registro.</div>';
-      return `<div class="tabela-wrap"><table><thead><tr>${cabecalhos.map(c => `<th>${escaparHtml(c)}</th>`).join('')}</tr></thead><tbody>${linhas.map(linha => `<tr>${linha.map(c => `<td>${escaparHtml(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+      return `<div class="tabela-wrap tabela-responsiva"><table><thead><tr>${cabecalhos.map(c => `<th>${escaparHtml(c)}</th>`).join('')}</tr></thead><tbody>${linhas.map(linha => `<tr>${linha.map((c,indice) => `<td data-label="${escaparAtributo(cabecalhos[indice] || '')}">${escaparHtml(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     }
 
     function csvCelula(valor) {
@@ -10241,24 +11283,101 @@
         .replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
+    function classeStatusSemantico(valor) {
+      const status = String(valor || '').toUpperCase();
+      if (['APROVADA','DEFERIDA','FINALIZADO','CONCLUÍDO','CONFIRMADO','REGULAR'].includes(status)) return 'sucesso';
+      if (['NEGADA','INDEFERIDA','REPROVADO','CANCELADO','ERRO'].includes(status)) return 'erro';
+      if (['PENDENTE','RASCUNHO','ATENÇÃO','AVISO'].includes(status)) return 'aviso';
+      if (['EM ANÁLISE','PROCESSANDO','ATUALIZANDO'].includes(status)) return 'info';
+      return 'neutro';
+    }
+
+    function renderizarCentralPendenciasAdmin(indicadores) {
+      const area = $('listaCentralPendenciasAdmin');
+      const selo = $('statusCentralPendenciasAdmin');
+      if (!area || !selo) return;
+      const i = indicadores || {};
+      const itens = [];
+
+      if (Number(i.permutasPendentes || 0) > 0 && temPermissaoAdmin('PERMUTAS')) {
+        itens.push({numero:Number(i.permutasPendentes),titulo:'Permutas aguardando regularização',descricao:'Abra o painel do P1 para conferir os registros pendentes.',secao:'admin-permutas',prioridade:true});
+      }
+      if (Number(i.solicitacoesPerfilPendentes || 0) > 0 && temPermissaoAdmin('POLICIAIS')) {
+        itens.push({numero:Number(i.solicitacoesPerfilPendentes),titulo:'Solicitações cadastrais pendentes',descricao:'E-mail, contato ou nome de guerra aguardando decisão do P1.',secao:'admin-policiais',prioridade:true});
+      }
+      if (Number(i.alertasP4Pendentes || 0) > 0 && temPermissaoAdmin('ALERTAS_P4')) {
+        itens.push({numero:Number(i.alertasP4Pendentes),titulo:'Cautelas aguardando conferência',descricao:'Há materiais vinculados a afastamentos que precisam de atualização.',secao:'p4-alertas',prioridade:true});
+      }
+      if (i.relatorioGuardaPendente && temPermissaoAdmin('RELATORIO_GUARDA')) {
+        itens.push({numero:'!',titulo:'Relatório da Guarda incompleto',descricao:'Há turno ainda não salvo ou relatório em rascunho para hoje.',secao:'relatorio-guarda',prioridade:true});
+      }
+
+      if (!itens.length) {
+        selo.textContent = 'Sem pendências críticas';
+        selo.className = 'status-siga sucesso';
+        area.innerHTML = '<div class="central-pendencias-vazia"><span class="icone-ok">✓</span><div><strong>Nenhuma pendência crítica para este setor.</strong><span>Os indicadores podem ser consultados normalmente nos cartões acima.</span></div></div>';
+        return;
+      }
+
+      selo.textContent = itens.length + (itens.length === 1 ? ' prioridade' : ' prioridades');
+      selo.className = 'status-siga aviso';
+      area.innerHTML = itens.map(function(item) {
+        return `<button type="button" class="pendencia-operacional ${item.prioridade?'prioridade':''}" onclick="navegar('${escaparAtributo(item.secao)}')">
+          <span class="pendencia-numero">${escaparHtml(String(item.numero))}</span>
+          <span><strong>${escaparHtml(item.titulo)}</strong><small>${escaparHtml(item.descricao)}</small></span>
+          <span class="pendencia-seta" aria-hidden="true">›</span>
+        </button>`;
+      }).join('');
+    }
+
+    function renderizarAuditoriaDashboardAdmin(registros) {
+      const painel = $('auditoriaDashboardAdmin');
+      const area = $('listaAuditoriaAdmin');
+      if (!painel || !area) return;
+      const comando = ehComandoAdminCliente(estado.usuario && estado.usuario.setorAdmin);
+      painel.classList.toggle('oculto', !comando);
+      if (!comando) return;
+      const lista = Array.isArray(registros) ? registros : [];
+      area.innerHTML = lista.length ? lista.map(function(item) {
+        const modulo = item.modulo || 'AUDITORIA';
+        return `<article class="auditoria-item">
+          <time>${escaparHtml(item.dataHora || 'Sem horário')}</time>
+          <div class="auditoria-conteudo">
+            <div class="auditoria-cabecalho"><span class="status-siga neutro">${escaparHtml(modulo)}</span><strong>${escaparHtml(item.acao || 'Evento administrativo')}</strong></div>
+            ${item.detalhes ? '<p>'+escaparHtml(item.detalhes)+'</p>' : ''}
+            <span class="auditoria-responsavel">${escaparHtml(item.responsavel || 'Responsável não informado')}</span>
+          </div>
+        </article>`;
+      }).join('') : '<div class="vazio compacto">Nenhum evento de auditoria disponível para exibição.</div>';
+    }
+
     async function carregarDashboardAdmin() {
       mostrarCarregando('Atualizando visão geral...');
       try {
-        const r=await api('adminResumoOperacional',estado.token);
+        const comando = ehComandoAdminCliente(estado.usuario && estado.usuario.setorAdmin);
+        const requisicoes = [api('adminResumoOperacional',estado.token)];
+        if (comando) {
+          requisicoes.push(api('adminListarAuditoria',estado.token,30).catch(function(){ return {registros:[]}; }));
+        }
+        const respostas = await Promise.all(requisicoes);
+        const r = respostas[0] || {};
+        const auditoria = respostas[1] || {registros:[]};
         const i=r.indicadores||{}; const setor=r.setor||'';
         const cards=[];
         if(i.totalPoliciais!==undefined) cards.push(['Total de policiais',i.totalPoliciais,'Cadastrados no efetivo','admin-policiais']);
-        if(i.permutasPendentes!==undefined && Number(i.permutasPendentes)>0) cards.push(['Permutas em migração',i.permutasPendentes,'Serão regularizadas automaticamente']);
-        if(i.permutasHoje!==undefined) cards.push(['Permutas hoje',i.permutasHoje,'Autorizadas para a data atual']);
-        if(i.checklistsHoje!==undefined) cards.push(['Checklists hoje',i.checklistsHoje,'Registros enviados ao P4']);
-        if(i.efetivoA!==undefined) cards.push(['Efetivo turno A',i.efetivoA,'Informado pela Guarda']);
-        if(i.efetivoB!==undefined) cards.push(['Efetivo turno B',i.efetivoB,'Informado pela Guarda']);
-        if(i.ocorrenciasHoje!==undefined) cards.push(['Alterações do serviço',i.ocorrenciasHoje,'Faltas, dispensas e permutas']);
-        if(i.relatoriosGuardaHoje!==undefined) cards.push(['Relatórios da Guarda',i.relatoriosGuardaHoje,i.statusRelatorioGuarda||'Abrir acompanhamento','relatorio-guarda']);
+        if(i.permutasPendentes!==undefined && Number(i.permutasPendentes)>0) cards.push(['Permutas em migração',i.permutasPendentes,'Serão regularizadas automaticamente','admin-permutas']);
+        if(i.permutasHoje!==undefined) cards.push(['Permutas hoje',i.permutasHoje,'Autorizadas para a data atual','admin-permutas']);
+        if(i.checklistsHoje!==undefined) cards.push(['Checklists hoje',i.checklistsHoje,'Registros enviados ao P4','admin-checklist']);
+        if(i.efetivoA!==undefined) cards.push(['Efetivo turno A',i.efetivoA,'Informado pela Guarda','relatorio-guarda']);
+        if(i.efetivoB!==undefined) cards.push(['Efetivo turno B',i.efetivoB,'Informado pela Guarda','relatorio-guarda']);
+        if(i.ocorrenciasHoje!==undefined) cards.push(['Alterações do serviço',i.ocorrenciasHoje,'Faltas, dispensas e permutas','relatorio-guarda']);
+        if(i.relatoriosGuardaHoje!==undefined) cards.push(['Relatórios da Guarda',i.relatoriosGuardaHoje,i.statusRelatorioGuarda||'Abrir painel organizado','relatorio-guarda']);
         if(!cards.length) cards.push(['Setor',setor,'Acesso administrativo ativo']);
         $('dashboardAdmin').innerHTML=cards.map(c=>c[3]
-          ? `<button type="button" class="dashboard-card dashboard-card-atalho" onclick="navegar('${escaparAtributo(c[3])}')"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span><b>ABRIR →</b></button>`
+          ? `<button type="button" class="dashboard-card dashboard-card-atalho" onclick="navegar('${escaparAtributo(c[3])}')"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span><b>ABRIR</b></button>`
           : `<div class="dashboard-card"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span></div>`).join('');
+        renderizarCentralPendenciasAdmin(i);
+        renderizarAuditoriaDashboardAdmin(auditoria.registros || []);
       } catch(e) {
         tratarErro(e,$('mensagemInterna'));
       } finally {
@@ -10611,6 +11730,8 @@
 
     function aplicarModoRelatorioGuarda() {
       const edita = ehGuardaLogada();
+      const secaoRelatorio = $('secao-relatorio-guarda');
+      if (secaoRelatorio) secaoRelatorio.classList.toggle('modo-comando-relatorio', !edita);
       $('avisoModoComandoRelatorio').classList.toggle('oculto',edita);
       $('salvarRelatorioGuarda').classList.toggle('oculto',!edita);
       $('acoesPostosRelatorioGuarda').classList.toggle('oculto',!edita);
@@ -10815,6 +11936,72 @@
       return p;
     }
 
+    function renderizarPainelResumoRelatorioGuarda(r, pendencias) {
+      const area = $('painelResumoRelatorioGuarda');
+      if (!area) return;
+      const resumo = r && r.resumo || {};
+      const guarda = r && r.guarda || {};
+      const armeiro = r && r.armeiro || {};
+      const unidades = (r && r.unidades || []).filter(function(u){ return u.ativo !== false; });
+      const atualizadoEm = r && r.atualizadoEm ? escaparHtml(r.atualizadoEm) : 'Atualização local';
+      const atualizadoPor = r && r.atualizadoPor ? escaparHtml(r.atualizadoPor) : (ehGuardaLogada() ? 'Guarda da Companhia' : 'Dados publicados pela Guarda');
+      const status = escaparHtml(r && r.status || 'RASCUNHO');
+      const qtd = function(v){ return String(Math.max(0, Math.trunc(Number(v)||0))).padStart(2,'0'); };
+      const detalhesGuarda = [
+        guarda.comandante ? '<em>Cmt:</em> ' + escaparHtml(guarda.comandante) : '<em>Cmt:</em> Não informado',
+        guarda.contato ? '<em>Contato:</em> ' + escaparHtml(guarda.contato) : '<em>Contato:</em> Não informado',
+        guarda.ht ? '<em>HT:</em> ' + escaparHtml(guarda.ht) : '<em>HT:</em> Não informado',
+        guarda.horario ? '<em>Horário:</em> ' + escaparHtml(guarda.horario) : '<em>Horário:</em> Não informado'
+      ].join(' • ');
+      const detalhesArmeiro = [
+        armeiro.policial ? '<em>Armeiro:</em> ' + escaparHtml(armeiro.policial) : '<em>Armeiro:</em> Não informado',
+        armeiro.contato ? '<em>Contato:</em> ' + escaparHtml(armeiro.contato) : '<em>Contato:</em> Não informado'
+      ].join(' • ');
+      area.innerHTML = `
+        <div class="resumo-hero-relatorio">
+          <div class="item"><small>Data do serviço</small><strong>${escaparHtml(formatarData(r.data || dataHojeIso()))}</strong></div>
+          <div class="item"><small>Turno</small><strong>TURNO ${escaparHtml(r.turno || 'A')}</strong></div>
+          <div class="item"><small>Status</small><strong>${status}</strong></div>
+        </div>
+        <div class="grid-resumo-operacional">
+          <div class="mini-card-resumo"><small>Escalados</small><strong>${qtd(resumo.escalados)}</strong><span>Previstos na escala</span></div>
+          <div class="mini-card-resumo"><small>Faltas</small><strong>${qtd(resumo.faltas)}</strong><span>Registradas pela Guarda</span></div>
+          <div class="mini-card-resumo"><small>Dispensas</small><strong>${qtd(resumo.dispensas)}</strong><span>Com lançamento ativo</span></div>
+          <div class="mini-card-resumo"><small>Nos postos</small><strong>${qtd(resumo.nosPostos)}</strong><span>Efetivo líquido do turno</span></div>
+          <div class="mini-card-resumo"><small>VTRs</small><strong>${qtd(resumo.vtrs)}</strong><span>Viaturas ativas</span></div>
+        </div>
+        <div class="bloco-resumo-operacional">
+          <small>Equipe principal</small>
+          <h4>Guarda e armeiro</h4>
+          <div class="resumo-linhas">
+            <div class="resumo-linha"><strong>Guarda da Companhia</strong><p>${detalhesGuarda}</p></div>
+            <div class="resumo-linha"><strong>Armeiro</strong><p>${detalhesArmeiro}</p></div>
+          </div>
+        </div>
+        <div class="bloco-resumo-operacional">
+          <small>Postos operacionais</small>
+          <h4>Viaturas, Bike e bases ativas (${unidades.length})</h4>
+          <div class="resumo-linhas">
+            ${unidades.length ? unidades.map(function(u) {
+              const titulo = u.tipo === 'VTR' ? 'VTR ' + (u.prefixo || 'não informada') : (u.titulo || u.tipo || 'Posto operacional');
+              const detalheLocal = (u.tipo === 'BASE' ? 'Local' : 'Área') + ': ' + escaparHtml(u.area || 'Não informada');
+              const detalheEquipe = 'Cmt: ' + escaparHtml(u.comandante || 'Não informado') + (u.contato ? ' • ' + escaparHtml(u.contato) : '') + ' • HT: ' + escaparHtml(u.ht || 'Não informado');
+              return '<div class="resumo-linha"><strong>' + escaparHtml(titulo) + '</strong><span>' + (u.horario ? escaparHtml(u.horario) : 'Horário não informado') + '</span><p>' + detalheEquipe + '</p><p>' + detalheLocal + '</p></div>';
+            }).join('') : '<div class="vazio compacto">Nenhuma unidade ativa cadastrada para este turno.</div>'}
+          </div>
+        </div>
+        <div class="bloco-resumo-operacional bloco-auditoria-relatorio ${pendencias && pendencias.length ? 'pendente' : ''}">
+          <small>Auditoria e rastreabilidade</small>
+          <h4>Conferência do relatório</h4>
+          <ul class="lista-auditoria-relatorio">
+            <li><strong>Última atualização:</strong> ${atualizadoEm}</li>
+            <li><strong>Responsável exibido:</strong> ${atualizadoPor}</li>
+            <li><strong>Status operacional:</strong> ${status}</li>
+            <li><strong>Consistência:</strong> ${pendencias && pendencias.length ? 'Existem campos pendentes para revisão.' : 'Relatório sem pendências locais identificadas.'}</li>
+          </ul>
+        </div>`;
+    }
+
     function textoLocalRelatorioGuarda(r) {
       const qtd = function(v){return String(Math.max(0,Math.trunc(Number(v)||0))).padStart(2,'0');};
       const linhas = [
@@ -10848,6 +12035,7 @@
       $('relatorioVtrs').textContent = String(r.resumo.vtrs).padStart(2,'0');
       $('textoWhatsAppRelatorioGuarda').textContent = textoLocalRelatorioGuarda(r);
       const pendencias = pendenciasLocaisRelatorioGuarda(r);
+      renderizarPainelResumoRelatorioGuarda(r, pendencias);
       const status = pendencias.length ? 'RASCUNHO' : 'FINALIZADO';
       r.status = status;
       $('statusRelatorioGuarda').textContent = status;
@@ -10912,13 +12100,20 @@
           if (!document.execCommand('copy')) throw new Error('Cópia não autorizada.');
           area.remove();
         }
-        toast('Relatório copiado. Agora é só colar no WhatsApp.');
+        toast('Mensagem auxiliar copiada. Você também pode consultar o resumo organizado na tela.');
       } catch (e) {
-        tratarErro(new Error('Não foi possível copiar automaticamente. Toque e segure sobre o texto para copiá-lo.'),$('mensagemInterna'));
+        tratarErro(new Error('Não foi possível copiar automaticamente. Abra a mensagem auxiliar e faça a cópia manual.'),$('mensagemInterna'));
       }
     }
 
   
+
+    window.addEventListener('keydown', function(evento) {
+      if (evento.key !== 'Escape') return;
+      fecharMenuMobile();
+      const modalPermuta = $('modalMinhaPermuta');
+      if (modalPermuta && !modalPermuta.classList.contains('oculto') && typeof fecharDetalheMinhaPermuta === 'function') fecharDetalheMinhaPermuta();
+    });
 
     const SIGA_STICKY = (() => {
       let quadro = 0;
