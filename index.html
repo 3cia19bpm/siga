@@ -9166,6 +9166,121 @@
       }
     }
 
+
+
+    /* =======================================================
+       SIGA DESIGN SYSTEM 1.0 — PREMIUM GLOBAL R4
+       Polimento final focado em mobile: Banco de horas e Editor de formulários.
+       ======================================================= */
+
+    /* Banco de horas: texto no desktop, ícone nas telas pequenas. */
+    #secao-banco-horas .botao-atualizar-banco{
+      display:inline-flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      gap:8px!important;
+      white-space:nowrap!important;
+    }
+    #secao-banco-horas .botao-atualizar-banco-icone{
+      display:none;
+      font-size:20px;
+      line-height:1;
+      font-weight:800;
+    }
+    #secao-banco-horas .botao-atualizar-banco-texto{display:inline;}
+
+    /* Formulários: retirar contadores visuais e compactar a abertura do painel. */
+    #secao-formularios .editor-resumo-formulario,
+    #secao-formularios .editor-resumo-chip{
+      display:none!important;
+    }
+    #secao-formularios .editor-formulario-topo{
+      padding-bottom:14px!important;
+      margin-bottom:14px!important;
+    }
+    #secao-formularios .editor-geral-grid{
+      margin-top:0!important;
+      padding-top:0!important;
+      border-top:0!important;
+    }
+
+    /* Ações do campo sempre agrupadas numa única linha. */
+    #secao-formularios .editor-campo-configuracao-final{
+      grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;
+      gap:12px!important;
+      align-items:stretch!important;
+    }
+    #secao-formularios .editor-campo-acoes{
+      grid-template-columns:repeat(3,minmax(0,1fr))!important;
+      gap:8px!important;
+      align-items:stretch!important;
+    }
+    #secao-formularios .editor-acao,
+    #secao-formularios .editor-acao-excluir{
+      min-width:0!important;
+      width:100%!important;
+      padding:10px 9px!important;
+      gap:6px!important;
+    }
+    #secao-formularios .editor-acao span{font-size:16px!important;}
+    #secao-formularios .editor-acao b{
+      font-size:9px!important;
+      letter-spacing:.055em!important;
+      white-space:nowrap!important;
+    }
+    #secao-formularios .editor-acao-excluir{
+      grid-column:auto!important;
+    }
+
+    @media(max-width:620px){
+      #secao-banco-horas .banco-horas-cabecalho .botao-atualizar-banco{
+        width:50px!important;
+        min-width:50px!important;
+        height:50px!important;
+        min-height:50px!important;
+        padding:0!important;
+        border-radius:16px!important;
+        gap:0!important;
+      }
+      #secao-banco-horas .botao-atualizar-banco-texto{display:none!important;}
+      #secao-banco-horas .botao-atualizar-banco-icone{
+        display:block!important;
+        font-size:23px!important;
+      }
+
+      #secao-formularios .editor-formulario-topo{
+        padding-bottom:12px!important;
+        margin-bottom:12px!important;
+      }
+      #secao-formularios .editor-campo-configuracao-final{
+        grid-template-columns:1fr!important;
+        gap:10px!important;
+      }
+      #secao-formularios .editor-campo-acoes{
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+        gap:7px!important;
+      }
+      #secao-formularios .editor-acao,
+      #secao-formularios .editor-acao-excluir{
+        min-height:46px!important;
+        padding:8px 6px!important;
+        border-radius:12px!important;
+      }
+      #secao-formularios .editor-acao span{font-size:15px!important;}
+      #secao-formularios .editor-acao b{
+        font-size:8px!important;
+        letter-spacing:.045em!important;
+      }
+    }
+
+    @media(max-width:390px){
+      #secao-formularios .editor-acao b{
+        font-size:7.4px!important;
+        letter-spacing:.035em!important;
+      }
+      #secao-formularios .editor-acao span{font-size:14px!important;}
+    }
+
 </style>
 </head>
 <body>
@@ -9644,7 +9759,7 @@
               <h2>Banco de horas</h2>
               <p>Consulte os créditos registrados em livro e dê baixa somente quando utilizar as horas.</p>
             </div>
-            <button class="botao botao-secundario botao-atualizar-banco" type="button" onclick="carregarBancoHoras()">ATUALIZAR</button>
+            <button class="botao botao-secundario botao-atualizar-banco" type="button" onclick="carregarBancoHoras()" aria-label="Atualizar banco de horas" title="Atualizar banco de horas"><span class="botao-atualizar-banco-icone" aria-hidden="true">↻</span><span class="botao-atualizar-banco-texto">ATUALIZAR</span></button>
           </div>
 
           <section class="bloco-pagina bloco-resumo-banco">
@@ -10390,7 +10505,7 @@
                 <span class="editor-painel-rotulo">FORMULÁRIO EM EDIÇÃO</span>
                 <div id="botoesModuloFormulario" class="subnavegacao editor-modulos"></div>
               </div>
-              <div id="resumoEditorFormulario" class="editor-resumo-formulario" aria-live="polite"></div>
+              <div id="resumoEditorFormulario" class="editor-resumo-formulario" aria-live="polite" hidden></div>
             </div>
 
             <div class="editor-geral-grid">
@@ -14271,11 +14386,10 @@
       const sistema=campos.filter(c=>c.sistema).length;
       const personalizados=Math.max(0,campos.length-sistema);
       const resumo=$('resumoEditorFormulario');
-      if(resumo)resumo.innerHTML=`
-        <span class="editor-resumo-chip"><b>${campos.length}</b> campos</span>
-        <span class="editor-resumo-chip"><b>${obrigatorios}</b> obrigatórios</span>
-        <span class="editor-resumo-chip editor-resumo-sistema"><b>${sistema}</b> sistema</span>
-        <span class="editor-resumo-chip"><b>${personalizados}</b> personalizados</span>`;
+      if(resumo){
+        resumo.innerHTML='';
+        resumo.hidden=true;
+      }
 
       $('listaCamposFormularioAdmin').innerHTML=campos.map((c,i)=>{
         const id=String(c.id||('campo_'+i));
@@ -14348,7 +14462,7 @@
               <div class="editor-campo-acoes">
                 <button class="editor-acao editor-acao-mover" type="button" aria-label="Mover campo ${i+1} para cima" onclick="moverCampoFormulario(${i},-1)" ${i===0?'disabled':''}><span aria-hidden="true">↑</span><b>SUBIR</b></button>
                 <button class="editor-acao editor-acao-mover" type="button" aria-label="Mover campo ${i+1} para baixo" onclick="moverCampoFormulario(${i},1)" ${i===(campos.length-1)?'disabled':''}><span aria-hidden="true">↓</span><b>DESCER</b></button>
-                ${c.sistema?'':`<button class="editor-acao editor-acao-excluir" type="button" onclick="excluirCampoFormulario(${i})"><span aria-hidden="true">×</span><b>EXCLUIR CAMPO</b></button>`}
+                ${c.sistema?'':`<button class="editor-acao editor-acao-excluir" type="button" onclick="excluirCampoFormulario(${i})"><span aria-hidden="true">×</span><b>EXCLUIR</b></button>`}
               </div>
             </div>
           </div>
