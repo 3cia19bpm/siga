@@ -7547,6 +7547,740 @@
       .editor-acao-excluir { grid-column:1/-1;min-width:0; }
     }
 
+
+    /* =======================================================
+       SIGA DESIGN SYSTEM 1.0 — PREMIUM GLOBAL R1
+       Fundação visual única para usuário, Guarda e gestão.
+       Esta camada não altera regras de negócio nem integrações.
+       ======================================================= */
+    :root {
+      --ds-green-950:#132b1c;
+      --ds-green-900:#183723;
+      --ds-green-800:#294a30;
+      --ds-green-700:#465f3d;
+      --ds-green-600:#617653;
+      --ds-green-100:#eaf0e7;
+      --ds-green-050:#f5f8f3;
+      --ds-gold-500:#d5b33f;
+      --ds-gold-300:#eed36d;
+      --ds-gold-100:#fff4c9;
+      --ds-bg:#f2f5f0;
+      --ds-surface:#ffffff;
+      --ds-surface-soft:#f7f9f5;
+      --ds-ink:#1d3022;
+      --ds-muted:#718076;
+      --ds-muted-2:#8b978d;
+      --ds-line:#d7dfd4;
+      --ds-line-strong:#c7d1c3;
+      --ds-danger:#a93b34;
+      --ds-warning:#9a6a0c;
+      --ds-info:#356fa8;
+      --ds-success:#2f7848;
+      --ds-radius-sm:14px;
+      --ds-radius-control:17px;
+      --ds-radius-card:24px;
+      --ds-radius-hero:30px;
+      --ds-control-h:54px;
+      --ds-shadow:0 14px 34px rgba(22,45,28,.065),0 1px 2px rgba(22,45,28,.025);
+      --ds-shadow-raised:0 20px 48px rgba(20,42,27,.095),0 2px 4px rgba(20,42,27,.035);
+      --ds-page-max:1280px;
+    }
+
+    html[data-siga-tela="app"] body {
+      background:
+        radial-gradient(circle at 2% 0%,rgba(67,95,68,.055),transparent 24rem),
+        linear-gradient(180deg,#f4f7f2 0%,var(--ds-bg) 34rem,#f6f8f5 100%)!important;
+      color:var(--ds-ink)!important;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .area-principal { background:transparent!important; }
+    .conteudo-app {
+      width:min(var(--ds-page-max),100%)!important;
+      max-width:var(--ds-page-max)!important;
+      padding:clamp(24px,2.4vw,34px) clamp(20px,2.7vw,36px) calc(84px + env(safe-area-inset-bottom))!important;
+    }
+    .secao { scroll-margin-top:calc(var(--siga-topbar-sticky) + 18px)!important; }
+
+    /* Shell superior: uma única régua para todo o produto. */
+    .topbar {
+      min-height:68px!important;
+      padding:10px clamp(20px,2.3vw,34px)!important;
+      border-bottom:1px solid rgba(199,209,195,.8)!important;
+      background:rgba(255,255,255,.965)!important;
+      -webkit-backdrop-filter:blur(18px) saturate(140%)!important;
+      backdrop-filter:blur(18px) saturate(140%)!important;
+      box-shadow:0 8px 24px rgba(22,45,28,.045)!important;
+    }
+    .topbar > div:first-child { min-width:0; }
+    .topbar h1 {
+      max-width:min(52vw,720px);
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      color:var(--ds-ink)!important;
+      font-size:clamp(19px,1.35vw,23px)!important;
+      font-weight:850!important;
+      letter-spacing:-.035em!important;
+      line-height:1.1!important;
+    }
+    .topbar p {
+      color:var(--ds-muted)!important;
+      font-size:10px!important;
+      line-height:1.25!important;
+      letter-spacing:0!important;
+    }
+    .botao-menu-mobile,
+    .botao-notificacoes {
+      width:48px!important;
+      height:48px!important;
+      flex:0 0 48px!important;
+      border:1px solid var(--ds-line)!important;
+      border-radius:15px!important;
+      background:#fff!important;
+      color:var(--ds-green-900)!important;
+      box-shadow:0 7px 18px rgba(28,50,32,.045)!important;
+    }
+    .botao-menu-mobile .icone-svg,.botao-notificacoes .icone-svg { width:22px!important;height:22px!important; }
+    .topbar-acoes { gap:10px!important; }
+    .topbar-acoes .status {
+      min-height:36px!important;
+      display:inline-flex!important;
+      align-items:center!important;
+      padding:8px 14px!important;
+      border:1px solid #e0e5dc!important;
+      border-radius:999px!important;
+      background:#edf1e9!important;
+      color:#526146!important;
+      font-size:9px!important;
+      font-weight:900!important;
+      letter-spacing:.12em!important;
+    }
+    .badge-notificacoes { background:#b17b08!important;box-shadow:0 0 0 2px #fff; }
+
+    /* Hierarquia tipográfica universal. */
+    .cabecalho-secao {
+      margin-bottom:24px!important;
+      padding-inline:2px;
+      align-items:flex-end!important;
+      gap:18px!important;
+    }
+    .cabecalho-secao h2 {
+      color:var(--ds-ink)!important;
+      font-size:clamp(32px,3vw,46px)!important;
+      font-weight:880!important;
+      line-height:1.02!important;
+      letter-spacing:-.048em!important;
+    }
+    .cabecalho-secao p {
+      max-width:820px!important;
+      margin-top:8px!important;
+      color:var(--ds-muted)!important;
+      font-size:clamp(13px,.95vw,16px)!important;
+      font-weight:500!important;
+      line-height:1.5!important;
+      letter-spacing:0!important;
+      text-transform:none!important;
+    }
+    .rotulo-suave,.eyebrow {
+      color:#687967!important;
+      font-size:10px!important;
+      font-weight:900!important;
+      letter-spacing:.15em!important;
+    }
+
+    /* Superfícies e cartões. */
+    .painel,
+    .cartao-item,
+    .form-etapa,
+    .papel-permuta,
+    .acao-final-form,
+    .filtro-mensal-permutas,
+    .credito-banco-horas,
+    .historico-registro {
+      border:1px solid var(--ds-line)!important;
+      border-radius:var(--ds-radius-card)!important;
+      background:rgba(255,255,255,.98)!important;
+      box-shadow:var(--ds-shadow)!important;
+    }
+    .painel { padding:clamp(19px,1.7vw,24px)!important;margin-bottom:18px!important; }
+    .painel h3 {
+      color:var(--ds-ink)!important;
+      font-size:clamp(18px,1.35vw,22px)!important;
+      font-weight:850!important;
+      letter-spacing:-.03em!important;
+      line-height:1.15!important;
+    }
+    .painel p { color:var(--ds-muted); }
+    .cartao-topo { gap:14px!important; }
+
+    /* Componentes de métrica: mesmo padrão em Início, Calendário e Relatórios. */
+    .resumos { gap:14px!important; }
+    .resumo,
+    #secao-banco-horas .cartao-saldo-horas {
+      position:relative!important;
+      isolation:isolate;
+      min-height:126px!important;
+      padding:20px 20px 18px 24px!important;
+      overflow:hidden!important;
+      border:1px solid var(--ds-line)!important;
+      border-radius:22px!important;
+      background:rgba(255,255,255,.985)!important;
+      box-shadow:var(--ds-shadow)!important;
+    }
+    .resumo::before,
+    #secao-banco-horas .cartao-saldo-horas:not(.destaque)::before {
+      content:''!important;
+      position:absolute!important;
+      left:0!important;
+      top:18px!important;
+      bottom:18px!important;
+      width:5px!important;
+      border-radius:0 999px 999px 0!important;
+      background:linear-gradient(180deg,var(--ds-gold-300),var(--ds-gold-500))!important;
+      z-index:2!important;
+    }
+    .resumo::after,
+    #secao-banco-horas .cartao-saldo-horas:not(.destaque)::after {
+      content:''!important;
+      position:absolute!important;
+      right:-58px!important;
+      bottom:-72px!important;
+      width:164px!important;
+      height:164px!important;
+      border:16px solid rgba(225,231,222,.55)!important;
+      border-radius:50%!important;
+      box-shadow:inset 0 0 0 34px rgba(237,241,234,.75)!important;
+      opacity:.72!important;
+      z-index:0!important;
+      pointer-events:none!important;
+    }
+    .resumo > *,#secao-banco-horas .cartao-saldo-horas > * { position:relative;z-index:3; }
+    .resumo strong,
+    #secao-banco-horas .cartao-saldo-horas strong {
+      color:var(--ds-green-900)!important;
+      font-size:clamp(30px,2.3vw,40px)!important;
+      font-weight:850!important;
+      letter-spacing:-.045em!important;
+      line-height:1!important;
+    }
+    .resumo span,
+    #secao-banco-horas .cartao-saldo-horas small {
+      margin-top:10px!important;
+      color:#69776c!important;
+      font-size:10.5px!important;
+      font-weight:900!important;
+      letter-spacing:.11em!important;
+      line-height:1.25!important;
+      text-transform:uppercase!important;
+    }
+    .resumo small,
+    #secao-banco-horas .cartao-saldo-horas span {
+      display:block!important;
+      margin-top:7px!important;
+      color:var(--ds-muted)!important;
+      font-size:11.5px!important;
+      font-weight:500!important;
+      letter-spacing:0!important;
+      line-height:1.4!important;
+      text-transform:none!important;
+    }
+
+    /* Botões: quatro funções visuais e contraste consistente. */
+    .botao {
+      min-height:50px!important;
+      padding:12px 18px!important;
+      border:1px solid transparent!important;
+      border-radius:15px!important;
+      background:linear-gradient(135deg,#4f6844 0%,var(--ds-green-900) 72%,var(--ds-green-950) 100%)!important;
+      color:#fff!important;
+      -webkit-text-fill-color:#fff!important;
+      box-shadow:0 9px 20px rgba(20,52,32,.13)!important;
+      font-size:11px!important;
+      font-weight:900!important;
+      letter-spacing:.045em!important;
+      line-height:1.2!important;
+    }
+    .botao:hover { filter:none!important;transform:translateY(-1px);box-shadow:0 12px 24px rgba(20,52,32,.16)!important; }
+    .botao:active { transform:translateY(0)!important; }
+    .botao.botao-secundario,
+    #botaoAnteriorChecklist,
+    #secao-banco-horas .botao-atualizar-banco {
+      background:#fff!important;
+      color:var(--ds-green-900)!important;
+      -webkit-text-fill-color:var(--ds-green-900)!important;
+      border-color:var(--ds-line-strong)!important;
+      box-shadow:0 6px 15px rgba(25,47,30,.045)!important;
+    }
+    .botao.botao-secundario:hover,
+    #botaoAnteriorChecklist:hover,
+    #secao-banco-horas .botao-atualizar-banco:hover { background:var(--ds-green-050)!important;border-color:#aebca9!important; }
+    .botao.botao-perigo { background:#fff8f7!important;color:var(--ds-danger)!important;-webkit-text-fill-color:var(--ds-danger)!important;border-color:#e2bbb7!important;box-shadow:none!important; }
+    .botao:disabled {
+      opacity:1!important;
+      background:#edf0eb!important;
+      color:#919b92!important;
+      -webkit-text-fill-color:#919b92!important;
+      border-color:#dde3da!important;
+      box-shadow:none!important;
+      cursor:not-allowed!important;
+    }
+
+    /* Campos: mesma altura, label e foco em qualquer módulo. */
+    .campo { margin-bottom:18px; }
+    .campo label,.rotulo {
+      margin-bottom:8px!important;
+      color:#304236!important;
+      font-size:12px!important;
+      font-weight:800!important;
+      letter-spacing:.015em!important;
+      line-height:1.3!important;
+      text-transform:none!important;
+    }
+    input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),select,textarea {
+      width:100%!important;
+      border:1px solid #cfd9cc!important;
+      border-radius:var(--ds-radius-control)!important;
+      background:#fff!important;
+      color:var(--ds-ink)!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.8)!important;
+      font-size:15px!important;
+    }
+    input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),select {
+      min-height:var(--ds-control-h)!important;
+      padding:12px 15px!important;
+    }
+    textarea { min-height:112px!important;padding:14px 15px!important;line-height:1.5!important; }
+    input::placeholder,textarea::placeholder { color:#a0a8a1!important;opacity:1!important; }
+    input:focus,select:focus,textarea:focus {
+      border-color:#78906d!important;
+      box-shadow:0 0 0 4px rgba(213,179,63,.22)!important;
+    }
+    input[readonly],input:disabled,select:disabled,textarea:disabled {
+      opacity:1!important;
+      background:#eef2ec!important;
+      color:#707c72!important;
+      -webkit-text-fill-color:#707c72!important;
+    }
+    .ajuda,.filtro-automatico-nota {
+      margin-top:7px!important;
+      color:var(--ds-muted)!important;
+      font-size:10.5px!important;
+      line-height:1.45!important;
+      letter-spacing:0!important;
+    }
+
+    /* Escolhas, confirmações e avisos. */
+    .opcao-radio span,
+    .papel-permuta-opcao span,
+    .confirmacao,
+    .confirm-card {
+      border:1px solid #d4ddd1!important;
+      border-radius:18px!important;
+      background:#fff!important;
+      color:#314238!important;
+      box-shadow:none!important;
+    }
+    .opcao-radio span,.papel-permuta-opcao span { min-height:60px!important;padding:14px 16px!important;font-size:13px!important;font-weight:800!important;line-height:1.35!important; }
+    .opcao-radio input[type="radio"]:checked + span,
+    .papel-permuta-opcao input:checked + span {
+      border-color:#728969!important;
+      background:linear-gradient(180deg,#f3f7f0 0%,#edf3e9 100%)!important;
+      color:#2d4131!important;
+      box-shadow:inset 5px 0 0 #607752!important;
+    }
+    .opcoes-muito-curtas .opcao-radio input[type="radio"]:checked + span {
+      background:linear-gradient(135deg,#5b704b 0%,#31472e 100%)!important;
+      color:#fff!important;
+      -webkit-text-fill-color:#fff!important;
+      border-color:#405738!important;
+      box-shadow:0 7px 16px rgba(29,57,35,.11)!important;
+    }
+    .confirmacao,.confirm-card { min-height:64px!important;padding:14px 16px!important; }
+    .nota-contextual,.aviso-inline,.mensagem.info,.mensagem.aviso,.validacao-preventiva {
+      border-radius:17px!important;
+      line-height:1.5!important;
+    }
+
+    /* Início: dashboard pessoal com proporções mais consistentes. */
+    #secao-inicio .hero-siga {
+      min-height:220px!important;
+      margin-bottom:18px!important;
+      padding:clamp(28px,3vw,40px)!important;
+      border:1px solid rgba(213,179,63,.12)!important;
+      border-radius:var(--ds-radius-hero)!important;
+      background:linear-gradient(135deg,#123c22 0%,#174c29 47%,#405f2f 100%)!important;
+      box-shadow:var(--ds-shadow-raised)!important;
+    }
+    #secao-inicio .hero-siga h2 {
+      margin:14px 0 12px!important;
+      color:#fff!important;
+      font-size:clamp(38px,4vw,54px)!important;
+      font-weight:820!important;
+      letter-spacing:-.045em!important;
+      line-height:1!important;
+    }
+    #secao-inicio .hero-siga p {
+      max-width:680px!important;
+      margin:0!important;
+      color:rgba(255,255,255,.82)!important;
+      font-size:clamp(14px,1.15vw,17px)!important;
+      line-height:1.55!important;
+    }
+    #secao-inicio .resumo-inicio-escala { margin-bottom:18px!important; }
+    .atalhos-siga { gap:13px!important; }
+    .atalho-siga {
+      min-height:86px!important;
+      padding:14px 18px!important;
+      border:1px solid var(--ds-line)!important;
+      border-radius:22px!important;
+      background:#fff!important;
+      box-shadow:var(--ds-shadow)!important;
+      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important;
+    }
+    .atalho-siga:hover,.atalho-siga:focus-visible { transform:translateY(-2px);border-color:#bdcbb9!important;box-shadow:var(--ds-shadow-raised)!important; }
+    .atalho-icone { width:54px!important;height:54px!important;border-radius:17px!important;background:#edf4ea!important;color:#285236!important; }
+    .atalho-siga strong { color:var(--ds-ink)!important;font-size:15px!important;font-weight:820!important;letter-spacing:-.015em!important; }
+    .atalho-siga small { margin-top:4px!important;color:var(--ds-muted)!important;font-size:11.5px!important;line-height:1.35!important;letter-spacing:0!important; }
+    .atalho-seta { color:#809083!important; }
+    #secao-inicio .painel-informativo { margin-top:18px!important;background:linear-gradient(180deg,#fbfcfa,#f6f8f4)!important; }
+
+    /* Calendário: métrica e calendário como um único produto visual. */
+    #secao-calendario .calendario-painel {
+      padding:clamp(20px,2vw,28px)!important;
+      border-radius:26px!important;
+    }
+    #secao-calendario .calendario-topo { margin-bottom:22px!important; }
+    #secao-calendario .calendario-topo h3 {
+      color:var(--ds-ink)!important;
+      font-size:clamp(22px,2vw,30px)!important;
+      font-weight:850!important;
+      letter-spacing:-.035em!important;
+    }
+    #secao-calendario .calendario-topo small { color:var(--ds-muted)!important;font-size:9px!important;letter-spacing:.16em!important; }
+    #secao-calendario .calendario-nav {
+      width:48px!important;height:48px!important;border-radius:15px!important;border-color:var(--ds-line)!important;background:#fff!important;color:var(--ds-green-900)!important;
+    }
+    #secao-calendario .calendario-dia {
+      border-color:#d9e1d6!important;
+      border-radius:14px!important;
+      background:#fff!important;
+      box-shadow:0 3px 8px rgba(26,48,31,.025)!important;
+    }
+    #secao-calendario .calendario-dia.hoje { border-color:var(--ds-gold-500)!important;box-shadow:inset 0 0 0 2px rgba(213,179,63,.3)!important; }
+    #secao-calendario .calendario-legenda { margin-top:16px!important;color:var(--ds-muted)!important; }
+
+    /* Checklist: fluxo operacional, leitura e sticky progress padronizados. */
+    #secao-checklist .checklist-intro {
+      margin-bottom:18px!important;
+      padding:clamp(22px,2.4vw,30px)!important;
+      gap:18px!important;
+      border:1px solid rgba(213,179,63,.18)!important;
+      border-radius:26px!important;
+      background:linear-gradient(135deg,#365032 0%,#203b27 54%,#112f1e 100%)!important;
+    }
+    #secao-checklist .checklist-intro-icone { width:58px!important;height:58px!important;flex:0 0 58px!important;border-radius:18px!important; }
+    #secao-checklist .checklist-intro h3 { margin:4px 0 7px!important;font-size:clamp(19px,1.6vw,24px)!important;letter-spacing:.06em!important;line-height:1.15!important; }
+    #secao-checklist .checklist-intro p { max-width:820px!important;margin:0!important;font-size:13px!important;line-height:1.5!important;color:rgba(255,255,255,.82)!important; }
+    #secao-checklist .checklist-progresso-fixo {
+      padding:18px 20px!important;
+      border-radius:22px!important;
+      border:1px solid var(--ds-line)!important;
+      background:rgba(255,255,255,.975)!important;
+      box-shadow:0 14px 32px rgba(24,47,29,.09)!important;
+    }
+    #secao-checklist .checklist-etapa-atual small { color:var(--ds-muted)!important;font-size:9.5px!important;letter-spacing:.14em!important; }
+    #secao-checklist .checklist-etapa-atual strong { color:var(--ds-ink)!important;font-size:14px!important;line-height:1.25!important; }
+    #secao-checklist .checklist-percentual { color:var(--ds-green-900)!important;font-size:27px!important; }
+    #secao-checklist .checklist-secao-cabecalho { border-radius:22px!important;padding:17px 20px!important; }
+    #secao-checklist .checklist-corpo > [data-campo-wrapper] {
+      padding:18px!important;
+      border:1px solid var(--ds-line)!important;
+      border-radius:22px!important;
+      background:#fff!important;
+      box-shadow:var(--ds-shadow)!important;
+    }
+    #conteudoChecklistVeiculo .declaracao-checklist {
+      border-radius:17px!important;
+      background:#f3f6f1!important;
+      color:#2b3d30!important;
+      font-size:13px!important;
+      font-weight:760!important;
+      letter-spacing:.01em!important;
+      line-height:1.62!important;
+      text-transform:none!important;
+    }
+    #conteudoChecklistVeiculo .opcao-radio span { border-radius:18px!important; }
+    #secao-checklist .checklist-navegacao {
+      padding:12px!important;
+      gap:10px!important;
+      border-radius:22px!important;
+      background:#fff!important;
+    }
+    #secao-checklist .checklist-navegacao .botao { min-height:52px!important; }
+    #secao-checklist > .painel:last-child { margin-top:20px!important; }
+
+    /* Permutas: mesma linguagem de etapa do Checklist, menos fragmentação. */
+    #secao-permutas .subnavegacao {
+      max-width:560px!important;
+      min-height:54px!important;
+      padding:5px!important;
+      border-radius:18px!important;
+      background:#f2f5f0!important;
+      box-shadow:inset 0 1px 0 #fff!important;
+    }
+    #secao-permutas .subaba { min-height:44px!important;border-radius:13px!important;font-size:10.5px!important; }
+    #secao-permutas .permuta-fluxo-mapa { gap:10px!important;margin-bottom:16px!important; }
+    #secao-permutas .permuta-fluxo-passo {
+      min-height:70px!important;
+      padding:12px!important;
+      border-color:var(--ds-line)!important;
+      border-radius:18px!important;
+      background:#fff!important;
+      box-shadow:0 5px 14px rgba(25,47,30,.035)!important;
+    }
+    #secao-permutas .permuta-fluxo-passo > span { width:36px!important;height:36px!important;flex-basis:36px!important;border-radius:12px!important;background:#e8eee5!important;font-size:12px!important; }
+    #secao-permutas .permuta-fluxo-passo strong { font-size:12.5px!important; }
+    #secao-permutas .permuta-fluxo-passo small { font-size:9.5px!important;letter-spacing:0!important; }
+    #secao-permutas .permuta-resumo-inicial { gap:14px!important;margin-bottom:18px!important; }
+    #secao-permutas .permuta-cabecalho-card,
+    #secao-permutas .limite-permuta-card {
+      border-radius:22px!important;
+      border-color:var(--ds-line)!important;
+      box-shadow:var(--ds-shadow)!important;
+    }
+    #secao-permutas .papel-permuta,
+    #secao-permutas .form-etapa,
+    #secao-permutas .acao-final-form { border-radius:24px!important;box-shadow:var(--ds-shadow)!important; }
+    #secao-permutas .papel-permuta::before,
+    #secao-permutas .form-etapa::before,
+    #secao-permutas .acao-final-form::before { width:5px!important;top:18px!important;bottom:18px!important;background:var(--ds-gold-500)!important; }
+    #secao-permutas .form-etapa-cabecalho { padding:17px 20px!important;min-height:78px!important; }
+    #secao-permutas .form-etapa-indice { width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:16px!important;font-size:18px!important; }
+    #secao-permutas .form-etapa-cabecalho strong { font-size:18px!important;letter-spacing:-.025em!important; }
+    #secao-permutas .form-etapa-cabecalho small { margin-top:3px!important;font-size:11px!important;line-height:1.35!important;letter-spacing:0!important; }
+    #secao-permutas .form-etapa-corpo { padding:20px!important; }
+    #secao-permutas .nota-contextual,#secao-permutas .confirm-card { border-radius:17px!important; }
+    #secao-permutas .acao-final-form { padding:20px!important; }
+
+    /* Banco de horas: extrato executivo, sem linguagem visual paralela. */
+    #secao-banco-horas .banco-horas-cabecalho { align-items:flex-end!important; }
+    #secao-banco-horas .botao-atualizar-banco { min-width:126px!important;width:auto!important; }
+    #secao-banco-horas .resumo-banco-horas { gap:14px!important; }
+    #secao-banco-horas .cartao-saldo-horas.destaque {
+      border-color:#334b31!important;
+      background:linear-gradient(135deg,#415636 0%,#203822 100%)!important;
+      box-shadow:var(--ds-shadow-raised)!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas.destaque::before,
+    #secao-banco-horas .cartao-saldo-horas.destaque::after { display:none!important; }
+    #secao-banco-horas .cartao-saldo-horas.destaque small { color:rgba(255,255,255,.74)!important; }
+    #secao-banco-horas .cartao-saldo-horas.destaque strong { color:#f0d46e!important; }
+    #secao-banco-horas .cartao-saldo-horas.destaque span { color:rgba(255,255,255,.72)!important; }
+    #secao-banco-horas .painel-extrato-banco-horas { margin-top:18px!important; }
+    #secao-banco-horas .credito-banco-horas { border-radius:18px!important; }
+
+    /* Relatórios: síntese, não planilha visual. */
+    #secao-relatorios > .painel { border-radius:24px!important;padding:22px!important; }
+    #secao-relatorios .tabela-wrap { border:1px solid var(--ds-line)!important;border-radius:17px!important;background:#fff!important; }
+    #secao-relatorios th { padding:12px 13px!important;background:#f5f7f3!important;color:#5f6d62!important; }
+    #secao-relatorios td { padding:12px 13px!important;border-color:#e5e9e3!important;color:#344238!important; }
+
+    /* Perfil: cartões mais densos, valores mais legíveis e agrupamento nítido. */
+    #secao-perfil .perfil-ficha-painel,
+    #secao-perfil .perfil-solicitacao-painel,
+    #secao-perfil .perfil-senha-painel { border-radius:26px!important; }
+    #secao-perfil .perfil-painel-topo { margin-bottom:20px!important; }
+    #secao-perfil .perfil-ficha-grupo + .perfil-ficha-grupo { margin-top:18px!important;padding-top:18px!important;border-top:1px solid #e3e8e0!important; }
+    #secao-perfil .perfil-ficha-grupo-topo { margin-bottom:12px!important; }
+    #secao-perfil .perfil-ficha-grupo-indice { width:46px!important;height:46px!important;flex:0 0 46px!important;border-radius:15px!important;background:linear-gradient(135deg,#536944,#314b31)!important;color:#fff!important;font-size:12px!important; }
+    #secao-perfil .perfil-ficha-grupo-topo strong { color:var(--ds-ink)!important;font-size:16px!important;letter-spacing:-.02em!important; }
+    #secao-perfil .perfil-ficha-grupo-topo small { color:var(--ds-muted)!important;font-size:10.5px!important; }
+    #secao-perfil .perfil-ficha-grade { gap:10px!important; }
+    #secao-perfil #fichaPerfil .perfil-card-dado {
+      min-height:76px!important;
+      padding:13px 15px!important;
+      border:1px solid #dde4da!important;
+      border-radius:17px!important;
+      background:linear-gradient(180deg,#fafbf9 0%,#f5f7f3 100%)!important;
+    }
+    #secao-perfil #fichaPerfil .perfil-card-dado small { margin-bottom:7px!important;color:#748177!important;font-size:9px!important;letter-spacing:.08em!important; }
+    #secao-perfil #fichaPerfil .perfil-card-dado strong { color:var(--ds-ink)!important;font-size:14px!important;line-height:1.35!important; }
+    #secao-perfil #fichaPerfil .perfil-dado-destaque { background:linear-gradient(135deg,#f4f8f1,#edf3e9)!important; }
+    #secao-perfil #fichaPerfil .perfil-dado-destaque::before { width:5px!important;background:var(--ds-gold-500)!important; }
+    #secao-perfil .perfil-fluxo-p1 { border-radius:17px!important;background:#f5f8f3!important;border-color:#d9e2d6!important; }
+
+    /* Estados vazios e feedback. */
+    .vazio:not(.compacto) {
+      min-height:112px!important;
+      display:grid!important;
+      place-items:center!important;
+      padding:22px!important;
+      border:1px dashed #cbd5c7!important;
+      border-radius:18px!important;
+      background:#fafbf9!important;
+      color:var(--ds-muted)!important;
+      text-align:center!important;
+      font-size:12px!important;
+      line-height:1.5!important;
+    }
+    .mensagem {
+      padding:14px 16px!important;
+      border-radius:17px!important;
+      font-size:12px!important;
+      line-height:1.5!important;
+    }
+    .mensagem.erro { color:#9e312c!important;background:#fff3f2!important;border-color:#efc3bf!important; }
+    .mensagem.sucesso { color:#276a40!important;background:#f0f8f2!important;border-color:#bcdcc6!important; }
+    .mensagem.aviso { color:#805c13!important;background:#fff8e7!important;border-color:#ead59d!important; }
+    .mensagem.info { color:#2e6599!important;background:#f1f7fd!important;border-color:#bdd6ec!important; }
+
+    /* Notificações: mesma geometria do restante do sistema. */
+    .painel-notificacoes { border-radius:24px!important;border-color:var(--ds-line)!important;box-shadow:0 28px 70px rgba(19,42,25,.22)!important; }
+    .notificacao-item { border-radius:17px!important;border-color:#dce3d9!important; }
+    .notificacao-item.nao-lida { box-shadow:inset 5px 0 0 var(--ds-gold-500)!important; }
+
+    /* Sidebar: identidade preservada, alinhamento e ritmo refinados. */
+    .sidebar { background:linear-gradient(180deg,#344f2e 0%,#173824 43%,#102d1d 100%)!important; }
+    .sidebar-marca { min-height:92px!important;padding:17px 18px!important;gap:14px!important; }
+    .marca-siga-sidebar { width:54px!important;height:54px!important;flex:0 0 54px!important;border-radius:16px!important; }
+    .sidebar-marca h2 { font-size:18px!important;letter-spacing:.045em!important; }
+    .sidebar-marca p { margin-top:4px!important;font-size:9px!important;letter-spacing:.12em!important;white-space:nowrap!important; }
+    .usuario-sidebar { margin:14px 14px 10px!important;padding:14px 15px!important;border-radius:18px!important;border-color:rgba(255,255,255,.15)!important;background:rgba(255,255,255,.055)!important; }
+    .sidebar-identidade-linha #identificacaoSidebar { font-size:13px!important;line-height:1.3!important; }
+    .usuario-sidebar #matriculaSidebar { margin-top:5px!important;font-size:9.5px!important;color:#c3cdc0!important;line-height:1.35!important; }
+    .menu-grupo-titulo { margin:13px 18px 7px!important;color:#acbaa8!important;font-size:8px!important;letter-spacing:.18em!important; }
+    .menu-item { min-height:48px!important;margin:2px 9px!important;padding:9px 13px!important;border-radius:14px!important;font-size:12.5px!important;gap:12px!important; }
+    .menu-item.ativo { background:linear-gradient(90deg,rgba(213,179,63,.25),rgba(255,255,255,.115))!important;box-shadow:inset 4px 0 0 #efcb52!important; }
+    .menu-item.ativo .menu-icone { color:#f0d36a!important; }
+    .menu-icone { width:22px!important;height:22px!important; }
+    .sidebar-rodape { padding-top:14px!important; }
+
+    /* Tablet. */
+    @media(max-width:980px) {
+      :root { --ds-page-max:none; }
+      .conteudo-app {
+        width:100%!important;
+        max-width:none!important;
+        padding-top:20px!important;
+        padding-right:calc(14px + env(safe-area-inset-right))!important;
+        padding-left:calc(14px + env(safe-area-inset-left))!important;
+      }
+      .cabecalho-secao { align-items:flex-start!important; }
+      #secao-permutas .permuta-resumo-inicial { grid-template-columns:1fr!important; }
+      #secao-banco-horas .banco-horas-cabecalho { align-items:stretch!important; }
+      #secao-banco-horas .botao-atualizar-banco { width:100%!important; }
+    }
+
+    /* Celular: 100% da largura útil, safe area e densidade profissional. */
+    @media(max-width:620px) {
+      :root { --ds-control-h:56px; }
+      .conteudo-app {
+        padding-top:18px!important;
+        padding-right:calc(12px + env(safe-area-inset-right))!important;
+        padding-left:calc(12px + env(safe-area-inset-left))!important;
+        padding-bottom:calc(74px + env(safe-area-inset-bottom))!important;
+      }
+      .topbar {
+        min-height:calc(62px + var(--siga-safe-top))!important;
+        padding-top:calc(8px + var(--siga-safe-top))!important;
+        padding-right:calc(12px + env(safe-area-inset-right))!important;
+        padding-bottom:8px!important;
+        padding-left:calc(12px + env(safe-area-inset-left))!important;
+      }
+      .botao-menu-mobile,.botao-notificacoes { width:46px!important;height:46px!important;flex-basis:46px!important;border-radius:14px!important; }
+      .topbar h1 { max-width:44vw!important;font-size:20px!important; }
+      .topbar p { display:none!important; }
+      .topbar-acoes { gap:8px!important; }
+      .topbar-acoes .status { min-height:34px!important;padding:7px 11px!important;font-size:8px!important; }
+
+      .cabecalho-secao { margin-bottom:20px!important; }
+      .cabecalho-secao h2 { font-size:clamp(32px,9.2vw,39px)!important;line-height:1.04!important; }
+      .cabecalho-secao p { margin-top:8px!important;font-size:14px!important;line-height:1.48!important; }
+
+      .painel { padding:17px!important;border-radius:22px!important; }
+      .painel h3 { font-size:19px!important; }
+      .resumos { gap:10px!important; }
+      .resumo,#secao-banco-horas .cartao-saldo-horas { min-height:116px!important;padding:17px 15px 16px 19px!important;border-radius:20px!important; }
+      .resumo strong,#secao-banco-horas .cartao-saldo-horas strong { font-size:32px!important; }
+      .resumo span,#secao-banco-horas .cartao-saldo-horas small { margin-top:9px!important;font-size:9px!important;letter-spacing:.095em!important; }
+      .resumo small,#secao-banco-horas .cartao-saldo-horas span { font-size:10.5px!important;line-height:1.35!important; }
+      .resumo::after,#secao-banco-horas .cartao-saldo-horas:not(.destaque)::after { right:-76px!important;bottom:-82px!important;width:154px!important;height:154px!important; }
+
+      .campo { margin-bottom:17px!important; }
+      .campo label,.rotulo { font-size:12.5px!important;margin-bottom:8px!important; }
+      input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),select,textarea { font-size:16px!important; }
+      textarea { min-height:104px!important; }
+      .botao { min-height:50px!important;font-size:10.5px!important;border-radius:14px!important; }
+
+      #secao-inicio .hero-siga { min-height:190px!important;padding:25px 22px!important;border-radius:27px!important; }
+      #secao-inicio .hero-siga h2 { margin:12px 0 11px!important;font-size:38px!important; }
+      #secao-inicio .hero-siga p { font-size:14px!important;line-height:1.48!important; }
+      #secao-inicio .resumo-inicio-escala { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+      #secao-inicio .resumo-inicio-escala .resumo:nth-child(3) { grid-column:1/-1!important; }
+      .atalhos-siga { grid-template-columns:1fr!important;gap:11px!important; }
+      .atalho-siga { min-height:82px!important;padding:13px 14px!important;border-radius:21px!important; }
+      .atalho-icone { width:50px!important;height:50px!important;flex-basis:50px!important;border-radius:16px!important; }
+      .atalho-siga strong { font-size:15px!important; }
+      .atalho-siga small { font-size:11px!important; }
+
+      #secao-calendario .calendario-painel { padding:16px!important;border-radius:22px!important; }
+      #secao-calendario .calendario-nav { width:44px!important;height:44px!important;border-radius:14px!important; }
+      #secao-calendario .calendario-topo h3 { font-size:22px!important; }
+      #secao-calendario .calendario-semana span { font-size:8px!important;letter-spacing:.08em!important; }
+      #secao-calendario .calendario-dia { border-radius:12px!important; }
+
+      #secao-checklist .checklist-intro { padding:19px!important;gap:14px!important;border-radius:23px!important; }
+      #secao-checklist .checklist-intro-icone { width:50px!important;height:50px!important;flex-basis:50px!important;border-radius:16px!important; }
+      #secao-checklist .checklist-intro h3 { font-size:18px!important; }
+      #secao-checklist .checklist-intro p { font-size:12.5px!important; }
+      #secao-checklist .checklist-progresso-fixo { padding:14px 16px!important;border-radius:19px!important; }
+      #secao-checklist .checklist-etapa-atual strong { font-size:13px!important; }
+      #secao-checklist .checklist-percentual { font-size:25px!important; }
+      #secao-checklist .checklist-corpo > [data-campo-wrapper] { padding:15px!important;border-radius:20px!important; }
+      #conteudoChecklistVeiculo .declaracao-checklist { font-size:12.5px!important;line-height:1.58!important; }
+      #secao-checklist .checklist-navegacao { padding:10px!important;gap:8px!important;border-radius:20px!important; }
+
+      #secao-permutas .subnavegacao { width:100%!important;max-width:none!important;margin-bottom:14px!important; }
+      #secao-permutas .permuta-fluxo-mapa { grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important; }
+      #secao-permutas .permuta-fluxo-passo { min-height:64px!important;padding:10px!important;border-radius:16px!important; }
+      #secao-permutas .permuta-fluxo-passo > span { width:34px!important;height:34px!important;flex-basis:34px!important; }
+      #secao-permutas .papel-permuta,#secao-permutas .form-etapa,#secao-permutas .acao-final-form { border-radius:22px!important; }
+      #secao-permutas .form-etapa-cabecalho { min-height:72px!important;padding:15px 17px!important; }
+      #secao-permutas .form-etapa-indice { width:48px!important;height:48px!important;flex-basis:48px!important;border-radius:15px!important;font-size:17px!important; }
+      #secao-permutas .form-etapa-cabecalho strong { font-size:17px!important; }
+      #secao-permutas .form-etapa-corpo { padding:17px!important; }
+      #secao-permutas .papel-permuta-opcao span { min-height:68px!important;font-size:13.5px!important;padding:15px!important; }
+      #secao-permutas .opcao-radio span { min-height:56px!important;font-size:14px!important; }
+
+      #secao-banco-horas .banco-horas-cabecalho { gap:14px!important; }
+      #secao-banco-horas .botao-atualizar-banco { width:100%!important; }
+      #secao-banco-horas .resumo-banco-horas { grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important; }
+      #secao-banco-horas .cartao-saldo-horas.destaque { grid-column:1/-1!important; }
+
+      #secao-relatorios > .painel { padding:17px!important;border-radius:22px!important; }
+      #secao-relatorios .tabela-responsiva tr { border-radius:17px!important;padding:12px 14px!important;box-shadow:0 7px 18px rgba(25,47,30,.045)!important; }
+      #secao-relatorios .tabela-responsiva td { grid-template-columns:minmax(104px,.85fr) minmax(0,1.15fr)!important;font-size:12px!important; }
+      #secao-relatorios .tabela-responsiva td::before { font-size:8.5px!important; }
+
+      #secao-perfil .perfil-ficha-painel,#secao-perfil .perfil-solicitacao-painel,#secao-perfil .perfil-senha-painel { padding:17px!important;border-radius:22px!important; }
+      #secao-perfil .perfil-ficha-grupo + .perfil-ficha-grupo { margin-top:15px!important;padding-top:15px!important; }
+      #secao-perfil .perfil-ficha-grupo-indice { width:44px!important;height:44px!important;flex-basis:44px!important;border-radius:14px!important; }
+      #secao-perfil .perfil-ficha-grupo-topo strong { font-size:15px!important; }
+      #secao-perfil .perfil-ficha-grade { gap:8px!important; }
+      #secao-perfil #fichaPerfil .perfil-card-dado { min-height:68px!important;padding:11px 12px!important;border-radius:15px!important; }
+      #secao-perfil #fichaPerfil .perfil-card-dado small { font-size:8.5px!important;margin-bottom:5px!important; }
+      #secao-perfil #fichaPerfil .perfil-card-dado strong { font-size:13.5px!important; }
+
+      .sidebar { width:min(320px,84vw)!important; }
+      .sidebar-marca { min-height:88px!important;padding:16px 18px!important; }
+      .marca-siga-sidebar { width:54px!important;height:54px!important;flex-basis:54px!important; }
+      .usuario-sidebar { margin:12px 12px 9px!important; }
+      .menu-item { min-height:49px!important;margin-inline:8px!important;font-size:13px!important; }
+      .sidebar-rodape { margin-top:auto!important; }
+    }
+
 </style>
 </head>
 <body>
@@ -9832,7 +10566,7 @@
         : 'Grade ' + (usuario.grade || 'não definida');
       usuario.setorAdmin = setorAdmin;
       $('identificacaoSidebar').textContent = identificacaoCompactaSidebar(usuario);
-      $('matriculaSidebar').textContent = 'M.F.: ' + usuario.matricula + ' - ' + identificacaoPerfil;
+      $('matriculaSidebar').textContent = 'M.F.: ' + formatarMatriculaFuncional(usuario.matricula) + ' · ' + identificacaoPerfil;
       $('perfilTopo').textContent = usuario.administrador ? funcaoAdministrativa.toUpperCase() : 'USUÁRIO';
       const guardaHibrida = ehGuardaLogada();
       document.documentElement.dataset.sigaPerfil = usuario.administrador && !guardaHibrida ? 'admin' : 'usuario';
@@ -11477,7 +12211,7 @@
       );
 
       const vinculo = grupo('02','Vínculo funcional','Dados administrativos, graduação, escala e unidade.','perfil-grupo-vinculo',
-        dado('Matrícula',u.matricula,'') +
+        dado('Matrícula',formatarMatriculaFuncional(u.matricula),'') +
         dado('Numeral',u.numeral || 'Não se aplica','') +
         dado('Posto/graduação',u.postoGraduacao,'') +
         dado('Grade',u.grade || 'Não definida','') +
