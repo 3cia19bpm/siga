@@ -8613,6 +8613,559 @@
       #secao-perfil #fichaPerfil .perfil-dado-destaque::before{top:9px!important;bottom:9px!important;}
     }
 
+
+
+    /* =======================================================
+       SIGA DESIGN SYSTEM 1.0 — PREMIUM GLOBAL R3
+       Polimento visual após validação em telas reais.
+       Foco: hierarquia, densidade, filtros, P1, formulários
+       e Efetivo. Sem alteração de regras de negócio.
+       ======================================================= */
+
+    :root{
+      --r3-radius-panel:23px;
+      --r3-radius-control:17px;
+      --r3-shadow:0 12px 30px rgba(26,48,31,.065);
+      --r3-shadow-soft:0 7px 18px rgba(26,48,31,.045);
+    }
+
+    /* O conteúdo respira com o mesmo ritmo em qualquer perfil. */
+    .secao > .cabecalho-secao{
+      max-width:100%;
+      margin-bottom:20px!important;
+    }
+    .pagina-kicker{
+      color:#6b7c6d!important;
+      font-size:9px!important;
+      font-weight:950!important;
+      letter-spacing:.18em!important;
+    }
+    .painel{
+      border-color:#d6dfd3!important;
+      border-radius:var(--r3-radius-panel)!important;
+      box-shadow:var(--r3-shadow)!important;
+    }
+    .painel .cartao-topo > div:first-child{min-width:0;}
+    .painel .cartao-topo p{
+      max-width:760px;
+      margin-top:5px!important;
+      color:#748178!important;
+    }
+
+    /* Evita qualquer herança visual de link azul em botões de navegação. */
+    #secao-painel-admin .dado-navegavel,
+    #secao-painel-admin .dado-navegavel *,
+    #secao-painel-admin .dado-rodape-atalho{
+      color:#29402f!important;
+      -webkit-text-fill-color:#29402f!important;
+      text-decoration:none!important;
+    }
+    #secao-painel-admin .dado-navegavel{
+      position:relative;
+      overflow:hidden;
+      text-align:left;
+      cursor:pointer;
+      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease;
+    }
+    #secao-painel-admin .dado-navegavel::before{
+      content:'';
+      position:absolute;left:0;top:12px;bottom:12px;width:4px;border-radius:0 999px 999px 0;
+      background:linear-gradient(180deg,#e7c953,#cfa72f);
+      opacity:.88;
+    }
+    #secao-painel-admin .dado-navegavel:hover{
+      transform:translateY(-1px);
+      border-color:#bdc9ba!important;
+      box-shadow:0 9px 20px rgba(24,47,30,.06)!important;
+      background:#fbfcfa!important;
+    }
+    #secao-painel-admin .dado-rodape-atalho{
+      display:inline-flex!important;
+      align-items:center!important;
+      gap:7px!important;
+      margin-top:10px!important;
+      font-size:9px!important;
+      font-weight:950!important;
+      letter-spacing:.13em!important;
+      text-transform:uppercase!important;
+    }
+    #secao-painel-admin .dado-rodape-atalho::after{
+      content:'→';font-size:15px;line-height:1;color:#6d805d!important;
+    }
+    .painel-organizacao-topo{margin-bottom:12px!important;}
+    .painel-organizacao-siga .grade-dados{margin-top:0!important;}
+    #centralPendenciasAdmin .vazio.compacto,
+    #painelSolicitacoesPerfilP1 .vazio.compacto{
+      min-height:78px!important;
+      padding:18px!important;
+      border-radius:16px!important;
+    }
+
+    /* Banco de horas: a ação de atualização vira secundária de verdade. */
+    #secao-banco-horas .banco-horas-cabecalho{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto!important;
+      align-items:end!important;
+      column-gap:18px!important;
+      row-gap:8px!important;
+    }
+    #secao-banco-horas .banco-horas-cabecalho > div{min-width:0;}
+    #secao-banco-horas .botao-atualizar-banco{
+      width:auto!important;
+      min-width:124px!important;
+      min-height:44px!important;
+      margin:0 0 2px!important;
+      padding-inline:17px!important;
+    }
+    #secao-banco-horas .bloco-resumo-banco{
+      margin-top:2px!important;
+    }
+    #secao-banco-horas .painel-extrato-banco-horas{
+      overflow:hidden;
+    }
+    #secao-banco-horas .legenda-seguranca-banco{
+      white-space:nowrap;
+    }
+
+    /* Permutas administrativas: filtro profissional, sem textos cortados. */
+    #secao-admin-permutas .bloco-indicadores-permutas-admin{margin-bottom:18px!important;}
+    #secao-admin-permutas .painel-filtros-permutas-admin{padding:18px!important;}
+    .painel-cabecalho-filtros{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+      margin-bottom:15px;padding-bottom:13px;border-bottom:1px solid #e2e8df;
+    }
+    .painel-cabecalho-filtros h3{
+      margin:4px 0 0!important;font-size:17px!important;
+    }
+    #secao-admin-permutas .filtros-permutas-admin{
+      grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(128px,.65fr))!important;
+      align-items:end!important;
+      gap:10px!important;
+      margin-bottom:15px!important;
+    }
+    #secao-admin-permutas .filtros-permutas-admin .campo{
+      min-width:0!important;margin:0!important;
+    }
+    #secao-admin-permutas .filtros-permutas-admin input,
+    #secao-admin-permutas .filtros-permutas-admin select{
+      min-width:0!important;
+      height:50px!important;
+      min-height:50px!important;
+      padding:10px 13px!important;
+      font-size:13.5px!important;
+      border-radius:15px!important;
+      text-overflow:ellipsis;
+    }
+    #secao-admin-permutas .lista-permutas-compacta{
+      gap:10px!important;
+      padding-top:2px;
+    }
+    #secao-admin-permutas .permuta-linha{
+      position:relative;
+      min-height:112px!important;
+      padding:15px 15px 15px 18px!important;
+      border-radius:18px!important;
+      border-color:#d7e0d4!important;
+      box-shadow:var(--r3-shadow-soft)!important;
+      background:linear-gradient(180deg,#fff,#fbfcfa)!important;
+    }
+    #secao-admin-permutas .permuta-linha::before{
+      content:'';position:absolute;left:0;top:16px;bottom:16px;width:4px;
+      border-radius:0 999px 999px 0;background:#d8b843;
+    }
+    #secao-admin-permutas .permuta-linha-resumo strong{
+      color:#263c2c!important;
+      font-size:12px!important;
+      font-weight:900!important;
+      line-height:1.3!important;
+      letter-spacing:.005em!important;
+    }
+    #secao-admin-permutas .permuta-linha-meta{
+      display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;
+      margin-top:7px!important;
+    }
+    #secao-admin-permutas .permuta-linha-meta small{
+      color:#78847b!important;font-size:9.5px!important;line-height:1.45!important;
+    }
+    .status-permuta-admin{
+      display:inline-flex!important;align-items:center!important;min-height:24px!important;
+      padding:4px 8px!important;border-radius:999px!important;
+      font-size:7.5px!important;font-weight:950!important;letter-spacing:.08em!important;
+    }
+    .status-permuta-admin.regular{
+      border:1px solid #cde1d0!important;background:#eff8f0!important;color:#347043!important;
+    }
+    .status-permuta-admin.negada{
+      border:1px solid #efc2bd!important;background:#fff2f0!important;color:#a73a32!important;
+    }
+    .status-permuta-admin.cancelada{
+      border:1px solid #ddd6c6!important;background:#f7f4ee!important;color:#756950!important;
+    }
+    .status-permuta-admin.pendente{
+      border:1px solid #ead8a4!important;background:#fff8e5!important;color:#806111!important;
+    }
+    #secao-admin-permutas .permuta-linha-acoes{
+      display:flex!important;
+      flex-direction:row!important;
+      align-items:center!important;
+      gap:7px!important;
+      align-self:center!important;
+    }
+    #secao-admin-permutas .permuta-copiar,
+    #secao-admin-permutas .permuta-olho{
+      width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;
+    }
+
+    /* Policiais: os dois trabalhos do P1 ficam claramente separados. */
+    #secao-admin-policiais .solicitacoes-perfil-p1,
+    #secao-admin-policiais .p1-entrada-efetivo,
+    #secao-admin-policiais .painel-busca-policiais-p1{
+      overflow:hidden;
+    }
+    #secao-admin-policiais .solicitacoes-p1-topo,
+    #secao-admin-policiais .p1-entrada-efetivo > .cartao-topo,
+    #secao-admin-policiais .painel-busca-policiais-topo{
+      padding-bottom:13px!important;
+      margin-bottom:15px!important;
+      border-bottom:1px solid #e3e8e1!important;
+    }
+    #secao-admin-policiais .contador-solicitacoes-p1{
+      white-space:nowrap;
+      align-self:flex-start;
+    }
+    #secao-admin-policiais .p1-entrada-efetivo{
+      border-top:4px solid #d8ba46!important;
+    }
+    #secao-admin-policiais .painel-busca-policiais-p1{
+      border-top:4px solid #69835d!important;
+    }
+    #secao-admin-policiais #resultadosPoliciaisP1{
+      margin-top:2px!important;
+    }
+
+    /* Formulários: refinamento sem alterar a lógica protegida. */
+    #secao-formularios .editor-formulario-painel{
+      border-top:4px solid #506e4c!important;
+    }
+    #secao-formularios .editor-toolbar-campos{
+      border-top:4px solid #d9ba45!important;
+    }
+    #secao-formularios .editor-formulario-topo{
+      align-items:flex-end!important;
+      gap:14px!important;
+    }
+    #secao-formularios .editor-resumo-formulario{
+      justify-content:flex-end!important;
+    }
+    #secao-formularios .editor-geral-grid{
+      margin-top:16px!important;
+      padding-top:16px!important;
+      border-top:1px solid #e4e9e1!important;
+    }
+    #secao-formularios .editor-campo-geral input{
+      min-height:54px!important;
+      font-size:14.5px!important;
+    }
+    #secao-formularios .editor-formulario-acoes{
+      gap:9px!important;
+    }
+    #secao-formularios .editor-btn{
+      min-height:52px!important;
+      border-radius:15px!important;
+      letter-spacing:.055em!important;
+    }
+    #secao-formularios .editor-btn-restaurar{
+      background:#fff!important;
+      color:#40553f!important;
+      -webkit-text-fill-color:#40553f!important;
+      border:1px solid #cfd9cc!important;
+      box-shadow:none!important;
+    }
+    #secao-formularios .editor-formulario-nota{
+      border-radius:16px!important;
+    }
+    #secao-formularios .editor-toolbar-titulo p{
+      max-width:700px!important;
+    }
+    #secao-formularios .editor-lista-campos{
+      margin-top:12px!important;
+    }
+    #secao-formularios .editor-lista-campos .cartao-item{
+      border-left:5px solid #64835b!important;
+      box-shadow:var(--r3-shadow-soft)!important;
+    }
+
+    /* Efetivo: configuração da escala vira um fluxo lógico: data -> regra -> salvar -> referências. */
+    #secao-efetivo .painel-config-escala-premium{
+      border-top:4px solid #5b7653!important;
+    }
+    #secao-efetivo .painel-config-escala-premium > .cartao-topo{
+      padding-bottom:13px!important;margin-bottom:0!important;border-bottom:1px solid #e3e8e1!important;
+    }
+    #secao-efetivo .config-escala-grade{
+      align-items:stretch!important;
+      gap:12px!important;
+    }
+    #secao-efetivo .config-escala-aviso{
+      display:flex!important;flex-direction:column!important;justify-content:center!important;gap:5px!important;
+      min-height:100%!important;padding:16px!important;border-radius:17px!important;
+      border:1px solid #dbe3d8!important;background:#f5f8f3!important;
+    }
+    #secao-efetivo .config-escala-aviso strong{
+      margin-bottom:2px;color:#2b4230;font-size:12px;font-weight:900;
+    }
+    #secao-efetivo .config-escala-aviso span{
+      color:#5f7064;font-size:10.5px;line-height:1.45;
+    }
+    #secao-efetivo .config-escala-acoes{
+      display:flex;justify-content:flex-end;margin:0 0 17px;
+    }
+    #secao-efetivo .config-escala-acoes .botao{
+      min-width:190px!important;
+    }
+    #secao-efetivo .config-escala-referencias-topo{
+      padding-top:14px;margin-bottom:8px;border-top:1px solid #e4e9e1;
+    }
+    #secao-efetivo #matrizReferenciasEscala{
+      gap:10px!important;
+    }
+    #secao-efetivo #matrizReferenciasEscala > *{
+      border:1px solid #d9e1d6!important;
+      border-radius:16px!important;
+      background:#fbfcfa!important;
+      box-shadow:none!important;
+    }
+    #secao-efetivo .painel-lista-efetivo{
+      border-top:4px solid #d8ba46!important;
+    }
+    #secao-efetivo .painel-lista-efetivo-topo{
+      padding-bottom:13px!important;margin-bottom:15px!important;border-bottom:1px solid #e3e8e1!important;
+    }
+    #secao-efetivo .painel-lista-efetivo .filtros{
+      grid-template-columns:minmax(240px,1.6fr) minmax(150px,.7fr) minmax(150px,.7fr)!important;
+      gap:10px!important;align-items:end!important;
+    }
+    #secao-efetivo .painel-lista-efetivo .filtros .campo{
+      margin:0!important;min-width:0!important;
+    }
+
+    /* Mobile: composição derivada dos prints reais, sem desperdiçar largura. */
+    @media(max-width:620px){
+      .conteudo-app{
+        padding-top:18px!important;
+        padding-right:calc(13px + env(safe-area-inset-right))!important;
+        padding-left:calc(13px + env(safe-area-inset-left))!important;
+      }
+      .cabecalho-secao{
+        margin-bottom:17px!important;
+        padding-bottom:14px!important;
+      }
+      .pagina-kicker{
+        margin-bottom:7px!important;
+        font-size:8px!important;
+        letter-spacing:.17em!important;
+      }
+
+      /* Visão geral */
+      #secao-painel-admin .painel-central-pendencias{padding:17px!important;}
+      #secao-painel-admin .central-pendencias-topo{
+        display:block!important;
+      }
+      #secao-painel-admin .central-pendencias-topo .status-siga{
+        margin-top:12px!important;
+      }
+      #secao-painel-admin .painel-organizacao-siga{padding:17px!important;}
+      #secao-painel-admin .painel-organizacao-siga .grade-dados .dado{
+        padding:14px 15px 14px 18px!important;
+      }
+      #secao-painel-admin .painel-organizacao-siga .grade-dados .dado strong{
+        font-size:11.5px!important;
+        line-height:1.45!important;
+      }
+
+      /* Banco de horas */
+      #secao-banco-horas .banco-horas-cabecalho{
+        grid-template-columns:minmax(0,1fr) auto!important;
+        row-gap:10px!important;
+      }
+      #secao-banco-horas .banco-horas-cabecalho > div{
+        grid-column:1/-1!important;
+      }
+      #secao-banco-horas .botao-atualizar-banco{
+        grid-column:2!important;
+        justify-self:end!important;
+        width:auto!important;
+        min-width:112px!important;
+        min-height:42px!important;
+        margin-top:-2px!important;
+      }
+      #secao-banco-horas .bloco-resumo-banco .bloco-pagina-cabecalho{
+        margin-bottom:9px!important;
+      }
+      #secao-banco-horas .legenda-seguranca-banco{
+        padding:6px 9px!important;
+        font-size:7px!important;
+      }
+
+      /* Permutas P1 */
+      #secao-admin-permutas .bloco-indicadores-permutas-admin{
+        margin-bottom:15px!important;
+      }
+      #secao-admin-permutas .painel-filtros-permutas-admin{
+        padding:16px!important;
+      }
+      #secao-admin-permutas .painel-cabecalho-filtros{
+        display:block!important;
+        margin-bottom:14px!important;
+        padding-bottom:12px!important;
+      }
+      #secao-admin-permutas .painel-cabecalho-filtros .status-siga{
+        display:none!important;
+      }
+      #secao-admin-permutas .filtros-permutas-admin{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:11px!important;
+      }
+      #secao-admin-permutas .filtro-pesquisa-permuta{
+        grid-column:1/-1!important;
+      }
+      #secao-admin-permutas .filtros-permutas-admin input,
+      #secao-admin-permutas .filtros-permutas-admin select{
+        height:52px!important;
+        min-height:52px!important;
+        padding:10px 12px!important;
+        font-size:14px!important;
+      }
+      #secao-admin-permutas .permuta-linha{
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr)!important;
+        gap:11px!important;
+        padding:15px 15px 14px 18px!important;
+      }
+      #secao-admin-permutas .permuta-linha-acoes{
+        justify-self:start!important;
+      }
+      #secao-admin-permutas .permuta-copiar,
+      #secao-admin-permutas .permuta-olho{
+        width:42px!important;height:42px!important;flex-basis:42px!important;
+      }
+
+      /* Policiais */
+      #secao-admin-policiais .solicitacoes-p1-topo{
+        display:block!important;
+      }
+      #secao-admin-policiais .contador-solicitacoes-p1{
+        display:inline-flex!important;margin-top:10px!important;
+      }
+      #secao-admin-policiais .p1-entrada-efetivo,
+      #secao-admin-policiais .painel-busca-policiais-p1{
+        padding:16px!important;
+      }
+      #secao-admin-policiais #formPreCadastroP1 .campo{
+        margin-bottom:13px!important;
+      }
+      #secao-admin-policiais #formPreCadastroP1 input,
+      #secao-admin-policiais #formPreCadastroP1 select{
+        min-height:52px!important;
+      }
+
+      /* Formulários */
+      #secao-formularios .editor-formulario-painel,
+      #secao-formularios .editor-toolbar-campos{
+        padding:16px!important;
+      }
+      #secao-formularios .editor-formulario-topo{
+        display:block!important;
+      }
+      #secao-formularios .editor-resumo-formulario{
+        justify-content:flex-start!important;
+        margin-top:12px!important;
+      }
+      #secao-formularios .editor-geral-grid{
+        gap:11px!important;
+      }
+      #secao-formularios .editor-campo-geral{
+        margin-bottom:10px!important;
+      }
+      #secao-formularios .editor-campo-geral input{
+        min-height:52px!important;
+        font-size:15px!important;
+      }
+      #secao-formularios .editor-formulario-acoes{
+        display:grid!important;
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:9px!important;
+      }
+      #secao-formularios .editor-btn-restaurar{
+        grid-column:1/-1!important;
+      }
+      #secao-formularios .editor-toolbar-acoes{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      }
+      #secao-formularios .editor-lista-campos .cartao-item{
+        border-left-width:4px!important;
+      }
+
+      /* Efetivo */
+      #resumoEfetivo.resumos{
+        margin-bottom:16px!important;
+      }
+      #resumoEfetivo .resumo{
+        min-height:104px!important;
+      }
+      #resumoEfetivo .resumo:has(.grade-chip){
+        padding:14px!important;
+      }
+      #secao-efetivo .painel-config-escala-premium{
+        padding:17px!important;
+      }
+      #secao-efetivo .config-escala-grade{
+        grid-template-columns:1fr!important;
+        margin-top:14px!important;
+      }
+      #secao-efetivo .config-escala-aviso{
+        min-height:0!important;
+        padding:14px!important;
+      }
+      #secao-efetivo .config-escala-acoes{
+        margin-top:2px!important;
+        margin-bottom:16px!important;
+      }
+      #secao-efetivo .config-escala-acoes .botao{
+        width:100%!important;
+        min-width:0!important;
+      }
+      #secao-efetivo .painel-lista-efetivo{
+        padding:16px!important;
+      }
+      #secao-efetivo .painel-lista-efetivo .filtros{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:11px!important;
+      }
+      #secao-efetivo .painel-lista-efetivo .filtros .campo:first-child{
+        grid-column:1/-1!important;
+      }
+      #secao-efetivo .painel-lista-efetivo input,
+      #secao-efetivo .painel-lista-efetivo select{
+        min-height:52px!important;
+      }
+    }
+
+    @media(max-width:390px){
+      #secao-admin-permutas .filtros-permutas-admin{
+        grid-template-columns:1fr!important;
+      }
+      #secao-admin-permutas .filtro-pesquisa-permuta{
+        grid-column:auto!important;
+      }
+      #secao-efetivo .painel-lista-efetivo .filtros{
+        grid-template-columns:1fr!important;
+      }
+      #secao-efetivo .painel-lista-efetivo .filtros .campo:first-child{
+        grid-column:auto!important;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -9271,7 +9824,7 @@
 
 
         <section id="secao-painel-admin" class="secao">
-          <div class="cabecalho-secao"><div><h2>Visão geral</h2><p>Indicadores do setor e atalhos operacionais.</p></div></div>
+          <div class="cabecalho-secao"><div><span class="pagina-kicker">GESTÃO ADMINISTRATIVA</span><h2>Visão geral</h2><p>Indicadores do setor e atalhos operacionais.</p></div></div>
           <div id="dashboardAdmin" class="dashboard-grade"></div>
 
           <div id="centralPendenciasAdmin" class="painel painel-central-pendencias">
@@ -9294,8 +9847,10 @@
             <div id="conteudoComparativoComando"><div class="vazio compacto">Carregando comparativo...</div></div>
           </div>
 
-          <div class="painel">
-            <h3 style="margin-top:0">Organização do SIGA</h3>
+          <div class="painel painel-organizacao-siga">
+            <div class="cartao-topo painel-organizacao-topo">
+              <div><span class="rotulo-suave">ESTRUTURA ADMINISTRATIVA</span><h3 style="margin:4px 0 0">Organização do SIGA</h3></div>
+            </div>
             <div class="grade-dados">
               <button type="button" class="dado dado-navegavel" data-org-setores="P1,COMANDO" onclick="navegar('admin-policiais')"><small>P1</small><strong>Permutas, policiais, licenças, afastamentos e análise das solicitações cadastrais.</strong><span class="dado-rodape-atalho">Abrir gestão de pessoal</span></button>
               <button type="button" class="dado dado-navegavel" data-org-setores="P4,COMANDO" onclick="navegar('admin-checklist')"><small>P4</small><strong>Checklist, cautelas, frota e formulário operacional com acompanhamento concentrado.</strong><span class="dado-rodape-atalho">Abrir gestão de frota</span></button>
@@ -9320,6 +9875,7 @@
         <section id="secao-guarda" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">REGISTRO DO SERVIÇO</span>
               <h2>Corpo da Guarda</h2>
               <p>Registro digital das alterações que seriam anotadas na escala oficial impressa.</p>
             </div>
@@ -9607,19 +10163,29 @@
         <section id="secao-admin-permutas" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">GESTÃO DE PERMUTAS</span>
               <h2>Permutas</h2>
               <p>Solicitações validadas automaticamente. Abra o olho apenas para conferir ou registrar uma negativa justificada.</p>
             </div>
           </div>
 
-          <div id="resumoPermutasAdmin" class="resumos"></div>
-          <div class="painel">
+          <section class="bloco-pagina bloco-indicadores-permutas-admin">
+            <div class="bloco-pagina-cabecalho">
+              <div><small>VISÃO DO FLUXO</small><h3>Indicadores de permutas</h3></div>
+            </div>
+            <div id="resumoPermutasAdmin" class="resumos"></div>
+          </section>
+          <div class="painel painel-filtros-permutas-admin">
+            <div class="painel-cabecalho-filtros">
+              <div><span class="rotulo-suave">LOCALIZAR SOLICITAÇÕES</span><h3>Filtros e ordenação</h3></div>
+              <span class="status-siga neutro">Atualização automática</span>
+            </div>
             <div class="filtros filtros-automaticos filtros-permutas-admin">
-              <div class="campo filtro-pesquisa-permuta"><label for="filtroPermutasAdmin">Pesquisar</label><input id="filtroPermutasAdmin" type="search" autocomplete="off" placeholder="Solicitante, substituto, matrícula ou modalidade"></div>
+              <div class="campo filtro-pesquisa-permuta"><label for="filtroPermutasAdmin">Pesquisar</label><input id="filtroPermutasAdmin" type="search" autocomplete="off" placeholder="Nome, matrícula ou modalidade"></div>
               <div class="campo"><label for="statusPermutasAdmin">Status</label><select id="statusPermutasAdmin"><option value="TODOS">TODOS</option><option value="APROVADA">REGULARES</option><option value="NEGADA">NEGADAS</option><option value="CANCELADA">CANCELADAS</option></select></div>
               <div class="campo"><label for="tipoPermutasAdmin">Tipo</label><select id="tipoPermutasAdmin"><option value="TODOS">TODOS</option><option value="CASADA">CASADA</option><option value="AVULSA">AVULSA</option></select></div>
               <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="date"></div>
-              <div class="campo filtro-ordem-permuta"><label for="ordemPermutasAdmin">Ordenar</label><select id="ordemPermutasAdmin"><option value="DATA_ASC" selected>DATA CRESCENTE</option><option value="DATA_DESC">DATA DECRESCENTE</option><option value="SOLICITANTE_ASC">SOLICITANTE A–Z</option><option value="SUBSTITUTO_ASC">SUBSTITUTO A–Z</option></select></div>
+              <div class="campo filtro-ordem-permuta"><label for="ordemPermutasAdmin">Ordenar</label><select id="ordemPermutasAdmin"><option value="DATA_ASC" selected>MAIS ANTIGAS</option><option value="DATA_DESC">MAIS RECENTES</option><option value="SOLICITANTE_ASC">SOLICITANTE A–Z</option><option value="SUBSTITUTO_ASC">SUBSTITUTO A–Z</option></select></div>
             </div>
             <div id="listaPermutasAdmin" class="lista-permutas-compacta"></div>
           </div>
@@ -9650,6 +10216,7 @@
         <section id="secao-admin-policiais" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">GESTÃO DE PESSOAL</span>
               <h2>Policiais — P1</h2>
               <p>Localize o policial e registre afastamentos e licenças administrativas.</p>
             </div>
@@ -9670,7 +10237,7 @@
           </div>
 
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
-            <div class="cartao-topo"><div><h3 style="margin:0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
+            <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 style="margin:4px 0 0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
             <div class="grade-3">
               <div class="campo"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" required></div>
               <div class="campo"><label>Nome completo</label><input id="preNomeP1" required></div>
@@ -9700,10 +10267,13 @@
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
           </form>
 
-          <div class="painel">
+          <div class="painel painel-busca-policiais-p1">
+            <div class="cartao-topo painel-busca-policiais-topo">
+              <div><span class="rotulo-suave">EFETIVO CADASTRADO</span><h3 style="margin:4px 0 0">Localizar policial</h3><p>Pesquise por matrícula funcional, numeral ou nome de guerra.</p></div>
+            </div>
             <div class="grade-2">
               <div class="campo" style="grid-column:1/-1">
-                <label for="pesquisaPolicialP1">Matrícula, numeral ou nome de guerra</label>
+                <label for="pesquisaPolicialP1">Pesquisar</label>
                 <input id="pesquisaPolicialP1" type="search" placeholder="Comece a digitar..." autocomplete="off" oninput="agendarPesquisaPolicialP1()">
                 <small class="ajuda">A lista é filtrada automaticamente enquanto você digita.</small>
               </div>
@@ -9777,7 +10347,7 @@
         </section>
 
         <section id="secao-admin-checklist" class="secao">
-          <div class="cabecalho-secao"><div><h2>Checklist</h2><p>Painel do P4 para consultar os registros enviados.</p></div></div>
+          <div class="cabecalho-secao"><div><span class="pagina-kicker">GESTÃO DE CHECKLIST</span><h2>Checklist</h2><p>Painel do P4 para consultar os registros enviados.</p></div></div>
           <div class="painel">
             <div class="filtros filtros-automaticos filtro-unico">
               <div class="campo"><label for="filtroChecklistAdmin">Pesquisar</label><input id="filtroChecklistAdmin" type="search" autocomplete="off" placeholder="Motorista, matrícula, placa, prefixo ou modelo"></div>
@@ -9808,7 +10378,7 @@
         <section id="secao-formularios" class="secao">
           <div class="cabecalho-secao editor-formulario-cabecalho">
             <div>
-              <span class="editor-kicker">CONFIGURAÇÃO OPERACIONAL</span>
+              <span class="pagina-kicker">CONFIGURAÇÃO OPERACIONAL</span>
               <h2>Editor de formulários</h2>
               <p>P4 administra o Checklist; P1 administra Permutas. Edite o conteúdo com segurança sem alterar a lógica protegida dos campos de sistema.</p>
             </div>
@@ -9877,7 +10447,7 @@
         </section>
 
         <section id="secao-setores" class="secao">
-          <div class="cabecalho-secao"><div><h2>Setores e acessos</h2><p>Comandante, Subcomandante e Gestão • P1 administram os acessos. Os perfis de comando e de Gestão • P1 somente podem ser concedidos pelo Comando.</p></div></div>
+          <div class="cabecalho-secao"><div><span class="pagina-kicker">CONTROLE DE ACESSOS</span><h2>Setores e acessos</h2><p>Comandante, Subcomandante e Gestão • P1 administram os acessos. Os perfis de comando e de Gestão • P1 somente podem ser concedidos pelo Comando.</p></div></div>
           <form id="formSetorAdmin" class="painel">
             <div class="grade-2">
               <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" required></div>
@@ -9895,6 +10465,7 @@
         <section id="secao-consultas" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">CONSULTA CADASTRAL</span>
               <h2>Consultas</h2>
               <p>Localize o policial por matrícula, numeral ou nome de guerra.</p>
             </div>
@@ -9965,38 +10536,46 @@
         <section id="secao-efetivo" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">QUADRO DE POLICIAIS</span>
               <h2>Efetivo</h2>
               <p>Visão geral, situação cadastral e distribuição por grade.</p>
             </div>
           </div>
           <div id="resumoEfetivo" class="resumos"></div>
 
-          <div id="painelConfigEscala" class="painel oculto">
+          <div id="painelConfigEscala" class="painel oculto painel-config-escala-premium">
             <div class="cartao-topo">
               <div>
-                <h3 style="margin:0">Lógica das grades</h3>
+                <span class="rotulo-suave">CONFIGURAÇÃO DA ESCALA</span>
+                <h3 style="margin:4px 0 0">Lógica das grades</h3>
                 <p>Defina apenas a data-base da Grade 1. As Grades 2, 3 e 4 são calculadas automaticamente conforme o regime.</p>
               </div>
-              <button class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin()">SALVAR DATA-BASE</button>
             </div>
 
-            <div class="grade-2" style="margin-top:14px">
+            <div class="grade-2 config-escala-grade" style="margin-top:14px">
               <div class="campo">
                 <label for="dataBaseEscala">Grade 1 — primeiro dia do ciclo</label>
                 <input id="dataBaseEscala" type="date">
                 <small class="ajuda">Referência atual: 10/08/2026.</small>
               </div>
-              <div class="aviso-inline">
-                <strong>Defasagem automática:</strong><br>
-                Viaturas / Guarda / Bases / AB: G1 +0, G2 +1, G3 +2, G4 +3 dias.<br>
-                Bikes com turno fixo A/B: G1 +0, G2 +2, G3 +4, G4 +6 dias.
+              <div class="aviso-inline config-escala-aviso">
+                <strong>Defasagem automática</strong>
+                <span>Viaturas / Guarda / Bases / AB: G1 +0, G2 +1, G3 +2, G4 +3 dias.</span>
+                <span>Bikes com turno fixo A/B: G1 +0, G2 +2, G3 +4, G4 +6 dias.</span>
               </div>
             </div>
 
+            <div class="config-escala-acoes">
+              <button class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin()">SALVAR DATA-BASE</button>
+            </div>
+            <div class="config-escala-referencias-topo"><span class="rotulo-suave">REFERÊNCIAS CALCULADAS</span></div>
             <div id="matrizReferenciasEscala" class="config-grades"></div>
           </div>
 
-          <div class="painel">
+          <div class="painel painel-lista-efetivo">
+            <div class="cartao-topo painel-lista-efetivo-topo">
+              <div><span class="rotulo-suave">CONSULTA DO QUADRO</span><h3 style="margin:4px 0 0">Policiais do efetivo</h3><p>Use os filtros para localizar e conferir a situação cadastral.</p></div>
+            </div>
             <div class="filtros filtros-automaticos">
               <div class="campo"><label for="filtroEfetivo">Pesquisar</label><input id="filtroEfetivo" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra"></div>
               <div class="campo"><label for="statusEfetivo">Status</label><select id="statusEfetivo"><option value="TODOS">TODOS</option><option value="CONFIRMADO">ATIVOS</option><option value="PENDENTE">PENDENTES</option><option value="BLOQUEADO">BLOQUEADOS</option><option value="REPROVADO">REPROVADOS</option></select></div>
@@ -12911,14 +13490,15 @@
       });
       $('listaPermutasAdmin').innerHTML = listaOrdenada.map(item => {
         const status = String(item.status || '').toUpperCase();
-        const excecao = ['NEGADA','CANCELADA','PENDENTE'].includes(status)
-          ? `<span class="status ${escaparHtml(status)}">${escaparHtml(status)}</span>` : '';
+        const classeStatus = status === 'APROVADA' ? 'regular' : status.toLowerCase().replace(/[^a-z0-9_-]/g,'');
+        const statusChip = status
+          ? `<span class="status status-permuta-admin ${escaparHtml(classeStatus)}">${escaparHtml(status)}</span>` : '';
         const turno = item.turnoServico && String(item.turnoServico).trim() !== '—'
           ? ' • Turno ' + escaparHtml(item.turnoServico) : '';
         return `<article class="permuta-linha">
           <div class="permuta-linha-resumo">
             <strong>${escaparHtml(item.solicitante)} → ${escaparHtml(item.substituto)}</strong>
-            <div class="permuta-linha-meta"><small>${escaparHtml(item.tipo)} • ${formatarDataCurtaPermuta(item.dataServico)}${turno}${item.criadoEm ? ' • enviada ' + formatarDataHoraCurtaPermuta(item.criadoEm) : ''}</small>${excecao}</div>
+            <div class="permuta-linha-meta"><small>${escaparHtml(item.tipo)} • ${formatarDataCurtaPermuta(item.dataServico)}${turno}${item.criadoEm ? ' • enviada ' + formatarDataHoraCurtaPermuta(item.criadoEm) : ''}</small>${statusChip}</div>
           </div>
           <div class="permuta-linha-acoes">
             <button class="permuta-copiar" type="button" aria-label="Copiar resumo da permuta" title="Copiar permuta" onclick="copiarResumoPermutaAdmin('${escaparAtributo(item.id)}')">
