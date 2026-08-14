@@ -10323,6 +10323,58 @@
       }
     }
 
+
+    /* =======================================================
+       SIGA 5.9.0 — Design System Premium R8.3
+       Permutas P1: data BR + Entrada no efetivo hierárquica
+       ======================================================= */
+    #dataPermutasAdmin {
+      font-variant-numeric:tabular-nums;
+      letter-spacing:.01em;
+    }
+    #dataPermutasAdmin::placeholder {
+      color:#9aa59b;
+      opacity:1;
+      text-transform:lowercase;
+    }
+
+    /* Entrada no efetivo — sequência funcional e linhas previsíveis. */
+    #formPreCadastroP1 .grade-pre-cadastro-p1 {
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:12px!important;
+      align-items:start!important;
+    }
+    #formPreCadastroP1 .grade-pre-cadastro-p1 > .campo {
+      min-width:0!important;
+      grid-column:auto!important;
+    }
+    #formPreCadastroP1 .campo-pre-nome {
+      grid-column:1 / -1!important;
+    }
+    #formPreCadastroP1 .campo-pre-matricula { grid-column:1!important; }
+    #formPreCadastroP1 .campo-pre-posto { grid-column:2!important; }
+    #formPreCadastroP1 .campo-pre-guerra { grid-column:1!important; }
+    #formPreCadastroP1 .campo-pre-contato { grid-column:2!important; }
+    #formPreCadastroP1 .campo-pre-numeral { grid-column:1!important; }
+    #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-guerra { grid-column:2!important; }
+    #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-contato { grid-column:1 / -1!important; }
+
+    /* Mantém pares visualmente equilibrados sem aumentar a altura do cartão. */
+    #formPreCadastroP1 .grade-pre-cadastro-p1 input,
+    #formPreCadastroP1 .grade-pre-cadastro-p1 select {
+      width:100%!important;
+      min-width:0!important;
+    }
+    #formPreCadastroP1 .grade-pre-cadastro-p1 label {
+      min-height:1.35em;
+    }
+
+    @media (max-width:380px) {
+      #formPreCadastroP1 .grade-pre-cadastro-p1 { gap:10px!important; }
+      #formPreCadastroP1 .grade-pre-cadastro-p1 label { font-size:12px!important; }
+    }
+
   </style>
 </head>
 <body>
@@ -11344,7 +11396,7 @@
             </div>
             <div id="filtrosPermutasAdminBloco" class="filtros filtros-automaticos filtros-permutas-admin">
               <div class="campo filtro-pesquisa-permuta"><label for="filtroPermutasAdmin">Pesquisar</label><input id="filtroPermutasAdmin" type="search" autocomplete="off" placeholder="Nome, matrícula ou modalidade"></div>
-              <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="date"></div>
+              <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="dd/mm/aaaa" aria-label="Data no formato dia, mês e ano"></div>
               <div class="campo filtro-status-permuta"><label for="statusPermutasAdmin">Status</label><select id="statusPermutasAdmin"><option value="TODOS">TODOS</option><option value="APROVADA">REGULARES</option><option value="NEGADA">NEGADAS</option><option value="CANCELADA">CANCELADAS</option></select></div>
               <div class="campo filtro-tipo-permuta"><label for="tipoPermutasAdmin">Tipo</label><select id="tipoPermutasAdmin"><option value="TODOS">TODOS</option><option value="CASADA">CASADA</option><option value="AVULSA">AVULSA</option></select></div>
             </div>
@@ -11399,12 +11451,10 @@
 
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
             <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 style="margin:4px 0 0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
-            <div class="grade-3">
-              <div class="campo"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" required></div>
-              <div class="campo"><label>Nome completo</label><input id="preNomeP1" required></div>
-              <div class="campo"><label>Nome de guerra</label><input id="preNomeGuerraP1" required></div>
-              <div class="campo"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" placeholder="(85) 99999-9999" required></div>
-              <div class="campo">
+            <div class="grade-3 grade-pre-cadastro-p1">
+              <div class="campo campo-pre-nome"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
+              <div class="campo campo-pre-matricula"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
+              <div class="campo campo-pre-posto">
                 <label>Posto/graduação</label>
                 <select id="prePostoP1" required onchange="atualizarNumeralPreCadastroP1()">
                   <option value="">SELECIONE</option>
@@ -11423,7 +11473,9 @@
                   <option value="CORONEL">CORONEL</option>
                 </select>
               </div>
-              <div id="campoPreNumeralP1" class="campo oculto"><label>Numeral <small>(se houver)</small></label><input id="preNumeralP1" inputmode="numeric" disabled></div>
+              <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label>Numeral <small>(se houver)</small></label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
+              <div class="campo campo-pre-guerra"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
+              <div class="campo campo-pre-contato"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
             </div>
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
           </form>
@@ -14529,6 +14581,35 @@
       } catch (erro) { tratarErro(erro); }
     }
 
+    function aplicarMascaraDataBr(valor) {
+      const numeros = String(valor || '').replace(/\D/g,'').slice(0,8);
+      if (numeros.length <= 2) return numeros;
+      if (numeros.length <= 4) return numeros.slice(0,2) + '/' + numeros.slice(2);
+      return numeros.slice(0,2) + '/' + numeros.slice(2,4) + '/' + numeros.slice(4);
+    }
+
+    function converterDataBrParaIso(valor) {
+      const texto = String(valor || '').trim();
+      if (!texto) return '';
+      const correspondencia = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+      if (!correspondencia) return null;
+      const dia = Number(correspondencia[1]);
+      const mes = Number(correspondencia[2]);
+      const ano = Number(correspondencia[3]);
+      const data = new Date(Date.UTC(ano, mes - 1, dia));
+      if (data.getUTCFullYear() !== ano || data.getUTCMonth() !== mes - 1 || data.getUTCDate() !== dia) return null;
+      return String(ano).padStart(4,'0') + '-' + String(mes).padStart(2,'0') + '-' + String(dia).padStart(2,'0');
+    }
+
+    function prepararDataPermutasAdmin() {
+      const campo = $('dataPermutasAdmin');
+      if (!campo) return '';
+      campo.value = aplicarMascaraDataBr(campo.value);
+      const iso = converterDataBrParaIso(campo.value);
+      campo.setCustomValidity(campo.value && !iso ? 'Informe a data no formato dd/mm/aaaa.' : '');
+      return iso;
+    }
+
     function alternarFiltrosPermutasAdmin(forcarExpandido) {
       const painel = $('painelFiltrosPermutasAdmin');
       const botao = $('alternadorFiltrosPermutasAdmin');
@@ -14546,11 +14627,19 @@
       if (silencioso) marcarListaAtualizando('listaPermutasAdmin', true);
       else mostrarCarregando('Carregando permutas...');
       try {
+        const dataFiltro = prepararDataPermutasAdmin();
+        if (dataFiltro === null) {
+          if (!silencioso) {
+            $('dataPermutasAdmin').reportValidity();
+            ocultarCarregando();
+          }
+          return;
+        }
         const resposta = await api('adminListarPermutas', estado.token, {
           termo: $('filtroPermutasAdmin').value,
           status: $('statusPermutasAdmin').value,
           tipo: $('tipoPermutasAdmin').value,
-          data: $('dataPermutasAdmin').value
+          data: dataFiltro
         });
         if (requisicao !== estado.requisicoes.permutas) return;
         estado.permutasAdmin = resposta.permutas || [];
@@ -15058,7 +15147,20 @@
         agendarFiltroAutomatico('permutas', () => carregarPermutasAdmin(true), 280));
       $('statusPermutasAdmin').addEventListener('change', () => carregarPermutasAdmin(true));
       $('tipoPermutasAdmin').addEventListener('change', () => carregarPermutasAdmin(true));
-      $('dataPermutasAdmin').addEventListener('change', () => carregarPermutasAdmin(true));
+      $('dataPermutasAdmin').addEventListener('input', evento => {
+        const campo = evento.currentTarget;
+        const posicaoFinal = document.activeElement === campo;
+        campo.value = aplicarMascaraDataBr(campo.value);
+        campo.setCustomValidity('');
+        if (posicaoFinal) {
+          try { campo.setSelectionRange(campo.value.length, campo.value.length); } catch (erro) {}
+        }
+      });
+      $('dataPermutasAdmin').addEventListener('change', () => {
+        const iso = prepararDataPermutasAdmin();
+        if (iso === null) return $('dataPermutasAdmin').reportValidity();
+        carregarPermutasAdmin(true);
+      });
 
       $('filtroChecklistAdmin').addEventListener('input', () =>
         agendarFiltroAutomatico('checklist', () => carregarChecklistsAdmin(true), 280));
@@ -15611,10 +15713,11 @@
     }
 
     function atualizarNumeralPreCadastroP1() {
-      const posto=$('prePostoP1'),campo=$('campoPreNumeralP1'),numeral=$('preNumeralP1');
+      const posto=$('prePostoP1'),campo=$('campoPreNumeralP1'),numeral=$('preNumeralP1'),form=$('formPreCadastroP1');
       if(!posto||!campo||!numeral)return;
       const usa=postoUsaNumeral(posto.value);
       campo.classList.toggle('oculto',!usa);
+      if(form) form.classList.toggle('pre-cadastro-com-numeral',usa);
       numeral.disabled=!usa;
       numeral.required=usa;
       if(!usa)numeral.value='';
