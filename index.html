@@ -8281,6 +8281,338 @@
       .sidebar-rodape { margin-top:auto!important; }
     }
 
+
+
+    /* =======================================================
+       SIGA DESIGN SYSTEM 1.0 — PREMIUM GLOBAL R2
+       Refinamento de composição, densidade e consistência.
+       Base: R1 estável. Sem alteração de regras de negócio.
+       ======================================================= */
+
+    :root{
+      --ds-space-1:4px;
+      --ds-space-2:8px;
+      --ds-space-3:12px;
+      --ds-space-4:16px;
+      --ds-space-5:20px;
+      --ds-space-6:24px;
+      --ds-space-8:32px;
+      --ds-section-gap:22px;
+      --ds-card-pad:clamp(17px,1.65vw,23px);
+    }
+
+    /* Cabeçalhos de página: mesma gramática em todos os módulos. */
+    .cabecalho-secao{
+      position:relative!important;
+      padding:0 0 17px!important;
+      margin-bottom:20px!important;
+      border-bottom:1px solid rgba(199,209,195,.72)!important;
+    }
+    .cabecalho-secao::after{
+      content:'';position:absolute;left:0;bottom:-1px;width:64px;height:2px;
+      border-radius:999px;background:linear-gradient(90deg,var(--ds-gold-500),rgba(213,179,63,.08));
+    }
+    .pagina-kicker{
+      display:block;margin:0 0 7px;color:#687969;font-size:9.5px;font-weight:950;
+      letter-spacing:.16em;line-height:1.2;text-transform:uppercase;
+    }
+    .cabecalho-secao h2{max-width:900px;}
+    .cabecalho-secao p{max-width:760px!important;}
+
+    /* Blocos de conteúdo: títulos e divisões coerentes. */
+    .bloco-pagina{margin:0 0 var(--ds-section-gap);}
+    .bloco-pagina-cabecalho{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+      margin:0 2px 11px;
+    }
+    .bloco-pagina-cabecalho > div{min-width:0}
+    .bloco-pagina-cabecalho small{
+      display:block;margin-bottom:4px;color:#748176;font-size:8.5px;font-weight:900;
+      letter-spacing:.14em;text-transform:uppercase;
+    }
+    .bloco-pagina-cabecalho h3{
+      margin:0;color:var(--ds-ink);font-size:16px;font-weight:850;letter-spacing:-.025em;line-height:1.2;
+    }
+    .bloco-pagina-cabecalho p{
+      margin:3px 0 0;color:var(--ds-muted);font-size:10.5px;line-height:1.4;
+    }
+
+    /* Cards de métrica: densidade e alinhamento idênticos. */
+    .resumos,
+    .resumo-banco-horas{align-items:stretch!important;}
+    .resumo,
+    #secao-banco-horas .cartao-saldo-horas{
+      display:flex!important;flex-direction:column!important;justify-content:center!important;
+    }
+    .resumo strong,
+    #secao-banco-horas .cartao-saldo-horas strong{font-variant-numeric:tabular-nums;}
+    .resumo span,
+    #secao-banco-horas .cartao-saldo-horas small{order:-1;margin:0 0 10px!important;}
+    .resumo small,
+    #secao-banco-horas .cartao-saldo-horas span{margin-top:9px!important;max-width:82%;}
+
+    /* Foco e toque: um padrão para todo o produto. */
+    button,input,select,textarea,[tabindex]:not([tabindex="-1"]){-webkit-tap-highlight-color:transparent;}
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [role="button"]:focus-visible{
+      outline:3px solid rgba(213,179,63,.38)!important;
+      outline-offset:2px!important;
+    }
+
+    /* Início: dashboard pessoal mais editorial e menos fragmentado. */
+    #secao-inicio .hero-siga{
+      position:relative;overflow:hidden;isolation:isolate;
+      display:flex;align-items:center;
+    }
+    #secao-inicio .hero-siga::before{
+      content:'';position:absolute;right:-85px;top:-96px;width:320px;height:320px;border-radius:50%;
+      border:28px solid rgba(255,255,255,.035);box-shadow:inset 0 0 0 62px rgba(255,255,255,.025);
+      z-index:-1;pointer-events:none;
+    }
+    #secao-inicio .hero-siga::after{
+      content:'';position:absolute;right:34px;bottom:24px;width:8px;height:74px;border-radius:999px;
+      background:linear-gradient(180deg,rgba(238,211,109,.72),rgba(213,179,63,.04));opacity:.72;
+    }
+    #secao-inicio .hero-siga .eyebrow{color:rgba(255,255,255,.78)!important;}
+    #secao-inicio .bloco-acoes-rapidas{margin-top:2px;}
+    #secao-inicio .atalhos-siga{margin:0!important;}
+    #secao-inicio .atalho-siga > span:nth-child(2){min-width:0;}
+    #secao-inicio .atalho-siga strong,
+    #secao-inicio .atalho-siga small{overflow:hidden;text-overflow:ellipsis;}
+    #secao-inicio .painel-informativo{
+      border-style:solid!important;border-color:#dde5da!important;box-shadow:none!important;
+    }
+
+    /* Calendário: resumo mensal + dia selecionável e leitura contextual. */
+    #secao-calendario .bloco-resumo-calendario{margin-bottom:18px;}
+    #secao-calendario .calendario-dia{
+      appearance:none;-webkit-appearance:none;width:100%;font:inherit;text-align:left;color:inherit;cursor:pointer;
+      transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease,background .15s ease;
+    }
+    #secao-calendario .calendario-dia:not(.vazio):hover{transform:translateY(-1px);border-color:#bdc9b9!important;}
+    #secao-calendario .calendario-dia.selecionado{
+      border-color:#69805c!important;
+      box-shadow:inset 0 0 0 2px rgba(72,100,62,.14),0 8px 18px rgba(26,48,31,.06)!important;
+      background:#fbfcfa!important;
+    }
+    #secao-calendario .detalhe-dia-calendario{
+      display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;
+      margin-top:15px;padding:14px 15px;border:1px solid #d9e1d6;border-radius:18px;
+      background:linear-gradient(135deg,#f7faf5,#fbfcfa);box-shadow:0 7px 18px rgba(25,47,30,.04);
+    }
+    #secao-calendario .detalhe-dia-calendario.oculto{display:none!important;}
+    .detalhe-dia-icone{
+      width:44px;height:44px;display:grid;place-items:center;border-radius:14px;
+      background:#eaf1e7;color:#315438;font-weight:950;font-size:17px;
+    }
+    .detalhe-dia-calendario small{
+      display:block;color:#78857c;font-size:8.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+    }
+    .detalhe-dia-calendario strong{
+      display:block;margin-top:3px;color:#203529;font-size:14px;font-weight:850;line-height:1.25;
+    }
+    .detalhe-dia-calendario p{margin:3px 0 0;color:#69776d;font-size:10.5px;line-height:1.4;}
+    .detalhe-dia-turno{
+      min-width:58px;padding:9px 11px;border-radius:13px;background:#fff;border:1px solid #d8e0d5;
+      text-align:center;color:#334a37;font-size:11px;font-weight:950;letter-spacing:.08em;
+    }
+
+    /* Checklist: progresso realmente "acompanha", ficando compacto ao aderir. */
+    #secao-checklist .checklist-progresso-fixo{
+      transition:padding .18s ease,border-radius .18s ease,box-shadow .18s ease,background .18s ease;
+    }
+    #secao-checklist .checklist-progresso-fixo.em-acompanhamento{
+      padding:11px 14px!important;border-radius:17px!important;
+      background:rgba(255,255,255,.985)!important;
+      box-shadow:0 16px 34px rgba(20,43,27,.14)!important;
+    }
+    #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-etapa-atual small{font-size:8px!important;}
+    #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-etapa-atual strong{font-size:12.5px!important;}
+    #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-percentual{font-size:23px!important;}
+    #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-progresso-rodape{margin-top:4px!important;}
+    #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-marcadores{opacity:.72;transform:scale(.94);transform-origin:right center;}
+    #secao-checklist .checklist-secao-cabecalho,
+    #secao-permutas .form-etapa-cabecalho{
+      background:linear-gradient(180deg,#fff,#fbfcfa)!important;
+      border-bottom:1px solid #e2e8df!important;
+    }
+    #secao-checklist .checklist-historico-painel .cartao-topo{margin-bottom:12px!important;}
+    #secao-checklist .checklist-historico-painel{margin-top:20px!important;}
+
+    /* Permutas: contexto único, stepper compacto e cartões do fluxo na mesma linguagem. */
+    #secao-permutas .permuta-fluxo-mapa{
+      position:relative;padding:6px;border:1px solid #dde4da;border-radius:20px;background:#f5f7f3;
+    }
+    #secao-permutas .permuta-fluxo-passo{
+      position:relative;z-index:1;border-color:transparent!important;background:transparent!important;box-shadow:none!important;
+    }
+    #secao-permutas .permuta-fluxo-passo:first-child{
+      background:#fff!important;border-color:#d7dfd4!important;box-shadow:0 5px 14px rgba(25,47,30,.035)!important;
+    }
+    #secao-permutas .permuta-resumo-inicial{
+      overflow:hidden;padding:0!important;border:1px solid var(--ds-line)!important;border-radius:24px!important;
+      background:#fff!important;box-shadow:var(--ds-shadow)!important;
+    }
+    #secao-permutas .permuta-resumo-inicial > *{
+      border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;
+    }
+    #secao-permutas .permuta-resumo-inicial > * + *{border-left:1px solid #e2e7df!important;}
+    #secao-permutas .permuta-identidade{background:linear-gradient(135deg,#f5f9f2,#eef4eb)!important;}
+    #secao-permutas .papel-permuta-topo,
+    #secao-permutas .form-etapa-cabecalho{
+      border-bottom:1px solid #e2e7df!important;
+    }
+    #secao-permutas .papel-permuta-topo{padding:17px 20px 12px!important;}
+    #secao-permutas .papel-permuta-opcoes{padding:14px 18px 18px!important;}
+    #secao-permutas .papel-contexto{margin:0 18px 18px!important;border-radius:15px!important;}
+    #secao-permutas .acao-final-form{
+      display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:18px!important;
+    }
+    #secao-permutas .acao-final-form .botao{min-width:230px!important;}
+
+    /* Banco de horas: ação secundária compacta, saldo como protagonista. */
+    #secao-banco-horas .banco-horas-cabecalho .botao-atualizar-banco{
+      width:auto!important;min-width:122px!important;align-self:flex-end!important;
+    }
+    #secao-banco-horas .bloco-resumo-banco{margin-bottom:18px;}
+    #secao-banco-horas .painel-extrato-banco-horas .cartao-topo{margin-bottom:14px!important;}
+    #secao-banco-horas .legenda-seguranca-banco{
+      padding:7px 10px;border:1px solid #dce3d9;border-radius:999px;background:#f6f8f4;
+      font-size:8px!important;letter-spacing:.06em!important;
+    }
+
+    /* Relatórios: cards nativos no mobile, tabela apenas onde ela funciona bem. */
+    .relatorio-mobile-lista{display:none;}
+    .relatorio-mobile-card{
+      overflow:hidden;border:1px solid #d9e1d6;border-radius:18px;background:#fff;
+      box-shadow:0 8px 20px rgba(25,47,30,.045);
+    }
+    .relatorio-mobile-card-topo{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;
+      border-bottom:1px solid #e3e8e0;background:#f8faf7;
+    }
+    .relatorio-mobile-card-topo strong{color:#203529;font-size:13px;font-weight:900;letter-spacing:-.01em;}
+    .relatorio-mobile-card-topo span{
+      padding:5px 8px;border-radius:999px;background:#edf2e9;color:#53634e;
+      font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .relatorio-mobile-card-corpo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+    .relatorio-mobile-dado{padding:11px 13px;border-bottom:1px solid #edf0eb;min-width:0;}
+    .relatorio-mobile-dado:nth-child(odd){border-right:1px solid #edf0eb;}
+    .relatorio-mobile-dado small{
+      display:block;margin-bottom:4px;color:#7b877e;font-size:8px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+    }
+    .relatorio-mobile-dado strong{
+      display:block;color:#344239;font-size:11.5px;font-weight:750;line-height:1.35;overflow-wrap:anywhere;
+    }
+
+    /* Perfil: menos "caixas soltas"; cada grupo passa a ser uma ficha coesa. */
+    #secao-perfil .perfil-ficha-grupo{
+      padding:16px;border:1px solid #dce3d9;border-radius:21px;background:#fafbf9;
+    }
+    #secao-perfil .perfil-ficha-grupo + .perfil-ficha-grupo{
+      margin-top:12px!important;padding-top:16px!important;border-top:1px solid #dce3d9!important;
+    }
+    #secao-perfil .perfil-ficha-grade{
+      gap:0!important;overflow:hidden;border:1px solid #dce3d9;border-radius:17px;background:#fff;
+    }
+    #secao-perfil #fichaPerfil .perfil-card-dado{
+      min-height:72px!important;border:0!important;border-radius:0!important;background:#fff!important;
+      box-shadow:none!important;border-right:1px solid #edf0eb!important;border-bottom:1px solid #edf0eb!important;
+    }
+    #secao-perfil #fichaPerfil .perfil-card-dado:nth-child(4n){border-right:0!important;}
+    #secao-perfil #fichaPerfil .perfil-dado-destaque{
+      background:linear-gradient(135deg,#f4f8f1,#eef4eb)!important;
+    }
+    #secao-perfil .perfil-solicitacao-painel,
+    #secao-perfil .perfil-senha-painel{margin-top:18px!important;}
+    #secao-perfil .perfil-solicitacao-grid{gap:12px!important;}
+
+    /* Densidade desktop: mais uso do espaço sem ampliar tipografia. */
+    @media(min-width:981px){
+      #secao-inicio .atalhos-siga{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+      #secao-inicio .atalhos-siga .atalho-siga:last-child:nth-child(odd){grid-column:1/-1;}
+      #secao-calendario .calendario-painel{margin-top:0!important;}
+      #secao-relatorios .painel + .painel{margin-top:18px!important;}
+    }
+
+    @media(max-width:980px){
+      #secao-permutas .permuta-resumo-inicial > * + *{border-left:0!important;border-top:1px solid #e2e7df!important;}
+      #secao-banco-horas .banco-horas-cabecalho .botao-atualizar-banco{align-self:flex-start!important;}
+    }
+
+    @media(max-width:620px){
+      .conteudo-app{padding-top:16px!important;}
+      .cabecalho-secao{padding-bottom:14px!important;margin-bottom:17px!important;}
+      .pagina-kicker{font-size:8.5px!important;margin-bottom:6px!important;}
+      .cabecalho-secao h2{font-size:clamp(31px,8.8vw,38px)!important;}
+      .cabecalho-secao p{font-size:13.5px!important;line-height:1.46!important;}
+      .bloco-pagina-cabecalho{margin-bottom:9px!important;}
+      .bloco-pagina-cabecalho h3{font-size:15px!important;}
+
+      #secao-inicio .hero-siga{min-height:184px!important;padding:23px 20px!important;margin-bottom:15px!important;}
+      #secao-inicio .hero-siga h2{font-size:36px!important;}
+      #secao-inicio .hero-siga::before{right:-116px;top:-110px;width:285px;height:285px;}
+      #secao-inicio .hero-siga::after{right:20px;bottom:20px;height:58px;}
+      #secao-inicio .atalhos-siga{gap:9px!important;}
+      #secao-inicio .atalho-siga{min-height:76px!important;}
+
+      #secao-calendario .detalhe-dia-calendario{grid-template-columns:auto minmax(0,1fr);gap:11px;padding:12px 13px;}
+      #secao-calendario .detalhe-dia-turno{grid-column:2;justify-self:start;min-width:54px;padding:7px 9px;}
+      #secao-calendario .calendario-dia{min-height:62px!important;}
+
+      #secao-checklist .checklist-progresso-fixo.em-acompanhamento{
+        padding:9px 12px!important;border-radius:15px!important;
+      }
+      #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-progresso-rodape small{font-size:9px!important;}
+      #secao-checklist .checklist-progresso-fixo.em-acompanhamento .checklist-marcadores{display:none!important;}
+
+      #secao-permutas .permuta-fluxo-mapa{
+        grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px!important;padding:5px!important;border-radius:18px!important;
+      }
+      #secao-permutas .permuta-fluxo-passo{
+        min-height:68px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:5px!important;
+        padding:7px 4px!important;text-align:center!important;
+      }
+      #secao-permutas .permuta-fluxo-passo > span{width:28px!important;height:28px!important;flex:0 0 28px!important;border-radius:9px!important;}
+      #secao-permutas .permuta-fluxo-passo strong{font-size:9.5px!important;line-height:1.05!important;}
+      #secao-permutas .permuta-fluxo-passo small{display:none!important;}
+      #secao-permutas .permuta-resumo-inicial{border-radius:21px!important;}
+      #secao-permutas .permuta-resumo-inicial > * + *{border-top:1px solid #e2e7df!important;}
+      #secao-permutas .papel-permuta-topo{padding:15px 16px 10px!important;}
+      #secao-permutas .papel-permuta-opcoes{padding:12px 14px 14px!important;}
+      #secao-permutas .papel-contexto{margin:0 14px 14px!important;}
+      #secao-permutas .acao-final-form{grid-template-columns:1fr!important;gap:12px!important;}
+      #secao-permutas .acao-final-form .botao{width:100%!important;min-width:0!important;}
+
+      #secao-banco-horas .banco-horas-cabecalho{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:end!important;}
+      #secao-banco-horas .banco-horas-cabecalho > div{grid-column:1/-1;}
+      #secao-banco-horas .banco-horas-cabecalho .botao-atualizar-banco{
+        grid-column:2;min-width:108px!important;min-height:42px!important;padding:9px 13px!important;font-size:9.5px!important;
+      }
+
+      #secao-relatorios .tabela-wrap{display:none!important;}
+      #secao-relatorios .relatorio-mobile-lista{display:grid!important;gap:10px;}
+      #secao-relatorios .painel{padding:15px!important;}
+      #secao-relatorios .painel h3{font-size:18px!important;}
+
+      #secao-perfil .perfil-ficha-painel{padding:14px!important;}
+      #secao-perfil .perfil-ficha-grupo{padding:12px!important;border-radius:19px!important;}
+      #secao-perfil .perfil-ficha-grupo-topo{margin-bottom:10px!important;}
+      #secao-perfil .perfil-ficha-grade{grid-template-columns:repeat(2,minmax(0,1fr))!important;border-radius:15px!important;}
+      #secao-perfil #fichaPerfil .perfil-card-dado{
+        min-height:64px!important;padding:10px 11px!important;
+      }
+      #secao-perfil #fichaPerfil .perfil-card-dado:nth-child(4n){border-right:1px solid #edf0eb!important;}
+      #secao-perfil #fichaPerfil .perfil-card-dado:nth-child(2n){border-right:0!important;}
+      #secao-perfil #fichaPerfil .perfil-dado-largo,
+      #secao-perfil #fichaPerfil .perfil-dado-duplo{grid-column:1/-1!important;border-right:0!important;}
+      #secao-perfil #fichaPerfil .perfil-dado-destaque::before{top:9px!important;bottom:9px!important;}
+    }
+
 </style>
 </head>
 <body>
@@ -8503,7 +8835,11 @@
             <div id="listaCentralUsuarioInicio" class="central-usuario-lista"></div>
           </div>
 
-          <div class="atalhos-siga">
+          <section class="bloco-pagina bloco-acoes-rapidas">
+            <div class="bloco-pagina-cabecalho">
+              <div><small>NAVEGAÇÃO</small><h3>Acessos rápidos</h3><p>Abra as funções pessoais mais usadas.</p></div>
+            </div>
+            <div class="atalhos-siga">
             <button class="atalho-siga" type="button" onclick="navegar('calendario')">
               <span class="atalho-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-calendario"></use></svg></span>
               <span><strong>Calendário</strong><small>Veja seus dias de serviço e folga</small></span>
@@ -8524,12 +8860,18 @@
               <span><strong>Meu histórico</strong><small>Consultar registros pessoais</small></span>
               <span class="atalho-seta"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></span>
             </button>
+            <button class="atalho-siga" type="button" onclick="navegar('banco-horas')">
+              <span class="atalho-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-banco-horas"></use></svg></span>
+              <span><strong>Banco de horas</strong><small>Consultar créditos e utilizações</small></span>
+              <span class="atalho-seta"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></span>
+            </button>
             <button class="atalho-siga" type="button" onclick="navegar('perfil')">
               <span class="atalho-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-usuario"></use></svg></span>
               <span><strong>Meu perfil</strong><small>Dados, solicitações e senha</small></span>
               <span class="atalho-seta"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></span>
             </button>
-          </div>
+            </div>
+          </section>
 
           <div class="painel painel-informativo">
             <div class="painel-icone-info">i</div>
@@ -8544,6 +8886,7 @@
         <section id="secao-calendario" class="secao">
           <div class="cabecalho-secao calendario-cabecalho">
             <div>
+              <span class="pagina-kicker">MINHA ESCALA</span>
               <h2>Calendário</h2>
               <p>Previsão dos seus serviços conforme grade e regime de turno.</p>
             </div>
@@ -8551,7 +8894,12 @@
 
           <div id="alertaCalendario" class="mensagem aviso oculto"></div>
 
-          <div id="resumoCalendario" class="resumos"></div>
+          <section class="bloco-pagina bloco-resumo-calendario">
+            <div class="bloco-pagina-cabecalho">
+              <div><small>VISÃO DO MÊS</small><h3>Resumo da escala</h3></div>
+            </div>
+            <div id="resumoCalendario" class="resumos"></div>
+          </section>
 
           <div class="painel calendario-painel">
             <div class="calendario-topo">
@@ -8567,6 +8915,7 @@
               <span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span>
             </div>
             <div id="gradeCalendario" class="calendario-grid"></div>
+            <div id="detalheDiaCalendario" class="detalhe-dia-calendario oculto" aria-live="polite"></div>
 
             <div class="calendario-legenda">
               <span><i class="legenda-cor a"></i> Turno A</span>
@@ -8579,6 +8928,7 @@
         <section id="secao-checklist" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">CONTROLE OPERACIONAL</span>
               <h2>Checklist de Viatura</h2>
               <p>CHECK LIST VEÍCULOS — 3ª CIA / 19º BPM — AIS19</p>
             </div>
@@ -8620,8 +8970,11 @@
             </div>
           </form>
 
-          <div class="painel" style="margin-top:20px">
-            <h3>Checklists enviados recentemente</h3>
+          <div class="painel checklist-historico-painel">
+            <div class="cartao-topo">
+              <div><span class="rotulo-suave">ACOMPANHAMENTO</span><h3 style="margin:4px 0 0">Checklists enviados recentemente</h3></div>
+              <svg class="icone-svg" aria-hidden="true"><use href="#icone-relatorio"></use></svg>
+            </div>
             <div id="historicoChecklist" class="lista-cartoes"></div>
           </div>
         </section>
@@ -8629,6 +8982,7 @@
         <section id="secao-permutas" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">SOLICITAÇÕES DE SERVIÇO</span>
               <h2>Permutas</h2>
               <p>Solicite permutas casadas ou avulsas e acompanhe seus registros.</p>
             </div>
@@ -8733,13 +9087,17 @@
         <section id="secao-banco-horas" class="secao">
           <div class="cabecalho-secao banco-horas-cabecalho">
             <div>
-              <span class="rotulo-suave">EXTRATO INDIVIDUAL</span>
+              <span class="pagina-kicker">CRÉDITOS INDIVIDUAIS</span>
               <h2>Banco de horas</h2>
               <p>Consulte os créditos registrados em livro e dê baixa somente quando utilizar as horas.</p>
             </div>
             <button class="botao botao-secundario botao-atualizar-banco" type="button" onclick="carregarBancoHoras()">ATUALIZAR</button>
           </div>
 
+          <section class="bloco-pagina bloco-resumo-banco">
+            <div class="bloco-pagina-cabecalho">
+              <div><small>SITUAÇÃO ATUAL</small><h3>Resumo do saldo</h3></div>
+            </div>
           <div class="resumo-banco-horas" aria-live="polite">
             <article class="cartao-saldo-horas destaque">
               <small>Saldo disponível</small>
@@ -8757,6 +9115,7 @@
               <span>Baixas confirmadas pelo usuário</span>
             </article>
           </div>
+          </section>
 
           <div id="painelCreditoBancoHoras" class="painel somente-guarda oculto painel-credito-banco-horas">
             <div class="cartao-topo">
@@ -8823,26 +9182,35 @@
         <section id="secao-relatorios" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">MEU HISTÓRICO</span>
               <h2>Relatórios</h2>
               <p>Resumo individual de permutas e checklists.</p>
             </div>
             <div class="acoes-em-linha acoes-nao-imprimir">
             </div>
           </div>
-          <div id="resumoRelatorioUsuario" class="resumos"></div>
-          <div class="painel">
-            <h3>Permutas</h3>
+          <section class="bloco-pagina">
+            <div class="bloco-pagina-cabecalho">
+              <div><small>SÍNTESE</small><h3>Resumo dos registros</h3></div>
+            </div>
+            <div id="resumoRelatorioUsuario" class="resumos"></div>
+          </section>
+          <div class="painel painel-relatorio-permutas">
+            <div class="cartao-topo"><div><span class="rotulo-suave">SOLICITAÇÕES</span><h3 style="margin:4px 0 0">Permutas</h3></div></div>
             <div id="tabelaRelatorioPermutas"></div>
+            <div id="cardsRelatorioPermutas" class="relatorio-mobile-lista"></div>
           </div>
-          <div class="painel">
-            <h3>Checklists recentes</h3>
+          <div class="painel painel-relatorio-checklists">
+            <div class="cartao-topo"><div><span class="rotulo-suave">FROTA</span><h3 style="margin:4px 0 0">Checklists recentes</h3></div></div>
             <div id="tabelaRelatorioChecklist"></div>
+            <div id="cardsRelatorioChecklist" class="relatorio-mobile-lista"></div>
           </div>
         </section>
 
         <section id="secao-perfil" class="secao">
           <div class="cabecalho-secao">
             <div>
+              <span class="pagina-kicker">CADASTRO FUNCIONAL</span>
               <h2>Perfil</h2>
               <p>Consulte seus dados funcionais e solicite ao P1 a atualização dos dados pessoais autorizados.</p>
             </div>
@@ -12114,13 +12482,32 @@
         const turno = d.configurado ? (d.turno || '') : '';
         const classe = turno ? (' turno-' + turno) : ' sem-servico';
         const label = d.configurado ? turno : '—';
-        return `<div class="calendario-dia${classe}${d.data===hoje?' hoje':''}" title="${escaparHtml(d.motivo || '')}">
+        return `<button type="button" class="calendario-dia${classe}${d.data===hoje?' hoje':''}" title="${escaparAtributo(d.motivo || '')}" aria-label="${escaparAtributo(formatarData(d.data) + (turno ? ', turno ' + turno : ', sem serviço previsto'))}" onclick="selecionarDiaCalendario('${escaparAtributo(d.data)}', this)">
           <span class="numero">${Number(d.dia)}</span>
           ${label ? `<span class="turno">${escaparHtml(label)}</span>` : ''}
-        </div>`;
+        </button>`;
       });
 
       $('gradeCalendario').innerHTML = vazios.concat(itens).join('');
+      const diaInicial = dias.find(function(d){ return d.data === hoje; }) || dias.find(function(d){ return !!d.turno; }) || dias[0];
+      if (diaInicial) selecionarDiaCalendario(diaInicial.data, $('gradeCalendario').querySelector('[onclick*="' + diaInicial.data + '"]'));
+    }
+
+    function selecionarDiaCalendario(dataIso, elemento) {
+      const alvo = $('detalheDiaCalendario');
+      const cal = estado.calendario && estado.calendario.calendario;
+      if (!alvo || !cal) return;
+      const dia = (cal.dias || []).find(function(item){ return String(item.data) === String(dataIso); });
+      if (!dia) { alvo.classList.add('oculto'); return; }
+      document.querySelectorAll('#gradeCalendario .calendario-dia.selecionado').forEach(function(el){ el.classList.remove('selecionado'); });
+      if (elemento) elemento.classList.add('selecionado');
+      const turno = dia.configurado && dia.turno ? String(dia.turno) : '';
+      const motivo = String(dia.motivo || '').trim();
+      const titulo = turno ? ('Serviço previsto • Turno ' + turno) : 'Sem serviço previsto';
+      alvo.innerHTML = `<span class="detalhe-dia-icone">${Number(dia.dia || 0)}</span>
+        <div><small>${escaparHtml(formatarData(dia.data))}</small><strong>${escaparHtml(titulo)}</strong><p>${escaparHtml(motivo || (turno ? 'Escala calculada conforme grade e regime.' : 'Nenhum serviço previsto para esta data.'))}</p></div>
+        <span class="detalhe-dia-turno">${escaparHtml(turno || 'FOLGA')}</span>`;
+      alvo.classList.remove('oculto');
     }
 
     async function carregarRelatorioUsuario() {
@@ -12141,14 +12528,56 @@
         ['Total de permutas', resumo.total], ['Pendentes', resumo.pendentes], ['Regulares', resumo.aprovadas], ['Checklists recentes', (r.checklists || []).length]
       ].map(item => `<div class="resumo"><strong>${item[1]}</strong><span>${escaparHtml(item[0])}</span></div>`).join('');
 
+      const permutas = r.permutas || [];
+      const checklists = r.checklists || [];
       $('tabelaRelatorioPermutas').innerHTML = criarTabela(
-        ['Tipo','Serviço','Turno','Contrapartida','Turno','Substituto','Modalidade','Status'],
-        (r.permutas || []).map(p => [p.tipo, formatarData(p.dataServico), p.turnoServico || '—', formatarData(p.dataContrapartida), p.turnoContrapartida || '—', p.substituto, p.modalidade, p.status])
+        ['Tipo','Serviço','Turno do serviço','Contrapartida','Turno da contrapartida','Substituto','Modalidade','Status'],
+        permutas.map(p => [p.tipo, formatarData(p.dataServico), p.turnoServico || '—', formatarData(p.dataContrapartida), p.turnoContrapartida || '—', p.substituto, p.modalidade, p.status])
       );
       $('tabelaRelatorioChecklist').innerHTML = criarTabela(
         ['Data','Turno','Modelo','Placa','Prefixo','KM inicial','Concluído em'],
-        (r.checklists || []).map(c => [formatarData(c.data), c.turno || '—', c.modeloVeiculo || '—', c.placa || '—', c.prefixo || '—', c.kmInicial || '—', c.concluidoEm || '—'])
+        checklists.map(c => [formatarData(c.data), c.turno || '—', c.modeloVeiculo || '—', c.placa || '—', c.prefixo || '—', c.kmInicial || '—', c.concluidoEm || '—'])
       );
+      renderizarCardsRelatorioMobile(permutas, checklists);
+    }
+
+    function cardDadoRelatorio_(rotulo, valor) {
+      return `<div class="relatorio-mobile-dado"><small>${escaparHtml(rotulo)}</small><strong>${escaparHtml(String(valor == null || valor === '' ? '—' : valor))}</strong></div>`;
+    }
+
+    function renderizarCardsRelatorioMobile(permutas, checklists) {
+      const alvoPermutas = $('cardsRelatorioPermutas');
+      const alvoChecklists = $('cardsRelatorioChecklist');
+      if (alvoPermutas) {
+        alvoPermutas.innerHTML = permutas.length ? permutas.map(function(p) {
+          return `<article class="relatorio-mobile-card">
+            <div class="relatorio-mobile-card-topo"><strong>${escaparHtml(formatarData(p.dataServico))}</strong><span>${escaparHtml(p.status || 'REGISTRO')}</span></div>
+            <div class="relatorio-mobile-card-corpo">
+              ${cardDadoRelatorio_('Tipo',p.tipo)}
+              ${cardDadoRelatorio_('Turno',p.turnoServico || '—')}
+              ${cardDadoRelatorio_('Substituto',p.substituto || '—')}
+              ${cardDadoRelatorio_('Modalidade',p.modalidade || '—')}
+              ${cardDadoRelatorio_('Contrapartida',p.dataContrapartida ? formatarData(p.dataContrapartida) : '—')}
+              ${cardDadoRelatorio_('Turno contrapartida',p.turnoContrapartida || '—')}
+            </div>
+          </article>`;
+        }).join('') : '<div class="vazio">Nenhuma permuta registrada neste período.</div>';
+      }
+      if (alvoChecklists) {
+        alvoChecklists.innerHTML = checklists.length ? checklists.map(function(c) {
+          const titulo = c.prefixo ? ('VTR ' + c.prefixo) : (c.placa || c.modeloVeiculo || 'Checklist');
+          return `<article class="relatorio-mobile-card">
+            <div class="relatorio-mobile-card-topo"><strong>${escaparHtml(titulo)}</strong><span>${escaparHtml(formatarData(c.data))}</span></div>
+            <div class="relatorio-mobile-card-corpo">
+              ${cardDadoRelatorio_('Turno',c.turno || '—')}
+              ${cardDadoRelatorio_('Modelo',c.modeloVeiculo || '—')}
+              ${cardDadoRelatorio_('Placa',c.placa || '—')}
+              ${cardDadoRelatorio_('KM inicial',c.kmInicial || '—')}
+              ${cardDadoRelatorio_('Concluído em',c.concluidoEm || '—')}
+            </div>
+          </article>`;
+        }).join('') : '<div class="vazio">Nenhum checklist recente encontrado.</div>';
+      }
     }
 
     function criarTabela(cabecalhos, linhas) {
@@ -14459,6 +14888,31 @@
       }, { once:true });
       atualizar();
 
+      return { atualizar };
+    })();
+
+
+    const SIGA_CHECKLIST_STICKY_R2 = (() => {
+      let quadro = 0;
+      function atualizar() {
+        cancelAnimationFrame(quadro);
+        quadro = requestAnimationFrame(function() {
+          const barra = document.getElementById('progressoChecklistFixo');
+          const secao = document.getElementById('secao-checklist');
+          if (!barra || !secao || !secao.classList.contains('ativa')) {
+            if (barra) barra.classList.remove('em-acompanhamento');
+            return;
+          }
+          const topbar = document.querySelector('.topbar');
+          const limite = (topbar ? topbar.getBoundingClientRect().height : 0) + 8;
+          const topo = barra.getBoundingClientRect().top;
+          barra.classList.toggle('em-acompanhamento', topo <= limite + 2 && window.scrollY > 12);
+        });
+      }
+      window.addEventListener('scroll', atualizar, { passive:true });
+      window.addEventListener('resize', atualizar, { passive:true });
+      window.addEventListener('orientationchange', atualizar, { passive:true });
+      document.addEventListener('DOMContentLoaded', atualizar, { once:true });
       return { atualizar };
     })();
 
