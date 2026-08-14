@@ -10325,8 +10325,8 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — Design System Premium R8.4
-       Entrada no efetivo: matriz funcional determinística
+       SIGA 5.9.0 — Design System Premium R8.5
+       Entrada no efetivo: composição funcional definitiva
        ======================================================= */
     #dataPermutasAdmin {
       font-variant-numeric:tabular-nums;
@@ -10349,7 +10349,8 @@
       grid-template-areas:
         "nome nome"
         "matricula posto"
-        "guerra contato"!important;
+        "guerra guerra"
+        "contato contato"!important;
       grid-auto-flow:row!important;
       gap:12px!important;
       align-items:start!important;
@@ -10376,6 +10377,15 @@
     #formPreCadastroP1 .campo-pre-guerra { grid-area:guerra!important; }
     #formPreCadastroP1 .campo-pre-contato { grid-area:contato!important; }
 
+    /*
+      Defesa adicional contra regras legadas: as linhas críticas recebem
+      também posicionamento explícito. Assim Nome completo e Contato nunca
+      podem voltar a ocupar meia coluna em telas pequenas.
+    */
+    #formPreCadastroP1 .campo-pre-nome { grid-column:1 / -1!important; }
+    #formPreCadastroP1 .campo-pre-contato { grid-column:1 / -1!important; }
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-guerra { grid-column:1 / -1!important; }
+
     /* O campo condicional desaparece de verdade e não reserva célula na grade. */
     #formPreCadastroP1 .campo-pre-numeral.oculto { display:none!important; }
 
@@ -10390,9 +10400,10 @@
       min-height:1.35em;
     }
 
-    /* Contato divide a linha apenas quando não existe numeral. */
+    /* Nome de guerra e Contato usam linha inteira quando o posto não possui numeral. */
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-guerra input,
     #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-contato input {
-      font-size:clamp(13px,3.55vw,15px)!important;
+      font-size:clamp(14px,3.8vw,16px)!important;
     }
 
     @media (max-width:380px) {
@@ -11481,7 +11492,7 @@
 
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
             <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 style="margin:4px 0 0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
-            <div class="grade-3 grade-pre-cadastro-p1">
+            <div class="grade-pre-cadastro-p1">
               <div class="campo campo-pre-nome"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
               <div class="campo campo-pre-matricula"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
               <div class="campo campo-pre-posto">
@@ -11499,7 +11510,7 @@
                   <option value="1º TENENTE">1º TENENTE</option>
                   <option value="CAPITÃO">CAPITÃO</option>
                   <option value="MAJOR">MAJOR</option>
-                  <option value="TENENTE-CORONEL">TENENTE-CORONEL</option>
+                  <option value="TENENTE-CORONEL">TEN.-CORONEL</option>
                   <option value="CORONEL">CORONEL</option>
                 </select>
               </div>
@@ -12625,7 +12636,7 @@
           <div class="campo"><label>Data da última promoção</label><input name="dataUltimaPromocao" type="date" value="${escaparHtml(conhecido.dataUltimaPromocao || '')}" required></div>
         </div>
         <div class="grade-2">
-          <div class="campo"><label>Posto/graduação</label><select name="postoGraduacao" id="cadastroPosto" required><option value="">SELECIONE</option>${postos.map(p => `<option value="${p}" ${p === conhecido.postoGraduacao ? 'selected' : ''}>${p}</option>`).join('')}</select></div>
+          <div class="campo"><label>Posto/graduação</label><select name="postoGraduacao" id="cadastroPosto" required><option value="">SELECIONE</option>${postos.map(p => `<option value="${p}" ${p === conhecido.postoGraduacao ? 'selected' : ''}>${p === 'TENENTE-CORONEL' ? 'TEN.-CORONEL' : p}</option>`).join('')}</select></div>
           <div class="campo"><label>Numeral</label><input name="numeral" id="cadastroNumeral" inputmode="numeric" value="${escaparHtml(conhecido.numeral || '')}"></div>
         </div>
         <div class="campo"><label>Unidade</label><input value="3ª CIA / 19º BPM" readonly></div>
