@@ -10326,7 +10326,7 @@
 
     /* =======================================================
        SIGA 5.9.0 — Design System Premium R8.4
-       Entrada no efetivo: hierarquia funcional determinística
+       Entrada no efetivo: matriz funcional determinística
        ======================================================= */
     #dataPermutasAdmin {
       font-variant-numeric:tabular-nums;
@@ -10338,101 +10338,70 @@
       text-transform:lowercase;
     }
 
-    /* Entrada no efetivo — sequência funcional e linhas previsíveis. */
+    /*
+      A grade usa áreas nomeadas em vez de nth-child/grid-column.
+      Isso elimina colisões com regras responsivas antigas e garante
+      exatamente a hierarquia funcional solicitada em qualquer viewport.
+    */
     #formPreCadastroP1 .grade-pre-cadastro-p1 {
       display:grid!important;
-      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+      grid-template-areas:
+        "nome nome"
+        "matricula posto"
+        "guerra contato"!important;
+      grid-auto-flow:row!important;
       gap:12px!important;
       align-items:start!important;
     }
+    #formPreCadastroP1.pre-cadastro-com-numeral .grade-pre-cadastro-p1 {
+      grid-template-areas:
+        "nome nome"
+        "matricula posto"
+        "numeral guerra"
+        "contato contato"!important;
+    }
+
     #formPreCadastroP1 .grade-pre-cadastro-p1 > .campo {
       min-width:0!important;
+      width:100%!important;
       grid-column:auto!important;
+      grid-row:auto!important;
+      margin-bottom:0!important;
     }
-    #formPreCadastroP1 .campo-pre-nome {
-      grid-column:1 / -1!important;
-    }
-    #formPreCadastroP1 .campo-pre-matricula { grid-column:1!important; }
-    #formPreCadastroP1 .campo-pre-posto { grid-column:2!important; }
-    #formPreCadastroP1 .campo-pre-guerra { grid-column:1!important; }
-    #formPreCadastroP1 .campo-pre-contato { grid-column:2!important; }
-    #formPreCadastroP1 .campo-pre-numeral { grid-column:1!important; }
-    #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-guerra { grid-column:2!important; }
-    #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-contato { grid-column:1 / -1!important; }
+    #formPreCadastroP1 .campo-pre-nome { grid-area:nome!important; }
+    #formPreCadastroP1 .campo-pre-matricula { grid-area:matricula!important; }
+    #formPreCadastroP1 .campo-pre-posto { grid-area:posto!important; }
+    #formPreCadastroP1 .campo-pre-numeral { grid-area:numeral!important; }
+    #formPreCadastroP1 .campo-pre-guerra { grid-area:guerra!important; }
+    #formPreCadastroP1 .campo-pre-contato { grid-area:contato!important; }
 
-    /* Mantém pares visualmente equilibrados sem aumentar a altura do cartão. */
+    /* O campo condicional desaparece de verdade e não reserva célula na grade. */
+    #formPreCadastroP1 .campo-pre-numeral.oculto { display:none!important; }
+
     #formPreCadastroP1 .grade-pre-cadastro-p1 input,
     #formPreCadastroP1 .grade-pre-cadastro-p1 select {
       width:100%!important;
       min-width:0!important;
     }
     #formPreCadastroP1 .grade-pre-cadastro-p1 label {
+      display:flex!important;
+      align-items:flex-end!important;
       min-height:1.35em;
+    }
+
+    /* Contato divide a linha apenas quando não existe numeral. */
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-contato input {
+      font-size:clamp(13px,3.55vw,15px)!important;
     }
 
     @media (max-width:380px) {
       #formPreCadastroP1 .grade-pre-cadastro-p1 { gap:10px!important; }
-      #formPreCadastroP1 .grade-pre-cadastro-p1 label { font-size:12px!important; }
-    }
-
-    /* R8.4 — trava final do pré-cadastro P1.
-       Não usa nth-child e não depende da ordem de regras legadas. */
-    #secao-admin-policiais #formPreCadastroP1 .grade-pre-cadastro-p1 {
-      display:grid!important;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-      gap:12px!important;
-      align-items:start!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .grade-pre-cadastro-p1 > .campo {
-      width:auto!important;
-      max-width:none!important;
-      min-width:0!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .campo-pre-nome {
-      grid-column:1 / -1!important;
-      grid-row:1!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .campo-pre-matricula {
-      grid-column:1!important;
-      grid-row:2!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .campo-pre-posto {
-      grid-column:2!important;
-      grid-row:2!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .campo-pre-numeral {
-      grid-column:1!important;
-      grid-row:3!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .campo-pre-guerra {
-      grid-column:1!important;
-      grid-row:3!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .campo-pre-contato {
-      grid-column:2!important;
-      grid-row:3!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-guerra {
-      grid-column:2!important;
-      grid-row:3!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-contato {
-      grid-column:1 / -1!important;
-      grid-row:4!important;
-    }
-    #secao-admin-policiais #formPreCadastroP1 .grade-pre-cadastro-p1 input,
-    #secao-admin-policiais #formPreCadastroP1 .grade-pre-cadastro-p1 select {
-      width:100%!important;
-      min-width:0!important;
-      box-sizing:border-box!important;
-    }
-
-    @media (max-width:360px) {
-      #secao-admin-policiais #formPreCadastroP1 .grade-pre-cadastro-p1 {
-        gap:10px!important;
-      }
-      #secao-admin-policiais #formPreCadastroP1 .grade-pre-cadastro-p1 label {
-        font-size:11.5px!important;
+      #formPreCadastroP1 .grade-pre-cadastro-p1 label { font-size:11.5px!important; }
+      #formPreCadastroP1 .grade-pre-cadastro-p1 input,
+      #formPreCadastroP1 .grade-pre-cadastro-p1 select {
+        padding-left:11px!important;
+        padding-right:11px!important;
       }
     }
 
@@ -11512,10 +11481,10 @@
 
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
             <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 style="margin:4px 0 0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
-            <div class="grade-3 grade-pre-cadastro-p1" style="display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:12px!important;align-items:start!important;">
-              <div class="campo campo-pre-nome" style="grid-column:1 / -1!important;grid-row:1!important;min-width:0!important;"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
-              <div class="campo campo-pre-matricula" style="grid-column:1!important;grid-row:2!important;min-width:0!important;"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
-              <div class="campo campo-pre-posto" style="grid-column:2!important;grid-row:2!important;min-width:0!important;">
+            <div class="grade-3 grade-pre-cadastro-p1">
+              <div class="campo campo-pre-nome"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
+              <div class="campo campo-pre-matricula"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
+              <div class="campo campo-pre-posto">
                 <label>Posto/graduação</label>
                 <select id="prePostoP1" required onchange="atualizarNumeralPreCadastroP1()">
                   <option value="">SELECIONE</option>
@@ -11534,9 +11503,9 @@
                   <option value="CORONEL">CORONEL</option>
                 </select>
               </div>
-              <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto" style="grid-column:1!important;grid-row:3!important;min-width:0!important;"><label>Numeral <small>(se houver)</small></label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
-              <div class="campo campo-pre-guerra" style="grid-column:1!important;grid-row:3!important;min-width:0!important;"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
-              <div class="campo campo-pre-contato" style="grid-column:2!important;grid-row:3!important;min-width:0!important;"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
+              <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label>Numeral</label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
+              <div class="campo campo-pre-guerra"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
+              <div class="campo campo-pre-contato"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
             </div>
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
           </form>
@@ -15774,57 +15743,14 @@
     }
 
     function atualizarNumeralPreCadastroP1() {
-      const posto=$('prePostoP1');
-      const campo=$('campoPreNumeralP1');
-      const numeral=$('preNumeralP1');
-      const form=$('formPreCadastroP1');
-      const nome=$('preNomeP1')?.closest('.campo');
-      const matricula=$('preMatriculaP1')?.closest('.campo');
-      const campoPosto=$('prePostoP1')?.closest('.campo');
-      const guerra=$('preNomeGuerraP1')?.closest('.campo');
-      const contato=$('preContatoP1')?.closest('.campo');
-      if(!posto||!campo||!numeral||!form||!nome||!matricula||!campoPosto||!guerra||!contato)return;
-
+      const posto=$('prePostoP1'),campo=$('campoPreNumeralP1'),numeral=$('preNumeralP1'),form=$('formPreCadastroP1');
+      if(!posto||!campo||!numeral)return;
       const usa=postoUsaNumeral(posto.value);
-
-      /* Linha 1: Nome completo em largura total. */
-      nome.style.setProperty('grid-column','1 / -1','important');
-      nome.style.setProperty('grid-row','1','important');
-
-      /* Linha 2: Matrícula | Posto/graduação. */
-      matricula.style.setProperty('grid-column','1','important');
-      matricula.style.setProperty('grid-row','2','important');
-      campoPosto.style.setProperty('grid-column','2','important');
-      campoPosto.style.setProperty('grid-row','2','important');
-
       campo.classList.toggle('oculto',!usa);
-      form.classList.toggle('pre-cadastro-com-numeral',usa);
+      if(form) form.classList.toggle('pre-cadastro-com-numeral',usa);
       numeral.disabled=!usa;
       numeral.required=usa;
-
-      if(usa){
-        /* Linha 3: Numeral | Nome de guerra. */
-        campo.style.setProperty('grid-column','1','important');
-        campo.style.setProperty('grid-row','3','important');
-        guerra.style.setProperty('grid-column','2','important');
-        guerra.style.setProperty('grid-row','3','important');
-
-        /* Linha 4: Contato / WhatsApp em largura total. */
-        contato.style.setProperty('grid-column','1 / -1','important');
-        contato.style.setProperty('grid-row','4','important');
-      }else{
-        if(!posto.value) {
-          /* Antes da escolha do posto, mantém a composição sem numeral
-             para evitar saltos desnecessários no formulário. */
-        }
-        numeral.value='';
-
-        /* Linha 3: Nome de guerra | Contato / WhatsApp. */
-        guerra.style.setProperty('grid-column','1','important');
-        guerra.style.setProperty('grid-row','3','important');
-        contato.style.setProperty('grid-column','2','important');
-        contato.style.setProperty('grid-row','3','important');
-      }
+      if(!usa)numeral.value='';
     }
 
     async function excluirPolicialP1() {
