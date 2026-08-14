@@ -4099,16 +4099,18 @@
     }
     #matrizReferenciasEscala { gap:8px!important; }
 
-    /* Entrada no efetivo: usa a largura disponível sem deixar um terço vazio. */
-    #formPreCadastroP1 .grade-3 {
+    /* Entrada no efetivo — regra legada preservada apenas para grades antigas.
+       O grid hierárquico R8.4 usa .grade-pre-cadastro-p1 e não pode receber
+       os nth-child antigos, pois eles quebram a ordem funcional dos campos. */
+    #formPreCadastroP1 .grade-3:not(.grade-pre-cadastro-p1) {
       grid-template-columns:repeat(6,minmax(0,1fr))!important;
       gap:12px!important;
     }
-    #formPreCadastroP1 .grade-3 > .campo:nth-child(-n+3) { grid-column:span 2; }
-    #formPreCadastroP1 .grade-3 > .campo:nth-child(4),
-    #formPreCadastroP1 .grade-3 > .campo:nth-child(5) { grid-column:span 3; }
-    #formPreCadastroP1 .grade-3 > .campo:nth-child(6) { grid-column:span 3; }
-    #formPreCadastroP1 .grade-3:has(#campoPreNumeralP1:not(.oculto)) > .campo:nth-child(n+4) { grid-column:span 2; }
+    #formPreCadastroP1 .grade-3:not(.grade-pre-cadastro-p1) > .campo:nth-child(-n+3) { grid-column:span 2; }
+    #formPreCadastroP1 .grade-3:not(.grade-pre-cadastro-p1) > .campo:nth-child(4),
+    #formPreCadastroP1 .grade-3:not(.grade-pre-cadastro-p1) > .campo:nth-child(5) { grid-column:span 3; }
+    #formPreCadastroP1 .grade-3:not(.grade-pre-cadastro-p1) > .campo:nth-child(6) { grid-column:span 3; }
+    #formPreCadastroP1 .grade-3:not(.grade-pre-cadastro-p1):has(#campoPreNumeralP1:not(.oculto)) > .campo:nth-child(n+4) { grid-column:span 2; }
 
     /* Editor de formulários: remove espaço morto de controles que não se aplicam ao tipo de campo. */
     #secao-formularios > .painel:first-of-type { padding:18px 20px!important; }
@@ -10325,8 +10327,8 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — Design System Premium R8.3
-       Permutas P1: data BR + Entrada no efetivo hierárquica
+       SIGA 5.9.0 — Design System Premium R8.4
+       Entrada no efetivo: hierarquia funcional sem conflito de grid
        ======================================================= */
     #dataPermutasAdmin {
       font-variant-numeric:tabular-nums;
@@ -10359,6 +10361,16 @@
     #formPreCadastroP1 .campo-pre-numeral { grid-column:1!important; }
     #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-guerra { grid-column:2!important; }
     #formPreCadastroP1.pre-cadastro-com-numeral .campo-pre-contato { grid-column:1 / -1!important; }
+
+    /* R8.4 — especificidade final para impedir regressão por regras nth-child antigas. */
+    #formPreCadastroP1 .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-nome { grid-column:1 / -1!important; }
+    #formPreCadastroP1 .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-matricula { grid-column:1!important; }
+    #formPreCadastroP1 .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-posto { grid-column:2!important; }
+    #formPreCadastroP1 .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-guerra { grid-column:1!important; }
+    #formPreCadastroP1 .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-contato { grid-column:2!important; }
+    #formPreCadastroP1 .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-numeral { grid-column:1!important; }
+    #formPreCadastroP1.pre-cadastro-com-numeral .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-guerra { grid-column:2!important; }
+    #formPreCadastroP1.pre-cadastro-com-numeral .grade-3.grade-pre-cadastro-p1 > .campo.campo-pre-contato { grid-column:1 / -1!important; }
 
     /* Mantém pares visualmente equilibrados sem aumentar a altura do cartão. */
     #formPreCadastroP1 .grade-pre-cadastro-p1 input,
