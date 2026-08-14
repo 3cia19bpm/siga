@@ -10325,8 +10325,8 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — Design System Premium R8.6
-       Entrada no efetivo: linhas estruturais obrigatórias
+       SIGA 5.9.0 — Design System Premium R8.7
+       Entrada no efetivo: composição condicional definitiva
        ======================================================= */
     #dataPermutasAdmin {
       font-variant-numeric:tabular-nums;
@@ -10338,12 +10338,10 @@
       text-transform:lowercase;
     }
 
-    /*
-      R8.6 — a composição deixa de depender de nth-child, grid-area
-      ou da ordem implícita dos campos. Cada linha funcional possui
-      um invólucro próprio, o que impede regras antigas de recolocar
-      Nome completo ou Contato / WhatsApp em meia coluna.
-    */
+    #formPreCadastroP1 {
+      --pre-cadastro-control-h:52px;
+    }
+
     #formPreCadastroP1 .grade-pre-cadastro-p1 {
       display:flex!important;
       flex-direction:column!important;
@@ -10361,7 +10359,8 @@
       align-items:start!important;
     }
 
-    #formPreCadastroP1 .linha-pre-cadastro-full {
+    #formPreCadastroP1 .linha-pre-cadastro-full,
+    #formPreCadastroP1 .linha-pre-nome {
       grid-template-columns:minmax(0,1fr)!important;
     }
 
@@ -10370,56 +10369,86 @@
       width:100%!important;
       max-width:none!important;
       margin:0!important;
-      grid-column:auto!important;
       grid-row:auto!important;
     }
 
-    /* Linhas que, por regra funcional, sempre ocupam 100% da largura. */
-    #formPreCadastroP1 .linha-pre-nome,
-    #formPreCadastroP1 .linha-pre-contato {
-      grid-template-columns:minmax(0,1fr)!important;
-    }
-    #formPreCadastroP1 .linha-pre-nome .campo-pre-nome,
-    #formPreCadastroP1 .linha-pre-contato .campo-pre-contato {
-      width:100%!important;
-      max-width:none!important;
+    #formPreCadastroP1 .linha-pre-nome .campo-pre-nome {
       grid-column:1 / -1!important;
+      width:100%!important;
     }
 
     /*
-      Quando existe numeral:
-        Numeral | Nome de guerra
-      Quando não existe numeral:
-        Nome de guerra ocupa a linha inteira.
-      Contato / WhatsApp permanece sempre em linha inteira abaixo.
+      Linha de identidade R8.7:
+      COM numeral:
+        [ Numeral        | Nome de guerra ]
+        [ Contato / WhatsApp (linha inteira) ]
+      SEM numeral:
+        [ Nome de guerra | Contato / WhatsApp ]
     */
-    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .linha-pre-identidade {
-      grid-template-columns:minmax(0,1fr)!important;
+    #formPreCadastroP1 .linha-pre-identidade {
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    }
+
+    #formPreCadastroP1 .linha-pre-identidade .campo-pre-numeral {
+      grid-column:1!important;
+    }
+    #formPreCadastroP1 .linha-pre-identidade .campo-pre-guerra {
+      grid-column:2!important;
+    }
+    #formPreCadastroP1 .linha-pre-identidade .campo-pre-contato {
+      grid-column:1 / -1!important;
+    }
+
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .linha-pre-identidade .campo-pre-numeral {
+      display:none!important;
     }
     #formPreCadastroP1:not(.pre-cadastro-com-numeral) .linha-pre-identidade .campo-pre-guerra {
-      grid-column:1 / -1!important;
-      width:100%!important;
+      grid-column:1!important;
+    }
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .linha-pre-identidade .campo-pre-contato {
+      grid-column:2!important;
     }
 
     #formPreCadastroP1 .campo-pre-numeral.oculto {
       display:none!important;
     }
 
+    /*
+      Altura única. O input de texto, telefone, numeral, matrícula,
+      nome e o select de Posto/graduação usam exatamente a mesma caixa.
+    */
     #formPreCadastroP1 .grade-pre-cadastro-p1 input,
     #formPreCadastroP1 .grade-pre-cadastro-p1 select {
       width:100%!important;
       min-width:0!important;
       max-width:none!important;
+      height:var(--pre-cadastro-control-h)!important;
+      min-height:var(--pre-cadastro-control-h)!important;
+      max-height:var(--pre-cadastro-control-h)!important;
       box-sizing:border-box!important;
+      padding-top:0!important;
+      padding-bottom:0!important;
+      padding-left:14px!important;
+      padding-right:14px!important;
+      line-height:normal!important;
+      margin:0!important;
+    }
+
+    #formPreCadastroP1 .grade-pre-cadastro-p1 select {
+      display:block!important;
     }
 
     #formPreCadastroP1 .grade-pre-cadastro-p1 label {
       display:flex!important;
       align-items:flex-end!important;
       min-height:1.35em;
+      margin-bottom:6px!important;
     }
 
     @media (max-width:380px) {
+      #formPreCadastroP1 {
+        --pre-cadastro-control-h:50px;
+      }
       #formPreCadastroP1 .grade-pre-cadastro-p1,
       #formPreCadastroP1 .linha-pre-cadastro-p1 {
         gap:10px!important;
@@ -11543,13 +11572,9 @@
 
               <div id="linhaPreIdentidadeP1"
                    class="linha-pre-cadastro-p1 linha-pre-identidade"
-                   style="display:grid;grid-template-columns:minmax(0,1fr);gap:12px;width:100%;">
+                   style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;">
                 <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label>Numeral</label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
                 <div class="campo campo-pre-guerra"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
-              </div>
-
-              <div class="linha-pre-cadastro-p1 linha-pre-cadastro-full linha-pre-contato"
-                   style="display:grid;grid-template-columns:minmax(0,1fr);width:100%;">
                 <div class="campo campo-pre-contato"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
               </div>
             </div>
@@ -15802,14 +15827,14 @@
       if(form) form.classList.toggle('pre-cadastro-com-numeral',usa);
 
       /*
-        R8.6: a largura é aplicada também diretamente no elemento.
-        Com numeral: Numeral | Nome de guerra.
-        Sem numeral: Nome de guerra em linha inteira.
+        R8.7:
+        - a linha permanece sempre em duas colunas;
+        - com numeral, Contato / WhatsApp desce e ocupa 100%;
+        - sem numeral, Nome de guerra e Contato / WhatsApp ficam lado a lado.
       */
       if(linhaIdentidade) {
-        linhaIdentidade.style.gridTemplateColumns = usa
-          ? 'minmax(0,1fr) minmax(0,1fr)'
-          : 'minmax(0,1fr)';
+        linhaIdentidade.style.gridTemplateColumns =
+          'minmax(0,1fr) minmax(0,1fr)';
       }
 
       numeral.disabled=!usa;
