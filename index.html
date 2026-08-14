@@ -10325,8 +10325,8 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — Design System Premium R8.5
-       Entrada no efetivo: composição funcional definitiva
+       SIGA 5.9.0 — Design System Premium R8.6
+       Entrada no efetivo: linhas estruturais obrigatórias
        ======================================================= */
     #dataPermutasAdmin {
       font-variant-numeric:tabular-nums;
@@ -10339,82 +10339,101 @@
     }
 
     /*
-      A grade usa áreas nomeadas em vez de nth-child/grid-column.
-      Isso elimina colisões com regras responsivas antigas e garante
-      exatamente a hierarquia funcional solicitada em qualquer viewport.
+      R8.6 — a composição deixa de depender de nth-child, grid-area
+      ou da ordem implícita dos campos. Cada linha funcional possui
+      um invólucro próprio, o que impede regras antigas de recolocar
+      Nome completo ou Contato / WhatsApp em meia coluna.
     */
     #formPreCadastroP1 .grade-pre-cadastro-p1 {
+      display:flex!important;
+      flex-direction:column!important;
+      width:100%!important;
+      gap:12px!important;
+      align-items:stretch!important;
+    }
+
+    #formPreCadastroP1 .linha-pre-cadastro-p1 {
       display:grid!important;
       grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-      grid-template-areas:
-        "nome nome"
-        "matricula posto"
-        "guerra guerra"
-        "contato contato"!important;
-      grid-auto-flow:row!important;
       gap:12px!important;
+      width:100%!important;
+      min-width:0!important;
       align-items:start!important;
     }
-    #formPreCadastroP1.pre-cadastro-com-numeral .grade-pre-cadastro-p1 {
-      grid-template-areas:
-        "nome nome"
-        "matricula posto"
-        "numeral guerra"
-        "contato contato"!important;
+
+    #formPreCadastroP1 .linha-pre-cadastro-full {
+      grid-template-columns:minmax(0,1fr)!important;
     }
 
-    #formPreCadastroP1 .grade-pre-cadastro-p1 > .campo {
+    #formPreCadastroP1 .linha-pre-cadastro-p1 > .campo {
       min-width:0!important;
       width:100%!important;
+      max-width:none!important;
+      margin:0!important;
       grid-column:auto!important;
       grid-row:auto!important;
-      margin-bottom:0!important;
     }
-    #formPreCadastroP1 .campo-pre-nome { grid-area:nome!important; }
-    #formPreCadastroP1 .campo-pre-matricula { grid-area:matricula!important; }
-    #formPreCadastroP1 .campo-pre-posto { grid-area:posto!important; }
-    #formPreCadastroP1 .campo-pre-numeral { grid-area:numeral!important; }
-    #formPreCadastroP1 .campo-pre-guerra { grid-area:guerra!important; }
-    #formPreCadastroP1 .campo-pre-contato { grid-area:contato!important; }
+
+    /* Linhas que, por regra funcional, sempre ocupam 100% da largura. */
+    #formPreCadastroP1 .linha-pre-nome,
+    #formPreCadastroP1 .linha-pre-contato {
+      grid-template-columns:minmax(0,1fr)!important;
+    }
+    #formPreCadastroP1 .linha-pre-nome .campo-pre-nome,
+    #formPreCadastroP1 .linha-pre-contato .campo-pre-contato {
+      width:100%!important;
+      max-width:none!important;
+      grid-column:1 / -1!important;
+    }
 
     /*
-      Defesa adicional contra regras legadas: as linhas críticas recebem
-      também posicionamento explícito. Assim Nome completo e Contato nunca
-      podem voltar a ocupar meia coluna em telas pequenas.
+      Quando existe numeral:
+        Numeral | Nome de guerra
+      Quando não existe numeral:
+        Nome de guerra ocupa a linha inteira.
+      Contato / WhatsApp permanece sempre em linha inteira abaixo.
     */
-    #formPreCadastroP1 .campo-pre-nome { grid-column:1 / -1!important; }
-    #formPreCadastroP1 .campo-pre-contato { grid-column:1 / -1!important; }
-    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-guerra { grid-column:1 / -1!important; }
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .linha-pre-identidade {
+      grid-template-columns:minmax(0,1fr)!important;
+    }
+    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .linha-pre-identidade .campo-pre-guerra {
+      grid-column:1 / -1!important;
+      width:100%!important;
+    }
 
-    /* O campo condicional desaparece de verdade e não reserva célula na grade. */
-    #formPreCadastroP1 .campo-pre-numeral.oculto { display:none!important; }
+    #formPreCadastroP1 .campo-pre-numeral.oculto {
+      display:none!important;
+    }
 
     #formPreCadastroP1 .grade-pre-cadastro-p1 input,
     #formPreCadastroP1 .grade-pre-cadastro-p1 select {
       width:100%!important;
       min-width:0!important;
+      max-width:none!important;
+      box-sizing:border-box!important;
     }
+
     #formPreCadastroP1 .grade-pre-cadastro-p1 label {
       display:flex!important;
       align-items:flex-end!important;
       min-height:1.35em;
     }
 
-    /* Nome de guerra e Contato usam linha inteira quando o posto não possui numeral. */
-    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-guerra input,
-    #formPreCadastroP1:not(.pre-cadastro-com-numeral) .campo-pre-contato input {
-      font-size:clamp(14px,3.8vw,16px)!important;
-    }
-
     @media (max-width:380px) {
-      #formPreCadastroP1 .grade-pre-cadastro-p1 { gap:10px!important; }
-      #formPreCadastroP1 .grade-pre-cadastro-p1 label { font-size:11.5px!important; }
+      #formPreCadastroP1 .grade-pre-cadastro-p1,
+      #formPreCadastroP1 .linha-pre-cadastro-p1 {
+        gap:10px!important;
+      }
+      #formPreCadastroP1 .grade-pre-cadastro-p1 label {
+        font-size:11.5px!important;
+      }
       #formPreCadastroP1 .grade-pre-cadastro-p1 input,
       #formPreCadastroP1 .grade-pre-cadastro-p1 select {
         padding-left:11px!important;
         padding-right:11px!important;
       }
     }
+
 
   </style>
 </head>
@@ -11493,30 +11512,46 @@
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" onsubmit="preCadastrarPolicialP1(event)">
             <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 style="margin:4px 0 0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
             <div class="grade-pre-cadastro-p1">
-              <div class="campo campo-pre-nome"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
-              <div class="campo campo-pre-matricula"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
-              <div class="campo campo-pre-posto">
-                <label>Posto/graduação</label>
-                <select id="prePostoP1" required onchange="atualizarNumeralPreCadastroP1()">
-                  <option value="">SELECIONE</option>
-                  <option value="SOLDADO">SOLDADO</option>
-                  <option value="CABO">CABO</option>
-                  <option value="3º SARGENTO">3º SARGENTO</option>
-                  <option value="2º SARGENTO">2º SARGENTO</option>
-                  <option value="1º SARGENTO">1º SARGENTO</option>
-                  <option value="SUBTENENTE">SUBTENENTE</option>
-                  <option value="ASPIRANTE">ASPIRANTE</option>
-                  <option value="2º TENENTE">2º TENENTE</option>
-                  <option value="1º TENENTE">1º TENENTE</option>
-                  <option value="CAPITÃO">CAPITÃO</option>
-                  <option value="MAJOR">MAJOR</option>
-                  <option value="TENENTE-CORONEL">TEN.-CORONEL</option>
-                  <option value="CORONEL">CORONEL</option>
-                </select>
+              <div class="linha-pre-cadastro-p1 linha-pre-cadastro-full linha-pre-nome"
+                   style="display:grid;grid-template-columns:minmax(0,1fr);width:100%;">
+                <div class="campo campo-pre-nome"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
               </div>
-              <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label>Numeral</label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
-              <div class="campo campo-pre-guerra"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
-              <div class="campo campo-pre-contato"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
+
+              <div class="linha-pre-cadastro-p1 linha-pre-matricula-posto"
+                   style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;">
+                <div class="campo campo-pre-matricula"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
+                <div class="campo campo-pre-posto">
+                  <label>Posto/graduação</label>
+                  <select id="prePostoP1" required onchange="atualizarNumeralPreCadastroP1()">
+                    <option value="">SELECIONE</option>
+                    <option value="SOLDADO">SOLDADO</option>
+                    <option value="CABO">CABO</option>
+                    <option value="3º SARGENTO">3º SARGENTO</option>
+                    <option value="2º SARGENTO">2º SARGENTO</option>
+                    <option value="1º SARGENTO">1º SARGENTO</option>
+                    <option value="SUBTENENTE">SUBTENENTE</option>
+                    <option value="ASPIRANTE">ASPIRANTE</option>
+                    <option value="2º TENENTE">2º TENENTE</option>
+                    <option value="1º TENENTE">1º TENENTE</option>
+                    <option value="CAPITÃO">CAPITÃO</option>
+                    <option value="MAJOR">MAJOR</option>
+                    <option value="TENENTE-CORONEL">TEN.-CORONEL</option>
+                    <option value="CORONEL">CORONEL</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="linhaPreIdentidadeP1"
+                   class="linha-pre-cadastro-p1 linha-pre-identidade"
+                   style="display:grid;grid-template-columns:minmax(0,1fr);gap:12px;width:100%;">
+                <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label>Numeral</label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
+                <div class="campo campo-pre-guerra"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
+              </div>
+
+              <div class="linha-pre-cadastro-p1 linha-pre-cadastro-full linha-pre-contato"
+                   style="display:grid;grid-template-columns:minmax(0,1fr);width:100%;">
+                <div class="campo campo-pre-contato"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
+              </div>
             </div>
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
           </form>
@@ -12530,7 +12565,7 @@
     function abreviarPostoUi(posto) {
       const mapa={'SOLDADO':'SD','CABO':'CB','3º SARGENTO':'3º SGT','2º SARGENTO':'2º SGT','1º SARGENTO':'1º SGT',
         'SUBTENENTE':'ST','ASPIRANTE':'ASP','2º TENENTE':'2º TEN','1º TENENTE':'1º TEN','CAPITÃO':'CAP',
-        'MAJOR':'MAJ','TENENTE-CORONEL':'TC','CORONEL':'CEL'};
+        'MAJOR':'MAJ','TENENTE-CORONEL':'TEN.-CORONEL','CORONEL':'CEL'};
       return mapa[String(posto||'').toUpperCase()]||String(posto||'');
     }
     function identificacaoCompactaSidebar(u) {
@@ -15754,11 +15789,29 @@
     }
 
     function atualizarNumeralPreCadastroP1() {
-      const posto=$('prePostoP1'),campo=$('campoPreNumeralP1'),numeral=$('preNumeralP1'),form=$('formPreCadastroP1');
+      const posto=$('prePostoP1');
+      const campo=$('campoPreNumeralP1');
+      const numeral=$('preNumeralP1');
+      const form=$('formPreCadastroP1');
+      const linhaIdentidade=$('linhaPreIdentidadeP1');
       if(!posto||!campo||!numeral)return;
+
       const usa=postoUsaNumeral(posto.value);
+
       campo.classList.toggle('oculto',!usa);
       if(form) form.classList.toggle('pre-cadastro-com-numeral',usa);
+
+      /*
+        R8.6: a largura é aplicada também diretamente no elemento.
+        Com numeral: Numeral | Nome de guerra.
+        Sem numeral: Nome de guerra em linha inteira.
+      */
+      if(linhaIdentidade) {
+        linhaIdentidade.style.gridTemplateColumns = usa
+          ? 'minmax(0,1fr) minmax(0,1fr)'
+          : 'minmax(0,1fr)';
+      }
+
       numeral.disabled=!usa;
       numeral.required=usa;
       if(!usa)numeral.value='';
