@@ -11182,6 +11182,381 @@
       #secao-setores .acesso-card-tags{justify-content:flex-start;}
     }
 
+
+    /* =======================================================
+       SIGA 5.9.0 — DESIGN SYSTEM PREMIUM R9.2
+       Setores e acessos: hierarquia informacional, busca e cartões.
+       ======================================================= */
+    #secao-setores .acesso-governanca-painel,
+    #secao-setores .acesso-lista-painel{
+      border-top-width:4px!important;
+    }
+
+    /* Busca: identidade primeiro; contexto em segundo plano. */
+    #secao-setores .acesso-pesquisa-resultados{
+      gap:9px!important;
+      margin-top:0!important;
+    }
+    #secao-setores .acesso-resultado{
+      min-height:78px;
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto!important;
+      align-items:center!important;
+      gap:12px!important;
+      padding:13px 14px!important;
+      border-radius:17px!important;
+      border-color:#d3ded0!important;
+      box-shadow:0 7px 18px rgba(28,52,37,.04)!important;
+    }
+    #secao-setores .acesso-resultado-identidade{
+      min-width:0;
+      display:grid!important;
+      gap:2px!important;
+    }
+    #secao-setores .acesso-resultado-identidade strong{
+      font-size:14.5px!important;
+      line-height:1.25!important;
+      letter-spacing:-.015em;
+      color:#173624;
+    }
+    #secao-setores .acesso-resultado-mf{
+      display:block;
+      font-size:11.5px;
+      line-height:1.3;
+      color:#7b897f;
+      font-weight:650;
+    }
+    #secao-setores .acesso-resultado-setor{
+      display:block;
+      margin-top:3px;
+      font-size:10.5px!important;
+      line-height:1.35!important;
+      color:#69786e!important;
+    }
+    #secao-setores .acesso-resultado-contexto{
+      min-width:0;
+      max-width:132px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:7px;
+      color:#5b7253;
+    }
+    #secao-setores .acesso-resultado-vinculo{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:29px;
+      padding:5px 9px;
+      border:1px solid #d3dfcf;
+      border-radius:999px;
+      background:#f1f6ee;
+      color:#55704d;
+      font-size:8.3px;
+      font-weight:900;
+      line-height:1.2;
+      letter-spacing:.075em;
+      text-transform:uppercase;
+      text-align:center;
+    }
+    #secao-setores .acesso-resultado-vinculo.externo{
+      background:#fff9e8;border-color:#eadca8;color:#856c1c;
+    }
+    #secao-setores .acesso-resultado-vinculo.bloqueado{
+      background:#fff3f1;border-color:#e8cbc6;color:#984b42;
+    }
+    #secao-setores .acesso-resultado-seta{
+      width:16px;height:16px;flex:0 0 16px;
+    }
+
+    /* Seleção: remove duplicidade e cria leitura em três níveis. */
+    #secao-setores .acesso-policial-selecionado{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto!important;
+      align-items:center!important;
+      gap:12px!important;
+      padding:14px 15px!important;
+      border-radius:18px!important;
+    }
+    #secao-setores .acesso-selecionado-info{
+      gap:2px!important;
+    }
+    #secao-setores .acesso-selecionado-info small{
+      font-size:9px!important;
+      letter-spacing:.14em!important;
+    }
+    #secao-setores .acesso-selecionado-info strong{
+      margin-top:2px;
+      font-size:15px!important;
+      line-height:1.26!important;
+      letter-spacing:-.015em;
+    }
+    #secao-setores .acesso-selecionado-mf{
+      font-size:11.5px!important;
+      color:#77867b!important;
+      font-weight:650;
+    }
+    #secao-setores .acesso-selecionado-meta{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:5px 8px;
+      margin-top:5px;
+      font-size:10.5px;
+      color:#66776b;
+    }
+    #secao-setores .acesso-selecionado-meta span{
+      display:inline-flex;
+      align-items:center;
+      min-height:23px;
+      padding:3px 7px;
+      border:1px solid #d7e1d3;
+      border-radius:999px;
+      background:rgba(255,255,255,.64);
+      font-size:8.5px!important;
+      font-weight:850;
+      letter-spacing:.055em;
+      text-transform:uppercase;
+      color:#5c7254!important;
+    }
+    #secao-setores .acesso-selecionado-meta span.bloqueado{
+      color:#994b42!important;border-color:#e6c8c3;background:#fff5f3;
+    }
+    #secao-setores .acesso-selecionado-acoes{
+      display:grid;
+      justify-items:end;
+      gap:6px;
+    }
+    #secao-setores .acesso-trocar{
+      min-height:34px!important;
+      padding:7px 10px!important;
+      border:1px solid #cfdacb!important;
+      border-radius:11px!important;
+      background:rgba(255,255,255,.72)!important;
+      font-size:9px!important;
+      white-space:nowrap;
+    }
+
+    /* Pré-cadastro: respeita os pares funcionais mesmo no celular. */
+    #secao-setores .acesso-cadastro-externo{
+      padding:16px!important;
+      gap:13px!important;
+    }
+    #secao-setores .acesso-grade-cadastro{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:11px!important;
+      align-items:end!important;
+    }
+    #secao-setores .acesso-grade-cadastro .campo{
+      min-width:0;
+      margin:0!important;
+    }
+    #secao-setores .acesso-grade-cadastro .campo.acesso-campo-largo{
+      grid-column:1/-1!important;
+    }
+    #secao-setores .acesso-grade-cadastro label{
+      min-height:32px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    /* Lista: cartões passam a ter blocos de informação previsíveis. */
+    #secao-setores .acesso-lista-cartoes{
+      gap:11px!important;
+    }
+    #secao-setores .acesso-card{
+      padding:15px 15px 14px 19px!important;
+      border-radius:18px!important;
+      box-shadow:0 8px 20px rgba(28,52,37,.035);
+    }
+    #secao-setores .acesso-card-topo{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto!important;
+      align-items:start!important;
+      gap:12px!important;
+    }
+    #secao-setores .acesso-card-identidade{
+      gap:2px!important;
+    }
+    #secao-setores .acesso-card-identidade strong{
+      font-size:15px!important;
+      line-height:1.28!important;
+      letter-spacing:-.012em;
+    }
+    #secao-setores .acesso-card-identidade span{
+      font-size:11.5px!important;
+      line-height:1.35;
+    }
+    #secao-setores .acesso-card-status{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      min-height:27px;
+      padding:4px 8px;
+      border:1px solid #d5e1d1;
+      border-radius:999px;
+      background:#f2f7ef;
+      color:#55704d;
+      font-size:8.5px;
+      font-weight:900;
+      letter-spacing:.075em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    #secao-setores .acesso-card-status::before{
+      content:"";
+      width:6px;height:6px;border-radius:50%;background:#5d8b5f;
+    }
+    #secao-setores .acesso-card-status.revogado{
+      background:#f4f4f2;border-color:#dcdeda;color:#7a827c;
+    }
+    #secao-setores .acesso-card-status.revogado::before{background:#9aa29c;}
+    #secao-setores .acesso-card-status.bloqueado{
+      background:#fff3f1;border-color:#e7c7c2;color:#98493f;
+    }
+    #secao-setores .acesso-card-status.bloqueado::before{background:#b75d52;}
+
+    #secao-setores .acesso-card-perfil{
+      margin-top:11px;
+      padding:10px 11px;
+      border:1px solid #dde6da;
+      border-radius:13px;
+      background:#f7faf5;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    #secao-setores .acesso-card-perfil small{
+      display:block;
+      margin-bottom:2px;
+      color:#7a887d;
+      font-size:8.5px;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    #secao-setores .acesso-card-perfil strong{
+      display:block;
+      color:#28412e;
+      font-size:12.5px;
+      line-height:1.3;
+    }
+    #secao-setores .acesso-card-perfil .icone-svg{
+      width:19px;height:19px;color:#637a5a;flex:0 0 19px;
+    }
+
+    #secao-setores .acesso-card-info{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      margin-top:10px;
+      border:1px solid #e1e8df;
+      border-radius:13px;
+      overflow:hidden;
+      background:#fff;
+    }
+    #secao-setores .acesso-card-info-item{
+      min-width:0;
+      padding:9px 10px;
+    }
+    #secao-setores .acesso-card-info-item:nth-child(even){border-left:1px solid #e6ebe4;}
+    #secao-setores .acesso-card-info-item:nth-child(n+3){border-top:1px solid #e6ebe4;}
+    #secao-setores .acesso-card-info-item small{
+      display:block;
+      margin-bottom:3px;
+      color:#839087;
+      font-size:8px;
+      font-weight:900;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+    #secao-setores .acesso-card-info-item strong{
+      display:block;
+      color:#44594a;
+      font-size:11px;
+      line-height:1.32;
+      font-weight:750;
+      overflow-wrap:anywhere;
+    }
+    #secao-setores .acesso-card-info-item.contato strong{
+      font-variant-numeric:tabular-nums;
+    }
+
+    #secao-setores .acesso-card-acoes{
+      display:grid!important;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px!important;
+      margin-top:10px!important;
+    }
+    #secao-setores .acesso-acao-secundaria,
+    #secao-setores .acesso-acao-perigo{
+      min-height:40px!important;
+      padding:8px 9px!important;
+      border-radius:11px!important;
+      font-size:8.7px!important;
+      line-height:1.2;
+      letter-spacing:.055em!important;
+    }
+    #secao-setores .acesso-card-governanca{
+      margin-top:10px;
+      min-height:36px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:#f4f8f1;
+      color:#60745a;
+      font-size:9px;
+      font-weight:850;
+      letter-spacing:.055em;
+      text-transform:uppercase;
+    }
+    #secao-setores .acesso-card-governanca .icone-svg{
+      width:15px;height:15px;flex:0 0 15px;
+    }
+
+    @media(max-width:520px){
+      #secao-setores .acesso-painel-cabecalho,
+      #secao-setores .acesso-lista-cabecalho{
+        padding-bottom:15px!important;
+        margin-bottom:15px!important;
+      }
+      #secao-setores .acesso-resultado{
+        grid-template-columns:minmax(0,1fr) 112px!important;
+      }
+      #secao-setores .acesso-resultado-contexto{
+        max-width:112px;
+      }
+      #secao-setores .acesso-policial-selecionado{
+        grid-template-columns:minmax(0,1fr) auto!important;
+      }
+      #secao-setores .acesso-card-topo{
+        grid-template-columns:minmax(0,1fr) auto!important;
+      }
+      #secao-setores .acesso-card-info{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      }
+    }
+    @media(max-width:350px){
+      #secao-setores .acesso-grade-cadastro{
+        grid-template-columns:1fr!important;
+      }
+      #secao-setores .acesso-grade-cadastro .campo.acesso-campo-largo{
+        grid-column:auto!important;
+      }
+      #secao-setores .acesso-resultado{
+        grid-template-columns:1fr!important;
+      }
+      #secao-setores .acesso-resultado-contexto{
+        max-width:none;justify-content:flex-start;
+      }
+      #secao-setores .acesso-card-acoes{
+        grid-template-columns:1fr!important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -12523,11 +12898,11 @@
                   <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" autocomplete="off" maxlength="8"></div>
                   <div class="campo"><label for="postoSetorAdmin">Posto / Graduação</label><select id="postoSetorAdmin"><option value="">SELECIONE</option><option>SOLDADO</option><option>CABO</option><option>3º SARGENTO</option><option>2º SARGENTO</option><option>1º SARGENTO</option><option>SUBTENENTE</option><option>ASPIRANTE</option><option>2º TENENTE</option><option>1º TENENTE</option><option>CAPITÃO</option><option>MAJOR</option><option value="TENENTE-CORONEL">TEN.-CORONEL</option><option>CORONEL</option></select></div>
                 </div>
-                <div class="grade-2 acesso-grade-cadastro">
+                <div class="grade-2 acesso-grade-cadastro acesso-grade-identidade">
                   <div id="campoNumeralSetorAdmin" class="campo oculto"><label for="numeralSetorAdmin">Numeral</label><input id="numeralSetorAdmin" inputmode="numeric" autocomplete="off"></div>
                   <div id="campoNomeGuerraSetorAdmin" class="campo"><label for="nomeGuerraSetorAdmin">Nome de guerra</label><input id="nomeGuerraSetorAdmin" autocomplete="off" maxlength="80"></div>
+                  <div id="campoWhatsappSetorAdmin" class="campo"><label for="whatsappSetorAdmin">Contato / WhatsApp</label><input id="whatsappSetorAdmin" inputmode="tel" autocomplete="tel" placeholder="(85) 99999-9999"></div>
                 </div>
-                <div class="campo"><label for="whatsappSetorAdmin">Contato / WhatsApp</label><input id="whatsappSetorAdmin" inputmode="tel" autocomplete="tel" placeholder="(85) 99999-9999"></div>
               </div>
 
               <div id="configuracaoAcessoSetorAdmin" class="acesso-configuracao oculto">
@@ -13386,6 +13761,25 @@
         return limpa.slice(0,3) + '.' + limpa.slice(3,6) + '-' + limpa.slice(6,7) + '-' + limpa.slice(7,8);
       }
       return original;
+    }
+
+    function formatarContatoUi(valor) {
+      const numeros = somenteNumeros(valor).slice(0, 11);
+      if (!numeros) return 'Não informado';
+      if (numeros.length === 11) return '(' + numeros.slice(0,2) + ') ' + numeros.slice(2,7) + '-' + numeros.slice(7);
+      if (numeros.length === 10) return '(' + numeros.slice(0,2) + ') ' + numeros.slice(2,6) + '-' + numeros.slice(6);
+      return String(valor || '').trim() || 'Não informado';
+    }
+
+    function rotuloStatusCadastroUi(valor) {
+      const bruto = String(valor || '').trim();
+      if (!bruto) return 'Não informado';
+      const normal = bruto.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+      if (normal.includes('PRE') && normal.includes('CADASTRO')) return 'Pré-cadastro';
+      if (normal.includes('CONFIRM')) return 'Confirmado';
+      if (normal.includes('BLOQUE')) return 'Bloqueado';
+      if (normal.includes('REPROV')) return 'Reprovado';
+      return bruto.toLowerCase().replace(/(^|\s)\S/g, function(c){ return c.toUpperCase(); });
     }
 
     function identificacaoPolicialExibicao(policial) {
@@ -16823,6 +17217,7 @@
       const posto = $('postoSetorAdmin');
       const campo = $('campoNumeralSetorAdmin');
       const nome = $('campoNomeGuerraSetorAdmin');
+      const whatsapp = $('campoWhatsappSetorAdmin');
       const numeral = $('numeralSetorAdmin');
       if (!posto || !campo || !numeral) return;
       const usa = postoUsaNumeral(posto.value);
@@ -16831,6 +17226,7 @@
       numeral.disabled = !usa;
       if (!usa) numeral.value='';
       if (nome) nome.classList.toggle('acesso-coluna-direita', usa);
+      if (whatsapp) whatsapp.classList.toggle('acesso-campo-largo', usa);
     }
 
     function mostrarCadastroExternoSetorAdmin(termo) {
@@ -16852,16 +17248,22 @@
       $('resultadosSetorAdmin').innerHTML = '';
       const fora19 = policial.vinculo === 'FORA_19_BPM';
       $('configuracaoAcessoSetorAdmin').classList.toggle('oculto', fora19);
-      const vinculoClasse = fora19 ? 'bloqueado' : (policial.vinculo === 'ACESSO_19_BPM' ? 'externo' : '');
+      const identificacao = escaparHtml(policial.identificacao || policial.nomeGuerra || policial.nomeCompleto || 'POLICIAL');
+      const matricula = escaparHtml(formatarMatriculaFuncional(policial.matricula));
+      const vinculo = escaparHtml(policial.vinculoRotulo || 'Cadastro localizado');
+      const setorAtual = policial.setorAtualRotulo ? escaparHtml(policial.setorAtualRotulo) : '';
       $('policialSelecionadoSetorAdmin').innerHTML = `
         <div class="acesso-selecionado-info">
           <small>${fora19 ? 'VÍNCULO ENCERRADO' : 'POLICIAL SELECIONADO'}</small>
-          <strong>${htmlIdentificacaoPolicial(policial)}</strong>
-          <span>${escaparHtml(policial.vinculoRotulo || '')}${policial.setorAtualRotulo ? ' • acesso atual: '+escaparHtml(policial.setorAtualRotulo) : ''}</span>
+          <strong>${identificacao}</strong>
+          <span class="acesso-selecionado-mf">M.F.: ${matricula}</span>
+          <div class="acesso-selecionado-meta">
+            <span class="${fora19 ? 'bloqueado' : ''}">${vinculo}</span>
+            ${setorAtual ? `<span>Acesso atual: ${setorAtual}</span>` : ''}
+          </div>
           ${fora19 ? '<span>O SIGA não permite novo acesso enquanto o cadastro estiver marcado como fora do 19º BPM.</span>' : ''}
         </div>
-        <div style="display:grid;justify-items:end;gap:4px">
-          <span class="acesso-chip ${vinculoClasse}">${escaparHtml(policial.vinculoRotulo || 'CADASTRADO')}</span>
+        <div class="acesso-selecionado-acoes">
           <button type="button" class="acesso-trocar" onclick="trocarPolicialSetorAdmin()">TROCAR</button>
         </div>`;
       $('policialSelecionadoSetorAdmin').classList.remove('oculto');
@@ -16908,9 +17310,20 @@
           resultados.innerHTML = policiais.map(p => {
             const externo = p.vinculo === 'ACESSO_19_BPM';
             const fora19 = p.vinculo === 'FORA_19_BPM';
+            const identificacao = escaparHtml(p.identificacao || p.nomeGuerra || p.nomeCompleto || 'POLICIAL');
+            const matricula = escaparHtml(formatarMatriculaFuncional(p.matricula));
+            const contexto = escaparHtml(p.setorAtualRotulo || (fora19 ? 'Vínculo institucional encerrado' : 'Sem acesso administrativo ativo'));
+            const vinculo = escaparHtml(p.vinculoRotulo || 'Cadastro localizado');
             return `<button class="acesso-resultado" type="button" onclick="selecionarPolicialSetorAdmin('${escaparAtributo(p.id)}')">
-              <span class="acesso-resultado-identidade"><strong>${htmlIdentificacaoPolicial(p)}</strong><span>${escaparHtml(p.setorAtualRotulo || (fora19 ? 'Vínculo institucional encerrado' : 'Sem acesso administrativo ativo'))}</span></span>
-              <span class="acesso-resultado-meta"><span class="acesso-chip ${fora19?'bloqueado':(externo?'externo':'')}">${escaparHtml(p.vinculoRotulo || '')}</span><small>${escaparHtml(p.statusCadastro || '')}</small></span>
+              <span class="acesso-resultado-identidade">
+                <strong>${identificacao}</strong>
+                <span class="acesso-resultado-mf">M.F.: ${matricula}</span>
+                <span class="acesso-resultado-setor">${contexto}</span>
+              </span>
+              <span class="acesso-resultado-contexto">
+                <span class="acesso-resultado-vinculo ${fora19?'bloqueado':(externo?'externo':'')}">${vinculo}</span>
+                <svg class="icone-svg acesso-resultado-seta" aria-hidden="true"><use href="#icone-seta-direita"></use></svg>
+              </span>
             </button>`;
           }).join('');
         } else {
@@ -16980,18 +17393,37 @@
         const externo=a.vinculo==='ACESSO_19_BPM';
         const fora19=a.vinculo==='FORA_19_BPM';
         const rotulo=a.setorRotulo||rotuloSetorAdminCliente(setorNormalizado)||setorNormalizado;
-        const statusTag=inativo?'<span class="acesso-chip">REVOGADO</span>':'<span class="acesso-chip">ATIVO</span>';
-        const vinculoTag=`<span class="acesso-chip ${fora19?'bloqueado':(externo?'externo':'')}">${escaparHtml(a.vinculoRotulo||'')}</span>`;
-        const acoes=!inativo?`<div class="acesso-card-acoes">
-          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="removerSetorAdmin('${escaparAtributo(a.matricula)}')">RETIRAR ACESSO ADMIN.</button>`:'<span class="acesso-chip">GERENCIADO PELO COMANDO</span>'}
+        const statusRotulo=fora19?'VÍNCULO ENCERRADO':(inativo?'REVOGADO':'ATIVO');
+        const statusClasse=fora19?'bloqueado':(inativo?'revogado':'');
+        const vinculoRotulo=a.vinculoRotulo||(externo?'Acesso vinculado ao 19º BPM':'Efetivo da 3ª Cia');
+        const cadastroRotulo=rotuloStatusCadastroUi(a.usuarioStatus);
+        const contato=formatarContatoUi(a.whatsapp);
+        const acoes=!inativo&&!fora19?`<div class="acesso-card-acoes">
+          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="removerSetorAdmin('${escaparAtributo(a.matricula)}')">RETIRAR ACESSO</button>`:''}
           ${podeRevogar?`<button class="acesso-acao-perigo" type="button" onclick="bloquearTransferidoSetorAdmin('${escaparAtributo(a.matricula)}')">FORA DO 19º BPM</button>`:''}
         </div>`:'';
+        const governanca=!podeRevogar&&!inativo?`<div class="acesso-card-governanca"><svg class="icone-svg" aria-hidden="true"><use href="#icone-info"></use></svg><span>Gerenciado pelo Comando</span></div>`:'';
         return `<article class="acesso-card ${inativo?'inativo':''}">
           <div class="acesso-card-topo">
-            <div class="acesso-card-identidade"><strong>${escaparHtml(a.responsavel||'RESPONSÁVEL')}</strong><span>M.F.: ${escaparHtml(formatarMatriculaFuncional(a.matricula))}</span></div>
-            <div class="acesso-card-tags"><span class="acesso-chip">${escaparHtml(rotulo)}</span>${vinculoTag}${statusTag}</div>
+            <div class="acesso-card-identidade">
+              <strong>${escaparHtml(a.responsavel||'RESPONSÁVEL')}</strong>
+              <span>M.F.: ${escaparHtml(formatarMatriculaFuncional(a.matricula))}</span>
+            </div>
+            <span class="acesso-card-status ${statusClasse}">${statusRotulo}</span>
           </div>
-          <div class="acesso-card-detalhe"><span>${escaparHtml(a.whatsapp||'Contato não informado')}</span>${a.usuarioStatus?`<span>Cadastro: ${escaparHtml(a.usuarioStatus)}</span>`:''}</div>
+
+          <div class="acesso-card-perfil">
+            <div><small>Setor / Tipo de acesso</small><strong>${escaparHtml(rotulo)}</strong></div>
+            <svg class="icone-svg" aria-hidden="true"><use href="#icone-setores"></use></svg>
+          </div>
+
+          <div class="acesso-card-info">
+            <div class="acesso-card-info-item"><small>Vínculo</small><strong>${escaparHtml(vinculoRotulo)}</strong></div>
+            <div class="acesso-card-info-item"><small>Cadastro</small><strong>${escaparHtml(cadastroRotulo)}</strong></div>
+            <div class="acesso-card-info-item contato"><small>Contato / WhatsApp</small><strong>${escaparHtml(contato)}</strong></div>
+            <div class="acesso-card-info-item"><small>Gestão</small><strong>${acessoProtegido?'Comando':'Setorial'}</strong></div>
+          </div>
+          ${governanca}
           ${acoes}
         </article>`;
       }).join(''):'<div class="vazio">Nenhum acesso administrativo cadastrado.</div>';
