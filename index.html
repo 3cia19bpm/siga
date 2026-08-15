@@ -11024,6 +11024,164 @@
       }
     }
 
+  
+
+    /* =========================================================
+       SIGA 5.9.0 — DESIGN SYSTEM PREMIUM R9.0
+       Controles compactos + governança de acessos
+       ========================================================= */
+    :root{
+      --siga-control-h:50px;
+      --ds-control-h:50px;
+    }
+
+    #appShell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="file"]):not([type="range"]),
+    #appShell select,
+    #telaAcesso input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="file"]):not([type="range"]),
+    #telaAcesso select{
+      box-sizing:border-box!important;
+      height:var(--siga-control-h)!important;
+      min-height:var(--siga-control-h)!important;
+      max-height:var(--siga-control-h)!important;
+      padding-top:0!important;
+      padding-bottom:0!important;
+      line-height:1.2!important;
+    }
+    #appShell input[type="date"]{
+      display:block!important;
+      line-height:var(--siga-control-h)!important;
+    }
+    #appShell input[type="date"]::-webkit-date-and-time-value{
+      min-height:var(--siga-control-h)!important;
+      height:var(--siga-control-h)!important;
+      display:flex!important;
+      align-items:center!important;
+      text-align:left!important;
+    }
+    #appShell input[type="date"]::-webkit-datetime-edit{
+      display:flex!important;
+      align-items:center!important;
+      min-height:var(--siga-control-h)!important;
+      padding:0!important;
+    }
+
+    #secao-setores .acesso-governanca-painel,
+    #secao-setores .acesso-lista-painel{
+      border-top:4px solid #d9b83f;
+      overflow:hidden;
+    }
+    #secao-setores .acesso-painel-cabecalho,
+    #secao-setores .acesso-lista-cabecalho{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      padding-bottom:18px;
+      margin-bottom:18px;
+      border-bottom:1px solid #dfe7dc;
+    }
+    #secao-setores .acesso-painel-cabecalho h3,
+    #secao-setores .acesso-lista-cabecalho h3{
+      margin:4px 0 5px;
+      color:#173624;
+      font-size:25px;
+      line-height:1.08;
+      letter-spacing:-.035em;
+    }
+    #secao-setores .acesso-painel-cabecalho p,
+    #secao-setores .acesso-lista-cabecalho p{
+      margin:0;
+      color:#78877d;
+      font-size:13.5px;
+      line-height:1.5;
+    }
+    #secao-setores .acesso-formulario{display:grid;gap:16px;}
+    #secao-setores .acesso-pesquisa-campo{margin:0;}
+    #secao-setores .campo-com-icone{position:relative;}
+    #secao-setores .campo-com-icone > .icone-svg{
+      position:absolute;left:15px;top:50%;transform:translateY(-50%);
+      width:20px;height:20px;color:#789080;pointer-events:none;z-index:1;
+    }
+    #secao-setores .campo-com-icone input{padding-left:46px!important;}
+    #secao-setores .acesso-pesquisa-resultados{display:grid;gap:8px;margin-top:-4px;}
+    #secao-setores .acesso-resultado{
+      width:100%;border:1px solid #d8e2d5;background:#fff;border-radius:16px;
+      padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+      text-align:left;color:#173624;box-shadow:0 8px 22px rgba(28,52,37,.045);
+    }
+    #secao-setores .acesso-resultado:active{transform:scale(.995);}
+    #secao-setores .acesso-resultado-identidade{min-width:0;display:grid;gap:4px;}
+    #secao-setores .acesso-resultado-identidade strong{font-size:14px;line-height:1.3;}
+    #secao-setores .acesso-resultado-identidade span{font-size:11.5px;color:#7c897f;line-height:1.35;}
+    #secao-setores .acesso-resultado-meta{display:grid;justify-items:end;gap:5px;flex:0 0 auto;}
+    #secao-setores .acesso-chip{
+      display:inline-flex;align-items:center;min-height:25px;padding:4px 9px;border-radius:999px;
+      background:#eef4ea;border:1px solid #d6e2d1;color:#4e6744;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+    }
+    #secao-setores .acesso-chip.externo{background:#fff8de;border-color:#eadb9d;color:#866710;}
+    #secao-setores .acesso-chip.bloqueado{background:#fff1ef;border-color:#e8c4bf;color:#9a453c;}
+    #secao-setores .acesso-policial-selecionado{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      border:1px solid #cbd9c7;border-left:5px solid #527346;border-radius:18px;
+      background:linear-gradient(135deg,#f7fbf5 0%,#eef5eb 100%);padding:14px 15px;
+    }
+    #secao-setores .acesso-selecionado-info{display:grid;gap:4px;min-width:0;}
+    #secao-setores .acesso-selecionado-info small{font-size:9.5px;font-weight:900;letter-spacing:.12em;color:#718071;}
+    #secao-setores .acesso-selecionado-info strong{font-size:15px;line-height:1.3;color:#173624;}
+    #secao-setores .acesso-selecionado-info span{font-size:12px;color:#728177;}
+    #secao-setores .acesso-trocar{
+      border:0;background:transparent;color:#4f6847;font-size:10px;font-weight:900;letter-spacing:.09em;padding:8px;flex:0 0 auto;
+    }
+    #secao-setores .acesso-cadastro-externo{
+      border:1px solid #e2dcc2;background:#fffcf1;border-radius:18px;padding:16px;display:grid;gap:14px;
+    }
+    #secao-setores .acesso-subcabecalho h4{margin:3px 0 5px;font-size:18px;color:#263c2c;}
+    #secao-setores .acesso-subcabecalho p{margin:0;color:#7a8376;font-size:12.5px;line-height:1.5;}
+    #secao-setores .acesso-grade-cadastro{gap:12px;align-items:end;}
+    #secao-setores .acesso-configuracao{display:grid;gap:14px;}
+    #secao-setores .acesso-regra-card{
+      display:flex;gap:11px;align-items:flex-start;border:1px solid #dce6d8;background:#f7faf5;border-radius:16px;padding:12px 13px;
+    }
+    #secao-setores .acesso-regra-icone{width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#e6efe2;display:grid;place-items:center;color:#506d49;}
+    #secao-setores .acesso-regra-icone .icone-svg{width:17px;height:17px;}
+    #secao-setores .acesso-regra-card strong{display:block;font-size:12px;color:#29432f;margin-bottom:2px;}
+    #secao-setores .acesso-regra-card p{margin:0;font-size:11.5px;color:#77867b;line-height:1.45;}
+    #secao-setores .acesso-salvar-botao{width:100%;}
+    #secao-setores .acesso-legenda{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#748276;white-space:nowrap;}
+    #secao-setores .acesso-legenda i{width:8px;height:8px;border-radius:50%;background:#d9b83f;}
+    #secao-setores .acesso-lista-cartoes{display:grid;gap:10px;}
+    #secao-setores .acesso-card{
+      position:relative;border:1px solid #d8e2d5;border-radius:18px;background:#fff;padding:14px 15px 14px 18px;overflow:hidden;
+    }
+    #secao-setores .acesso-card::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:#d9b83f;}
+    #secao-setores .acesso-card.inativo{opacity:.72;background:#fafafa;}
+    #secao-setores .acesso-card.inativo::before{background:#a7b0a8;}
+    #secao-setores .acesso-card-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+    #secao-setores .acesso-card-identidade{display:grid;gap:4px;min-width:0;}
+    #secao-setores .acesso-card-identidade strong{font-size:14px;line-height:1.35;color:#173624;}
+    #secao-setores .acesso-card-identidade span{font-size:11.5px;color:#7a887e;}
+    #secao-setores .acesso-card-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;}
+    #secao-setores .acesso-card-detalhe{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:11px;padding-top:11px;border-top:1px solid #e5ebe3;color:#66766b;font-size:11.5px;}
+    #secao-setores .acesso-card-acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+    #secao-setores .acesso-acao-secundaria,
+    #secao-setores .acesso-acao-perigo{
+      min-height:38px;border-radius:12px;padding:8px 12px;background:#fff;font-size:9.5px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
+    }
+    #secao-setores .acesso-acao-secundaria{border:1px solid #cdd9ca;color:#506847;}
+    #secao-setores .acesso-acao-perigo{border:1px solid #e5c9c5;color:#9a453c;background:#fffafa;}
+
+    @media(max-width:520px){
+      :root{--siga-control-h:48px;--ds-control-h:48px;}
+      #secao-setores .acesso-painel-cabecalho,
+      #secao-setores .acesso-lista-cabecalho{display:block;}
+      #secao-setores .acesso-lista-cabecalho .acesso-legenda{margin-top:9px;}
+      #secao-setores .acesso-painel-cabecalho h3,
+      #secao-setores .acesso-lista-cabecalho h3{font-size:22px;}
+      #secao-setores .acesso-policial-selecionado{align-items:flex-start;}
+      #secao-setores .acesso-card-topo{display:grid;}
+      #secao-setores .acesso-card-tags{justify-content:flex-start;}
+    }
+
   </style>
 </head>
 <body>
@@ -12321,19 +12479,98 @@
         </section>
 
         <section id="secao-setores" class="secao">
-          <div class="cabecalho-secao"><div><span class="pagina-kicker">CONTROLE DE ACESSOS</span><h2>Setores e acessos</h2><p>Comandante, Subcomandante e Gestão • P1 administram os acessos. Os perfis de comando e de Gestão • P1 somente podem ser concedidos pelo Comando.</p></div></div>
-          <form id="formSetorAdmin" class="painel">
-            <div class="grade-2">
-              <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" required></div>
-              <div class="campo"><label for="setorSetorAdmin">Setor</label><select id="setorSetorAdmin"><option value="COMANDANTE" data-somente-comando>Comandante</option><option value="SUBCOMANDANTE" data-somente-comando>Subcomandante</option><option value="P1_GESTAO" data-somente-comando>Gestão • P1</option><option value="P1_PESSOAL">Pessoal • P1</option><option value="P2_INTELIGENCIA">Inteligência • P2</option><option value="P3_PLANEJAMENTO">Planej. • P3</option><option value="P4_LOGISTICA">Logística • P4</option><option value="GUARDA">Guarda</option></select></div>
+          <div class="cabecalho-secao">
+            <div>
+              <span class="pagina-kicker">CONTROLE DE ACESSOS</span>
+              <h2>Setores e acessos</h2>
+              <p>Conceda acesso por policial, setor ou função de comando. O efetivo da 3ª Cia permanece separado dos usuários administrativos vinculados ao 19º BPM.</p>
             </div>
-            <div class="grade-2">
-              <div class="campo"><label for="nomeSetorAdmin">Nome (somente se não estiver cadastrado)</label><input id="nomeSetorAdmin"></div>
-              <div class="campo"><label for="whatsappSetorAdmin">WhatsApp</label><input id="whatsappSetorAdmin" inputmode="tel"></div>
+          </div>
+
+          <div class="painel acesso-governanca-painel">
+            <div class="acesso-painel-cabecalho">
+              <div>
+                <span class="rotulo-suave">NOVO OU ALTERAÇÃO DE ACESSO</span>
+                <h3>Localizar responsável</h3>
+                <p>Pesquise por matrícula, numeral ou nome de guerra. Ao selecionar um policial já cadastrado, o SIGA reaproveita os dados funcionais existentes.</p>
+              </div>
             </div>
-            <button class="botao" type="submit">SALVAR ACESSO ADMINISTRATIVO</button>
-          </form>
-          <div id="listaSetoresAdmin" class="lista-cartoes"></div>
+
+            <form id="formSetorAdmin" class="acesso-formulario" autocomplete="off">
+              <div class="campo acesso-pesquisa-campo">
+                <label for="pesquisaSetorAdmin">Pesquisar policial</label>
+                <div class="campo-com-icone">
+                  <svg class="icone-svg" aria-hidden="true"><use href="#icone-pesquisa"></use></svg>
+                  <input id="pesquisaSetorAdmin" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra" aria-controls="resultadosSetorAdmin">
+                </div>
+                <small class="ajuda">A busca é automática a partir de dois caracteres.</small>
+              </div>
+
+              <div id="resultadosSetorAdmin" class="pesquisa-resultados acesso-pesquisa-resultados" aria-live="polite"></div>
+
+              <div id="policialSelecionadoSetorAdmin" class="acesso-policial-selecionado oculto" aria-live="polite"></div>
+
+              <div id="cadastroExternoSetorAdmin" class="acesso-cadastro-externo oculto">
+                <div class="acesso-subcabecalho">
+                  <div>
+                    <span class="rotulo-suave">NÃO LOCALIZADO NO SIGA</span>
+                    <h4>Pré-cadastro de acesso do 19º BPM</h4>
+                    <p>Use este fluxo somente para quem pertence ao 19º BPM e precisa acessar o SIGA sem integrar o efetivo operacional da 3ª Cia.</p>
+                  </div>
+                </div>
+
+                <div class="grade-2 acesso-grade-cadastro">
+                  <div class="campo"><label for="matriculaSetorAdmin">Matrícula funcional</label><input id="matriculaSetorAdmin" inputmode="numeric" autocomplete="off" maxlength="8"></div>
+                  <div class="campo"><label for="postoSetorAdmin">Posto / Graduação</label><select id="postoSetorAdmin"><option value="">SELECIONE</option><option>SOLDADO</option><option>CABO</option><option>3º SARGENTO</option><option>2º SARGENTO</option><option>1º SARGENTO</option><option>SUBTENENTE</option><option>ASPIRANTE</option><option>2º TENENTE</option><option>1º TENENTE</option><option>CAPITÃO</option><option>MAJOR</option><option value="TENENTE-CORONEL">TEN.-CORONEL</option><option>CORONEL</option></select></div>
+                </div>
+                <div class="grade-2 acesso-grade-cadastro">
+                  <div id="campoNumeralSetorAdmin" class="campo oculto"><label for="numeralSetorAdmin">Numeral</label><input id="numeralSetorAdmin" inputmode="numeric" autocomplete="off"></div>
+                  <div id="campoNomeGuerraSetorAdmin" class="campo"><label for="nomeGuerraSetorAdmin">Nome de guerra</label><input id="nomeGuerraSetorAdmin" autocomplete="off" maxlength="80"></div>
+                </div>
+                <div class="campo"><label for="whatsappSetorAdmin">Contato / WhatsApp</label><input id="whatsappSetorAdmin" inputmode="tel" autocomplete="tel" placeholder="(85) 99999-9999"></div>
+              </div>
+
+              <div id="configuracaoAcessoSetorAdmin" class="acesso-configuracao oculto">
+                <div class="campo">
+                  <label for="setorSetorAdmin">Setor / Tipo de acesso</label>
+                  <select id="setorSetorAdmin">
+                    <option value="">SELECIONE</option>
+                    <optgroup label="Comando">
+                      <option value="CMT_19_BPM" data-somente-comando>Cmt. do 19º BPM</option>
+                      <option value="SCMT_19_BPM" data-somente-comando>S Cmt. do 19º BPM</option>
+                      <option value="CMT_3_CIA" data-somente-comando>Cmt. da 3ª Cia</option>
+                      <option value="SCMT_3_CIA" data-somente-comando>S Cmt. da 3ª Cia</option>
+                    </optgroup>
+                    <optgroup label="Estado-Maior / Seções">
+                      <option value="P1_GESTAO" data-somente-comando>Gestão • P1</option>
+                      <option value="P1_PESSOAL">Pessoal • P1</option>
+                      <option value="P2_INTELIGENCIA">Inteligência • P2</option>
+                      <option value="P3_PLANEJAMENTO">Planejamento • P3</option>
+                      <option value="P4_LOGISTICA">Logística • P4</option>
+                    </optgroup>
+                    <optgroup label="Serviço">
+                      <option value="GUARDA">Corpo da Guarda</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="acesso-regra-card">
+                  <span class="acesso-regra-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-info"></use></svg></span>
+                  <div><strong>Governança do vínculo</strong><p>Retirar um acesso administrativo não remove o policial do efetivo. Para transferência para fora do 19º BPM, use a ação de bloqueio total no cartão do acesso.</p></div>
+                </div>
+
+                <button class="botao acesso-salvar-botao" type="submit">SALVAR ACESSO</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="painel acesso-lista-painel">
+            <div class="acesso-lista-cabecalho">
+              <div><span class="rotulo-suave">GOVERNANÇA</span><h3>Acessos cadastrados</h3><p>Registros ativos e revogados permanecem visíveis para conferência e auditoria.</p></div>
+              <span class="acesso-legenda"><i></i> vínculo rastreável</span>
+            </div>
+            <div id="listaSetoresAdmin" class="lista-cartoes acesso-lista-cartoes"></div>
+          </div>
         </section>
 
         <section id="secao-consultas" class="secao">
@@ -12700,6 +12937,8 @@
       moduloEditor: '',
       checklistsAdmin: [],
       administradoresSetores: [],
+      setorPolicialSelecionado: null,
+      timerPesquisaSetorAdmin: null,
       p1Policiais: [],
       calendario: null,
       calendarioAno: null,
@@ -12709,7 +12948,7 @@
       promessasCalendario: {},
       versaoCacheCalendario: 0,
       filtrosTimer: {},
-      requisicoes: { permutas: 0, checklist: 0, consulta: 0, efetivo: 0, alertas: 0, limite: 0, relatorioPoliciais: 0 },
+      requisicoes: { permutas: 0, checklist: 0, consulta: 0, efetivo: 0, alertas: 0, limite: 0, relatorioPoliciais: 0, setores: 0 },
       alertasP4: [],
       relatorioGuarda: null,
       modelosRelatorioGuarda: null,
@@ -13436,19 +13675,25 @@
     }
 
     const ROTULOS_SETORES_ADMIN = Object.freeze({
-      COMANDANTE:'Comandante',
-      SUBCOMANDANTE:'Subcomandante',
+      CMT_19_BPM:'Cmt. do 19º BPM',
+      SCMT_19_BPM:'S Cmt. do 19º BPM',
+      CMT_3_CIA:'Cmt. da 3ª Cia',
+      SCMT_3_CIA:'S Cmt. da 3ª Cia',
       P1_GESTAO:'Gestão • P1',
       P1_PESSOAL:'Pessoal • P1',
       P2_INTELIGENCIA:'Inteligência • P2',
-      P3_PLANEJAMENTO:'Planej. • P3',
+      P3_PLANEJAMENTO:'Planejamento • P3',
       P4_LOGISTICA:'Logística • P4',
-      GUARDA:'Guarda'
+      GUARDA:'Corpo da Guarda'
     });
 
     function normalizarSetorAdminCliente(valor) {
       const setor = String(valor || '').trim().toUpperCase().replace(/\s+/g,'_');
-      return ({COMANDO:'COMANDANTE',P1_ACESSOS:'P1_GESTAO',P1:'P1_PESSOAL',P4:'P4_LOGISTICA'})[setor] || setor;
+      return ({
+        COMANDO:'CMT_3_CIA',COMANDANTE:'CMT_3_CIA',SUBCOMANDANTE:'SCMT_3_CIA',
+        CMT_BPM:'CMT_19_BPM',SCMT_BPM:'SCMT_19_BPM',CMT_CIA:'CMT_3_CIA',SCMT_CIA:'SCMT_3_CIA',
+        P1_ACESSOS:'P1_GESTAO',P1:'P1_PESSOAL',P4:'P4_LOGISTICA'
+      })[setor] || setor;
     }
 
     function rotuloSetorAdminCliente(valor) {
@@ -13457,15 +13702,16 @@
 
     function grupoSetorAdminCliente(valor) {
       const setor = normalizarSetorAdminCliente(valor);
-      if (['COMANDANTE','SUBCOMANDANTE'].includes(setor)) return 'COMANDO';
+      if (['CMT_19_BPM','SCMT_19_BPM','CMT_3_CIA','SCMT_3_CIA'].includes(setor)) return 'COMANDO';
       if (['P1_GESTAO','P1_PESSOAL'].includes(setor)) return 'P1';
       if (setor === 'P4_LOGISTICA') return 'P4';
       return setor;
     }
 
     function ehComandoAdminCliente(valor) {
-      return ['COMANDANTE','SUBCOMANDANTE'].includes(normalizarSetorAdminCliente(valor));
+      return ['CMT_19_BPM','SCMT_19_BPM','CMT_3_CIA','SCMT_3_CIA'].includes(normalizarSetorAdminCliente(valor));
     }
+
 
     async function configurarAplicacao() {
       const usuario = estado.usuario;
@@ -16073,16 +16319,15 @@
         if (!$('painelNotificacoes').classList.contains('oculto')) fecharPainelNotificacoes();
       });
 
-      $('formSetorAdmin').addEventListener('submit', async e => {
-        e.preventDefault();
-        try {
-          const r = await api('adminSalvarSetor', estado.token, {
-            matricula: $('matriculaSetorAdmin').value, setor: $('setorSetorAdmin').value,
-            responsavel: $('nomeSetorAdmin').value, whatsapp: $('whatsappSetorAdmin').value
-          });
-          estado.administradoresSetores = (r.dados && r.dados.administradores) || [];
-          e.target.reset(); toast(r.mensagem); renderizarSetoresAdmin();
-        } catch (err) { tratarErro(err); }
+      $('formSetorAdmin').addEventListener('submit', salvarAcessoSetorAdmin);
+      $('pesquisaSetorAdmin').addEventListener('input', agendarPesquisaSetorAdmin);
+      $('postoSetorAdmin').addEventListener('change', atualizarNumeralSetorAdmin);
+      $('matriculaSetorAdmin').addEventListener('input', e => e.target.value = somenteNumeros(e.target.value).slice(0,8));
+      $('whatsappSetorAdmin').addEventListener('input', e => {
+        const n = somenteNumeros(e.target.value).slice(0,11);
+        if (n.length <= 2) e.target.value = n;
+        else if (n.length <= 7) e.target.value = '('+n.slice(0,2)+') '+n.slice(2);
+        else e.target.value = '('+n.slice(0,2)+') '+n.slice(2,7)+'-'+n.slice(7,11);
       });
       $('matriculaInicial').addEventListener('input', e => e.target.value = somenteNumeros(e.target.value).slice(0, 8));
       $('matriculaLogin').addEventListener('input', e => {
@@ -16558,21 +16803,220 @@
     async function salvarFormularioAdmin(){sincronizarEditorFormulario();mostrarCarregando('Salvando formulário...');try{const r=await api('adminSalvarFormulario',estado.token,estado.moduloEditor,estado.formularioEditor);estado.formularioEditor=r.formulario;ocultarCarregando();toast(r.mensagem);renderizarEditorFormulario();}catch(e){tratarErro(e);}}
     async function restaurarFormularioAdmin(){if(!confirm('Restaurar o formulário padrão? As personalizações atuais serão substituídas.'))return;mostrarCarregando('Restaurando...');try{const r=await api('adminRestaurarFormularioPadrao',estado.token,estado.moduloEditor);estado.formularioEditor=r.formulario;ocultarCarregando();toast('Formulário padrão restaurado.');renderizarEditorFormulario();}catch(e){tratarErro(e);}}
 
-    async function carregarSetoresAdmin(){if(!temPermissaoAdmin('SETORES'))return;try{const r=await api('adminListarSetores',estado.token);estado.administradoresSetores=r.administradores||[];renderizarSetoresAdmin();}catch(e){tratarErro(e);}}
+    function limparFluxoSetorAdmin(manterPesquisa) {
+      estado.setorPolicialSelecionado = null;
+      if (!manterPesquisa && $('pesquisaSetorAdmin')) $('pesquisaSetorAdmin').value = '';
+      if ($('resultadosSetorAdmin')) $('resultadosSetorAdmin').innerHTML = '';
+      if ($('policialSelecionadoSetorAdmin')) {
+        $('policialSelecionadoSetorAdmin').innerHTML = '';
+        $('policialSelecionadoSetorAdmin').classList.add('oculto');
+      }
+      if ($('cadastroExternoSetorAdmin')) $('cadastroExternoSetorAdmin').classList.add('oculto');
+      if ($('configuracaoAcessoSetorAdmin')) $('configuracaoAcessoSetorAdmin').classList.add('oculto');
+      ['matriculaSetorAdmin','numeralSetorAdmin','nomeGuerraSetorAdmin','whatsappSetorAdmin'].forEach(id => { if ($(id)) $(id).value=''; });
+      if ($('postoSetorAdmin')) $('postoSetorAdmin').value='';
+      if ($('setorSetorAdmin')) $('setorSetorAdmin').value='';
+      atualizarNumeralSetorAdmin();
+    }
+
+    function atualizarNumeralSetorAdmin() {
+      const posto = $('postoSetorAdmin');
+      const campo = $('campoNumeralSetorAdmin');
+      const nome = $('campoNomeGuerraSetorAdmin');
+      const numeral = $('numeralSetorAdmin');
+      if (!posto || !campo || !numeral) return;
+      const usa = postoUsaNumeral(posto.value);
+      campo.classList.toggle('oculto', !usa);
+      numeral.required = usa;
+      numeral.disabled = !usa;
+      if (!usa) numeral.value='';
+      if (nome) nome.classList.toggle('acesso-coluna-direita', usa);
+    }
+
+    function mostrarCadastroExternoSetorAdmin(termo) {
+      estado.setorPolicialSelecionado = null;
+      $('policialSelecionadoSetorAdmin').classList.add('oculto');
+      $('cadastroExternoSetorAdmin').classList.remove('oculto');
+      $('configuracaoAcessoSetorAdmin').classList.remove('oculto');
+      const numeros = somenteNumeros(termo || '');
+      if (numeros.length >= 7 && numeros.length <= 8) $('matriculaSetorAdmin').value = numeros;
+      atualizarNumeralSetorAdmin();
+    }
+
+    function selecionarPolicialSetorAdmin(id) {
+      const lista = estado.policiaisAcessoSetor || [];
+      const policial = lista.find(p => String(p.id) === String(id));
+      if (!policial) return;
+      estado.setorPolicialSelecionado = policial;
+      $('cadastroExternoSetorAdmin').classList.add('oculto');
+      $('resultadosSetorAdmin').innerHTML = '';
+      const fora19 = policial.vinculo === 'FORA_19_BPM';
+      $('configuracaoAcessoSetorAdmin').classList.toggle('oculto', fora19);
+      const vinculoClasse = fora19 ? 'bloqueado' : (policial.vinculo === 'ACESSO_19_BPM' ? 'externo' : '');
+      $('policialSelecionadoSetorAdmin').innerHTML = `
+        <div class="acesso-selecionado-info">
+          <small>${fora19 ? 'VÍNCULO ENCERRADO' : 'POLICIAL SELECIONADO'}</small>
+          <strong>${htmlIdentificacaoPolicial(policial)}</strong>
+          <span>${escaparHtml(policial.vinculoRotulo || '')}${policial.setorAtualRotulo ? ' • acesso atual: '+escaparHtml(policial.setorAtualRotulo) : ''}</span>
+          ${fora19 ? '<span>O SIGA não permite novo acesso enquanto o cadastro estiver marcado como fora do 19º BPM.</span>' : ''}
+        </div>
+        <div style="display:grid;justify-items:end;gap:4px">
+          <span class="acesso-chip ${vinculoClasse}">${escaparHtml(policial.vinculoRotulo || 'CADASTRADO')}</span>
+          <button type="button" class="acesso-trocar" onclick="trocarPolicialSetorAdmin()">TROCAR</button>
+        </div>`;
+      $('policialSelecionadoSetorAdmin').classList.remove('oculto');
+      if (!fora19 && policial.setorAtual && $('setorSetorAdmin').querySelector(`option[value="${CSS.escape(policial.setorAtual)}"]`)) {
+        $('setorSetorAdmin').value = policial.setorAtual;
+      } else {
+        $('setorSetorAdmin').value = '';
+      }
+    }
+
+    function trocarPolicialSetorAdmin() {
+      limparFluxoSetorAdmin(true);
+      const campo = $('pesquisaSetorAdmin');
+      if (campo) { campo.focus(); agendarPesquisaSetorAdmin(); }
+    }
+
+    function agendarPesquisaSetorAdmin() {
+      clearTimeout(estado.timerPesquisaSetorAdmin);
+      estado.timerPesquisaSetorAdmin = setTimeout(() => pesquisarPoliciaisSetorAdmin(true), 230);
+    }
+
+    async function pesquisarPoliciaisSetorAdmin(silencioso) {
+      const campo = $('pesquisaSetorAdmin');
+      const termo = String(campo && campo.value || '').trim();
+      const resultados = $('resultadosSetorAdmin');
+      estado.setorPolicialSelecionado = null;
+      $('policialSelecionadoSetorAdmin').classList.add('oculto');
+      $('cadastroExternoSetorAdmin').classList.add('oculto');
+      $('configuracaoAcessoSetorAdmin').classList.add('oculto');
+      if (termo.length < 2) {
+        estado.requisicoes.setores++;
+        resultados.innerHTML = termo ? '<div class="vazio compacto">Digite mais um caractere para pesquisar.</div>' : '';
+        return;
+      }
+      const requisicao = ++estado.requisicoes.setores;
+      if (!silencioso) mostrarCarregando('Localizando policial...');
+      else marcarListaAtualizando('resultadosSetorAdmin', true);
+      try {
+        const resposta = await api('adminBuscarPoliciaisAcesso', estado.token, termo);
+        if (requisicao !== estado.requisicoes.setores) return;
+        const policiais = resposta.policiais || [];
+        estado.policiaisAcessoSetor = policiais;
+        if (policiais.length) {
+          resultados.innerHTML = policiais.map(p => {
+            const externo = p.vinculo === 'ACESSO_19_BPM';
+            const fora19 = p.vinculo === 'FORA_19_BPM';
+            return `<button class="acesso-resultado" type="button" onclick="selecionarPolicialSetorAdmin('${escaparAtributo(p.id)}')">
+              <span class="acesso-resultado-identidade"><strong>${htmlIdentificacaoPolicial(p)}</strong><span>${escaparHtml(p.setorAtualRotulo || (fora19 ? 'Vínculo institucional encerrado' : 'Sem acesso administrativo ativo'))}</span></span>
+              <span class="acesso-resultado-meta"><span class="acesso-chip ${fora19?'bloqueado':(externo?'externo':'')}">${escaparHtml(p.vinculoRotulo || '')}</span><small>${escaparHtml(p.statusCadastro || '')}</small></span>
+            </button>`;
+          }).join('');
+        } else {
+          resultados.innerHTML = '<div class="vazio compacto">Nenhum cadastro localizado. O pré-cadastro de acesso foi habilitado abaixo.</div>';
+          mostrarCadastroExternoSetorAdmin(termo);
+        }
+      } catch (erro) {
+        if (requisicao === estado.requisicoes.setores) tratarErro(erro);
+      } finally {
+        if (requisicao === estado.requisicoes.setores) marcarListaAtualizando('resultadosSetorAdmin', false);
+        if (!silencioso) ocultarCarregando();
+      }
+    }
+
+    async function salvarAcessoSetorAdmin(e) {
+      e.preventDefault();
+      const selecionado = estado.setorPolicialSelecionado;
+      const externoVisivel = !$('cadastroExternoSetorAdmin').classList.contains('oculto');
+      const setor = $('setorSetorAdmin').value;
+      if (!setor) { $('setorSetorAdmin').focus(); return toast('Selecione o setor / tipo de acesso.','aviso'); }
+      const dados = { setor };
+      if (selecionado) {
+        if (selecionado.vinculo === 'FORA_19_BPM') return toast('Este cadastro está marcado como fora do 19º BPM e não pode receber novo acesso.','aviso');
+        dados.usuarioId = selecionado.id;
+        dados.matricula = selecionado.matricula;
+      } else if (externoVisivel) {
+        dados.matricula = $('matriculaSetorAdmin').value;
+        dados.postoGraduacao = $('postoSetorAdmin').value;
+        dados.numeral = $('numeralSetorAdmin').value;
+        dados.nomeGuerra = $('nomeGuerraSetorAdmin').value;
+        dados.whatsapp = $('whatsappSetorAdmin').value;
+        if (!$('matriculaSetorAdmin').value || !$('postoSetorAdmin').value || !$('nomeGuerraSetorAdmin').value || !$('whatsappSetorAdmin').value) {
+          return toast('Preencha os dados obrigatórios do pré-cadastro.','aviso');
+        }
+        if (postoUsaNumeral($('postoSetorAdmin').value) && !$('numeralSetorAdmin').value) return toast('Informe o numeral.','aviso');
+      } else {
+        return toast('Pesquise e selecione um policial ou utilize o pré-cadastro do 19º BPM.','aviso');
+      }
+      mostrarCarregando('Salvando acesso...');
+      try {
+        const r = await api('adminSalvarSetor', estado.token, dados);
+        estado.administradoresSetores = (r.dados && r.dados.administradores) || [];
+        limparFluxoSetorAdmin(false);
+        toast(r.mensagem);
+        renderizarSetoresAdmin();
+      } catch (err) { tratarErro(err); }
+      finally { ocultarCarregando(); }
+    }
+
+    async function carregarSetoresAdmin(){
+      if(!temPermissaoAdmin('SETORES'))return;
+      try{
+        const r=await api('adminListarSetores',estado.token);
+        estado.administradoresSetores=r.administradores||[];
+        renderizarSetoresAdmin();
+      }catch(e){tratarErro(e);}
+    }
+
     function renderizarSetoresAdmin(){
       const l=estado.administradoresSetores||[];
       const operadorComando=ehComandoAdminCliente(estado.usuario?.setorAdmin);
       $('listaSetoresAdmin').innerHTML=l.length?l.map(a=>{
         const setorNormalizado=normalizarSetorAdminCliente(a.setor);
-        const acessoProtegido=['COMANDANTE','SUBCOMANDANTE','P1_GESTAO'].includes(setorNormalizado);
-        const acao=operadorComando||!acessoProtegido
-          ? `<button class="botao botao-perigo botao-pequeno" type="button" onclick="removerSetorAdmin('${escaparHtml(a.matricula)}')">REMOVER ACESSO</button>`
-          : '<span class="status CONFIRMADO">GERENCIADO PELO COMANDO</span>';
+        const acessoProtegido=ehComandoAdminCliente(setorNormalizado)||setorNormalizado==='P1_GESTAO';
+        const podeRevogar=operadorComando||!acessoProtegido;
+        const inativo=String(a.status||'ATIVO').toUpperCase()==='INATIVO';
+        const externo=a.vinculo==='ACESSO_19_BPM';
+        const fora19=a.vinculo==='FORA_19_BPM';
         const rotulo=a.setorRotulo||rotuloSetorAdminCliente(setorNormalizado)||setorNormalizado;
-        return `<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(a.responsavel)}</h4><p>M.F. ${escaparHtml(a.matricula)}</p></div><span class="status CONFIRMADO">${escaparHtml(rotulo)}</span></div>${acao}</article>`;
-      }).join(''):'<div class="vazio">Nenhum administrador cadastrado.</div>';
+        const statusTag=inativo?'<span class="acesso-chip">REVOGADO</span>':'<span class="acesso-chip">ATIVO</span>';
+        const vinculoTag=`<span class="acesso-chip ${fora19?'bloqueado':(externo?'externo':'')}">${escaparHtml(a.vinculoRotulo||'')}</span>`;
+        const acoes=!inativo?`<div class="acesso-card-acoes">
+          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="removerSetorAdmin('${escaparAtributo(a.matricula)}')">RETIRAR ACESSO ADMIN.</button>`:'<span class="acesso-chip">GERENCIADO PELO COMANDO</span>'}
+          ${podeRevogar?`<button class="acesso-acao-perigo" type="button" onclick="bloquearTransferidoSetorAdmin('${escaparAtributo(a.matricula)}')">FORA DO 19º BPM</button>`:''}
+        </div>`:'';
+        return `<article class="acesso-card ${inativo?'inativo':''}">
+          <div class="acesso-card-topo">
+            <div class="acesso-card-identidade"><strong>${escaparHtml(a.responsavel||'RESPONSÁVEL')}</strong><span>M.F.: ${escaparHtml(formatarMatriculaFuncional(a.matricula))}</span></div>
+            <div class="acesso-card-tags"><span class="acesso-chip">${escaparHtml(rotulo)}</span>${vinculoTag}${statusTag}</div>
+          </div>
+          <div class="acesso-card-detalhe"><span>${escaparHtml(a.whatsapp||'Contato não informado')}</span>${a.usuarioStatus?`<span>Cadastro: ${escaparHtml(a.usuarioStatus)}</span>`:''}</div>
+          ${acoes}
+        </article>`;
+      }).join(''):'<div class="vazio">Nenhum acesso administrativo cadastrado.</div>';
     }
-    async function removerSetorAdmin(m){if(!confirm('Remover este acesso administrativo?'))return;try{const r=await api('adminRemoverSetor',estado.token,m);estado.administradoresSetores=r.dados.administradores||[];toast(r.mensagem);renderizarSetoresAdmin();}catch(e){tratarErro(e);}}
+
+    async function removerSetorAdmin(m){
+      if(!confirm('Retirar somente o acesso administrativo? O cadastro do policial e o histórico serão preservados.'))return;
+      mostrarCarregando('Revogando acesso...');
+      try{
+        const r=await api('adminRemoverSetor',estado.token,m);
+        estado.administradoresSetores=r.dados.administradores||[];
+        toast(r.mensagem);renderizarSetoresAdmin();
+      }catch(e){tratarErro(e);}finally{ocultarCarregando();}
+    }
+
+    async function bloquearTransferidoSetorAdmin(m){
+      if(!confirm('Confirma que este policial foi transferido para FORA DO 19º BPM? Esta ação bloqueará o login e retirará o vínculo do efetivo da 3ª Cia.'))return;
+      mostrarCarregando('Encerrando vínculo...');
+      try{
+        const r=await api('adminBloquearTransferido19Bpm',estado.token,m);
+        estado.administradoresSetores=r.dados.administradores||[];
+        toast(r.mensagem);renderizarSetoresAdmin();
+      }catch(e){tratarErro(e);}finally{ocultarCarregando();}
+    }
+
 
     document.addEventListener('DOMContentLoaded', async () => {
       configurarEventos();
@@ -17676,6 +18120,8 @@
         : 'Ocultar detalhes do limite mensal');
       botao.title = expandido ? 'Ver detalhes do cálculo' : 'Ocultar detalhes do cálculo';
     }
+
+    /* SIGA v5.9.0 — PREMIUM R9.0: padronização global de controles e governança de acessos. */
 </script>
 </body>
 </html>
