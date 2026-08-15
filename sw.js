@@ -1,8 +1,10 @@
-const CACHE_SIGA = 'siga-github-v5.9.0';
+const CACHE_SIGA = 'siga-github-v5.9.1-governanca';
+const SCRIPT_GOVERNANCA = './governanca-acesso.js?v=20260815-1';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
   './manifest.json',
+  './governanca-acesso.js',
   './apple-touch-icon.png',
   './icon-192.png',
   './icon-512.png'
@@ -30,6 +32,44 @@ self.addEventListener('activate', function(evento) {
   self.clients.claim();
 });
 
+function injetarGovernanca(resposta) {
+  if (!resposta) return Promise.resolve(resposta);
+  const tipo = resposta.headers.get('content-type') || '';
+  if (!tipo.includes('text/html')) return Promise.resolve(resposta);
+
+  return resposta.text().then(function(html) {
+    if (html.includes('governanca-acesso.js')) {
+      return new Response(html, {
+        status: resposta.status,
+        statusText: resposta.statusText,
+        headers: resposta.headers
+      });
+    }
+
+    const tag = '<script src="' + SCRIPT_GOVERNANCA + '"></script>';
+    const htmlProtegido = html.includes('</body>')
+      ? html.replace('</body>', tag + '\n</body>')
+      : html + '\n' + tag;
+
+    return new Response(htmlProtegido, {
+      status: resposta.status,
+      statusText: resposta.statusText,
+      headers: resposta.headers
+    });
+  });
+}
+
+function respostaOffline(evento) {
+  return caches.match(evento.request).then(function(resposta) {
+    if (resposta) {
+      return evento.request.mode === 'navigate' ? injetarGovernanca(resposta) : resposta;
+    }
+    return caches.match('./index.html').then(function(index) {
+      return evento.request.mode === 'navigate' ? injetarGovernanca(index) : index;
+    });
+  });
+}
+
 self.addEventListener('fetch', function(evento) {
   if (evento.request.method !== 'GET') return;
   const url = new URL(evento.request.url);
@@ -44,12 +84,10 @@ self.addEventListener('fetch', function(evento) {
         caches.open(CACHE_SIGA).then(function(cache) {
           cache.put(evento.request, copia);
         });
-        return resposta;
+        return evento.request.mode === 'navigate' ? injetarGovernanca(resposta) : resposta;
       })
       .catch(function() {
-        return caches.match(evento.request).then(function(resposta) {
-          return resposta || caches.match('./index.html');
-        });
+        return respostaOffline(evento);
       })
   );
 });
