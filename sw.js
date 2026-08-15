@@ -1,5 +1,5 @@
 const CACHE_SIGA = 'siga-github-v5.9.1-governanca';
-const SCRIPT_GOVERNANCA = './governanca-acesso.js?v=20260815-1';
+const SCRIPT_GOVERNANCA = './governanca-acesso.js';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
@@ -38,23 +38,19 @@ function injetarGovernanca(resposta) {
   if (!tipo.includes('text/html')) return Promise.resolve(resposta);
 
   return resposta.text().then(function(html) {
-    if (html.includes('governanca-acesso.js')) {
-      return new Response(html, {
-        status: resposta.status,
-        statusText: resposta.statusText,
-        headers: resposta.headers
-      });
-    }
-
     const tag = '<script src="' + SCRIPT_GOVERNANCA + '"></script>';
-    const htmlProtegido = html.includes('</body>')
-      ? html.replace('</body>', tag + '\n</body>')
-      : html + '\n' + tag;
+    const htmlProtegido = html.includes('governanca-acesso.js')
+      ? html
+      : (html.includes('</body>') ? html.replace('</body>', tag + '\n</body>') : html + '\n' + tag);
+
+    const cabecalhos = new Headers(resposta.headers);
+    cabecalhos.delete('content-length');
+    cabecalhos.delete('content-encoding');
 
     return new Response(htmlProtegido, {
       status: resposta.status,
       statusText: resposta.statusText,
-      headers: resposta.headers
+      headers: cabecalhos
     });
   });
 }
@@ -64,8 +60,9 @@ function respostaOffline(evento) {
     if (resposta) {
       return evento.request.mode === 'navigate' ? injetarGovernanca(resposta) : resposta;
     }
+    if (evento.request.mode !== 'navigate') return Response.error();
     return caches.match('./index.html').then(function(index) {
-      return evento.request.mode === 'navigate' ? injetarGovernanca(index) : index;
+      return injetarGovernanca(index);
     });
   });
 }
