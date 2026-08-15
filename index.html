@@ -10866,7 +10866,165 @@
       }
     }
 
-</style>
+
+    /* =======================================================
+       SIGA v5.9.0 — PREMIUM R8.9
+       Ficha funcional semântica + editor de formulários ultrafino
+       ======================================================= */
+
+    /* Perfil/Consultas: linhas funcionais determinísticas em qualquer largura. */
+    #secao-perfil #fichaPerfil .perfil-dado-linha,
+    #secao-consultas #dadosFichaConsulta .perfil-dado-linha{
+      grid-column:1/-1!important;
+      border-right:0!important;
+    }
+    #secao-perfil #fichaPerfil .perfil-dado-meia,
+    #secao-consultas #dadosFichaConsulta .perfil-dado-meia{
+      grid-column:span 2!important;
+    }
+    #secao-perfil #fichaPerfil .perfil-col-direita,
+    #secao-consultas #dadosFichaConsulta .perfil-col-direita{
+      border-right:0!important;
+    }
+    #secao-perfil .perfil-grupo-controle .perfil-card-dado,
+    #secao-consultas .perfil-grupo-controle .perfil-card-dado{
+      min-height:66px!important;
+    }
+
+    /* Consultas: edição acompanha a mesma arquitetura da ficha de leitura. */
+    #secao-consultas .consulta-edicao-secao + .consulta-edicao-secao{
+      margin-top:15px;
+      padding-top:15px;
+      border-top:1px solid #dce5d8;
+    }
+    #secao-consultas .consulta-edicao-secao-titulo{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+      color:#263e2d;
+    }
+    #secao-consultas .consulta-edicao-secao-titulo span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:30px;
+      height:25px;
+      padding:0 8px;
+      border-radius:999px;
+      background:#e9f0e5;
+      color:#4a6345;
+      font-size:8px;
+      font-weight:950;
+      letter-spacing:.08em;
+    }
+    #secao-consultas .consulta-edicao-secao-titulo strong{
+      font-size:11.5px;
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+
+    /* Efetivo: a data-base é a única referência editável; elimina duplicação visual. */
+    #secao-efetivo .config-escala-acoes{
+      margin-bottom:0!important;
+    }
+
+    /* Editor: sequência vira metadado compacto, sem blocos numéricos laterais. */
+    #secao-formularios .editor-campo-cabecalho{
+      grid-template-columns:minmax(0,1fr) auto!important;
+      gap:12px!important;
+      align-items:center!important;
+      min-height:76px!important;
+      padding:14px 14px 14px 18px!important;
+    }
+    #secao-formularios .editor-campo-identidade{
+      min-width:0!important;
+    }
+    #secao-formularios .editor-campo-pretopo{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:7px;
+      margin-bottom:7px;
+    }
+    #secao-formularios .editor-campo-sequencia{
+      display:inline-flex;
+      align-items:center;
+      min-height:24px;
+      padding:4px 9px;
+      border:1px solid #d7e0d3;
+      border-radius:999px;
+      background:#edf3e9;
+      color:#4d6649;
+      font-size:8px;
+      font-weight:950;
+      line-height:1;
+      letter-spacing:.11em;
+      white-space:nowrap;
+    }
+    #secao-formularios .editor-campo-titulo-linha{
+      display:block!important;
+    }
+    #secao-formularios .editor-campo-titulo-linha h4{
+      font-size:16.5px!important;
+      line-height:1.24!important;
+    }
+    #secao-formularios .editor-campo-meta{
+      margin-top:6px!important;
+    }
+    #secao-formularios .editor-campo-expandir{
+      align-self:center!important;
+    }
+
+    @media(max-width:980px){
+      #secao-perfil #fichaPerfil .perfil-dado-meia,
+      #secao-consultas #dadosFichaConsulta .perfil-dado-meia{
+        grid-column:span 1!important;
+      }
+      #secao-perfil #fichaPerfil .perfil-dado-linha,
+      #secao-consultas #dadosFichaConsulta .perfil-dado-linha{
+        grid-column:1/-1!important;
+      }
+    }
+
+    @media(max-width:620px){
+      #secao-perfil #fichaPerfil .perfil-dado-meia,
+      #secao-consultas #dadosFichaConsulta .perfil-dado-meia{
+        grid-column:span 1!important;
+      }
+      #secao-perfil #fichaPerfil .perfil-dado-linha,
+      #secao-consultas #dadosFichaConsulta .perfil-dado-linha{
+        grid-column:1/-1!important;
+      }
+      #secao-formularios .editor-campo-cabecalho{
+        min-height:72px!important;
+        padding:13px 12px 13px 16px!important;
+        gap:9px!important;
+      }
+      #secao-formularios .editor-campo-pretopo{
+        gap:6px!important;
+        margin-bottom:6px!important;
+      }
+      #secao-formularios .editor-campo-sequencia{
+        min-height:22px!important;
+        padding:4px 8px!important;
+        font-size:7.5px!important;
+      }
+      #secao-formularios .editor-campo-titulo-linha h4{
+        font-size:15.5px!important;
+      }
+      #secao-formularios .editor-campo-expandir{
+        width:44px!important;
+        min-width:44px!important;
+        height:44px!important;
+        padding:0!important;
+      }
+      #secao-formularios .editor-campo-expandir span{
+        display:none!important;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -12222,42 +12380,51 @@
                 <button class="consulta-fechar-edicao" type="button" onclick="alternarEdicaoFichaConsulta(false)" aria-label="Fechar edição">×</button>
               </div>
 
-              <div class="consulta-edicao-grade">
-                <div class="campo consulta-campo-largo">
-                  <label for="consultaNomeCompleto">Nome completo</label>
-                  <input id="consultaNomeCompleto" autocomplete="name" required>
+              <div class="consulta-edicao-secao">
+                <div class="consulta-edicao-secao-titulo"><span>01</span><strong>Identificação e dados pessoais</strong></div>
+                <div class="consulta-edicao-grade">
+                  <div class="campo consulta-campo-largo">
+                    <label for="consultaNomeCompleto">Nome completo</label>
+                    <input id="consultaNomeCompleto" autocomplete="name" required>
+                  </div>
+                  <div class="campo">
+                    <label for="consultaDataNascimento">Data de nascimento</label>
+                    <input id="consultaDataNascimento" type="date">
+                  </div>
+                  <div class="campo">
+                    <label for="consultaContato">Contato / WhatsApp</label>
+                    <input id="consultaContato" type="tel" inputmode="tel" autocomplete="tel">
+                  </div>
+                  <div class="campo consulta-campo-largo">
+                    <label for="consultaEmail">E-mail</label>
+                    <input id="consultaEmail" type="email" autocomplete="email">
+                  </div>
                 </div>
-                <div class="campo">
-                  <label for="consultaMatricula">Matrícula funcional</label>
-                  <input id="consultaMatricula" readonly aria-readonly="true">
-                </div>
-                <div class="campo">
-                  <label for="consultaPostoGraduacao">Posto/graduação</label>
-                  <select id="consultaPostoGraduacao" onchange="atualizarNumeralEdicaoConsulta()" required></select>
-                </div>
-                <div id="campoConsultaNumeral" class="campo">
-                  <label for="consultaNumeral">Numeral</label>
-                  <input id="consultaNumeral" inputmode="numeric" autocomplete="off">
-                </div>
-                <div class="campo">
-                  <label for="consultaNomeGuerra">Nome de guerra</label>
-                  <input id="consultaNomeGuerra" autocomplete="off" required>
-                </div>
-                <div class="campo">
-                  <label for="consultaEmail">E-mail</label>
-                  <input id="consultaEmail" type="email" autocomplete="email">
-                </div>
-                <div class="campo">
-                  <label for="consultaContato">Contato / WhatsApp</label>
-                  <input id="consultaContato" type="tel" inputmode="tel" autocomplete="tel">
-                </div>
-                <div class="campo">
-                  <label for="consultaDataNascimento">Data de nascimento</label>
-                  <input id="consultaDataNascimento" type="date">
-                </div>
-                <div class="campo">
-                  <label for="consultaUltimaPromocao">Data da última promoção</label>
-                  <input id="consultaUltimaPromocao" type="date">
+              </div>
+
+              <div class="consulta-edicao-secao">
+                <div class="consulta-edicao-secao-titulo"><span>02</span><strong>Vínculo funcional</strong></div>
+                <div class="consulta-edicao-grade">
+                  <div class="campo">
+                    <label for="consultaMatricula">Matrícula funcional</label>
+                    <input id="consultaMatricula" readonly aria-readonly="true">
+                  </div>
+                  <div class="campo">
+                    <label for="consultaPostoGraduacao">Posto/graduação</label>
+                    <select id="consultaPostoGraduacao" onchange="atualizarNumeralEdicaoConsulta()" required></select>
+                  </div>
+                  <div id="campoConsultaNumeral" class="campo">
+                    <label for="consultaNumeral">Numeral</label>
+                    <input id="consultaNumeral" inputmode="numeric" autocomplete="off">
+                  </div>
+                  <div class="campo">
+                    <label for="consultaNomeGuerra">Nome de guerra</label>
+                    <input id="consultaNomeGuerra" autocomplete="off" required>
+                  </div>
+                  <div class="campo consulta-campo-largo">
+                    <label for="consultaUltimaPromocao">Data da última promoção</label>
+                    <input id="consultaUltimaPromocao" type="date">
+                  </div>
                 </div>
               </div>
 
@@ -12339,7 +12506,7 @@
               <div class="campo">
                 <label for="dataBaseEscala">Grade 1 — primeiro dia do ciclo</label>
                 <input id="dataBaseEscala" type="date">
-                <small class="ajuda">Referência atual: 10/08/2026.</small>
+                <small id="referenciaAtualEscala" class="ajuda">Referência atual: —</small>
               </div>
               <div class="aviso-inline config-escala-aviso">
                 <strong>Defasagem automática</strong>
@@ -12351,8 +12518,6 @@
             <div class="config-escala-acoes">
               <button class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin()">SALVAR DATA-BASE</button>
             </div>
-            <div class="config-escala-referencias-topo"><span class="rotulo-suave">REFERÊNCIAS CALCULADAS</span></div>
-            <div id="matrizReferenciasEscala" class="config-grades"></div>
           </div>
 
           <div class="painel painel-lista-efetivo">
@@ -12958,6 +13123,21 @@
 
     function formatarDataHora(valor) { return valor || '—'; }
 
+    function formatarDataHoraSemSegundos(valor) {
+      if (!valor) return '—';
+      const texto = String(valor).trim();
+      const br = texto.match(/^(\d{2}\/\d{2}\/\d{4})(?:\s+|T)(\d{2}:\d{2})(?::\d{2})?/);
+      if (br) return br[1] + ' ' + br[2];
+      const iso = texto.match(/^(\d{4})-(\d{2})-(\d{2})(?:T|\s)(\d{2}):(\d{2})(?::\d{2})?/);
+      if (iso) return iso[3] + '/' + iso[2] + '/' + iso[1] + ' ' + iso[4] + ':' + iso[5];
+      return texto.replace(/(\d{2}:\d{2}):\d{2}\b/, '$1');
+    }
+
+    function rotuloPostoGraduacaoUi(posto) {
+      const valor = String(posto || '').trim();
+      return valor.toUpperCase() === 'TENENTE-CORONEL' ? 'TEN.-CORONEL' : valor;
+    }
+
     function formatarMatriculaFuncional(valor) {
       if (valor === null || valor === undefined) return '—';
       const original = String(valor).trim().toUpperCase();
@@ -13074,7 +13254,7 @@
     }
 
     function montarIdentificacao(usuario) {
-      return [usuario.postoGraduacao, usuario.numeral, usuario.nomeGuerra || usuario.nomeCompleto]
+      return [rotuloPostoGraduacaoUi(usuario.postoGraduacao), usuario.numeral, usuario.nomeGuerra || usuario.nomeCompleto]
         .filter(Boolean).join(' ');
     }
 
@@ -15033,29 +15213,44 @@
         </section>`;
       };
 
-      const identificacao = grupo('01','Identificação','Quem é o policial no cadastro institucional.','perfil-grupo-identificacao',
-        dado('Nome completo',u.nomeCompleto,'perfil-dado-largo') +
-        dado('Identificação',montarIdentificacao(u),'perfil-dado-largo perfil-dado-destaque')
+      const identificacao = grupo(
+        '01',
+        'Identificação e dados pessoais',
+        'Identificação institucional, nascimento e canais de contato.',
+        'perfil-grupo-identificacao',
+        dado('Identificação',montarIdentificacao(u),'perfil-dado-linha perfil-dado-destaque') +
+        dado('Nome completo',u.nomeCompleto,'perfil-dado-linha') +
+        dado('Data de nascimento',formatarData(u.dataNascimento),'perfil-dado-meia perfil-col-esquerda') +
+        dado('Contato / WhatsApp',u.contato,'perfil-dado-meia perfil-col-direita') +
+        dado('E-mail',u.email,'perfil-dado-linha')
       );
 
-      const vinculo = grupo('02','Vínculo funcional','Dados administrativos, graduação, escala e unidade.','perfil-grupo-vinculo',
-        dado('Matrícula',formatarMatriculaFuncional(u.matricula),'') +
-        dado('Numeral',u.numeral || 'Não se aplica','') +
-        dado('Posto/graduação',u.postoGraduacao,'') +
-        dado('Grade',u.grade || 'Não definida','') +
-        dado('Regime',u.turnoFixo ? ('Fixo ' + u.turnoFixo) : 'Alternância A/B','perfil-dado-duplo') +
-        dado('Unidade',u.opmExibicao || u.opm,'perfil-dado-duplo') +
-        dado('Última promoção',formatarData(u.dataUltimaPromocao),'perfil-dado-duplo')
+      const vinculo = grupo(
+        '02',
+        'Vínculo funcional',
+        'Dados administrativos, graduação, escala e unidade.',
+        'perfil-grupo-vinculo',
+        dado('Matrícula',formatarMatriculaFuncional(u.matricula),'perfil-dado-meia perfil-col-esquerda') +
+        dado('Posto/graduação',rotuloPostoGraduacaoUi(u.postoGraduacao),'perfil-dado-meia perfil-col-direita') +
+        dado('Numeral',u.numeral || 'Não se aplica','perfil-dado-meia perfil-col-esquerda') +
+        dado('Nome de guerra',u.nomeGuerra,'perfil-dado-meia perfil-col-direita') +
+        dado('Regime',u.turnoFixo ? ('Fixo ' + u.turnoFixo) : 'Alternância A/B','perfil-dado-meia perfil-col-esquerda') +
+        dado('Grade',u.grade || 'Não definida','perfil-dado-meia perfil-col-direita') +
+        dado('Última promoção',formatarData(u.dataUltimaPromocao),'perfil-dado-meia perfil-col-esquerda') +
+        dado('Unidade',u.opmExibicao || u.opm,'perfil-dado-meia perfil-col-direita')
       );
 
-      const pessoais = grupo('03','Dados pessoais e contato','Informações pessoais mantidas na mesma ficha funcional.','perfil-grupo-pessoal',
-        dado('Data de nascimento',formatarData(u.dataNascimento),'') +
-        dado('Nome de guerra',u.nomeGuerra,'') +
-        dado('E-mail',u.email,'perfil-dado-duplo') +
-        dado('Contato / WhatsApp',u.contato,'perfil-dado-duplo')
+      const controle = grupo(
+        '03',
+        'Controle cadastral',
+        'Situação de acesso e rastreabilidade do cadastro.',
+        'perfil-grupo-controle',
+        dado('Status',u.statusCadastro || '—','perfil-dado-meia perfil-col-esquerda') +
+        dado('Criado em',formatarDataHoraSemSegundos(u.criadoEm),'perfil-dado-meia perfil-col-direita') +
+        dado('Último acesso',formatarDataHoraSemSegundos(u.ultimoAcesso),'perfil-dado-linha')
       );
 
-      return identificacao + vinculo + pessoais;
+      return identificacao + vinculo + controle;
     }
 
     function mudancasSolicitacaoPerfilHtml(s) {
@@ -15445,21 +15640,8 @@
       }
     }
 
-    function dadosControleConsultaHtml(u) {
-      const dado = function(rotulo, valor, classe) {
-        return `<div class="dado perfil-card-dado ${classe || ''}"><small>${escaparHtml(rotulo)}</small><strong>${escaparHtml(valor || '—')}</strong></div>`;
-      };
-      return `<section class="perfil-ficha-grupo perfil-grupo-controle">
-        <div class="perfil-ficha-grupo-topo">
-          <span class="perfil-ficha-grupo-indice" aria-hidden="true">04</span>
-          <div><strong>Controle cadastral</strong><small>Situação de acesso e rastreabilidade do cadastro.</small></div>
-        </div>
-        <div class="perfil-ficha-grade">
-          ${dado('Status',u.statusCadastro,'')}
-          ${dado('Criado em',u.criadoEm || '—','')}
-          ${dado('Último acesso',u.ultimoAcesso || '—','perfil-dado-duplo')}
-        </div>
-      </section>`;
+    function dadosControleConsultaHtml() {
+      return '';
     }
 
     function postosConsultaHtml(valorAtual) {
@@ -15558,7 +15740,7 @@
         $('areaHistoricoConsulta').classList.add('oculto');
         $('nomeFichaConsulta').textContent = montarIdentificacao(resposta.usuario);
         $('subtituloFichaConsulta').textContent = 'M.F.: ' + formatarMatriculaFuncional(resposta.usuario.matricula);
-        $('dadosFichaConsulta').innerHTML = dadosPerfilHtml(resposta.usuario) + dadosControleConsultaHtml(resposta.usuario);
+        $('dadosFichaConsulta').innerHTML = dadosPerfilHtml(resposta.usuario);
         const botaoEditar = $('botaoEditarFichaConsulta');
         if (botaoEditar) botaoEditar.classList.toggle('oculto', !temPermissaoAdmin('POLICIAIS'));
         renderizarHistoricoConsulta();
@@ -15774,19 +15956,8 @@
       try {
         const r = await api('adminObterConfiguracaoEscala', estado.token);
         $('dataBaseEscala').value = r.dataBase || '';
-
-        const op = r.referencias?.operacional || {};
-        const bikes = r.referencias?.bikes || {};
-
-        $('matrizReferenciasEscala').innerHTML = `
-          <div class="config-grade-card">
-            <strong>Viaturas / Guarda / Bases / AB</strong>
-            <small>G1 ${formatarData(op['1'])} • G2 ${formatarData(op['2'])} • G3 ${formatarData(op['3'])} • G4 ${formatarData(op['4'])}</small>
-          </div>
-          <div class="config-grade-card">
-            <strong>Bikes — turno fixo A/B</strong>
-            <small>G1 ${formatarData(bikes['1'])} • G2 ${formatarData(bikes['2'])} • G3 ${formatarData(bikes['3'])} • G4 ${formatarData(bikes['4'])}</small>
-          </div>`;
+        const referencia = $('referenciaAtualEscala');
+        if (referencia) referencia.textContent = 'Referência atual: ' + formatarData(r.dataBase || '') + '.';
       } catch (e) {
         painel.classList.add('oculto');
       }
@@ -16265,11 +16436,13 @@
         return `
         <article class="editor-campo-card ${c.sistema?'editor-campo-sistema':'editor-campo-personalizado'} ${c.obrigatorio?'editor-campo-obrigatorio':''}" data-editor-campo-id="${escaparAtributo(id)}" data-editor-busca="${escaparAtributo(busca)}">
           <div class="editor-campo-cabecalho">
-            <div class="editor-campo-indice" aria-hidden="true">${String(i+1).padStart(2,'0')}</div>
             <div class="editor-campo-identidade">
+              <div class="editor-campo-pretopo">
+                <span class="editor-campo-sequencia">CAMPO ${String(i+1).padStart(2,'0')}</span>
+                <span class="editor-status ${c.obrigatorio?'editor-status-obrigatorio':'editor-status-opcional'}">${c.obrigatorio?'OBRIGATÓRIO':'OPCIONAL'}</span>
+              </div>
               <div class="editor-campo-titulo-linha">
                 <h4>${escaparHtml(c.label||c.id)}</h4>
-                <span class="editor-status ${c.obrigatorio?'editor-status-obrigatorio':'editor-status-opcional'}">${c.obrigatorio?'OBRIGATÓRIO':'OPCIONAL'}</span>
               </div>
               <div class="editor-campo-meta">
                 <span>${escaparHtml(tipo)}</span>
