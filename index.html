@@ -10464,7 +10464,409 @@
     }
 
 
-  </style>
+  
+    /* =======================================================
+       SIGA 5.9.0 — PREMIUM R8.8
+       Consultas: ficha funcional padronizada e edição contextual.
+       Menu lateral: recuperação robusta de rolagem após retorno ao app.
+       ======================================================= */
+
+    #secao-consultas .consulta-ficha-painel{
+      position:relative;
+      margin-top:18px!important;
+      padding:20px!important;
+      border:1px solid #d9e1d6!important;
+      border-radius:26px!important;
+      background:#fff!important;
+      box-shadow:0 12px 30px rgba(24,42,28,.055)!important;
+      overflow:hidden!important;
+    }
+    #secao-consultas .consulta-ficha-painel::before{
+      content:'';
+      position:absolute;
+      left:0;right:0;top:0;
+      height:5px;
+      background:linear-gradient(90deg,#dcb83f 0%,#edd56c 34%,#688158 34%,#46643f 100%);
+      opacity:.9;
+    }
+    #secao-consultas .consulta-ficha-cabecalho{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      padding:5px 2px 18px;
+      border-bottom:1px solid #e3e8e0;
+      margin-bottom:18px;
+    }
+    #secao-consultas .consulta-ficha-identidade{
+      min-width:0;
+      flex:1 1 auto;
+    }
+    #secao-consultas .consulta-ficha-identidade .rotulo-suave{
+      display:block;
+      margin-bottom:6px;
+      color:#778476;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.16em;
+    }
+    #secao-consultas .consulta-ficha-identidade h3{
+      margin:0!important;
+      color:var(--ds-ink,#183021)!important;
+      font-size:clamp(22px,2.3vw,30px)!important;
+      font-weight:900!important;
+      letter-spacing:-.025em!important;
+      line-height:1.08!important;
+      overflow-wrap:anywhere;
+    }
+    #secao-consultas .consulta-ficha-identidade p{
+      margin:8px 0 0!important;
+      color:#7b887f!important;
+      font-size:12px!important;
+      line-height:1.35!important;
+      letter-spacing:.02em;
+    }
+    #secao-consultas .consulta-ficha-acoes{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    #secao-consultas .consulta-acao-icone{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      padding:0;
+      border:1px solid #d6dfd2;
+      border-radius:14px;
+      background:#f8faf6;
+      color:#24452f;
+      cursor:pointer;
+      transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease;
+    }
+    #secao-consultas .consulta-acao-icone svg{
+      width:21px;
+      height:21px;
+    }
+    #secao-consultas .consulta-acao-icone:hover,
+    #secao-consultas .consulta-acao-icone:focus-visible{
+      transform:translateY(-1px);
+      background:#eef4eb;
+      border-color:#b9c8b4;
+      box-shadow:0 8px 18px rgba(34,65,40,.08);
+      outline:none;
+    }
+
+    /* A mesma linguagem visual da ficha funcional do usuário é reaproveitada em Consultas. */
+    #secao-consultas #dadosFichaConsulta.perfil-completo{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:14px!important;
+      margin:0!important;
+    }
+    #secao-consultas .perfil-ficha-grupo{
+      padding:16px!important;
+      border:1px solid #dce3d9!important;
+      border-radius:21px!important;
+      background:#fafbf9!important;
+    }
+    #secao-consultas .perfil-ficha-grupo + .perfil-ficha-grupo{
+      margin-top:0!important;
+      padding-top:16px!important;
+      border-top:1px solid #dce3d9!important;
+    }
+    #secao-consultas .perfil-ficha-grupo-topo{
+      display:flex!important;
+      align-items:center!important;
+      gap:12px!important;
+      min-width:0!important;
+      margin-bottom:12px!important;
+    }
+    #secao-consultas .perfil-ficha-grupo-indice{
+      width:46px!important;
+      height:46px!important;
+      flex:0 0 46px!important;
+      display:grid!important;
+      place-items:center!important;
+      border-radius:15px!important;
+      background:linear-gradient(135deg,#536944,#314b31)!important;
+      color:#fff!important;
+      font-size:12px!important;
+      font-weight:900!important;
+      letter-spacing:.04em!important;
+      box-shadow:none!important;
+    }
+    #secao-consultas .perfil-ficha-grupo-topo>div{min-width:0!important;}
+    #secao-consultas .perfil-ficha-grupo-topo strong{
+      display:block!important;
+      color:var(--ds-ink,#183021)!important;
+      font-size:16px!important;
+      font-weight:900!important;
+      letter-spacing:-.02em!important;
+      line-height:1.2!important;
+    }
+    #secao-consultas .perfil-ficha-grupo-topo small{
+      display:block!important;
+      margin-top:3px!important;
+      color:var(--ds-muted,#7b887f)!important;
+      font-size:10.5px!important;
+      line-height:1.4!important;
+    }
+    #secao-consultas .perfil-ficha-grade{
+      display:grid!important;
+      grid-template-columns:repeat(4,minmax(0,1fr))!important;
+      gap:0!important;
+      overflow:hidden!important;
+      border:1px solid #dce3d9!important;
+      border-radius:17px!important;
+      background:#fff!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-card-dado{
+      min-width:0!important;
+      min-height:72px!important;
+      padding:13px 15px!important;
+      display:flex!important;
+      flex-direction:column!important;
+      justify-content:center!important;
+      border:0!important;
+      border-right:1px solid #edf0eb!important;
+      border-bottom:1px solid #edf0eb!important;
+      border-radius:0!important;
+      background:#fff!important;
+      box-shadow:none!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-card-dado:nth-child(4n){
+      border-right:0!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-card-dado small{
+      display:block!important;
+      margin:0 0 7px!important;
+      color:#748177!important;
+      font-size:9px!important;
+      line-height:1.25!important;
+      font-weight:900!important;
+      letter-spacing:.08em!important;
+      text-transform:uppercase!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-card-dado strong{
+      display:block!important;
+      color:var(--ds-ink,#183021)!important;
+      font-size:14px!important;
+      line-height:1.35!important;
+      font-weight:780!important;
+      overflow-wrap:anywhere!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-dado-largo,
+    #secao-consultas #dadosFichaConsulta .perfil-dado-duplo{
+      grid-column:span 2!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-dado-destaque{
+      position:relative!important;
+      padding-left:19px!important;
+      background:linear-gradient(135deg,#f4f8f1,#eef4eb)!important;
+    }
+    #secao-consultas #dadosFichaConsulta .perfil-dado-destaque::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:9px;
+      bottom:9px;
+      width:5px;
+      border-radius:0 999px 999px 0;
+      background:var(--ds-gold-500,#d6b33c);
+    }
+
+    /* Edição contextual sem misturar as regras de escala/grade. */
+    #secao-consultas .consulta-edicao-ficha{
+      margin:0 0 18px!important;
+      padding:18px!important;
+      border:1px solid #cad8c6!important;
+      border-radius:20px!important;
+      background:linear-gradient(180deg,#f7faf5 0%,#f1f6ee 100%)!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.85)!important;
+    }
+    #secao-consultas .consulta-edicao-topo{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      padding-bottom:14px;
+      margin-bottom:14px;
+      border-bottom:1px solid #dce5d8;
+    }
+    #secao-consultas .consulta-edicao-topo h4{
+      margin:4px 0 3px!important;
+      color:#1e3527!important;
+      font-size:18px!important;
+      line-height:1.18!important;
+    }
+    #secao-consultas .consulta-edicao-topo p{
+      margin:0!important;
+      max-width:720px;
+      color:#748176!important;
+      font-size:11px!important;
+      line-height:1.45!important;
+    }
+    #secao-consultas .consulta-fechar-edicao{
+      width:36px;height:36px;flex:0 0 36px;
+      display:grid;place-items:center;
+      padding:0;border:1px solid #d4ded0;border-radius:12px;
+      background:#fff;color:#53634e;
+      font-size:22px;line-height:1;cursor:pointer;
+    }
+    #secao-consultas .consulta-edicao-grade{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    #secao-consultas .consulta-edicao-grade .campo{
+      margin:0!important;
+    }
+    #secao-consultas .consulta-edicao-grade .consulta-campo-largo{
+      grid-column:1/-1;
+    }
+    #secao-consultas .consulta-edicao-grade input,
+    #secao-consultas .consulta-edicao-grade select{
+      min-height:52px!important;
+      height:52px!important;
+      font-size:14px!important;
+      background:#fff!important;
+    }
+    #secao-consultas .consulta-edicao-grade input[readonly]{
+      background:#eef2ec!important;
+      color:#69766c!important;
+    }
+    #secao-consultas .consulta-edicao-rodape{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      margin-top:16px;
+    }
+    #secao-consultas .consulta-edicao-rodape .botao{
+      min-width:170px;
+    }
+    #secao-consultas .consulta-historico-area{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid #e3e8e0;
+    }
+
+    /*
+     * Correção de retorno do PWA/app:
+     * toda navegação lateral volta a ser um scroll-container touch legítimo.
+     * Isso evita o estado travado observado no WebKit após background/foreground.
+     */
+    .sidebar .menu-lateral,
+    .sidebar.sidebar-guarda .menu-lateral{
+      min-height:0!important;
+      flex:1 1 auto!important;
+      overflow-x:hidden!important;
+      overflow-y:auto!important;
+      -webkit-overflow-scrolling:touch!important;
+      overscroll-behavior-y:contain!important;
+      touch-action:pan-y!important;
+      scrollbar-gutter:auto!important;
+    }
+    .sidebar.sidebar-guarda .menu-lateral::-webkit-scrollbar{
+      display:block!important;
+      width:4px!important;
+    }
+
+    @media(max-width:980px){
+      #secao-consultas .perfil-ficha-grade{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      }
+      #secao-consultas #dadosFichaConsulta .perfil-card-dado:nth-child(4n){
+        border-right:1px solid #edf0eb!important;
+      }
+      #secao-consultas #dadosFichaConsulta .perfil-card-dado:nth-child(2n){
+        border-right:0!important;
+      }
+      #secao-consultas #dadosFichaConsulta .perfil-dado-largo,
+      #secao-consultas #dadosFichaConsulta .perfil-dado-duplo{
+        grid-column:1/-1!important;
+        border-right:0!important;
+      }
+    }
+
+    @media(max-width:620px){
+      #secao-consultas .consulta-ficha-painel{
+        padding:14px!important;
+        border-radius:22px!important;
+      }
+      #secao-consultas .consulta-ficha-cabecalho{
+        gap:10px;
+        padding:5px 0 14px;
+        margin-bottom:14px;
+      }
+      #secao-consultas .consulta-ficha-identidade h3{
+        font-size:22px!important;
+      }
+      #secao-consultas .consulta-ficha-identidade p{
+        font-size:11.5px!important;
+      }
+      #secao-consultas .consulta-acao-icone{
+        width:40px;height:40px;border-radius:13px;
+      }
+      #secao-consultas .consulta-ficha-acoes{
+        gap:5px;
+      }
+      #secao-consultas .perfil-ficha-grupo{
+        padding:12px!important;
+        border-radius:19px!important;
+      }
+      #secao-consultas .perfil-ficha-grupo-topo{
+        margin-bottom:10px!important;
+      }
+      #secao-consultas .perfil-ficha-grupo-indice{
+        width:44px!important;height:44px!important;flex-basis:44px!important;border-radius:14px!important;
+      }
+      #secao-consultas .perfil-ficha-grupo-topo strong{
+        font-size:15px!important;
+      }
+      #secao-consultas .perfil-ficha-grade{
+        border-radius:15px!important;
+      }
+      #secao-consultas #dadosFichaConsulta .perfil-card-dado{
+        min-height:64px!important;
+        padding:10px 11px!important;
+      }
+      #secao-consultas #dadosFichaConsulta .perfil-card-dado small{
+        margin-bottom:5px!important;
+        font-size:8.5px!important;
+      }
+      #secao-consultas #dadosFichaConsulta .perfil-card-dado strong{
+        font-size:13px!important;
+      }
+      #secao-consultas .consulta-edicao-ficha{
+        padding:14px!important;
+        border-radius:18px!important;
+      }
+      #secao-consultas .consulta-edicao-grade{
+        grid-template-columns:1fr!important;
+        gap:10px!important;
+      }
+      #secao-consultas .consulta-edicao-grade .consulta-campo-largo{
+        grid-column:auto!important;
+      }
+      #secao-consultas .consulta-edicao-grade input,
+      #secao-consultas .consulta-edicao-grade select{
+        min-height:54px!important;
+        height:54px!important;
+        font-size:16px!important;
+      }
+      #secao-consultas .consulta-edicao-rodape{
+        display:grid;
+        grid-template-columns:1fr 1.25fr;
+      }
+      #secao-consultas .consulta-edicao-rodape .botao{
+        width:100%!important;
+        min-width:0!important;
+      }
+    }
+
+</style>
 </head>
 <body>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -11793,14 +12195,81 @@
             <div id="resultadosConsultaAdmin" class="pesquisa-resultados"></div>
           </div>
 
-          <div id="painelFichaConsulta" class="painel oculto">
-            <div class="cartao-topo">
-              <div><h3 id="nomeFichaConsulta" style="margin:0"></h3><p id="subtituloFichaConsulta"></p></div>
-              <button class="botao botao-secundario" type="button" onclick="alternarHistoricoConsulta()">HISTÓRICO</button>
+          <div id="painelFichaConsulta" class="painel oculto consulta-ficha-painel">
+            <div class="consulta-ficha-cabecalho">
+              <div class="consulta-ficha-identidade">
+                <span class="rotulo-suave">FICHA FUNCIONAL</span>
+                <h3 id="nomeFichaConsulta"></h3>
+                <p id="subtituloFichaConsulta"></p>
+              </div>
+              <div class="consulta-ficha-acoes" aria-label="Ações da ficha">
+                <button id="botaoEditarFichaConsulta" class="consulta-acao-icone oculto" type="button" onclick="alternarEdicaoFichaConsulta()" aria-label="Editar informações do policial" title="Editar informações">
+                  <svg class="icone-svg" aria-hidden="true"><use href="#icone-editar"></use></svg>
+                </button>
+                <button class="consulta-acao-icone" type="button" onclick="alternarHistoricoConsulta()" aria-label="Abrir histórico do policial" title="Histórico">
+                  <svg class="icone-svg" aria-hidden="true"><use href="#icone-relatorio"></use></svg>
+                </button>
+              </div>
             </div>
-            <div id="dadosFichaConsulta" class="perfil-completo"></div>
 
-            <div id="areaHistoricoConsulta" class="oculto">
+            <form id="formEdicaoFichaConsulta" class="consulta-edicao-ficha oculto" onsubmit="salvarEdicaoFichaConsulta(event)">
+              <div class="consulta-edicao-topo">
+                <div>
+                  <span class="rotulo-suave">EDIÇÃO CADASTRAL</span>
+                  <h4>Editar informações</h4>
+                  <p>Atualize os dados cadastrais do policial. Grade e regime permanecem administrados no módulo Efetivo.</p>
+                </div>
+                <button class="consulta-fechar-edicao" type="button" onclick="alternarEdicaoFichaConsulta(false)" aria-label="Fechar edição">×</button>
+              </div>
+
+              <div class="consulta-edicao-grade">
+                <div class="campo consulta-campo-largo">
+                  <label for="consultaNomeCompleto">Nome completo</label>
+                  <input id="consultaNomeCompleto" autocomplete="name" required>
+                </div>
+                <div class="campo">
+                  <label for="consultaMatricula">Matrícula funcional</label>
+                  <input id="consultaMatricula" readonly aria-readonly="true">
+                </div>
+                <div class="campo">
+                  <label for="consultaPostoGraduacao">Posto/graduação</label>
+                  <select id="consultaPostoGraduacao" onchange="atualizarNumeralEdicaoConsulta()" required></select>
+                </div>
+                <div id="campoConsultaNumeral" class="campo">
+                  <label for="consultaNumeral">Numeral</label>
+                  <input id="consultaNumeral" inputmode="numeric" autocomplete="off">
+                </div>
+                <div class="campo">
+                  <label for="consultaNomeGuerra">Nome de guerra</label>
+                  <input id="consultaNomeGuerra" autocomplete="off" required>
+                </div>
+                <div class="campo">
+                  <label for="consultaEmail">E-mail</label>
+                  <input id="consultaEmail" type="email" autocomplete="email">
+                </div>
+                <div class="campo">
+                  <label for="consultaContato">Contato / WhatsApp</label>
+                  <input id="consultaContato" type="tel" inputmode="tel" autocomplete="tel">
+                </div>
+                <div class="campo">
+                  <label for="consultaDataNascimento">Data de nascimento</label>
+                  <input id="consultaDataNascimento" type="date">
+                </div>
+                <div class="campo">
+                  <label for="consultaUltimaPromocao">Data da última promoção</label>
+                  <input id="consultaUltimaPromocao" type="date">
+                </div>
+              </div>
+
+              <div class="consulta-edicao-rodape">
+                <button class="botao botao-secundario" type="button" onclick="alternarEdicaoFichaConsulta(false)">CANCELAR</button>
+                <button class="botao" type="submit">SALVAR INFORMAÇÕES</button>
+              </div>
+            </form>
+
+            <div id="dadosFichaConsulta" class="perfil-completo consulta-ficha-dados"></div>
+
+            <div id="areaHistoricoConsulta" class="oculto consulta-historico-area">
               <div class="historico-cabecalho">
                 <h3 style="margin:0">Histórico</h3>
                 <button class="botao botao-pequeno" type="button" onclick="alternarFormularioHistorico()">NOVO REGISTRO</button>
@@ -13055,16 +13524,53 @@
       }
     }
 
+    function normalizarRolagemMenuLateral() {
+      const sidebar = $('sidebar');
+      if (!sidebar) return;
+      sidebar.querySelectorAll('.menu-lateral').forEach(function(menu) {
+        menu.style.setProperty('overflow-y','auto','important');
+        menu.style.setProperty('overflow-x','hidden','important');
+        menu.style.setProperty('touch-action','pan-y','important');
+        menu.style.setProperty('-webkit-overflow-scrolling','touch','important');
+        menu.style.setProperty('overscroll-behavior-y','contain','important');
+        menu.style.setProperty('min-height','0','important');
+        menu.style.setProperty('flex','1 1 auto','important');
+      });
+      /* força o WebKit a recalcular a área rolável após voltar do background */
+      void sidebar.offsetHeight;
+    }
+
+    function recuperarInteracaoAoRetomar() {
+      if (!$('appShell') || $('appShell').classList.contains('oculto')) return;
+      normalizarRolagemMenuLateral();
+      SIGA_VIEWPORT.atualizar();
+      requestAnimationFrame(function() {
+        normalizarRolagemMenuLateral();
+        requestAnimationFrame(normalizarRolagemMenuLateral);
+      });
+      window.setTimeout(normalizarRolagemMenuLateral, 120);
+      window.setTimeout(normalizarRolagemMenuLateral, 420);
+    }
+
     function abrirMenuMobile() {
       $('sidebar').classList.add('aberta');
       $('overlayMobile').classList.add('ativo');
+      normalizarRolagemMenuLateral();
       SIGA_VIEWPORT.atualizar();
+      requestAnimationFrame(normalizarRolagemMenuLateral);
     }
     function fecharMenuMobile() {
       $('sidebar').classList.remove('aberta');
       $('overlayMobile').classList.remove('ativo');
+      normalizarRolagemMenuLateral();
       SIGA_VIEWPORT.atualizar();
     }
+
+    window.addEventListener('pageshow', recuperarInteracaoAoRetomar);
+    window.addEventListener('focus', recuperarInteracaoAoRetomar);
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) recuperarInteracaoAoRetomar();
+    });
 
     async function sair() {
       const token = estado.token;
@@ -14939,7 +15445,108 @@
       }
     }
 
-    async function abrirFichaConsulta(usuarioId) {
+    function dadosControleConsultaHtml(u) {
+      const dado = function(rotulo, valor, classe) {
+        return `<div class="dado perfil-card-dado ${classe || ''}"><small>${escaparHtml(rotulo)}</small><strong>${escaparHtml(valor || '—')}</strong></div>`;
+      };
+      return `<section class="perfil-ficha-grupo perfil-grupo-controle">
+        <div class="perfil-ficha-grupo-topo">
+          <span class="perfil-ficha-grupo-indice" aria-hidden="true">04</span>
+          <div><strong>Controle cadastral</strong><small>Situação de acesso e rastreabilidade do cadastro.</small></div>
+        </div>
+        <div class="perfil-ficha-grade">
+          ${dado('Status',u.statusCadastro,'')}
+          ${dado('Criado em',u.criadoEm || '—','')}
+          ${dado('Último acesso',u.ultimoAcesso || '—','perfil-dado-duplo')}
+        </div>
+      </section>`;
+    }
+
+    function postosConsultaHtml(valorAtual) {
+      const postos = [
+        'SOLDADO','CABO','3º SARGENTO','2º SARGENTO','1º SARGENTO','SUBTENENTE',
+        'ASPIRANTE','2º TENENTE','1º TENENTE','CAPITÃO','MAJOR','TENENTE-CORONEL','CORONEL'
+      ];
+      return postos.map(function(posto) {
+        const rotulo = posto === 'TENENTE-CORONEL' ? 'TEN.-CORONEL' : posto;
+        return `<option value="${escaparAtributo(posto)}" ${posto === String(valorAtual || '').toUpperCase() ? 'selected' : ''}>${escaparHtml(rotulo)}</option>`;
+      }).join('');
+    }
+
+    function preencherEdicaoFichaConsulta() {
+      const u = estado.consultaAtual && estado.consultaAtual.usuario;
+      if (!u) return;
+      $('consultaNomeCompleto').value = u.nomeCompleto || '';
+      $('consultaMatricula').value = formatarMatriculaFuncional(u.matricula || '');
+      $('consultaPostoGraduacao').innerHTML = postosConsultaHtml(u.postoGraduacao || '');
+      $('consultaNumeral').value = u.numeral || '';
+      $('consultaNomeGuerra').value = u.nomeGuerra || '';
+      $('consultaEmail').value = u.email || '';
+      $('consultaContato').value = u.contato || '';
+      $('consultaDataNascimento').value = u.dataNascimento || '';
+      $('consultaUltimaPromocao').value = u.dataUltimaPromocao || '';
+      atualizarNumeralEdicaoConsulta();
+    }
+
+    function atualizarNumeralEdicaoConsulta() {
+      const posto = $('consultaPostoGraduacao');
+      const campo = $('campoConsultaNumeral');
+      const numeral = $('consultaNumeral');
+      if (!posto || !campo || !numeral) return;
+      const usa = postoUsaNumeral(posto.value);
+      campo.classList.toggle('oculto', !usa);
+      numeral.disabled = !usa;
+      numeral.required = usa;
+      if (!usa) numeral.value = '';
+    }
+
+    function alternarEdicaoFichaConsulta(forcar) {
+      if (!temPermissaoAdmin('POLICIAIS')) {
+        toast('Seu perfil não possui permissão para editar dados do efetivo.','aviso');
+        return;
+      }
+      const painel = $('formEdicaoFichaConsulta');
+      if (!painel || !estado.consultaAtual || !estado.consultaAtual.usuario) return;
+      const abrir = typeof forcar === 'boolean' ? forcar : painel.classList.contains('oculto');
+      painel.classList.toggle('oculto', !abrir);
+      if (abrir) {
+        $('areaHistoricoConsulta')?.classList.add('oculto');
+        preencherEdicaoFichaConsulta();
+        requestAnimationFrame(function() {
+          painel.scrollIntoView({ behavior:'smooth', block:'nearest' });
+        });
+      }
+    }
+
+    async function salvarEdicaoFichaConsulta(evento) {
+      evento.preventDefault();
+      if (!estado.consultaAtual || !estado.consultaAtual.usuario) return;
+      mostrarCarregando('Salvando informações...');
+      try {
+        const resposta = await api('p1AtualizarPolicial', estado.token, {
+          usuarioId: estado.consultaAtual.usuario.id,
+          nomeCompleto: $('consultaNomeCompleto').value,
+          postoGraduacao: $('consultaPostoGraduacao').value,
+          numeral: $('consultaNumeral').disabled ? '' : $('consultaNumeral').value,
+          nomeGuerra: $('consultaNomeGuerra').value,
+          email: $('consultaEmail').value,
+          contato: $('consultaContato').value,
+          dataNascimento: $('consultaDataNascimento').value,
+          dataUltimaPromocao: $('consultaUltimaPromocao').value
+        });
+        const usuarioId = estado.consultaAtual.usuario.id;
+        ocultarCarregando();
+        toast(resposta.mensagem || 'Informações atualizadas.');
+        $('formEdicaoFichaConsulta').classList.add('oculto');
+        await abrirFichaConsulta(usuarioId, true);
+      } catch (erro) {
+        tratarErro(erro);
+      } finally {
+        ocultarCarregando();
+      }
+    }
+
+    async function abrirFichaConsulta(usuarioId, preservarPosicao) {
       mostrarCarregando('Carregando ficha do policial...');
       try {
         const resposta = await api('adminConsultarPolicial', estado.token, usuarioId);
@@ -14947,19 +15554,28 @@
         ocultarCarregando();
         $('resultadosConsultaAdmin').innerHTML = '';
         $('painelFichaConsulta').classList.remove('oculto');
+        $('formEdicaoFichaConsulta')?.classList.add('oculto');
         $('areaHistoricoConsulta').classList.add('oculto');
         $('nomeFichaConsulta').textContent = montarIdentificacao(resposta.usuario);
         $('subtituloFichaConsulta').textContent = 'M.F.: ' + formatarMatriculaFuncional(resposta.usuario.matricula);
-        $('dadosFichaConsulta').innerHTML = dadosPerfilHtml(resposta.usuario) + `
-          <div class="dado"><small>Status</small><strong>${escaparHtml(resposta.usuario.statusCadastro)}</strong></div>
-          <div class="dado"><small>Criado em</small><strong>${escaparHtml(resposta.usuario.criadoEm || '—')}</strong></div>
-          <div class="dado"><small>Último acesso</small><strong>${escaparHtml(resposta.usuario.ultimoAcesso || '—')}</strong></div>`;
+        $('dadosFichaConsulta').innerHTML = dadosPerfilHtml(resposta.usuario) + dadosControleConsultaHtml(resposta.usuario);
+        const botaoEditar = $('botaoEditarFichaConsulta');
+        if (botaoEditar) botaoEditar.classList.toggle('oculto', !temPermissaoAdmin('POLICIAIS'));
         renderizarHistoricoConsulta();
+        if (!preservarPosicao) {
+          requestAnimationFrame(function() {
+            $('painelFichaConsulta')?.scrollIntoView({ behavior:'smooth', block:'start' });
+          });
+        }
       } catch (erro) { tratarErro(erro); }
     }
 
     function alternarHistoricoConsulta() {
-      $('areaHistoricoConsulta').classList.toggle('oculto');
+      const area = $('areaHistoricoConsulta');
+      if (!area) return;
+      const abrir = area.classList.contains('oculto');
+      area.classList.toggle('oculto', !abrir);
+      if (abrir) $('formEdicaoFichaConsulta')?.classList.add('oculto');
     }
 
     function alternarFormularioHistorico() {
