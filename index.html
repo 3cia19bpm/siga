@@ -11961,11 +11961,10 @@
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
-    /* Permutas: o painel já nasce expandido; o controle de recolher não
-       ocupa espaço na abertura. O campo de data fica visualmente vazio
-       até uma data real ser escolhida. */
+    /* Permutas R9.6.2: o alternador permanece visível e o conteúdo dos
+       filtros inicia recolhido sempre que a guia é aberta. */
     #alternadorFiltrosPermutasAdmin{
-      display:none!important;
+      display:grid!important;
     }
     #dataPermutasAdmin::placeholder{
       color:transparent!important;
@@ -11979,7 +11978,9 @@
       min-width:0!important;
     }
     #appShell .siga-date-filter-r96 #dataPermutasAdmin{
-      padding-right:50px!important;
+      padding-right:48px!important;
+      font-size:15px!important;
+      font-variant-numeric:tabular-nums!important;
     }
     #appShell .siga-date-filter-r96 .siga-date-calendar-r96{
       right:15px!important;
@@ -13091,19 +13092,19 @@
             </div>
             <div id="resumoPermutasAdmin" class="resumos"></div>
           </section>
-          <div id="painelFiltrosPermutasAdmin" class="painel painel-filtros-permutas-admin">
+          <div id="painelFiltrosPermutasAdmin" class="painel painel-filtros-permutas-admin filtros-recolhidos">
             <div class="painel-cabecalho-filtros">
               <div><span class="rotulo-suave">LOCALIZAR SOLICITAÇÕES</span><h3>Filtros</h3></div>
               <div class="painel-cabecalho-acoes">
                 <span class="status-siga neutro">Atualização automática</span>
-                <button id="alternadorFiltrosPermutasAdmin" class="alternador-filtros-permutas oculto" type="button" aria-expanded="true" aria-controls="filtrosPermutasAdminBloco" aria-label="Ocultar filtros" title="Ocultar filtros" onclick="alternarFiltrosPermutasAdmin()">
+                <button id="alternadorFiltrosPermutasAdmin" class="alternador-filtros-permutas" type="button" aria-expanded="false" aria-controls="filtrosPermutasAdminBloco" aria-label="Mostrar filtros" title="Mostrar filtros" onclick="alternarFiltrosPermutasAdmin()">
                   <svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg>
                 </button>
               </div>
             </div>
-            <div id="filtrosPermutasAdminBloco" class="filtros filtros-automaticos filtros-permutas-admin">
+            <div id="filtrosPermutasAdminBloco" class="filtros filtros-automaticos filtros-permutas-admin" aria-hidden="true">
               <div class="campo filtro-pesquisa-permuta"><label for="filtroPermutasAdmin">Pesquisar</label><input id="filtroPermutasAdmin" type="search" autocomplete="off" placeholder="Nome, matrícula ou modalidade"></div>
-              <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="" aria-label="Data. Toque no calendário para escolher ou digite no formato dia, mês e ano"></div>
+              <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="text" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="" aria-label="Data. Toque no calendário para escolher ou digite no formato dia, mês e ano com dois dígitos"></div>
               <div class="campo filtro-status-permuta"><label for="statusPermutasAdmin">Status</label><select id="statusPermutasAdmin"><option value="TODOS">TODOS</option><option value="APROVADA">REGULARES</option><option value="NEGADA">NEGADAS</option><option value="CANCELADA">CANCELADAS</option></select></div>
               <div class="campo filtro-tipo-permuta"><label for="tipoPermutasAdmin">Tipo</label><select id="tipoPermutasAdmin"><option value="TODOS">TODOS</option><option value="CASADA">CASADA</option><option value="AVULSA">AVULSA</option></select></div>
             </div>
@@ -14993,7 +14994,10 @@
       if (secao==='painel-admin') carregarDashboardAdmin();
       if (secao==='guarda') prepararGuarda();
       if (secao==='relatorio-guarda') prepararRelatorioGuarda();
-      if (secao==='admin-permutas') carregarPermutasAdmin();
+      if (secao==='admin-permutas') {
+        alternarFiltrosPermutasAdmin(false);
+        carregarPermutasAdmin();
+      }
       if (secao==='admin-policiais') { $('resultadosPoliciaisP1').innerHTML='<div class="vazio compacto">Comece a digitar para localizar um policial.</div>'; carregarSolicitacoesPerfilP1(); }
       if (secao==='admin-checklist') carregarChecklistsAdmin();
       if (secao==='p4-alertas') carregarAlertasP4();
@@ -16685,20 +16689,24 @@
     }
 
     function aplicarMascaraDataBr(valor) {
-      const numeros = String(valor || '').replace(/\D/g,'').slice(0,8);
+      const texto = String(valor || '').trim();
+      const completa = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+      if (completa) return completa[1] + '/' + completa[2] + '/' + completa[3].slice(-2);
+      const numeros = texto.replace(/\D/g,'').slice(0,6);
       if (numeros.length <= 2) return numeros;
       if (numeros.length <= 4) return numeros.slice(0,2) + '/' + numeros.slice(2);
-      return numeros.slice(0,2) + '/' + numeros.slice(2,4) + '/' + numeros.slice(4);
+      return numeros.slice(0,2) + '/' + numeros.slice(2,4) + '/' + numeros.slice(4,6);
     }
 
     function converterDataBrParaIso(valor) {
       const texto = String(valor || '').trim();
       if (!texto) return '';
-      const correspondencia = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+      const correspondencia = texto.match(/^(\d{2})\/(\d{2})\/(\d{2}|\d{4})$/);
       if (!correspondencia) return null;
       const dia = Number(correspondencia[1]);
       const mes = Number(correspondencia[2]);
-      const ano = Number(correspondencia[3]);
+      const anoInformado = correspondencia[3];
+      const ano = anoInformado.length === 2 ? 2000 + Number(anoInformado) : Number(anoInformado);
       const data = new Date(Date.UTC(ano, mes - 1, dia));
       if (data.getUTCFullYear() !== ano || data.getUTCMonth() !== mes - 1 || data.getUTCDate() !== dia) return null;
       return String(ano).padStart(4,'0') + '-' + String(mes).padStart(2,'0') + '-' + String(dia).padStart(2,'0');
@@ -16709,19 +16717,21 @@
       if (!campo) return '';
       campo.value = aplicarMascaraDataBr(campo.value);
       const iso = converterDataBrParaIso(campo.value);
-      campo.setCustomValidity(campo.value && !iso ? 'Informe a data no formato dd/mm/aaaa.' : '');
+      campo.setCustomValidity(campo.value && !iso ? 'Informe a data no formato dd/mm/aa.' : '');
       return iso;
     }
 
     function alternarFiltrosPermutasAdmin(forcarExpandido) {
       const painel = $('painelFiltrosPermutasAdmin');
       const botao = $('alternadorFiltrosPermutasAdmin');
+      const bloco = $('filtrosPermutasAdminBloco');
       if (!painel || !botao) return;
       const recolher = typeof forcarExpandido === 'boolean' ? !forcarExpandido : !painel.classList.contains('filtros-recolhidos');
       painel.classList.toggle('filtros-recolhidos', recolher);
       botao.setAttribute('aria-expanded', recolher ? 'false' : 'true');
       botao.setAttribute('aria-label', recolher ? 'Mostrar filtros' : 'Ocultar filtros');
       botao.setAttribute('title', recolher ? 'Mostrar filtros' : 'Ocultar filtros');
+      if (bloco) bloco.setAttribute('aria-hidden', recolher ? 'true' : 'false');
     }
 
     async function carregarPermutasAdmin(silencioso) {
@@ -19315,6 +19325,11 @@
       return m ? (m[3] + '/' + m[2] + '/' + m[1]) : '';
     }
 
+    function dataIsoParaBrCurtaPermutaR962(valor) {
+      const m = String(valor || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      return m ? (m[3] + '/' + m[2] + '/' + m[1].slice(-2)) : '';
+    }
+
     function iconeCalendarioR96() {
       return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></svg>';
     }
@@ -19381,6 +19396,8 @@
       wrapper.appendChild(icone);
       campo.dataset.r96Calendar = '1';
       campo.placeholder = '';
+      campo.maxLength = 8;
+      campo.setAttribute('maxlength','8');
 
       const sincronizarPicker = function(){
         const iso = typeof converterDataBrParaIso === 'function' ? converterDataBrParaIso(campo.value) : '';
@@ -19392,7 +19409,7 @@
 
       const aplicarPicker = function(){
         if (!picker.value) return;
-        campo.value = dataIsoParaBrR96(picker.value);
+        campo.value = dataIsoParaBrCurtaPermutaR962(picker.value);
         campo.setCustomValidity('');
         campo.dispatchEvent(new Event('input',{bubbles:true}));
         campo.dispatchEvent(new Event('change',{bubbles:true}));
