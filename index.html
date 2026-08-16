@@ -11593,6 +11593,367 @@
       #secao-efetivo .config-escala-bloco-topo-r95 em{font-size:6.5px;}
     }
 
+  
+
+    /* =======================================================
+       SIGA 5.9.0 — DESIGN SYSTEM RESPONSIVO R9.6
+       Auditoria visual global: controles, grids, datas, ações,
+       placeholders e densidade de informação em todos os perfis.
+       ======================================================= */
+    :root{
+      --r96-control-h:52px;
+      --r96-control-radius:16px;
+      --r96-control-pad:14px;
+      --r96-field-gap:12px;
+      --r96-panel-gap:16px;
+    }
+
+    #appShell,
+    #appShell .area-principal,
+    #appShell .conteudo-app,
+    #appShell .secao,
+    #appShell .painel,
+    #appShell .campo,
+    #appShell .grade-2 > *,
+    #appShell .grade-3 > *,
+    #appShell .grade-4 > *,
+    #appShell .filtros > *{
+      min-width:0!important;
+      max-width:100%;
+      box-sizing:border-box;
+    }
+
+    #appShell .grade-2,
+    #appShell .grade-3,
+    #appShell .grade-4,
+    #appShell .filtros,
+    #appShell .grade-campos-banco-horas{
+      gap:var(--r96-field-gap)!important;
+    }
+
+    #appShell .campo > label,
+    #appShell .campo label{
+      line-height:1.28!important;
+      margin-bottom:7px!important;
+    }
+
+    #appShell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="date"]):not(.siga-date-picker-aux-r96),
+    #appShell select{
+      width:100%!important;
+      min-width:0!important;
+      max-width:100%!important;
+      height:var(--r96-control-h)!important;
+      min-height:var(--r96-control-h)!important;
+      max-height:var(--r96-control-h)!important;
+      padding:0 var(--r96-control-pad)!important;
+      border-radius:var(--r96-control-radius)!important;
+      line-height:1.2!important;
+      box-sizing:border-box!important;
+    }
+
+    #appShell textarea{
+      width:100%!important;
+      min-width:0!important;
+      max-width:100%!important;
+      min-height:96px!important;
+      padding:13px var(--r96-control-pad)!important;
+      border-radius:var(--r96-control-radius)!important;
+      box-sizing:border-box!important;
+      line-height:1.45!important;
+    }
+
+    #appShell input::placeholder,
+    #appShell textarea::placeholder{
+      max-width:100%;
+      color:#9aa59b!important;
+      opacity:1!important;
+      font-size:14.5px!important;
+      letter-spacing:0!important;
+    }
+
+    #appShell .botao:not(.botao-pequeno),
+    #appShell button.botao-largo{
+      min-height:50px!important;
+      border-radius:16px!important;
+    }
+
+    #appShell .botao-pequeno{
+      min-height:42px!important;
+      border-radius:13px!important;
+    }
+
+    /* P1 — decisão em uma única linha, inclusive no telefone. */
+    #appShell .solicitacao-p1-acoes{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+      gap:10px!important;
+      width:100%!important;
+      margin-top:11px!important;
+    }
+    #appShell .solicitacao-p1-acoes .botao{
+      width:100%!important;
+      min-width:0!important;
+      margin:0!important;
+    }
+
+    /* Pré-cadastro P1 — mantém o placeholder de telefone contido na coluna. */
+    #formPreCadastroP1 .linha-pre-cadastro-p1,
+    #formPreCadastroP1 .linha-pre-cadastro-p1 > .campo{
+      min-width:0!important;
+    }
+    #formPreCadastroP1 #preContatoP1::placeholder,
+    #appShell input[type="tel"]::placeholder{
+      font-size:14px!important;
+    }
+
+    /* Datas: texto dd/mm/aaaa visível + seletor nativo ocupando toda a área clicável. */
+    #appShell .siga-date-field-r96{
+      position:relative!important;
+      display:flex!important;
+      align-items:center!important;
+      width:100%!important;
+      min-width:0!important;
+      max-width:100%!important;
+      height:var(--r96-control-h)!important;
+      min-height:var(--r96-control-h)!important;
+      padding:0 44px 0 var(--r96-control-pad)!important;
+      border:1px solid #cbd7c8!important;
+      border-radius:var(--r96-control-radius)!important;
+      background:#fff!important;
+      box-sizing:border-box!important;
+      overflow:hidden!important;
+      transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
+    }
+    #appShell .siga-date-field-r96:focus-within{
+      border-color:#69775a!important;
+      box-shadow:0 0 0 3px rgba(89,102,74,.14)!important;
+    }
+    #appShell .siga-date-field-r96.is-disabled{
+      background:#f3f5f2!important;
+      opacity:.78;
+    }
+    #appShell .siga-date-display-r96{
+      display:block;
+      width:100%;
+      min-width:0;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      color:#20392a;
+      font-size:16px;
+      line-height:1;
+      font-variant-numeric:tabular-nums;
+      pointer-events:none;
+    }
+    #appShell .siga-date-field-r96.is-empty .siga-date-display-r96{color:#9aa59b;}
+    #appShell .siga-date-calendar-r96{
+      position:absolute;
+      right:13px;
+      top:50%;
+      width:19px;
+      height:19px;
+      transform:translateY(-50%);
+      color:#49604d;
+      pointer-events:none;
+      z-index:3;
+    }
+    #appShell .siga-date-calendar-r96 svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+    #appShell input[type="date"].siga-date-native-r96{
+      position:absolute!important;
+      inset:0!important;
+      z-index:2!important;
+      display:block!important;
+      width:100%!important;
+      min-width:100%!important;
+      max-width:none!important;
+      height:100%!important;
+      min-height:100%!important;
+      max-height:none!important;
+      margin:0!important;
+      padding:0!important;
+      border:0!important;
+      border-radius:inherit!important;
+      background:transparent!important;
+      color:transparent!important;
+      opacity:.001!important;
+      appearance:auto!important;
+      -webkit-appearance:auto!important;
+      cursor:pointer!important;
+    }
+    #appShell input[type="date"].siga-date-native-r96::-webkit-calendar-picker-indicator{
+      position:absolute!important;inset:0!important;width:100%!important;height:100%!important;opacity:0!important;cursor:pointer!important;
+    }
+
+    /* Filtro de permutas: continua aceitando dd/mm/aaaa, mas qualquer toque abre o calendário. */
+    #appShell .siga-date-filter-r96{
+      position:relative!important;
+      width:100%!important;
+      min-width:0!important;
+    }
+    #appShell .siga-date-filter-r96 #dataPermutasAdmin{
+      padding-right:43px!important;
+      font-variant-numeric:tabular-nums!important;
+    }
+    #appShell .siga-date-picker-aux-r96{
+      position:absolute!important;
+      width:1px!important;height:1px!important;
+      right:14px!important;bottom:5px!important;
+      opacity:0!important;pointer-events:none!important;
+    }
+    #appShell .siga-date-filter-r96 .siga-date-calendar-r96{z-index:1;}
+
+    /* Efetivo — KPIs enxutos e distribuição unificada com Sem grade. */
+    #resumoEfetivo.resumos{
+      display:grid!important;
+      grid-template-columns:minmax(0,.72fr) minmax(0,.72fr) minmax(0,2.56fr)!important;
+      gap:12px!important;
+      align-items:stretch!important;
+    }
+    #resumoEfetivo .resumo-kpi-r96{
+      min-height:112px!important;
+      display:flex!important;
+      flex-direction:column!important;
+      justify-content:center!important;
+      align-items:flex-start!important;
+    }
+    #resumoEfetivo .resumo-kpi-r96 span{
+      order:0!important;
+      margin:0 0 7px!important;
+    }
+    #resumoEfetivo .resumo-kpi-r96 strong{order:1!important;}
+    #resumoEfetivo .resumo-grades-r96{
+      min-height:112px!important;
+      padding:15px!important;
+      display:grid!important;
+      grid-template-columns:minmax(118px,.66fr) minmax(0,2.34fr)!important;
+      gap:14px!important;
+      align-items:center!important;
+    }
+    #resumoEfetivo .resumo-grades-cabecalho-r96{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:9px;
+      min-width:0;
+    }
+    #resumoEfetivo .resumo-grades-cabecalho-r96 > div:first-child > span{
+      display:block;margin:0 0 3px!important;color:#68786b;font-size:8.5px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;
+    }
+    #resumoEfetivo .resumo-grades-cabecalho-r96 > div:first-child > small{color:#8a958c;font-size:9px;line-height:1.25;}
+    #resumoEfetivo .sem-grade-r96{
+      display:flex!important;
+      align-items:center!important;
+      justify-content:space-between!important;
+      gap:9px!important;
+      min-height:40px;
+      padding:8px 10px;
+      border:1px solid #dde4da;
+      border-radius:13px;
+      background:#f8faf7;
+    }
+    #resumoEfetivo .sem-grade-r96 span{margin:0!important;font-size:8px!important;letter-spacing:.08em!important;white-space:nowrap;}
+    #resumoEfetivo .sem-grade-r96 strong{font-size:20px!important;line-height:1!important;}
+    #resumoEfetivo .resumo-grades-r96 .grade-chips{
+      display:grid!important;
+      grid-template-columns:repeat(6,minmax(0,1fr))!important;
+      gap:7px!important;
+      width:100%!important;
+      min-width:0!important;
+    }
+    #resumoEfetivo .resumo-grades-r96 .grade-chip{
+      min-width:0!important;
+      min-height:42px!important;
+      padding:8px 5px!important;
+      border-radius:12px!important;
+    }
+
+    /* Configuração de grades: mais compacta e sem seleção acidental de texto informativo. */
+    #secao-efetivo .config-escala-bloco-r95,
+    #secao-efetivo .config-escala-bloco-r95 *:not(input):not(button){
+      -webkit-user-select:none;
+      user-select:none;
+    }
+    #secao-efetivo .config-escala-controle-r95{
+      grid-template-columns:minmax(0,1fr) 112px!important;
+      gap:9px!important;
+    }
+    #secao-efetivo .config-escala-controle-r95 .botao{
+      width:112px!important;
+      min-width:0!important;
+      min-height:var(--r96-control-h)!important;
+      height:var(--r96-control-h)!important;
+      margin:0!important;
+    }
+
+    /* Evita que conteúdos internos forcem largura horizontal em cards e modais. */
+    #appShell .cartao-item,
+    #appShell .resumo,
+    #appShell .dashboard-card,
+    #appShell .modal-permuta-conteudo,
+    #appShell .pesquisa-resultados,
+    #appShell .perfil-completo{
+      min-width:0!important;
+      max-width:100%!important;
+      overflow-wrap:anywhere;
+    }
+
+    @media(max-width:700px){
+      :root{--r96-control-h:50px;--r96-control-radius:15px;--r96-control-pad:13px;--r96-field-gap:10px;}
+      #appShell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="date"]):not(.siga-date-picker-aux-r96),
+      #appShell select,
+      #appShell textarea{
+        font-size:16px!important;
+      }
+      #appShell input::placeholder,
+      #appShell textarea::placeholder{
+        font-size:13.5px!important;
+      }
+      #formPreCadastroP1 #preContatoP1::placeholder,
+      #appShell input[type="tel"]::placeholder{font-size:13px!important;}
+
+      #resumoEfetivo.resumos{
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+        gap:10px!important;
+      }
+      #resumoEfetivo .resumo-kpi-r96{min-height:96px!important;padding:14px!important;}
+      #resumoEfetivo .resumo-grades-r96{
+        grid-column:1/-1!important;
+        min-height:auto!important;
+        grid-template-columns:94px minmax(0,1fr)!important;
+        gap:10px!important;
+        padding:13px!important;
+      }
+      #resumoEfetivo .resumo-grades-cabecalho-r96{gap:6px;}
+      #resumoEfetivo .resumo-grades-cabecalho-r96 > div:first-child > small{display:none;}
+      #resumoEfetivo .resumo-grades-r96 .grade-chips{
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+        gap:7px!important;
+      }
+      #resumoEfetivo .resumo-grades-r96 .grade-chip{min-height:39px!important;padding:7px 4px!important;}
+
+      #secao-admin-policiais #formPreCadastroP1 input,
+      #secao-admin-policiais #formPreCadastroP1 select{
+        height:var(--r96-control-h)!important;
+        min-height:var(--r96-control-h)!important;
+        max-height:var(--r96-control-h)!important;
+        font-size:16px!important;
+      }
+      #secao-efetivo .config-escala-controle-r95{grid-template-columns:minmax(0,1fr) 104px!important;}
+      #secao-efetivo .config-escala-controle-r95 .botao{width:104px!important;font-size:11px!important;}
+    }
+
+    @media(max-width:380px){
+      :root{--r96-control-pad:11px;--r96-field-gap:9px;}
+      #appShell input::placeholder,#appShell textarea::placeholder{font-size:12.5px!important;}
+      #formPreCadastroP1 #preContatoP1::placeholder,#appShell input[type="tel"]::placeholder{font-size:12px!important;}
+      #resumoEfetivo .resumo-grades-r96{grid-template-columns:82px minmax(0,1fr)!important;padding:11px!important;gap:8px!important;}
+      #resumoEfetivo .sem-grade-r96{padding:7px 8px;flex-direction:column;align-items:flex-start!important;gap:3px!important;}
+      #resumoEfetivo .resumo-grades-r96 .grade-chip b{font-size:8px!important;}
+      #resumoEfetivo .resumo-grades-r96 .grade-chip em{font-size:13px!important;}
+      #secao-efetivo .config-escala-controle-r95{grid-template-columns:minmax(0,1fr) 92px!important;}
+      #secao-efetivo .config-escala-controle-r95 .botao{width:92px!important;padding:0 7px!important;}
+    }
+
   </style>
 </head>
 <body>
@@ -11693,7 +12054,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.5
+        SIGA 3ª CIA — Versão 5.9.0 • R9.6
       </footer>
     </section>
   </main>
@@ -11766,7 +12127,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.5</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.6</footer>
     </aside>
 
     <div class="area-principal">
@@ -13136,7 +13497,7 @@
             <div>
               <span class="pagina-kicker">QUADRO DE POLICIAIS</span>
               <h2>Efetivo</h2>
-              <p>Visão geral, situação cadastral e distribuição por referência de escala.</p>
+              <p>Visão geral, situação cadastral e distribuição por grade.</p>
             </div>
           </div>
           <div id="resumoEfetivo" class="resumos"></div>
@@ -13145,8 +13506,8 @@
             <div class="cartao-topo">
               <div>
                 <span class="rotulo-suave">CONFIGURAÇÃO DAS ESCALAS</span>
-                <h3 style="margin:4px 0 0">Referências do efetivo</h3>
-                <p>Configure separadamente a escala geral e as Bikes. As demais referências são calculadas automaticamente.</p>
+                <h3 style="margin:4px 0 0">Grades do efetivo</h3>
+                <p>Configure separadamente a escala geral e as Bikes. As demais grades são calculadas automaticamente.</p>
               </div>
             </div>
 
@@ -13161,7 +13522,7 @@
                   <input id="dataBaseEscala" type="date">
                   <button class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin('OPERACIONAL')">SALVAR</button>
                 </div>
-                <small id="referenciaAtualEscala" class="ajuda">Referência atual: —</small>
+                <small id="referenciaAtualEscala" class="ajuda">Data-base atual: —</small>
                 <small class="config-escala-regra-r95">G2, G3 e G4 são derivadas automaticamente da G1.</small>
               </section>
 
@@ -13175,7 +13536,7 @@
                   <input id="dataBaseEscalaBikes" type="date">
                   <button id="btnSalvarEscalaBikes" class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin('BIKES')">SALVAR</button>
                 </div>
-                <small id="referenciaAtualEscalaBikes" class="ajuda">Referência atual: —</small>
+                <small id="referenciaAtualEscalaBikes" class="ajuda">Data-base atual: —</small>
                 <small class="config-escala-regra-r95">B2 inicia dois dias após B1. Coberturas eventuais não alteram B1/B2.</small>
               </section>
             </div>
@@ -13188,7 +13549,7 @@
             <div class="filtros filtros-automaticos">
               <div class="campo"><label for="filtroEfetivo">Pesquisar</label><input id="filtroEfetivo" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra"></div>
               <div class="campo"><label for="statusEfetivo">Status</label><select id="statusEfetivo"><option value="TODOS">TODOS</option><option value="CONFIRMADO">ATIVOS</option><option value="PENDENTE">PENDENTES</option><option value="BLOQUEADO">BLOQUEADOS</option><option value="REPROVADO">REPROVADOS</option></select></div>
-              <div class="campo"><label for="gradeEfetivo">Referência</label><select id="gradeEfetivo"><option value="TODAS">TODAS</option><option value="1">G1</option><option value="2">G2</option><option value="3">G3</option><option value="4">G4</option><option value="B1">B1</option><option value="B2">B2</option></select></div>
+              <div class="campo"><label for="gradeEfetivo">Grade</label><select id="gradeEfetivo"><option value="TODAS">TODAS</option><option value="1">G1</option><option value="2">G2</option><option value="3">G3</option><option value="4">G4</option><option value="B1">B1</option><option value="B2">B2</option></select></div>
             </div>
             <small class="filtro-automatico-nota">Resultados atualizados automaticamente.</small>
             <div id="listaEfetivo" class="lista-cartoes"></div>
@@ -15645,7 +16006,7 @@
 
         $('resumoEscalaInicio').innerHTML = [
           ['Hoje', itemHoje && itemHoje.configurado && itemHoje.turno ? itemHoje.turno : '—', itemHoje && itemHoje.turno ? 'Serviço previsto' : 'Sem serviço previsto'],
-          ['Referência', cal.grade ? rotuloGradeUi(cal.grade) : '—', cal.regime || 'Não configurada'],
+          ['Grade', cal.grade ? rotuloGradeUi(cal.grade) : '—', cal.regime || 'Não configurada'],
           ['Permutas restantes', limite.configurado ? limite.restantes : '—', limite.configurado ? ('Avulsas neste mês • limite 50% / IN 001') : 'Configure a escala para calcular']
         ].map(item => `
           <div class="resumo">
@@ -15809,7 +16170,7 @@
     function mostrarEsqueletoCalendario(ano,mes){
       $('tituloMesCalendario').textContent=capitalizarMes_(NOMES_MESES[Number(mes)-1]||'')+' de '+Number(ano);
       $('alertaCalendario').classList.add('oculto');
-      $('resumoCalendario').innerHTML=['Referência','Regime','Dias de serviço','Permutas restantes']
+      $('resumoCalendario').innerHTML=['Grade','Regime','Dias de serviço','Permutas restantes']
         .map(function(rotulo){return `<div class="resumo"><strong>—</strong><span>${rotulo}</span></div>`;})
         .join('');
       const grade=$('gradeCalendario');
@@ -15851,14 +16212,14 @@
       const alerta = $('alertaCalendario');
       if (!cal.configurado) {
         alerta.textContent =
-          'Seu calendário ainda não pode ser calculado. É necessário definir a referência de escala do policial (G1–G4 ou B1–B2).';
+          'Seu calendário ainda não pode ser calculado. É necessário definir a grade do policial (G1–G4 ou B1–B2).';
         alerta.classList.remove('oculto');
       } else {
         alerta.classList.add('oculto');
       }
 
       $('resumoCalendario').innerHTML = [
-        ['Referência', cal.grade ? rotuloGradeUi(cal.grade) : '—'],
+        ['Grade', cal.grade ? rotuloGradeUi(cal.grade) : '—'],
         ['Regime', cal.turnoFixo === 'A' ? 'BIKE A' : cal.turnoFixo === 'B' ? 'BIKE B' : cal.turnoFixo === 'AB' ? '24h AB' : '12h A/B'],
         ['Dias de serviço', cal.configurado ? cal.totalDiasServico : '—'],
         ['Permutas restantes', limite.configurado ? limite.restantes : '—']
@@ -16688,10 +17049,15 @@
         `<span class="grade-chip"><b>${escaparHtml(rotuloGradeUi(g))}</b><em>${Number(grades[g] || 0)}</em></span>`
       ).join('');
       $('resumoEfetivo').innerHTML = `
-        <div class="resumo"><strong>${escaparHtml(String(resumo.total || 0))}</strong><span>Total</span></div>
-        <div class="resumo"><strong>${escaparHtml(String(resumo.ativos || 0))}</strong><span>Ativos</span></div>
-        <div class="resumo"><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong><span>Sem referência</span></div>
-        <div class="resumo resumo-distribuicao"><div class="grade-chips">${chips}</div><span>Distribuição</span></div>`;
+        <div class="resumo resumo-kpi-r96"><span>Total</span><strong>${escaparHtml(String(resumo.total || 0))}</strong></div>
+        <div class="resumo resumo-kpi-r96"><span>Ativos</span><strong>${escaparHtml(String(resumo.ativos || 0))}</strong></div>
+        <div class="resumo resumo-grades-r96">
+          <div class="resumo-grades-cabecalho-r96">
+            <div><span>Grades</span><small>Distribuição do efetivo</small></div>
+            <div class="sem-grade-r96"><span>Sem grade</span><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong></div>
+          </div>
+          <div class="grade-chips">${chips}</div>
+        </div>`;
     }
 
     function renderizarEfetivo() {
@@ -16713,7 +17079,7 @@
           </div>
 
           <div class="cartao-dados">
-            <div class="dado"><small>Referência</small><strong>${escaparHtml(rotuloReferenciaRegimeUi(u.grade,u.turnoFixo))}</strong></div>
+            <div class="dado"><small>Grade</small><strong>${escaparHtml(rotuloReferenciaRegimeUi(u.grade,u.turnoFixo))}</strong></div>
             <div class="dado"><small>Regime</small><strong>${escaparHtml(u.turnoFixo === 'A' ? 'BIKE • FIXO A' : u.turnoFixo === 'B' ? 'BIKE • FIXO B' : u.turnoFixo === 'AB' ? 'GUARDA • 24h AB' : 'VIATURA / BASES • 12h A/B')}</strong></div>
             <div class="dado"><small>Contato</small><strong>${escaparHtml(u.contato || '—')}</strong></div>
             <div class="dado"><small>E-mail</small><strong>${escaparHtml(u.email || '—')}</strong></div>
@@ -16722,7 +17088,7 @@
           <div class="acoes-em-linha" style="margin-top:13px">
             ${podeGerirGrade ? `
               <select id="grade-${escaparHtml(u.id)}" class="select-escala-admin">
-                <option value="">REFERÊNCIA</option>
+                <option value="">GRADE</option>
                 ${opcoesReferenciaRegimeUi(u.turnoFixo).map(g => `<option value="${g}" ${u.grade === g ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,u.turnoFixo)}</option>`).join('')}
               </select>
 
@@ -16758,14 +17124,14 @@
       if (bike && !estado.suporteEscalaR95 && atual === 'B2') convertido = '2';
       if (!bike && atual === 'B1') convertido = '1';
       if (!bike && atual === 'B2') convertido = '2';
-      gradeEl.innerHTML = '<option value="">REFERÊNCIA</option>' + grades.map(g => `<option value="${g}" ${g === convertido ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,regime)}</option>`).join('');
+      gradeEl.innerHTML = '<option value="">GRADE</option>' + grades.map(g => `<option value="${g}" ${g === convertido ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,regime)}</option>`).join('');
       gradeEl.value = grades.includes(convertido) ? convertido : '';
     }
 
     async function atualizarGradeEfetivo(id) {
       const grade = $('grade-' + id).value;
       const turnoFixo = $('turnofixo-' + id).value;
-      if (!grade) return toast('Selecione uma referência válida para o regime escolhido.', 'aviso');
+      if (!grade) return toast('Selecione uma grade válida para o regime escolhido.', 'aviso');
 
       mostrarCarregando('Atualizando escala do policial...');
       try {
@@ -16809,9 +17175,9 @@
         });
         const referencia = $('referenciaAtualEscala');
         const referenciaBikes = $('referenciaAtualEscalaBikes');
-        if (referencia) referencia.textContent = 'Referência atual: ' + formatarData(geral) + '.';
+        if (referencia) referencia.textContent = 'Data-base atual: ' + formatarData(geral) + '.';
         if (referenciaBikes) referenciaBikes.textContent = estado.suporteEscalaR95
-          ? ('Referência atual: ' + formatarData(bikes) + '.')
+          ? ('Data-base atual: ' + formatarData(bikes) + '.')
           : 'Atualize o Código.gs para R9.5 para liberar B1/B2.';
         if (estado.efetivo.length) renderizarEfetivo();
       } catch (e) {
@@ -16826,14 +17192,14 @@
       const dataBase = campo ? campo.value : '';
       if (!dataBase) return toast(bike ? 'Informe a data-base da B1.' : 'Informe a data-base da G1.', 'aviso');
 
-      mostrarCarregando('Salvando referência da escala...');
+      mostrarCarregando('Salvando grade da escala...');
       try {
         await api(
           'adminSalvarConfiguracaoEscala',
           estado.token,
           {familia: bike ? 'BIKES' : 'OPERACIONAL', dataBase}
         );
-        toast(bike ? 'Referência da B1 atualizada.' : 'Referência da G1 atualizada.');
+        toast(bike ? 'Data-base da B1 atualizada.' : 'Data-base da G1 atualizada.');
         invalidarCalendarioLocal();
         await carregarConfiguracaoEscalaAdmin();
       } catch (e) {
@@ -18809,6 +19175,131 @@
     }
 
     /* SIGA v5.9.0 — PREMIUM R9.0: padronização global de controles e governança de acessos. */
+
+
+    /* =======================================================
+       SIGA 5.9.0 — R9.6: campos de data responsivos
+       Mantém o valor ISO no input nativo para o código existente,
+       mas exibe dd/mm/aaaa e abre o calendário em toda a área.
+       ======================================================= */
+    function dataIsoParaBrR96(valor) {
+      const m = String(valor || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      return m ? (m[3] + '/' + m[2] + '/' + m[1]) : '';
+    }
+
+    function iconeCalendarioR96() {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></svg>';
+    }
+
+    function atualizarEspelhoDataR96(input) {
+      if (!input || !input.dataset.r96Date) return;
+      const wrapper = input.closest('.siga-date-field-r96');
+      if (!wrapper) return;
+      const display = wrapper.querySelector('.siga-date-display-r96');
+      if (!display) return;
+      const br = dataIsoParaBrR96(input.value);
+      display.textContent = br || 'dd/mm/aaaa';
+      wrapper.classList.toggle('is-empty', !br);
+      wrapper.classList.toggle('is-disabled', !!input.disabled);
+    }
+
+    function aprimorarInputDateR96(input) {
+      if (!input || input.dataset.r96Date || input.classList.contains('siga-date-picker-aux-r96')) return;
+      const pai = input.parentNode;
+      if (!pai) return;
+      const wrapper = document.createElement('span');
+      wrapper.className = 'siga-date-field-r96';
+      const display = document.createElement('span');
+      display.className = 'siga-date-display-r96';
+      display.setAttribute('aria-hidden','true');
+      const icone = document.createElement('span');
+      icone.className = 'siga-date-calendar-r96';
+      icone.setAttribute('aria-hidden','true');
+      icone.innerHTML = iconeCalendarioR96();
+      pai.insertBefore(wrapper, input);
+      wrapper.appendChild(display);
+      wrapper.appendChild(input);
+      wrapper.appendChild(icone);
+      input.dataset.r96Date = '1';
+      input.classList.add('siga-date-native-r96');
+      input.addEventListener('input', function(){ atualizarEspelhoDataR96(input); });
+      input.addEventListener('change', function(){ atualizarEspelhoDataR96(input); });
+      atualizarEspelhoDataR96(input);
+    }
+
+    function aprimorarFiltroDataPermutasR96() {
+      const campo = document.getElementById('dataPermutasAdmin');
+      if (!campo || campo.dataset.r96Calendar) return;
+      const pai = campo.parentNode;
+      if (!pai) return;
+      const wrapper = document.createElement('span');
+      wrapper.className = 'siga-date-filter-r96';
+      pai.insertBefore(wrapper, campo);
+      wrapper.appendChild(campo);
+
+      const picker = document.createElement('input');
+      picker.type = 'date';
+      picker.className = 'siga-date-picker-aux-r96';
+      picker.tabIndex = -1;
+      picker.setAttribute('aria-hidden','true');
+      wrapper.appendChild(picker);
+
+      const icone = document.createElement('span');
+      icone.className = 'siga-date-calendar-r96';
+      icone.setAttribute('aria-hidden','true');
+      icone.innerHTML = iconeCalendarioR96();
+      wrapper.appendChild(icone);
+      campo.dataset.r96Calendar = '1';
+
+      const sincronizarPicker = function(){
+        const iso = typeof converterDataBrParaIso === 'function' ? converterDataBrParaIso(campo.value) : '';
+        if (iso && picker.value !== iso) picker.value = iso;
+        if (!campo.value) picker.value = '';
+      };
+      campo.addEventListener('input', sincronizarPicker);
+      campo.addEventListener('change', sincronizarPicker);
+
+      const abrir = function(){
+        if (campo.disabled) return;
+        sincronizarPicker();
+        try {
+          if (typeof picker.showPicker === 'function') picker.showPicker();
+          else picker.click();
+        } catch (erro) {
+          try { picker.click(); } catch (ignorado) {}
+        }
+      };
+      wrapper.addEventListener('click', function(evento){
+        if (evento.target === picker) return;
+        abrir();
+      });
+
+      const aplicarPicker = function(){
+        if (!picker.value) return;
+        campo.value = dataIsoParaBrR96(picker.value);
+        campo.setCustomValidity('');
+        campo.dispatchEvent(new Event('input',{bubbles:true}));
+        campo.dispatchEvent(new Event('change',{bubbles:true}));
+      };
+      picker.addEventListener('input', aplicarPicker);
+      picker.addEventListener('change', aplicarPicker);
+      sincronizarPicker();
+    }
+
+    function varrerCamposR96() {
+      document.querySelectorAll('#appShell input[type="date"]:not(.siga-date-picker-aux-r96)').forEach(aprimorarInputDateR96);
+      aprimorarFiltroDataPermutasR96();
+      document.querySelectorAll('#appShell input[type="date"].siga-date-native-r96').forEach(atualizarEspelhoDataR96);
+    }
+
+    function iniciarDesignR96() {
+      varrerCamposR96();
+      if (!window.__sigaR96Interval) window.__sigaR96Interval = window.setInterval(varrerCamposR96, 650);
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciarDesignR96, {once:true});
+    else window.setTimeout(iniciarDesignR96, 0);
+
 </script>
 </body>
 </html>
