@@ -1,0 +1,80 @@
++              <div class="campo"><label for="gradeEfetivo">Referência</label><select id="gradeEfetivo"><option value="TODAS">TODAS</option><option value="1">G1</option><option value="2">G2</option><option value="3">G3</option><option value="4">G4</option><option value="B1">B1</option><option value="B2">B2</option></select></div>
+             </div>
+             <small class="filtro-automatico-nota">Resultados atualizados automaticamente.</small>
+             <div id="listaEfetivo" class="lista-cartoes"></div>
+@@ -13319,6 +13368,7 @@
+       calendarioAno: null,
+       calendarioMes: null,
+       configuracaoGrades: [],
++      suporteEscalaR95: false,
+       cacheCalendario: {},
+       promessasCalendario: {},
+       versaoCacheCalendario: 0,
+@@ -13484,7 +13534,7 @@
+           iframe.title = 'Conexão segura do SIGA';
+           iframe.setAttribute('aria-hidden', 'true');
+           iframe.setAttribute('tabindex', '-1');
+-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.4';
++          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.5';
+           iframeAtual = iframe;
+           document.body.appendChild(iframe);
+           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
+@@ -15595,7 +15645,7 @@
+ 
+         $('resumoEscalaInicio').innerHTML = [
+           ['Hoje', itemHoje && itemHoje.configurado && itemHoje.turno ? itemHoje.turno : '—', itemHoje && itemHoje.turno ? 'Serviço previsto' : 'Sem serviço previsto'],
+-          ['Grade', cal.grade || '—', cal.regime || 'Não configurada'],
++          ['Referência', cal.grade ? rotuloGradeUi(cal.grade) : '—', cal.regime || 'Não configurada'],
+           ['Permutas restantes', limite.configurado ? limite.restantes : '—', limite.configurado ? ('Avulsas neste mês • limite 50% / IN 001') : 'Configure a escala para calcular']
+         ].map(item => `
+           <div class="resumo">
+@@ -15759,7 +15809,7 @@
+     function mostrarEsqueletoCalendario(ano,mes){
+       $('tituloMesCalendario').textContent=capitalizarMes_(NOMES_MESES[Number(mes)-1]||'')+' de '+Number(ano);
+       $('alertaCalendario').classList.add('oculto');
+-      $('resumoCalendario').innerHTML=['Grade','Regime','Dias de serviço','Permutas restantes']
++      $('resumoCalendario').innerHTML=['Referência','Regime','Dias de serviço','Permutas restantes']
+         .map(function(rotulo){return `<div class="resumo"><strong>—</strong><span>${rotulo}</span></div>`;})
+         .join('');
+       const grade=$('gradeCalendario');
+@@ -15801,14 +15851,14 @@
+       const alerta = $('alertaCalendario');
+       if (!cal.configurado) {
+         alerta.textContent =
+-          'Seu calendário ainda não pode ser calculado. É necessário definir a Grade 1–4 do policial.';
++          'Seu calendário ainda não pode ser calculado. É necessário definir a referência de escala do policial (G1–G4 ou B1–B2).';
+         alerta.classList.remove('oculto');
+       } else {
+         alerta.classList.add('oculto');
+       }
+ 
+       $('resumoCalendario').innerHTML = [
+-        ['Grade', cal.grade || '—'],
++        ['Referência', cal.grade ? rotuloGradeUi(cal.grade) : '—'],
+         ['Regime', cal.turnoFixo === 'A' ? 'BIKE A' : cal.turnoFixo === 'B' ? 'BIKE B' : cal.turnoFixo === 'AB' ? '24h AB' : '12h A/B'],
+         ['Dias de serviço', cal.configurado ? cal.totalDiasServico : '—'],
+         ['Permutas restantes', limite.configurado ? limite.restantes : '—']
+@@ -16614,15 +16664,33 @@
+       }
+     }
+ 
++    function rotuloGradeUi(grade) {
++      const g = String(grade || '').trim().toUpperCase();
++      if (!g) return 'NÃO DEFINIDA';
++      return /^B[12]$/.test(g) ? g : (/^[1-4]$/.test(g) ? ('G' + g) : g);
++    }
++
++    function opcoesReferenciaRegimeUi(turnoFixo) {
++      const bike = turnoFixo === 'A' || turnoFixo === 'B';
++      if (!bike) return ['1','2','3','4'];
++      return estado.suporteEscalaR95 ? ['B1','B2'] : ['1','2'];
++    }
++
++    function rotuloReferenciaRegimeUi(grade, turnoFixo) {
++      const bike = turnoFixo === 'A' || turnoFixo === 'B';
++      if (bike && !estado.suporteEscalaR95 && /^[12]$/.test(String(grade || ''))) return 'B' + grade;
++      return rotuloGradeUi(grade);
++    }
++
+     function renderizarResumoEfetivo(resumo) {
+       const grades = resumo.grades || {};
