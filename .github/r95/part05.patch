@@ -1,0 +1,65 @@
+         const r = await api('adminObterConfiguracaoEscala', estado.token);
+-        $('dataBaseEscala').value = r.dataBase || '';
++        const geral = r.dataBaseOperacional || r.dataBase || '';
++        const bikes = r.dataBaseBikes || geral;
++        estado.suporteEscalaR95 = String(r.revisao || '').toUpperCase() === 'R9.5' || Object.prototype.hasOwnProperty.call(r,'dataBaseBikes');
++        $('dataBaseEscala').value = geral;
++        $('dataBaseEscalaBikes').value = bikes;
++        const btnBike = $('btnSalvarEscalaBikes');
++        if (btnBike) {
++          btnBike.disabled = !estado.suporteEscalaR95;
++          btnBike.title = estado.suporteEscalaR95 ? '' : 'Atualize o Código.gs para a R9.5 para liberar a configuração B1/B2.';
++        }
++        const filtroGrade = $('gradeEfetivo');
++        if (filtroGrade) Array.from(filtroGrade.options).forEach(op => {
++          if (op.value === 'B1' || op.value === 'B2') op.disabled = !estado.suporteEscalaR95;
++        });
+         const referencia = $('referenciaAtualEscala');
+-        if (referencia) referencia.textContent = 'Referência atual: ' + formatarData(r.dataBase || '') + '.';
++        const referenciaBikes = $('referenciaAtualEscalaBikes');
++        if (referencia) referencia.textContent = 'Referência atual: ' + formatarData(geral) + '.';
++        if (referenciaBikes) referenciaBikes.textContent = estado.suporteEscalaR95
++          ? ('Referência atual: ' + formatarData(bikes) + '.')
++          : 'Atualize o Código.gs para R9.5 para liberar B1/B2.';
++        if (estado.efetivo.length) renderizarEfetivo();
+       } catch (e) {
+         painel.classList.add('oculto');
+       }
+     }
+ 
+-    async function salvarConfiguracaoEscalaAdmin() {
+-      const dataBase = $('dataBaseEscala').value;
+-      if (!dataBase) return toast('Informe a data-base da Grade 1.', 'aviso');
++    async function salvarConfiguracaoEscalaAdmin(familia) {
++      const bike = String(familia || '').toUpperCase() === 'BIKES';
++      if (bike && !estado.suporteEscalaR95) return toast('Atualize o Código.gs para a R9.5 antes de configurar B1/B2.', 'aviso');
++      const campo = $(bike ? 'dataBaseEscalaBikes' : 'dataBaseEscala');
++      const dataBase = campo ? campo.value : '';
++      if (!dataBase) return toast(bike ? 'Informe a data-base da B1.' : 'Informe a data-base da G1.', 'aviso');
+ 
+-      mostrarCarregando('Salvando data-base...');
++      mostrarCarregando('Salvando referência da escala...');
+       try {
+-        const r = await api(
++        await api(
+           'adminSalvarConfiguracaoEscala',
+           estado.token,
+-          {dataBase}
++          {familia: bike ? 'BIKES' : 'OPERACIONAL', dataBase}
+         );
+-        toast('Data-base da escala atualizada.');
++        toast(bike ? 'Referência da B1 atualizada.' : 'Referência da G1 atualizada.');
++        invalidarCalendarioLocal();
+         await carregarConfiguracaoEscalaAdmin();
+       } catch (e) {
+         tratarErro(e);
+diff --git a/sw.js b/sw.js
+index f446e11..768e74b 100644
+--- a/sw.js
++++ b/sw.js
+@@ -1,4 +1,4 @@
+-const CACHE_SIGA = 'siga-github-v5.9.0-r9.4';
++const CACHE_SIGA = 'siga-github-v5.9.0-r9.5';
+ const ARQUIVOS_SIGA = [
+   './',
+   './index.html',
