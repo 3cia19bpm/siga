@@ -1,0 +1,41 @@
+name: Aplicar SIGA R9.5
+
+on:
+  push:
+    paths:
+      - '.github/workflows/aplicar-r95.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  aplicar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validar base e aplicar R9.5
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object index.html)" = "ed9172afdd8761af81e3ae5b1efb9eaed9e17b86"
+          test "$(git hash-object sw.js)" = "f446e119e61ca0e963d00a45361dfbb7a99c2c70"
+          cat .github/r95/part01.patch .github/r95/part02.patch .github/r95/part03.patch .github/r95/part04.patch .github/r95/part05.patch > /tmp/r95.patch
+          git apply --check /tmp/r95.patch
+          git apply /tmp/r95.patch
+          grep -q "Referências do efetivo" index.html
+          grep -q "Data-base da B1" index.html
+          grep -q "Selecione a credencial salva ou digite sua senha para desbloquear." index.html
+          grep -q "siga-github-v5.9.0-r9.5" sw.js
+      - name: Publicar e limpar instalador temporário
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .github/r95 .github/workflows/aplicar-r95.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A index.html sw.js .github
+          git commit -m "Atualiza SIGA R9.5: escalas gerais e Bikes"
+          git push
