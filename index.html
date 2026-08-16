@@ -11954,7 +11954,135 @@
       #secao-efetivo .config-escala-controle-r95 .botao{width:92px!important;padding:0 7px!important;}
     }
 
-  </style>
+  
+
+    /* =======================================================
+       SIGA 5.9.0 — REFINAMENTO DE INTERAÇÃO R9.6.1
+       Pesquisa consistente, calendário iOS e estados vazios.
+       ======================================================= */
+
+    /* Permutas: o painel já nasce expandido; o controle de recolher não
+       ocupa espaço na abertura. O campo de data fica visualmente vazio
+       até uma data real ser escolhida. */
+    #alternadorFiltrosPermutasAdmin{
+      display:none!important;
+    }
+    #dataPermutasAdmin::placeholder{
+      color:transparent!important;
+      opacity:0!important;
+    }
+
+    /* O seletor nativo fica diretamente sobre a área do ícone.
+       No iPhone isso evita depender de showPicker() para abrir o calendário. */
+    #appShell .siga-date-filter-r96{
+      display:block!important;
+      min-width:0!important;
+    }
+    #appShell .siga-date-filter-r96 #dataPermutasAdmin{
+      padding-right:50px!important;
+    }
+    #appShell .siga-date-filter-r96 .siga-date-calendar-r96{
+      right:15px!important;
+      z-index:2!important;
+    }
+    #appShell .siga-date-filter-r96 .siga-date-picker-aux-r96{
+      position:absolute!important;
+      top:0!important;
+      right:0!important;
+      bottom:auto!important;
+      width:50px!important;
+      min-width:50px!important;
+      max-width:50px!important;
+      height:100%!important;
+      min-height:100%!important;
+      max-height:100%!important;
+      margin:0!important;
+      padding:0!important;
+      border:0!important;
+      border-radius:0 var(--r96-control-radius) var(--r96-control-radius) 0!important;
+      background:transparent!important;
+      color:transparent!important;
+      opacity:.001!important;
+      pointer-events:auto!important;
+      appearance:auto!important;
+      -webkit-appearance:auto!important;
+      cursor:pointer!important;
+      z-index:4!important;
+    }
+    #appShell .siga-date-filter-r96 .siga-date-picker-aux-r96::-webkit-calendar-picker-indicator{
+      position:absolute!important;
+      inset:0!important;
+      width:100%!important;
+      height:100%!important;
+      margin:0!important;
+      padding:0!important;
+      opacity:0!important;
+      cursor:pointer!important;
+    }
+
+    /* Pesquisa: um único padrão visual para P1, P4, Guarda, Comando e
+       campos dinâmicos do relatório. A reserva de 44px impede o texto
+       de invadir a lupa, inclusive após o reset global de inputs da R9.6. */
+    #appShell .siga-search-field-r961,
+    #appShell .campo-com-icone.siga-search-field-r961,
+    #appShell .editor-input-com-icone.siga-search-field-r961{
+      position:relative!important;
+      display:block!important;
+      width:100%!important;
+      min-width:0!important;
+      max-width:100%!important;
+    }
+    #appShell .siga-search-field-r961 > .siga-search-icon-r961,
+    #appShell .campo-com-icone.siga-search-field-r961 > .icone-svg,
+    #appShell .editor-input-com-icone.siga-search-field-r961 > .icone-svg{
+      position:absolute!important;
+      left:14px!important;
+      top:50%!important;
+      width:18px!important;
+      height:18px!important;
+      transform:translateY(-50%)!important;
+      color:#718476!important;
+      pointer-events:none!important;
+      z-index:3!important;
+    }
+    #appShell .siga-search-field-r961 > input,
+    #appShell .campo-com-icone.siga-search-field-r961 > input,
+    #appShell .editor-input-com-icone.siga-search-field-r961 > input{
+      padding-left:44px!important;
+      padding-right:14px!important;
+    }
+    #appShell .siga-search-field-r961 > input::placeholder,
+    #appShell .campo-com-icone.siga-search-field-r961 > input::placeholder,
+    #appShell .editor-input-com-icone.siga-search-field-r961 > input::placeholder{
+      text-overflow:ellipsis;
+    }
+
+    /* Setores: nenhum cartão de seleção pode aparecer como uma barra vazia. */
+    #resultadosSetorAdmin:empty,
+    #policialSelecionadoSetorAdmin:empty{
+      display:none!important;
+      min-height:0!important;
+      margin:0!important;
+      padding:0!important;
+      border:0!important;
+      box-shadow:none!important;
+    }
+
+    @media(max-width:700px){
+      #appShell .siga-search-field-r961 > .siga-search-icon-r961,
+      #appShell .campo-com-icone.siga-search-field-r961 > .icone-svg,
+      #appShell .editor-input-com-icone.siga-search-field-r961 > .icone-svg{
+        left:13px!important;
+        width:17px!important;
+        height:17px!important;
+      }
+      #appShell .siga-search-field-r961 > input,
+      #appShell .campo-com-icone.siga-search-field-r961 > input,
+      #appShell .editor-input-com-icone.siga-search-field-r961 > input{
+        padding-left:42px!important;
+      }
+    }
+</style>
 </head>
 <body>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -12054,7 +12182,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.6
+        SIGA 3ª CIA — Versão 5.9.0 • R9.6.1
       </footer>
     </section>
   </main>
@@ -12127,7 +12255,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.6</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.6.1</footer>
     </aside>
 
     <div class="area-principal">
@@ -12968,14 +13096,14 @@
               <div><span class="rotulo-suave">LOCALIZAR SOLICITAÇÕES</span><h3>Filtros</h3></div>
               <div class="painel-cabecalho-acoes">
                 <span class="status-siga neutro">Atualização automática</span>
-                <button id="alternadorFiltrosPermutasAdmin" class="alternador-filtros-permutas" type="button" aria-expanded="true" aria-controls="filtrosPermutasAdminBloco" aria-label="Ocultar filtros" title="Ocultar filtros" onclick="alternarFiltrosPermutasAdmin()">
+                <button id="alternadorFiltrosPermutasAdmin" class="alternador-filtros-permutas oculto" type="button" aria-expanded="true" aria-controls="filtrosPermutasAdminBloco" aria-label="Ocultar filtros" title="Ocultar filtros" onclick="alternarFiltrosPermutasAdmin()">
                   <svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg>
                 </button>
               </div>
             </div>
             <div id="filtrosPermutasAdminBloco" class="filtros filtros-automaticos filtros-permutas-admin">
               <div class="campo filtro-pesquisa-permuta"><label for="filtroPermutasAdmin">Pesquisar</label><input id="filtroPermutasAdmin" type="search" autocomplete="off" placeholder="Nome, matrícula ou modalidade"></div>
-              <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="dd/mm/aaaa" aria-label="Data no formato dia, mês e ano"></div>
+              <div class="campo filtro-data-permuta"><label for="dataPermutasAdmin">Data</label><input id="dataPermutasAdmin" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="" aria-label="Data. Toque no calendário para escolher ou digite no formato dia, mês e ano"></div>
               <div class="campo filtro-status-permuta"><label for="statusPermutasAdmin">Status</label><select id="statusPermutasAdmin"><option value="TODOS">TODOS</option><option value="APROVADA">REGULARES</option><option value="NEGADA">NEGADAS</option><option value="CANCELADA">CANCELADAS</option></select></div>
               <div class="campo filtro-tipo-permuta"><label for="tipoPermutasAdmin">Tipo</label><select id="tipoPermutasAdmin"><option value="TODOS">TODOS</option><option value="CASADA">CASADA</option><option value="AVULSA">AVULSA</option></select></div>
             </div>
@@ -13895,7 +14023,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.5';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.6.1';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -19237,11 +19365,13 @@
       pai.insertBefore(wrapper, campo);
       wrapper.appendChild(campo);
 
+      /* Input date real, transparente e restrito aos 50px do ícone.
+         O toque chega diretamente ao controle nativo do iOS/Safari. */
       const picker = document.createElement('input');
       picker.type = 'date';
       picker.className = 'siga-date-picker-aux-r96';
       picker.tabIndex = -1;
-      picker.setAttribute('aria-hidden','true');
+      picker.setAttribute('aria-label','Escolher data no calendário');
       wrapper.appendChild(picker);
 
       const icone = document.createElement('span');
@@ -19250,6 +19380,7 @@
       icone.innerHTML = iconeCalendarioR96();
       wrapper.appendChild(icone);
       campo.dataset.r96Calendar = '1';
+      campo.placeholder = '';
 
       const sincronizarPicker = function(){
         const iso = typeof converterDataBrParaIso === 'function' ? converterDataBrParaIso(campo.value) : '';
@@ -19258,21 +19389,6 @@
       };
       campo.addEventListener('input', sincronizarPicker);
       campo.addEventListener('change', sincronizarPicker);
-
-      const abrir = function(){
-        if (campo.disabled) return;
-        sincronizarPicker();
-        try {
-          if (typeof picker.showPicker === 'function') picker.showPicker();
-          else picker.click();
-        } catch (erro) {
-          try { picker.click(); } catch (ignorado) {}
-        }
-      };
-      wrapper.addEventListener('click', function(evento){
-        if (evento.target === picker) return;
-        abrir();
-      });
 
       const aplicarPicker = function(){
         if (!picker.value) return;
@@ -19286,9 +19402,46 @@
       sincronizarPicker();
     }
 
+    function aprimorarCampoPesquisaR961(input) {
+      if (!input || input.dataset.r961Search) return;
+      let wrapper = input.parentElement;
+      const wrapperExistente = wrapper && (wrapper.classList.contains('campo-com-icone') || wrapper.classList.contains('editor-input-com-icone'));
+
+      if (!wrapperExistente) {
+        wrapper = document.createElement('span');
+        wrapper.className = 'siga-search-field-r961';
+        input.parentNode.insertBefore(wrapper, input);
+        wrapper.appendChild(input);
+        const icone = document.createElement('span');
+        icone.className = 'siga-search-icon-r961';
+        icone.setAttribute('aria-hidden','true');
+        icone.innerHTML = '<svg class="icone-svg" viewBox="0 0 24 24"><use href="#icone-pesquisa"></use></svg>';
+        wrapper.insertBefore(icone, input);
+      } else {
+        wrapper.classList.add('siga-search-field-r961');
+        const iconeExistente = wrapper.querySelector(':scope > .icone-svg');
+        if (iconeExistente) iconeExistente.classList.add('siga-search-icon-r961');
+      }
+      /* O reset global da R9.6 usa seletores de alta especificidade.
+         Padding inline com !important garante que nenhuma tela volte a
+         sobrepor placeholder e lupa em iOS ou em componentes antigos. */
+      input.style.setProperty('padding-left', window.matchMedia('(max-width:700px)').matches ? '42px' : '44px', 'important');
+      input.style.setProperty('padding-right', '14px', 'important');
+      input.dataset.r961Search = '1';
+    }
+
+    function aprimorarPesquisasR961() {
+      const seletores = [
+        '#appShell input[type="search"]',
+        '#appShell .campo-busca-relatorio > input:not([type="hidden"])'
+      ].join(',');
+      document.querySelectorAll(seletores).forEach(aprimorarCampoPesquisaR961);
+    }
+
     function varrerCamposR96() {
       document.querySelectorAll('#appShell input[type="date"]:not(.siga-date-picker-aux-r96)').forEach(aprimorarInputDateR96);
       aprimorarFiltroDataPermutasR96();
+      aprimorarPesquisasR961();
       document.querySelectorAll('#appShell input[type="date"].siga-date-native-r96').forEach(atualizarEspelhoDataR96);
     }
 
