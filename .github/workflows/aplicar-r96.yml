@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/r96/apply-r96.patch.gz'
+      - '.github/r96/part06.b64'
 
 permissions:
   contents: write
@@ -17,11 +17,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Aplicar patch R9.6
+      - name: Validar e aplicar R9.6
         run: |
-          gzip -dc .github/r96/apply-r96.patch.gz > /tmp/apply-r96.patch
+          cat .github/r96/part*.b64 | base64 -d | gzip -dc > /tmp/apply-r96.patch
+          echo "60b008f782e12f3502dbff63fe303e5b43aa00d77e18bf9e53853e446de7ef72  /tmp/apply-r96.patch" | sha256sum -c -
           git apply --check /tmp/apply-r96.patch
           git apply /tmp/apply-r96.patch
+          rm -f .github/r96/part*.b64
           rm -f .github/r96/apply-r96.patch.gz
           rm -f .github/r96/apply-r96.patch
           rm -f .github/workflows/aplicar-r96.yml
