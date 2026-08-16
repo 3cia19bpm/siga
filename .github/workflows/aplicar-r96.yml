@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/r96/apply-r96.patch'
+      - '.github/r96/apply-r96.patch.gz'
 
 permissions:
   contents: write
@@ -19,8 +19,10 @@ jobs:
           fetch-depth: 0
       - name: Aplicar patch R9.6
         run: |
-          git apply --check .github/r96/apply-r96.patch
-          git apply .github/r96/apply-r96.patch
+          gzip -dc .github/r96/apply-r96.patch.gz > /tmp/apply-r96.patch
+          git apply --check /tmp/apply-r96.patch
+          git apply /tmp/apply-r96.patch
+          rm -f .github/r96/apply-r96.patch.gz
           rm -f .github/r96/apply-r96.patch
           rm -f .github/workflows/aplicar-r96.yml
           rmdir .github/r96 2>/dev/null || true
