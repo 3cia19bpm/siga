@@ -1,0 +1,79 @@
+diff --git a/index.html b/index.html
+index ed9172a..8704671 100644
+--- a/index.html
++++ b/index.html
+@@ -11557,6 +11557,42 @@
+       }
+     }
+ 
++
++
++    /* SIGA R9.5 — escala geral e Bikes com referências independentes. */
++    #secao-efetivo .config-escala-grid-r95{
++      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px;
++    }
++    #secao-efetivo .config-escala-bloco-r95{
++      min-width:0;padding:16px;border:1px solid #dbe3d8;border-radius:18px;background:#f8faf7;
++    }
++    #secao-efetivo .config-escala-bloco-r95.bikes{background:#fbfaf4;border-color:#e5dfc9;}
++    #secao-efetivo .config-escala-bloco-topo-r95{
++      display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px;
++    }
++    #secao-efetivo .config-escala-bloco-topo-r95 span{
++      display:block;color:#708070;font-size:8px;font-weight:950;letter-spacing:.15em;margin-bottom:4px;
++    }
++    #secao-efetivo .config-escala-bloco-topo-r95 strong{display:block;color:#243c2b;font-size:15px;font-weight:950;}
++    #secao-efetivo .config-escala-bloco-topo-r95 em{
++      flex:0 0 auto;padding:6px 8px;border-radius:999px;background:#edf2ea;color:#536653;
++      font-size:7px;font-style:normal;font-weight:900;letter-spacing:.055em;white-space:nowrap;
++    }
++    #secao-efetivo .config-escala-bloco-r95.bikes .config-escala-bloco-topo-r95 em{background:#f3eddc;color:#76642a;}
++    #secao-efetivo .config-escala-bloco-r95 > label{display:block;margin-bottom:7px;color:#29402f;font-weight:850;}
++    #secao-efetivo .config-escala-controle-r95{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:stretch;}
++    #secao-efetivo .config-escala-controle-r95 input{min-width:0;width:100%;}
++    #secao-efetivo .config-escala-controle-r95 .botao{min-width:116px!important;width:auto!important;margin:0!important;padding-left:18px!important;padding-right:18px!important;}
++    #secao-efetivo .config-escala-regra-r95{display:block;margin-top:9px;color:#657267;font-size:9.5px;line-height:1.42;user-select:none;-webkit-user-select:none;}
++    #secao-efetivo .config-escala-bloco-r95 .ajuda{display:block;margin-top:7px;}
++    @media(max-width:760px){
++      #secao-efetivo .config-escala-grid-r95{grid-template-columns:1fr;gap:11px;}
++      #secao-efetivo .config-escala-bloco-r95{padding:14px;border-radius:17px;}
++      #secao-efetivo .config-escala-controle-r95{grid-template-columns:minmax(0,1fr) 112px;gap:8px;}
++      #secao-efetivo .config-escala-controle-r95 .botao{min-width:0!important;width:112px!important;padding:0 10px!important;}
++      #secao-efetivo .config-escala-bloco-topo-r95 em{font-size:6.5px;}
++    }
++
+   </style>
+ </head>
+ <body>
+@@ -11629,7 +11665,7 @@
+           <div class="campo">
+             <label for="senhaLogin">Senha</label>
+             <input id="senhaLogin" name="password" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="current-password" enterkeyhint="go" aria-describedby="ajudaBiometria" placeholder="Digite sua senha" required>
+-            <small id="ajudaBiometria" class="ajuda ajuda-biometria">Selecione a credencial salva para entrar com Face ID, digital ou o bloqueio do aparelho.</small>
++            <small id="ajudaBiometria" class="ajuda ajuda-biometria">Selecione a credencial salva ou digite sua senha para desbloquear.</small>
+           </div>
+           <button class="botao botao-largo" type="submit">ENTRAR</button>
+           <div class="acoes-login">
+@@ -11657,7 +11693,7 @@
+ 
+       <footer class="rodape-acesso">
+         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
+-        SIGA 3ª CIA — Versão 5.9.0 • R9.4
++        SIGA 3ª CIA — Versão 5.9.0 • R9.5
+       </footer>
+     </section>
+   </main>
+@@ -11730,7 +11766,7 @@
+         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
+       </nav>
+ 
+-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.4</footer>
++      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.5</footer>
+     </aside>
+ 
+     <div class="area-principal">
+@@ -13100,7 +13136,7 @@
+             <div>
+               <span class="pagina-kicker">QUADRO DE POLICIAIS</span>
+               <h2>Efetivo</h2>
+-              <p>Visão geral, situação cadastral e distribuição por grade.</p>
