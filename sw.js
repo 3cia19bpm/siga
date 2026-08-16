@@ -1,10 +1,8 @@
-const CACHE_SIGA = 'siga-github-v5.9.1-governanca';
-const SCRIPT_GOVERNANCA = './governanca-acesso.js';
+const CACHE_SIGA = 'siga-github-v5.9.0-r9.4';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
   './manifest.json',
-  './governanca-acesso.js',
   './apple-touch-icon.png',
   './icon-192.png',
   './icon-512.png'
@@ -24,48 +22,13 @@ self.addEventListener('activate', function(evento) {
     caches.keys().then(function(chaves) {
       return Promise.all(
         chaves
-          .filter(function(chave) { return chave !== CACHE_SIGA; })
+          .filter(function(chave) { return chave !== CACHE_SIGA && chave.indexOf('siga-github-') === 0; })
           .map(function(chave) { return caches.delete(chave); })
       );
     })
   );
   self.clients.claim();
 });
-
-function injetarGovernanca(resposta) {
-  if (!resposta) return Promise.resolve(resposta);
-  const tipo = resposta.headers.get('content-type') || '';
-  if (!tipo.includes('text/html')) return Promise.resolve(resposta);
-
-  return resposta.text().then(function(html) {
-    const tag = '<script src="' + SCRIPT_GOVERNANCA + '"></script>';
-    const htmlProtegido = html.includes('governanca-acesso.js')
-      ? html
-      : (html.includes('</body>') ? html.replace('</body>', tag + '\n</body>') : html + '\n' + tag);
-
-    const cabecalhos = new Headers(resposta.headers);
-    cabecalhos.delete('content-length');
-    cabecalhos.delete('content-encoding');
-
-    return new Response(htmlProtegido, {
-      status: resposta.status,
-      statusText: resposta.statusText,
-      headers: cabecalhos
-    });
-  });
-}
-
-function respostaOffline(evento) {
-  return caches.match(evento.request).then(function(resposta) {
-    if (resposta) {
-      return evento.request.mode === 'navigate' ? injetarGovernanca(resposta) : resposta;
-    }
-    if (evento.request.mode !== 'navigate') return Response.error();
-    return caches.match('./index.html').then(function(index) {
-      return injetarGovernanca(index);
-    });
-  });
-}
 
 self.addEventListener('fetch', function(evento) {
   if (evento.request.method !== 'GET') return;
@@ -81,10 +44,12 @@ self.addEventListener('fetch', function(evento) {
         caches.open(CACHE_SIGA).then(function(cache) {
           cache.put(evento.request, copia);
         });
-        return evento.request.mode === 'navigate' ? injetarGovernanca(resposta) : resposta;
+        return resposta;
       })
       .catch(function() {
-        return respostaOffline(evento);
+        return caches.match(evento.request).then(function(resposta) {
+          return resposta || caches.match('./index.html');
+        });
       })
   );
 });
