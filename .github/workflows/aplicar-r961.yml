@@ -1,0 +1,36 @@
+name: Aplicar refinamento R9.6.1
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  aplicar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validar e aplicar R9.6.1
+        shell: bash
+        run: |
+          base64 -d .github/r961/apply.patch.b64 > /tmp/r961.patch
+          echo 'e2afee3d8cc4e711b2d5a5140bd43d253b7ffa6d142dbc6de25da3fcefbc72ce  /tmp/r961.patch' | sha256sum -c -
+          git apply --check /tmp/r961.patch
+          git apply /tmp/r961.patch
+          rm -f .github/r961/apply.patch.b64
+          rm -f .github/workflows/aplicar-r961.yml
+          rmdir .github/r961 2>/dev/null || true
+      - name: Publicar R9.6.1
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Refina pesquisa e calendário do SIGA R9.6.1'
+          git push
