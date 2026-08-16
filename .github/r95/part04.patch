@@ -1,0 +1,66 @@
+-      const chips = ['1','2','3','4'].map(g =>
+-        `<span class="grade-chip"><b>G${g}</b><em>${Number(grades[g] || 0)}</em></span>`
++      const chips = ['1','2','3','4','B1','B2'].map(g =>
++        `<span class="grade-chip"><b>${escaparHtml(rotuloGradeUi(g))}</b><em>${Number(grades[g] || 0)}</em></span>`
+       ).join('');
+       $('resumoEfetivo').innerHTML = `
+         <div class="resumo"><strong>${escaparHtml(String(resumo.total || 0))}</strong><span>Total</span></div>
+         <div class="resumo"><strong>${escaparHtml(String(resumo.ativos || 0))}</strong><span>Ativos</span></div>
+-        <div class="resumo"><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong><span>Sem grade</span></div>
++        <div class="resumo"><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong><span>Sem referência</span></div>
+         <div class="resumo resumo-distribuicao"><div class="grade-chips">${chips}</div><span>Distribuição</span></div>`;
+     }
+ 
+@@ -16645,7 +16713,7 @@
+           </div>
+ 
+           <div class="cartao-dados">
+-            <div class="dado"><small>Grade</small><strong>${escaparHtml(u.grade || 'NÃO DEFINIDA')}</strong></div>
++            <div class="dado"><small>Referência</small><strong>${escaparHtml(rotuloReferenciaRegimeUi(u.grade,u.turnoFixo))}</strong></div>
+             <div class="dado"><small>Regime</small><strong>${escaparHtml(u.turnoFixo === 'A' ? 'BIKE • FIXO A' : u.turnoFixo === 'B' ? 'BIKE • FIXO B' : u.turnoFixo === 'AB' ? 'GUARDA • 24h AB' : 'VIATURA / BASES • 12h A/B')}</strong></div>
+             <div class="dado"><small>Contato</small><strong>${escaparHtml(u.contato || '—')}</strong></div>
+             <div class="dado"><small>E-mail</small><strong>${escaparHtml(u.email || '—')}</strong></div>
+@@ -16654,8 +16722,8 @@
+           <div class="acoes-em-linha" style="margin-top:13px">
+             ${podeGerirGrade ? `
+               <select id="grade-${escaparHtml(u.id)}" class="select-escala-admin">
+-                <option value="">GRADE</option>
+-                ${['1','2','3','4'].map(g => `<option value="${g}" ${u.grade === g ? 'selected' : ''}>${g}</option>`).join('')}
++                <option value="">REFERÊNCIA</option>
++                ${opcoesReferenciaRegimeUi(u.turnoFixo).map(g => `<option value="${g}" ${u.grade === g ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,u.turnoFixo)}</option>`).join('')}
+               </select>
+ 
+               <select id="turnofixo-${escaparHtml(u.id)}" class="select-escala-admin regime" onchange="ajustarGradesPorRegime('${escaparHtml(u.id)}')">
+@@ -16680,16 +16748,24 @@
+       const regime = $('turnofixo-' + id).value;
+       const gradeEl = $('grade-' + id);
+       if (!gradeEl) return;
+-      const atual = gradeEl.value;
+-      const grades = (regime === 'A' || regime === 'B') ? ['1','2'] : ['1','2','3','4'];
+-      gradeEl.innerHTML = '<option value="">GRADE</option>' + grades.map(g => `<option value="${g}" ${g === atual ? 'selected' : ''}>${g}</option>`).join('');
+-      if (!grades.includes(atual)) gradeEl.value = '';
++      const atual = String(gradeEl.value || '').toUpperCase();
++      const bike = regime === 'A' || regime === 'B';
++      const grades = opcoesReferenciaRegimeUi(regime);
++      let convertido = atual;
++      if (bike && estado.suporteEscalaR95 && atual === '1') convertido = 'B1';
++      if (bike && estado.suporteEscalaR95 && atual === '2') convertido = 'B2';
++      if (bike && !estado.suporteEscalaR95 && atual === 'B1') convertido = '1';
++      if (bike && !estado.suporteEscalaR95 && atual === 'B2') convertido = '2';
++      if (!bike && atual === 'B1') convertido = '1';
++      if (!bike && atual === 'B2') convertido = '2';
++      gradeEl.innerHTML = '<option value="">REFERÊNCIA</option>' + grades.map(g => `<option value="${g}" ${g === convertido ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,regime)}</option>`).join('');
++      gradeEl.value = grades.includes(convertido) ? convertido : '';
+     }
+ 
+     async function atualizarGradeEfetivo(id) {
+       const grade = $('grade-' + id).value;
+       const turnoFixo = $('turnofixo-' + id).value;
+-      if (!grade) return toast('Selecione uma grade válida para o regime escolhido.', 'aviso');
++      if (!grade) return toast('Selecione uma referência válida para o regime escolhido.', 'aviso');
+ 
+       mostrarCarregando('Atualizando escala do policial...');
+       try {
+@@ -16717,26 +16793,48 @@
+ 
+       try {
