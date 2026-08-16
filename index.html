@@ -11557,6 +11557,42 @@
       }
     }
 
+
+
+    /* SIGA R9.5 — escala geral e Bikes com referências independentes. */
+    #secao-efetivo .config-escala-grid-r95{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px;
+    }
+    #secao-efetivo .config-escala-bloco-r95{
+      min-width:0;padding:16px;border:1px solid #dbe3d8;border-radius:18px;background:#f8faf7;
+    }
+    #secao-efetivo .config-escala-bloco-r95.bikes{background:#fbfaf4;border-color:#e5dfc9;}
+    #secao-efetivo .config-escala-bloco-topo-r95{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px;
+    }
+    #secao-efetivo .config-escala-bloco-topo-r95 span{
+      display:block;color:#708070;font-size:8px;font-weight:950;letter-spacing:.15em;margin-bottom:4px;
+    }
+    #secao-efetivo .config-escala-bloco-topo-r95 strong{display:block;color:#243c2b;font-size:15px;font-weight:950;}
+    #secao-efetivo .config-escala-bloco-topo-r95 em{
+      flex:0 0 auto;padding:6px 8px;border-radius:999px;background:#edf2ea;color:#536653;
+      font-size:7px;font-style:normal;font-weight:900;letter-spacing:.055em;white-space:nowrap;
+    }
+    #secao-efetivo .config-escala-bloco-r95.bikes .config-escala-bloco-topo-r95 em{background:#f3eddc;color:#76642a;}
+    #secao-efetivo .config-escala-bloco-r95 > label{display:block;margin-bottom:7px;color:#29402f;font-weight:850;}
+    #secao-efetivo .config-escala-controle-r95{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:stretch;}
+    #secao-efetivo .config-escala-controle-r95 input{min-width:0;width:100%;}
+    #secao-efetivo .config-escala-controle-r95 .botao{min-width:116px!important;width:auto!important;margin:0!important;padding-left:18px!important;padding-right:18px!important;}
+    #secao-efetivo .config-escala-regra-r95{display:block;margin-top:9px;color:#657267;font-size:9.5px;line-height:1.42;user-select:none;-webkit-user-select:none;}
+    #secao-efetivo .config-escala-bloco-r95 .ajuda{display:block;margin-top:7px;}
+    @media(max-width:760px){
+      #secao-efetivo .config-escala-grid-r95{grid-template-columns:1fr;gap:11px;}
+      #secao-efetivo .config-escala-bloco-r95{padding:14px;border-radius:17px;}
+      #secao-efetivo .config-escala-controle-r95{grid-template-columns:minmax(0,1fr) 112px;gap:8px;}
+      #secao-efetivo .config-escala-controle-r95 .botao{min-width:0!important;width:112px!important;padding:0 10px!important;}
+      #secao-efetivo .config-escala-bloco-topo-r95 em{font-size:6.5px;}
+    }
+
   </style>
 </head>
 <body>
@@ -11629,7 +11665,7 @@
           <div class="campo">
             <label for="senhaLogin">Senha</label>
             <input id="senhaLogin" name="password" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="current-password" enterkeyhint="go" aria-describedby="ajudaBiometria" placeholder="Digite sua senha" required>
-            <small id="ajudaBiometria" class="ajuda ajuda-biometria">Selecione a credencial salva para entrar com Face ID, digital ou o bloqueio do aparelho.</small>
+            <small id="ajudaBiometria" class="ajuda ajuda-biometria">Selecione a credencial salva ou digite sua senha para desbloquear.</small>
           </div>
           <button class="botao botao-largo" type="submit">ENTRAR</button>
           <div class="acoes-login">
@@ -11657,7 +11693,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.4
+        SIGA 3ª CIA — Versão 5.9.0 • R9.5
       </footer>
     </section>
   </main>
@@ -11730,7 +11766,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.4</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.5</footer>
     </aside>
 
     <div class="area-principal">
@@ -13100,7 +13136,7 @@
             <div>
               <span class="pagina-kicker">QUADRO DE POLICIAIS</span>
               <h2>Efetivo</h2>
-              <p>Visão geral, situação cadastral e distribuição por grade.</p>
+              <p>Visão geral, situação cadastral e distribuição por referência de escala.</p>
             </div>
           </div>
           <div id="resumoEfetivo" class="resumos"></div>
@@ -13108,27 +13144,40 @@
           <div id="painelConfigEscala" class="painel oculto painel-config-escala-premium">
             <div class="cartao-topo">
               <div>
-                <span class="rotulo-suave">CONFIGURAÇÃO DA ESCALA</span>
-                <h3 style="margin:4px 0 0">Lógica das grades</h3>
-                <p>Defina apenas a data-base da Grade 1. As Grades 2, 3 e 4 são calculadas automaticamente conforme o regime.</p>
+                <span class="rotulo-suave">CONFIGURAÇÃO DAS ESCALAS</span>
+                <h3 style="margin:4px 0 0">Referências do efetivo</h3>
+                <p>Configure separadamente a escala geral e as Bikes. As demais referências são calculadas automaticamente.</p>
               </div>
             </div>
 
-            <div class="grade-2 config-escala-grade" style="margin-top:14px">
-              <div class="campo">
-                <label for="dataBaseEscala">Grade 1 — primeiro dia do ciclo</label>
-                <input id="dataBaseEscala" type="date">
+            <div class="config-escala-grid-r95">
+              <section class="config-escala-bloco-r95">
+                <div class="config-escala-bloco-topo-r95">
+                  <div><span>ESCALA GERAL</span><strong>G1 • G2 • G3 • G4</strong></div>
+                  <em>Viaturas • Guarda • Bases</em>
+                </div>
+                <label for="dataBaseEscala">Data-base da G1</label>
+                <div class="config-escala-controle-r95">
+                  <input id="dataBaseEscala" type="date">
+                  <button class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin('OPERACIONAL')">SALVAR</button>
+                </div>
                 <small id="referenciaAtualEscala" class="ajuda">Referência atual: —</small>
-              </div>
-              <div class="aviso-inline config-escala-aviso">
-                <strong>Defasagem automática</strong>
-                <span>Viaturas / Guarda / Bases / AB: G1 +0, G2 +1, G3 +2, G4 +3 dias.</span>
-                <span>Bikes com turno fixo A/B: G1 +0, G2 +2, G3 +4, G4 +6 dias.</span>
-              </div>
-            </div>
+                <small class="config-escala-regra-r95">G2, G3 e G4 são derivadas automaticamente da G1.</small>
+              </section>
 
-            <div class="config-escala-acoes">
-              <button class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin()">SALVAR DATA-BASE</button>
+              <section class="config-escala-bloco-r95 bikes">
+                <div class="config-escala-bloco-topo-r95">
+                  <div><span>ESCALA BIKES</span><strong>B1 • B2</strong></div>
+                  <em>Turno fixo A ou B</em>
+                </div>
+                <label for="dataBaseEscalaBikes">Data-base da B1</label>
+                <div class="config-escala-controle-r95">
+                  <input id="dataBaseEscalaBikes" type="date">
+                  <button id="btnSalvarEscalaBikes" class="botao" type="button" onclick="salvarConfiguracaoEscalaAdmin('BIKES')">SALVAR</button>
+                </div>
+                <small id="referenciaAtualEscalaBikes" class="ajuda">Referência atual: —</small>
+                <small class="config-escala-regra-r95">B2 inicia dois dias após B1. Coberturas eventuais não alteram B1/B2.</small>
+              </section>
             </div>
           </div>
 
@@ -13139,7 +13188,7 @@
             <div class="filtros filtros-automaticos">
               <div class="campo"><label for="filtroEfetivo">Pesquisar</label><input id="filtroEfetivo" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra"></div>
               <div class="campo"><label for="statusEfetivo">Status</label><select id="statusEfetivo"><option value="TODOS">TODOS</option><option value="CONFIRMADO">ATIVOS</option><option value="PENDENTE">PENDENTES</option><option value="BLOQUEADO">BLOQUEADOS</option><option value="REPROVADO">REPROVADOS</option></select></div>
-              <div class="campo"><label for="gradeEfetivo">Grade</label><select id="gradeEfetivo"><option value="TODAS">TODAS</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div>
+              <div class="campo"><label for="gradeEfetivo">Referência</label><select id="gradeEfetivo"><option value="TODAS">TODAS</option><option value="1">G1</option><option value="2">G2</option><option value="3">G3</option><option value="4">G4</option><option value="B1">B1</option><option value="B2">B2</option></select></div>
             </div>
             <small class="filtro-automatico-nota">Resultados atualizados automaticamente.</small>
             <div id="listaEfetivo" class="lista-cartoes"></div>
@@ -13319,6 +13368,7 @@
       calendarioAno: null,
       calendarioMes: null,
       configuracaoGrades: [],
+      suporteEscalaR95: false,
       cacheCalendario: {},
       promessasCalendario: {},
       versaoCacheCalendario: 0,
@@ -13484,7 +13534,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.4';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.5';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -15595,7 +15645,7 @@
 
         $('resumoEscalaInicio').innerHTML = [
           ['Hoje', itemHoje && itemHoje.configurado && itemHoje.turno ? itemHoje.turno : '—', itemHoje && itemHoje.turno ? 'Serviço previsto' : 'Sem serviço previsto'],
-          ['Grade', cal.grade || '—', cal.regime || 'Não configurada'],
+          ['Referência', cal.grade ? rotuloGradeUi(cal.grade) : '—', cal.regime || 'Não configurada'],
           ['Permutas restantes', limite.configurado ? limite.restantes : '—', limite.configurado ? ('Avulsas neste mês • limite 50% / IN 001') : 'Configure a escala para calcular']
         ].map(item => `
           <div class="resumo">
@@ -15759,7 +15809,7 @@
     function mostrarEsqueletoCalendario(ano,mes){
       $('tituloMesCalendario').textContent=capitalizarMes_(NOMES_MESES[Number(mes)-1]||'')+' de '+Number(ano);
       $('alertaCalendario').classList.add('oculto');
-      $('resumoCalendario').innerHTML=['Grade','Regime','Dias de serviço','Permutas restantes']
+      $('resumoCalendario').innerHTML=['Referência','Regime','Dias de serviço','Permutas restantes']
         .map(function(rotulo){return `<div class="resumo"><strong>—</strong><span>${rotulo}</span></div>`;})
         .join('');
       const grade=$('gradeCalendario');
@@ -15801,14 +15851,14 @@
       const alerta = $('alertaCalendario');
       if (!cal.configurado) {
         alerta.textContent =
-          'Seu calendário ainda não pode ser calculado. É necessário definir a Grade 1–4 do policial.';
+          'Seu calendário ainda não pode ser calculado. É necessário definir a referência de escala do policial (G1–G4 ou B1–B2).';
         alerta.classList.remove('oculto');
       } else {
         alerta.classList.add('oculto');
       }
 
       $('resumoCalendario').innerHTML = [
-        ['Grade', cal.grade || '—'],
+        ['Referência', cal.grade ? rotuloGradeUi(cal.grade) : '—'],
         ['Regime', cal.turnoFixo === 'A' ? 'BIKE A' : cal.turnoFixo === 'B' ? 'BIKE B' : cal.turnoFixo === 'AB' ? '24h AB' : '12h A/B'],
         ['Dias de serviço', cal.configurado ? cal.totalDiasServico : '—'],
         ['Permutas restantes', limite.configurado ? limite.restantes : '—']
@@ -16614,15 +16664,33 @@
       }
     }
 
+    function rotuloGradeUi(grade) {
+      const g = String(grade || '').trim().toUpperCase();
+      if (!g) return 'NÃO DEFINIDA';
+      return /^B[12]$/.test(g) ? g : (/^[1-4]$/.test(g) ? ('G' + g) : g);
+    }
+
+    function opcoesReferenciaRegimeUi(turnoFixo) {
+      const bike = turnoFixo === 'A' || turnoFixo === 'B';
+      if (!bike) return ['1','2','3','4'];
+      return estado.suporteEscalaR95 ? ['B1','B2'] : ['1','2'];
+    }
+
+    function rotuloReferenciaRegimeUi(grade, turnoFixo) {
+      const bike = turnoFixo === 'A' || turnoFixo === 'B';
+      if (bike && !estado.suporteEscalaR95 && /^[12]$/.test(String(grade || ''))) return 'B' + grade;
+      return rotuloGradeUi(grade);
+    }
+
     function renderizarResumoEfetivo(resumo) {
       const grades = resumo.grades || {};
-      const chips = ['1','2','3','4'].map(g =>
-        `<span class="grade-chip"><b>G${g}</b><em>${Number(grades[g] || 0)}</em></span>`
+      const chips = ['1','2','3','4','B1','B2'].map(g =>
+        `<span class="grade-chip"><b>${escaparHtml(rotuloGradeUi(g))}</b><em>${Number(grades[g] || 0)}</em></span>`
       ).join('');
       $('resumoEfetivo').innerHTML = `
         <div class="resumo"><strong>${escaparHtml(String(resumo.total || 0))}</strong><span>Total</span></div>
         <div class="resumo"><strong>${escaparHtml(String(resumo.ativos || 0))}</strong><span>Ativos</span></div>
-        <div class="resumo"><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong><span>Sem grade</span></div>
+        <div class="resumo"><strong>${escaparHtml(String(resumo.semGrade || 0))}</strong><span>Sem referência</span></div>
         <div class="resumo resumo-distribuicao"><div class="grade-chips">${chips}</div><span>Distribuição</span></div>`;
     }
 
@@ -16645,7 +16713,7 @@
           </div>
 
           <div class="cartao-dados">
-            <div class="dado"><small>Grade</small><strong>${escaparHtml(u.grade || 'NÃO DEFINIDA')}</strong></div>
+            <div class="dado"><small>Referência</small><strong>${escaparHtml(rotuloReferenciaRegimeUi(u.grade,u.turnoFixo))}</strong></div>
             <div class="dado"><small>Regime</small><strong>${escaparHtml(u.turnoFixo === 'A' ? 'BIKE • FIXO A' : u.turnoFixo === 'B' ? 'BIKE • FIXO B' : u.turnoFixo === 'AB' ? 'GUARDA • 24h AB' : 'VIATURA / BASES • 12h A/B')}</strong></div>
             <div class="dado"><small>Contato</small><strong>${escaparHtml(u.contato || '—')}</strong></div>
             <div class="dado"><small>E-mail</small><strong>${escaparHtml(u.email || '—')}</strong></div>
@@ -16654,8 +16722,8 @@
           <div class="acoes-em-linha" style="margin-top:13px">
             ${podeGerirGrade ? `
               <select id="grade-${escaparHtml(u.id)}" class="select-escala-admin">
-                <option value="">GRADE</option>
-                ${['1','2','3','4'].map(g => `<option value="${g}" ${u.grade === g ? 'selected' : ''}>${g}</option>`).join('')}
+                <option value="">REFERÊNCIA</option>
+                ${opcoesReferenciaRegimeUi(u.turnoFixo).map(g => `<option value="${g}" ${u.grade === g ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,u.turnoFixo)}</option>`).join('')}
               </select>
 
               <select id="turnofixo-${escaparHtml(u.id)}" class="select-escala-admin regime" onchange="ajustarGradesPorRegime('${escaparHtml(u.id)}')">
@@ -16680,16 +16748,24 @@
       const regime = $('turnofixo-' + id).value;
       const gradeEl = $('grade-' + id);
       if (!gradeEl) return;
-      const atual = gradeEl.value;
-      const grades = (regime === 'A' || regime === 'B') ? ['1','2'] : ['1','2','3','4'];
-      gradeEl.innerHTML = '<option value="">GRADE</option>' + grades.map(g => `<option value="${g}" ${g === atual ? 'selected' : ''}>${g}</option>`).join('');
-      if (!grades.includes(atual)) gradeEl.value = '';
+      const atual = String(gradeEl.value || '').toUpperCase();
+      const bike = regime === 'A' || regime === 'B';
+      const grades = opcoesReferenciaRegimeUi(regime);
+      let convertido = atual;
+      if (bike && estado.suporteEscalaR95 && atual === '1') convertido = 'B1';
+      if (bike && estado.suporteEscalaR95 && atual === '2') convertido = 'B2';
+      if (bike && !estado.suporteEscalaR95 && atual === 'B1') convertido = '1';
+      if (bike && !estado.suporteEscalaR95 && atual === 'B2') convertido = '2';
+      if (!bike && atual === 'B1') convertido = '1';
+      if (!bike && atual === 'B2') convertido = '2';
+      gradeEl.innerHTML = '<option value="">REFERÊNCIA</option>' + grades.map(g => `<option value="${g}" ${g === convertido ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,regime)}</option>`).join('');
+      gradeEl.value = grades.includes(convertido) ? convertido : '';
     }
 
     async function atualizarGradeEfetivo(id) {
       const grade = $('grade-' + id).value;
       const turnoFixo = $('turnofixo-' + id).value;
-      if (!grade) return toast('Selecione uma grade válida para o regime escolhido.', 'aviso');
+      if (!grade) return toast('Selecione uma referência válida para o regime escolhido.', 'aviso');
 
       mostrarCarregando('Atualizando escala do policial...');
       try {
@@ -16717,26 +16793,48 @@
 
       try {
         const r = await api('adminObterConfiguracaoEscala', estado.token);
-        $('dataBaseEscala').value = r.dataBase || '';
+        const geral = r.dataBaseOperacional || r.dataBase || '';
+        const bikes = r.dataBaseBikes || geral;
+        estado.suporteEscalaR95 = String(r.revisao || '').toUpperCase() === 'R9.5' || Object.prototype.hasOwnProperty.call(r,'dataBaseBikes');
+        $('dataBaseEscala').value = geral;
+        $('dataBaseEscalaBikes').value = bikes;
+        const btnBike = $('btnSalvarEscalaBikes');
+        if (btnBike) {
+          btnBike.disabled = !estado.suporteEscalaR95;
+          btnBike.title = estado.suporteEscalaR95 ? '' : 'Atualize o Código.gs para a R9.5 para liberar a configuração B1/B2.';
+        }
+        const filtroGrade = $('gradeEfetivo');
+        if (filtroGrade) Array.from(filtroGrade.options).forEach(op => {
+          if (op.value === 'B1' || op.value === 'B2') op.disabled = !estado.suporteEscalaR95;
+        });
         const referencia = $('referenciaAtualEscala');
-        if (referencia) referencia.textContent = 'Referência atual: ' + formatarData(r.dataBase || '') + '.';
+        const referenciaBikes = $('referenciaAtualEscalaBikes');
+        if (referencia) referencia.textContent = 'Referência atual: ' + formatarData(geral) + '.';
+        if (referenciaBikes) referenciaBikes.textContent = estado.suporteEscalaR95
+          ? ('Referência atual: ' + formatarData(bikes) + '.')
+          : 'Atualize o Código.gs para R9.5 para liberar B1/B2.';
+        if (estado.efetivo.length) renderizarEfetivo();
       } catch (e) {
         painel.classList.add('oculto');
       }
     }
 
-    async function salvarConfiguracaoEscalaAdmin() {
-      const dataBase = $('dataBaseEscala').value;
-      if (!dataBase) return toast('Informe a data-base da Grade 1.', 'aviso');
+    async function salvarConfiguracaoEscalaAdmin(familia) {
+      const bike = String(familia || '').toUpperCase() === 'BIKES';
+      if (bike && !estado.suporteEscalaR95) return toast('Atualize o Código.gs para a R9.5 antes de configurar B1/B2.', 'aviso');
+      const campo = $(bike ? 'dataBaseEscalaBikes' : 'dataBaseEscala');
+      const dataBase = campo ? campo.value : '';
+      if (!dataBase) return toast(bike ? 'Informe a data-base da B1.' : 'Informe a data-base da G1.', 'aviso');
 
-      mostrarCarregando('Salvando data-base...');
+      mostrarCarregando('Salvando referência da escala...');
       try {
-        const r = await api(
+        await api(
           'adminSalvarConfiguracaoEscala',
           estado.token,
-          {dataBase}
+          {familia: bike ? 'BIKES' : 'OPERACIONAL', dataBase}
         );
-        toast('Data-base da escala atualizada.');
+        toast(bike ? 'Referência da B1 atualizada.' : 'Referência da G1 atualizada.');
+        invalidarCalendarioLocal();
         await carregarConfiguracaoEscalaAdmin();
       } catch (e) {
         tratarErro(e);
