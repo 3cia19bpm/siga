@@ -1,0 +1,59 @@
+name: Aplicar SIGA R9.7.2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/r972.patch'
+      - '.github/workflows/aplicar-r972.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  aplicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validar e aplicar patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git apply --check .github/r972.patch
+          git apply .github/r972.patch
+          grep -q "R9.7.2" index.html
+          grep -q "siga-github-v5.9.0-r9.7.2" sw.js
+
+      - name: Validar JavaScript
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp sw.js /tmp/sw-r972.js
+          node --check /tmp/sw-r972.js
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          text = Path('index.html').read_text(encoding='utf-8')
+          assert 'navegacaoPoliciaisP1' in text
+          assert 'resumoModuloPoliciaisP1' in text
+          assert 'Central de Trabalho' in text or 'CENTRAL DE TRABALHO' in text
+          ids = re.findall(r'\bid=["\']([^"\']+)["\']', text)
+          duplicados = sorted({x for x in ids if ids.count(x) > 1})
+          if duplicados:
+              raise SystemExit('IDs duplicados: ' + ', '.join(duplicados[:20]))
+          PY
+
+      - name: Publicar e limpar temporários
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/r972.patch .github/workflows/aplicar-r972.yml
+          git config user.name "SIGA Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Refina Central de Trabalho P1 R9.7.2"
+          git push origin HEAD:main
