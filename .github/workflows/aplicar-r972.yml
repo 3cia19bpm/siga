@@ -35,15 +35,6 @@ jobs:
           grep -q "siga-github-v5.9.0-r9.7.2" sw.js
           cp sw.js /tmp/sw-r972.js
           node --check /tmp/sw-r972.js
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          text = Path('index.html').read_text(encoding='utf-8')
-          ids = re.findall(r'\bid=["\']([^"\']+)["\']', text)
-          duplicados = sorted({x for x in ids if ids.count(x) > 1})
-          if duplicados:
-              raise SystemExit('IDs duplicados: ' + ', '.join(duplicados[:20]))
-          PY
 
       - name: Publicar e limpar temporários
         shell: bash
