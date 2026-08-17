@@ -1,4 +1,4 @@
-const CACHE_SIGA = 'siga-github-v5.9.0-r9.7.2';
+const CACHE_SIGA = 'siga-github-v5.9.0-r9.7.3';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
