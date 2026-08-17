@@ -11957,11 +11957,11 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — REFINAMENTO DE INTERAÇÃO R9.6.2
+       SIGA 5.9.0 — REFINAMENTO DE INTERAÇÃO R9.7
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
-    /* Permutas R9.6.2: o alternador permanece visível e o conteúdo dos
+    /* Permutas R9.7: o alternador permanece visível e o conteúdo dos
        filtros inicia recolhido sempre que a guia é aberta. */
     #alternadorFiltrosPermutasAdmin{
       display:grid!important;
@@ -12083,7 +12083,66 @@
         padding-left:42px!important;
       }
     }
-</style>
+
+
+    /* =========================================================
+       R9.7 • RECUPERAÇÃO INSTITUCIONAL DE ACESSO
+       ========================================================= */
+    .recuperacao-login-info{
+      padding:14px 15px;border:1px solid #d6e0d3;border-radius:17px;background:#f6f8f4;
+      color:#607064;font-size:12px;line-height:1.5;margin-bottom:14px;
+    }
+    .recuperacao-login-info strong{display:block;color:#23402b;font-size:13px;margin-bottom:3px;}
+    #formRecuperacaoCodigo .grade-2{align-items:start;}
+    #codigoRecuperacao{letter-spacing:.28em;text-align:center;font-weight:900;font-size:22px!important;}
+
+    #secao-admin-policiais .recuperacoes-acesso-p1{border-top:5px solid #d9b83f;}
+    .recuperacao-p1-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;}
+    .recuperacao-p1-topo h3{margin:4px 0 5px;color:#173624;font-size:24px;line-height:1.08;}
+    .recuperacao-p1-topo p{margin:0;color:#718077;font-size:12.5px;line-height:1.5;max-width:680px;}
+    .contador-recuperacoes-p1{
+      flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:7px 11px;
+      border-radius:999px;background:#fff8dc;border:1px solid #e8dca8;color:#80671a;font-size:9px;font-weight:950;
+      letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+    }
+    .lista-recuperacoes-p1{display:grid;gap:10px;}
+    .recuperacao-card-p1{border:1px solid #dce5d9;border-radius:19px;padding:15px;background:#fff;box-shadow:0 8px 20px rgba(36,58,43,.055);}
+    .recuperacao-card-p1.status-concluida,.recuperacao-card-p1.status-cancelada{opacity:.75;background:#fafbf9;}
+    .recuperacao-card-p1-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+    .recuperacao-card-identidade{min-width:0;display:grid;gap:3px;}
+    .recuperacao-card-identidade strong{font-size:15px;color:#173624;line-height:1.3;overflow-wrap:anywhere;}
+    .recuperacao-card-identidade span{font-size:11.5px;color:#718077;line-height:1.4;}
+    .recuperacao-status{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:6px 9px;font-size:8px;font-weight:950;letter-spacing:.08em;white-space:nowrap;background:#eef3eb;color:#567052;border:1px solid #d8e2d5;}
+    .recuperacao-status.pendente{background:#fff8dc;color:#846815;border-color:#eadb9e;}
+    .recuperacao-status.em_atendimento{background:#eef4fa;color:#456985;border-color:#d4e1ea;}
+    .recuperacao-status.codigo_gerado{background:#edf5eb;color:#3f7148;border-color:#d0e4cf;}
+    .recuperacao-status.bloqueada,.recuperacao-status.expirada,.recuperacao-status.cancelada{background:#fff1ef;color:#9a4a40;border-color:#eccbc6;}
+    .recuperacao-status.concluida{background:#edf6ee;color:#3d7449;border-color:#cfe4d2;}
+    .recuperacao-card-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;}
+    .recuperacao-meta-item{min-width:0;padding:10px 11px;border:1px solid #e4e9e1;border-radius:13px;background:#fafbf9;}
+    .recuperacao-meta-item small{display:block;font-size:7.5px;font-weight:900;letter-spacing:.1em;color:#829086;text-transform:uppercase;margin-bottom:3px;}
+    .recuperacao-meta-item strong{display:block;font-size:11.5px;color:#294231;overflow-wrap:anywhere;}
+    .recuperacao-codigo-gerado{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;padding:12px 13px;border:1px solid #d8e5d4;border-radius:15px;background:#f4f8f2;}
+    .recuperacao-codigo-gerado small{display:block;color:#718077;font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;}
+    .recuperacao-codigo-gerado strong{display:block;color:#173624;font-size:24px;letter-spacing:.18em;margin-top:2px;}
+    .recuperacao-card-acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+    .recuperacao-card-acoes .botao{width:auto!important;min-width:126px!important;min-height:44px!important;margin:0!important;padding:0 15px!important;font-size:10px!important;}
+    .recuperacao-card-acoes .botao-secundario{background:#f8faf7!important;}
+    .recuperacao-em-outro{margin-top:11px;padding:10px 12px;border-radius:13px;background:#f5f7f4;color:#6f7c72;font-size:11.5px;line-height:1.45;}
+    @media(max-width:700px){
+      .recuperacao-p1-topo{display:grid;gap:9px;}
+      .contador-recuperacoes-p1{justify-self:start;}
+      .recuperacao-card-p1-topo{display:grid;}
+      .recuperacao-status{justify-self:start;}
+      .recuperacao-card-meta{grid-template-columns:1fr 1fr;}
+      .recuperacao-meta-item:last-child{grid-column:1/-1;}
+      .recuperacao-codigo-gerado{align-items:flex-start;}
+      .recuperacao-card-acoes{display:grid;grid-template-columns:1fr 1fr;}
+      .recuperacao-card-acoes .botao{width:100%!important;min-width:0!important;}
+      .recuperacao-card-acoes .botao:only-child{grid-column:1/-1;}
+    }
+
+  </style>
 </head>
 <body>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
@@ -12159,9 +12218,25 @@
           </div>
           <button class="botao botao-largo" type="submit">ENTRAR</button>
           <div class="acoes-login">
-            <button id="botaoRecuperarSenha" class="botao botao-secundario oculto" type="button" onclick="abrirRecuperacaoSenha()">RECUPERAR SENHA</button>
+            <button id="botaoRecuperarSenha" class="botao botao-secundario" type="button" onclick="abrirRecuperacaoSenha()">SOLICITAR RECUPERAÇÃO</button>
+            <button id="botaoUsarCodigoRecuperacao" class="botao botao-secundario" type="button" onclick="abrirFormularioCodigoRecuperacao()">JÁ TENHO O CÓDIGO</button>
             <button class="botao botao-secundario" type="button" onclick="voltarParaMatricula()">TROCAR MATRÍCULA</button>
           </div>
+        </form>
+
+        <form id="formRecuperacaoCodigo" class="oculto" autocomplete="off">
+          <div class="recuperacao-login-info">
+            <strong>Redefinição segura de senha</strong>
+            Informe o código de 6 dígitos enviado pelo P1. O código é de uso único e pode permanecer válido por até 24 horas.
+          </div>
+          <div class="campo"><label for="matriculaRecuperacao">Matrícula funcional</label><input id="matriculaRecuperacao" type="text" inputmode="numeric" maxlength="8" readonly></div>
+          <div class="campo"><label for="codigoRecuperacao">Código de recuperação</label><input id="codigoRecuperacao" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" required><small class="ajuda">6 dígitos • válido por até 24 horas • uso único.</small></div>
+          <div class="grade-2">
+            <div class="campo"><label for="novaSenhaRecuperacao">Nova senha</label><input id="novaSenhaRecuperacao" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="new-password" required><small class="ajuda">De 4 a 32 dígitos numéricos.</small></div>
+            <div class="campo"><label for="repetirSenhaRecuperacao">Repetir nova senha</label><input id="repetirSenhaRecuperacao" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="new-password" required></div>
+          </div>
+          <button class="botao botao-largo" type="submit">REDEFINIR SENHA</button>
+          <button class="botao botao-secundario botao-largo" style="margin-top:9px" type="button" onclick="voltarLoginDesdeRecuperacao()">VOLTAR AO LOGIN</button>
         </form>
 
         <form id="formCadastro" class="oculto">
@@ -12183,7 +12258,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.6.2
+        SIGA 3ª CIA — Versão 5.9.0 • R9.7
       </footer>
     </section>
   </main>
@@ -12256,7 +12331,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.6.2</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7</footer>
     </aside>
 
     <div class="area-principal">
@@ -13143,6 +13218,18 @@
             </div>
           </div>
 
+          <div id="painelRecuperacoesAcessoP1" class="painel recuperacoes-acesso-p1">
+            <div class="recuperacao-p1-topo">
+              <div>
+                <span class="rotulo-suave">RECUPERAÇÃO DE ACESSO</span>
+                <h3>Solicitações de senha</h3>
+                <p>Todos os administradores P1 recebem a solicitação. Um P1 assume o atendimento, gera o código e o envia ao WhatsApp cadastrado do policial. O código é de uso único e válido por até 24 horas.</p>
+              </div>
+              <span id="contadorRecuperacoesAcessoP1" class="contador-recuperacoes-p1">0 em aberto</span>
+            </div>
+            <div id="listaRecuperacoesAcessoP1" class="lista-recuperacoes-p1"><div class="vazio compacto">Carregando solicitações...</div></div>
+          </div>
+
           <div id="painelSolicitacoesPerfilP1" class="painel solicitacoes-perfil-p1">
             <div class="perfil-painel-topo solicitacoes-p1-topo">
               <div>
@@ -13875,6 +13962,9 @@
       bancoHoras: null,
       solicitacaoPerfil: null,
       solicitacoesPerfilP1: [],
+      recuperacoesAcessoP1: [],
+      recuperacoesPendentesP1: 0,
+      codigosRecuperacaoGeradosP1: {},
       policiaisBancoHoras: [],
       policialBancoHoras: null,
       creditoBaixaBancoHoras: null,
@@ -14554,7 +14644,7 @@
     }
 
     function exibirFormulario(nome) {
-      ['formMatricula', 'formLogin', 'formCadastro', 'painelPendente'].forEach(id => $(id).classList.add('oculto'));
+      ['formMatricula', 'formLogin', 'formRecuperacaoCodigo', 'formCadastro', 'painelPendente'].forEach(id => $(id).classList.add('oculto'));
       $(nome).classList.remove('oculto');
       limparMensagem($('mensagemAcesso'));
     }
@@ -14564,7 +14654,7 @@
       estado.cadastroConhecido = {};
       $('formMatricula').reset();
       $('formLogin').reset();
-      $('botaoRecuperarSenha').classList.add('oculto');
+      $('formRecuperacaoCodigo')?.reset();
       $('boasVindasLogin').classList.add('oculto');
       exibirFormulario('formMatricula');
       setTimeout(() => $('matriculaInicial').focus(), 50);
@@ -14583,7 +14673,7 @@
         estado.matriculaAtual = resposta.matricula;
         if (resposta.situacao === 'LOGIN') {
           $('matriculaLogin').value = resposta.matricula;
-          $('botaoRecuperarSenha').classList.add('oculto');
+          if ($('matriculaRecuperacao')) $('matriculaRecuperacao').value = resposta.matricula;
           $('boasVindasLogin').innerHTML = 'Bem-vindo(a), <strong>' + escaparHtml(resposta.identificacao || '') + '</strong>.';
           $('boasVindasLogin').classList.remove('oculto');
           exibirFormulario('formLogin');
@@ -14661,12 +14751,32 @@
     }
 
     async function abrirRecuperacaoSenha() {
-      mostrarCarregando('Preparando recuperação...');
+      const matricula = somenteNumeros(estado.matriculaAtual || $('matriculaLogin').value).slice(0,8);
+      if (matricula.length < 7) return mostrarMensagem($('mensagemAcesso'),'Informe uma matrícula funcional válida.','erro');
+      mostrarCarregando('Enviando solicitação ao P1...');
       try {
-        const resposta = await api('obterLinkRecuperacaoSenha', estado.matriculaAtual || $('matriculaLogin').value);
+        const resposta = await api('solicitarRecuperacaoAcesso', matricula);
         ocultarCarregando();
-        window.open(resposta.url, '_blank', 'noopener');
+        estado.matriculaAtual = matricula;
+        mostrarMensagem($('mensagemAcesso'), resposta.mensagem || 'Solicitação enviada ao P1.', 'sucesso');
       } catch (erro) { tratarErro(erro, $('mensagemAcesso')); }
+    }
+
+    function abrirFormularioCodigoRecuperacao() {
+      const matricula = somenteNumeros(estado.matriculaAtual || $('matriculaLogin').value).slice(0,8);
+      if (matricula.length < 7) return mostrarMensagem($('mensagemAcesso'),'Informe primeiro a matrícula funcional.','erro');
+      $('formRecuperacaoCodigo').reset();
+      $('matriculaRecuperacao').value = matricula;
+      exibirFormulario('formRecuperacaoCodigo');
+      setTimeout(() => $('codigoRecuperacao').focus(), 50);
+    }
+
+    function voltarLoginDesdeRecuperacao() {
+      const matricula = somenteNumeros($('matriculaRecuperacao').value || estado.matriculaAtual).slice(0,8);
+      estado.matriculaAtual = matricula;
+      $('matriculaLogin').value = matricula;
+      exibirFormulario('formLogin');
+      setTimeout(() => $('senhaLogin').focus(), 50);
     }
 
     async function entrarAplicacao(token) {
@@ -14819,7 +14929,7 @@
       if (usuario.administrador && !estado.rotinasAdminAquecidas) {
         estado.rotinasAdminAquecidas = true;
         if (temPermissaoAdmin('ALERTAS_P4')) window.setTimeout(carregarResumoAlertasP4, 120);
-        if (temPermissaoAdmin('POLICIAIS')) window.setTimeout(() => carregarSolicitacoesPerfilP1(true), 180);
+        if (temPermissaoAdmin('POLICIAIS')) { window.setTimeout(() => carregarRecuperacoesAcessoP1(true), 140); window.setTimeout(() => carregarSolicitacoesPerfilP1(true), 220); }
       }
     }
 
@@ -14830,6 +14940,7 @@
       if (c.indexOf('PERMUTA')>=0) return '↔';
       if (c.indexOf('CHECKLIST')>=0) return '✓';
       if (c.indexOf('PERFIL')>=0) return '○';
+      if (c.indexOf('RECUP')>=0) return '↻';
       if (c.indexOf('PEND')>=0) return '•';
       return 'i';
     }
@@ -14998,7 +15109,7 @@
         alternarFiltrosPermutasAdmin(false);
         carregarPermutasAdmin();
       }
-      if (secao==='admin-policiais') { $('resultadosPoliciaisP1').innerHTML='<div class="vazio compacto">Comece a digitar para localizar um policial.</div>'; carregarSolicitacoesPerfilP1(); }
+      if (secao==='admin-policiais') { $('resultadosPoliciaisP1').innerHTML='<div class="vazio compacto">Comece a digitar para localizar um policial.</div>'; carregarRecuperacoesAcessoP1(); carregarSolicitacoesPerfilP1(); }
       if (secao==='admin-checklist') carregarChecklistsAdmin();
       if (secao==='p4-alertas') carregarAlertasP4();
       if (secao==='formularios') abrirEditorFormularios();
@@ -16629,6 +16740,17 @@
       return campos.map(c => `<div class="solicitacao-p1-comparacao"><small>${escaparHtml(c[0])}</small><div><span>${escaparHtml(c[1] || '—')}</span><b>→</b><strong>${escaparHtml(c[2] || '—')}</strong></div></div>`).join('');
     }
 
+    function atualizarBadgePendenciasP1() {
+      const perfilPendentes = (estado.solicitacoesPerfilP1 || []).filter(item => item.status === 'PENDENTE').length;
+      const recuperacoes = Number(estado.recuperacoesPendentesP1 || 0);
+      const total = perfilPendentes + recuperacoes;
+      const badge = $('badgeSolicitacoesPerfilP1');
+      if (badge) {
+        badge.textContent = total > 99 ? '99+' : String(total);
+        badge.classList.toggle('oculto', !total);
+      }
+    }
+
     function renderizarSolicitacoesPerfilP1() {
       const lista = $('listaSolicitacoesPerfilP1');
       if (!lista) return;
@@ -16636,11 +16758,7 @@
       const pendentes = todas.filter(item => item.status === 'PENDENTE');
       const contador = $('contadorSolicitacoesPerfilP1');
       if (contador) contador.textContent = `${pendentes.length} ${pendentes.length === 1 ? 'pendente' : 'pendentes'}`;
-      const badge = $('badgeSolicitacoesPerfilP1');
-      if (badge) {
-        badge.textContent = String(pendentes.length);
-        badge.classList.toggle('oculto', !pendentes.length);
-      }
+      atualizarBadgePendenciasP1();
       if (!pendentes.length) {
         lista.innerHTML = '<div class="vazio compacto">Nenhuma solicitação de atualização aguardando análise.</div>';
         return;
@@ -16657,6 +16775,99 @@
           <button class="botao botao-perigo" type="button" onclick="analisarSolicitacaoPerfilP1('${escaparAtributo(item.id)}','INDEFERIDA')">INDEFERIR</button>
         </div>
       </article>`).join('');
+    }
+
+    function rotuloStatusRecuperacaoP1(status) {
+      const mapa={PENDENTE:'PENDENTE',EM_ATENDIMENTO:'EM ATENDIMENTO',CODIGO_GERADO:'CÓDIGO GERADO',BLOQUEADA:'BLOQUEADA',EXPIRADA:'EXPIRADA',CONCLUIDA:'CONCLUÍDA',CANCELADA:'CANCELADA'};
+      return mapa[String(status||'').toUpperCase()] || String(status||'');
+    }
+
+    function renderizarRecuperacoesAcessoP1() {
+      const area=$('listaRecuperacoesAcessoP1');
+      if(!area) return;
+      const lista=estado.recuperacoesAcessoP1||[];
+      const contador=$('contadorRecuperacoesAcessoP1');
+      if(contador) contador.textContent=(estado.recuperacoesPendentesP1||0)+' '+((estado.recuperacoesPendentesP1||0)===1?'em aberto':'em aberto');
+      atualizarBadgePendenciasP1();
+      if(!lista.length){area.innerHTML='<div class="vazio compacto">Nenhuma solicitação de recuperação registrada.</div>';return;}
+      const minhaMatricula=somenteNumeros(estado.usuario?.matricula);
+      area.innerHTML=lista.slice(0,30).map(function(item){
+        const status=String(item.status||'PENDENTE').toUpperCase();
+        const atendente=somenteNumeros(item.atendidoPorMatricula);
+        const meuAtendimento=Boolean(atendente&&atendente===minhaMatricula);
+        const outroAtendimento=Boolean(atendente&&atendente!==minhaMatricula);
+        const codigoLocal=estado.codigosRecuperacaoGeradosP1[item.id];
+        let acoes='';
+        let avisoOutro='';
+        if(status==='PENDENTE'){
+          acoes=`<button class="botao" type="button" onclick="assumirRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">ATENDER</button>`;
+        }else if(status==='EM_ATENDIMENTO'){
+          if(meuAtendimento) acoes=`<button class="botao" type="button" onclick="gerarCodigoRecuperacaoP1('${escaparAtributo(item.id)}')">GERAR CÓDIGO</button><button class="botao botao-secundario" type="button" onclick="devolverRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">DEVOLVER À FILA</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">CANCELAR</button>`;
+          else if(outroAtendimento) avisoOutro=`<div class="recuperacao-em-outro">Em atendimento por <strong>${escaparHtml(item.atendidoPor||item.atendidoPorMatricula)}</strong>.</div>`;
+        }else if(['CODIGO_GERADO','BLOQUEADA','EXPIRADA'].includes(status)){
+          if(codigoLocal&&codigoLocal.urlWhatsApp){
+            acoes=`<button class="botao" type="button" onclick="enviarWhatsappRecuperacaoP1('${escaparAtributo(item.id)}')">ENVIAR NO WHATSAPP</button><button class="botao botao-secundario" type="button" onclick="gerarCodigoRecuperacaoP1('${escaparAtributo(item.id)}',true)">GERAR NOVO CÓDIGO</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">CANCELAR</button>`;
+          }else if(meuAtendimento){
+            acoes=`<button class="botao" type="button" onclick="gerarCodigoRecuperacaoP1('${escaparAtributo(item.id)}',true)">GERAR NOVO CÓDIGO</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">CANCELAR</button>`;
+          }else if(outroAtendimento){
+            avisoOutro=`<div class="recuperacao-em-outro">Atendimento vinculado a <strong>${escaparHtml(item.atendidoPor||item.atendidoPorMatricula)}</strong>.</div>`;
+          }
+        }
+        const blocoCodigo=codigoLocal?`<div class="recuperacao-codigo-gerado"><div><small>Código gerado nesta sessão</small><strong>${escaparHtml(codigoLocal.codigo)}</strong></div><div><small>Válido até</small><strong style="font-size:12px;letter-spacing:0">${escaparHtml(codigoLocal.expiraEm||item.codigoExpiraEm||'')}</strong></div></div>`:'';
+        return `<article class="recuperacao-card-p1 status-${status.toLowerCase()}">
+          <div class="recuperacao-card-p1-topo"><div class="recuperacao-card-identidade"><strong>${escaparHtml(item.policial||'Policial')}</strong><span>M.F. ${escaparHtml(formatarMatriculaFuncional(item.matricula))} • ${escaparHtml(formatarContatoUi(item.contato))}</span></div><span class="recuperacao-status ${status.toLowerCase()}">${escaparHtml(rotuloStatusRecuperacaoP1(status))}</span></div>
+          <div class="recuperacao-card-meta"><div class="recuperacao-meta-item"><small>Solicitado</small><strong>${escaparHtml(item.solicitadoEm||'—')}</strong></div><div class="recuperacao-meta-item"><small>Atendimento</small><strong>${escaparHtml(item.atendidoPor||'Aguardando P1')}</strong></div><div class="recuperacao-meta-item"><small>Validade</small><strong>${escaparHtml(item.codigoExpiraEm||'Código ainda não gerado')}</strong></div></div>
+          ${blocoCodigo}${avisoOutro}${acoes?`<div class="recuperacao-card-acoes">${acoes}</div>`:''}
+        </article>`;
+      }).join('');
+    }
+
+    async function carregarRecuperacoesAcessoP1(silencioso) {
+      if(!estado.usuario||!estado.usuario.administrador||!temPermissaoAdmin('POLICIAIS')) return;
+      try{
+        const r=await api('p1ListarRecuperacoesAcesso',estado.token);
+        estado.recuperacoesAcessoP1=r.recuperacoes||[];
+        estado.recuperacoesPendentesP1=Number(r.pendentes||0);
+        renderizarRecuperacoesAcessoP1();
+      }catch(erro){if(!silencioso) tratarErro(erro,$('mensagemInterna'));}
+    }
+
+    async function assumirRecuperacaoAcessoP1(id){
+      mostrarCarregando('Assumindo atendimento...');
+      try{const r=await api('p1AssumirRecuperacaoAcesso',estado.token,id);estado.recuperacoesAcessoP1=r.recuperacoes||[];estado.recuperacoesPendentesP1=Number(r.pendentes||0);ocultarCarregando();renderizarRecuperacoesAcessoP1();toast('Atendimento assumido.');}
+      catch(e){tratarErro(e);}
+    }
+
+    async function devolverRecuperacaoAcessoP1(id){
+      if(!confirm('Devolver esta solicitação para a fila do P1?')) return;
+      mostrarCarregando('Devolvendo à fila...');
+      try{const r=await api('p1DevolverRecuperacaoAcesso',estado.token,id);delete estado.codigosRecuperacaoGeradosP1[id];estado.recuperacoesAcessoP1=r.recuperacoes||[];estado.recuperacoesPendentesP1=Number(r.pendentes||0);ocultarCarregando();renderizarRecuperacoesAcessoP1();toast('Solicitação devolvida à fila.');}
+      catch(e){tratarErro(e);}
+    }
+
+    async function gerarCodigoRecuperacaoP1(id,regenerar){
+      if(regenerar&&!confirm('Gerar um novo código? O código anterior será invalidado imediatamente.')) return;
+      mostrarCarregando('Gerando código seguro...');
+      try{
+        const r=await api('p1GerarCodigoRecuperacao',estado.token,id);
+        estado.codigosRecuperacaoGeradosP1[id]={codigo:r.codigo,urlWhatsApp:r.urlWhatsApp,expiraEm:r.expiraEm};
+        await carregarRecuperacoesAcessoP1(true);
+        ocultarCarregando();renderizarRecuperacoesAcessoP1();toast(r.mensagem||'Código gerado.');
+      }catch(e){tratarErro(e);}
+    }
+
+    function enviarWhatsappRecuperacaoP1(id){
+      const info=estado.codigosRecuperacaoGeradosP1[id];
+      if(!info||!info.urlWhatsApp) return toast('Gere um novo código para habilitar o envio pelo WhatsApp.','aviso');
+      const janela=window.open(info.urlWhatsApp,'_blank','noopener');
+      if(!janela) window.location.href=info.urlWhatsApp;
+    }
+
+    async function cancelarRecuperacaoAcessoP1(id){
+      if(!confirm('Cancelar esta recuperação de acesso? Qualquer código emitido será invalidado.')) return;
+      mostrarCarregando('Cancelando recuperação...');
+      try{const r=await api('p1CancelarRecuperacaoAcesso',estado.token,id,'Cancelada pelo P1.');delete estado.codigosRecuperacaoGeradosP1[id];estado.recuperacoesAcessoP1=r.recuperacoes||[];estado.recuperacoesPendentesP1=Number(r.pendentes||0);ocultarCarregando();renderizarRecuperacoesAcessoP1();toast('Recuperação cancelada.');}
+      catch(e){tratarErro(e);}
     }
 
     async function carregarSolicitacoesPerfilP1(silencioso) {
@@ -17474,12 +17685,35 @@
           if (!resposta.sucesso) {
             ocultarCarregando();
             $('senhaLogin').value = '';
-            $('botaoRecuperarSenha').classList.toggle('oculto', !resposta.mostrarRecuperacao);
             mostrarMensagem($('mensagemAcesso'), resposta.mensagem, 'erro');
             setTimeout(() => $('senhaLogin').focus(), 50);
             return;
           }
           await entrarAplicacao(resposta.token);
+        } catch (erro) { tratarErro(erro, $('mensagemAcesso')); }
+      });
+
+      $('codigoRecuperacao').addEventListener('input', e => e.target.value = somenteNumeros(e.target.value).slice(0,6));
+      $('novaSenhaRecuperacao').addEventListener('input', e => e.target.value = somenteNumeros(e.target.value).slice(0,32));
+      $('repetirSenhaRecuperacao').addEventListener('input', e => e.target.value = somenteNumeros(e.target.value).slice(0,32));
+      $('formRecuperacaoCodigo').addEventListener('submit', async e => {
+        e.preventDefault();
+        const dados = {
+          matricula: somenteNumeros($('matriculaRecuperacao').value).slice(0,8),
+          codigo: somenteNumeros($('codigoRecuperacao').value).slice(0,6),
+          novaSenha: somenteNumeros($('novaSenhaRecuperacao').value).slice(0,32),
+          repetirSenha: somenteNumeros($('repetirSenhaRecuperacao').value).slice(0,32)
+        };
+        mostrarCarregando('Redefinindo senha...');
+        try {
+          const resposta = await api('concluirRecuperacaoSenha', dados);
+          ocultarCarregando();
+          estado.matriculaAtual = dados.matricula;
+          $('matriculaLogin').value = dados.matricula;
+          $('senhaLogin').value = '';
+          exibirFormulario('formLogin');
+          mostrarMensagem($('mensagemAcesso'), resposta.mensagem || 'Senha redefinida com sucesso.', 'sucesso');
+          setTimeout(() => $('senhaLogin').focus(), 80);
         } catch (erro) { tratarErro(erro, $('mensagemAcesso')); }
       });
 
