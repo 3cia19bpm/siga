@@ -12183,7 +12183,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.4
+       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.7
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
@@ -12312,7 +12312,7 @@
 
 
     /* =========================================================
-       R9.7.4 • CENTRAL DE TRABALHO DO P1
+       R9.7.7 • CENTRAL DE TRABALHO DO P1
        ========================================================= */
     .recuperacao-login-info{
       padding:14px 15px;border:1px solid #d6e0d3;border-radius:17px;background:#f6f8f4;
@@ -12371,11 +12371,11 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — R9.7.4 • ELASTIC SCROLL / iOS
+       SIGA 5.9.0 — R9.7.7 • ATUALIZAÇÃO SEM REINÍCIO / iOS
        - elimina o fundo branco do rubber-band nativo;
        - mantém o cabeçalho imóvel nos limites da página;
        - simula elasticidade controlada no topo e no rodapé;
-       - oferece pull-to-refresh com indicador visual próprio.
+       - oferece pull-to-refresh com atualização lógica da guia, sem reiniciar a sessão.
        ======================================================= */
     :root {
       --siga-viewport-top:0px!important;
@@ -12473,9 +12473,9 @@
       transition:transform .08s linear;
     }
     .siga-pull-refresh.atualizando .siga-pull-refresh-icone svg {
-      animation:sigaRefreshR974 .72s linear infinite;
+      animation:sigaRefreshR975 .72s linear infinite;
     }
-    @keyframes sigaRefreshR974 { to { transform:rotate(360deg); } }
+    @keyframes sigaRefreshR975 { to { transform:rotate(360deg); } }
 
     @media(max-width:980px) {
       .siga-pull-refresh { top:calc(var(--siga-topbar-sticky) + 8px); }
@@ -12484,6 +12484,141 @@
       html.siga-elastic-retorno .conteudo-app { transition-duration:.12s!important; }
       .siga-pull-refresh.atualizando .siga-pull-refresh-icone svg { animation-duration:1.2s; }
     }
+
+
+    /* =========================================================
+       SIGA 5.9.0 — R9.7.7 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
+       ========================================================= */
+    #secao-banco-horas .orientacao-baixa-p1 {
+      margin:0 0 18px;
+      padding:16px 18px;
+      border:1px solid rgba(67,95,68,.18);
+      border-left:4px solid var(--ds-green,#365a3b);
+      border-radius:16px;
+      background:rgba(255,255,255,.74);
+      color:var(--ds-muted,#68766c);
+      line-height:1.55;
+    }
+    #secao-banco-horas .orientacao-baixa-p1 strong { color:var(--ds-ink,#18331f); }
+    #secao-banco-horas .painel-baixa-p1-banco { margin:0 0 18px; }
+    #secao-banco-horas .painel-baixa-p1-banco .cartao-topo { align-items:flex-start;gap:14px; }
+    #secao-banco-horas .painel-baixa-p1-banco .cartao-topo p { margin:7px 0 0;color:var(--ds-muted,#68766c);line-height:1.5; }
+    #secao-banco-horas .p1-banco-etiqueta {
+      display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;
+      border:1px solid rgba(200,164,58,.35);background:rgba(245,233,184,.42);
+      color:#67551f;font-size:11px;font-weight:800;letter-spacing:.12em;white-space:nowrap;
+    }
+    #secao-banco-horas .busca-baixa-p1-banco { margin-top:16px; }
+    #secao-banco-horas .policial-baixa-p1-selecionado {
+      display:flex;align-items:center;justify-content:space-between;gap:14px;margin:12px 0 0;padding:14px 16px;
+      border:1px solid #d9e1d6;border-radius:15px;background:#f8faf7;
+    }
+    #secao-banco-horas .policial-baixa-p1-selecionado div { display:grid;gap:3px;min-width:0; }
+    #secao-banco-horas .policial-baixa-p1-selecionado strong { color:#18331f; }
+    #secao-banco-horas .policial-baixa-p1-selecionado span { color:#728076;font-size:13px; }
+    #secao-banco-horas .policial-baixa-p1-selecionado button { flex:0 0 auto; }
+    #secao-banco-horas .resumo-p1-banco {
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0;
+    }
+    #secao-banco-horas .resumo-p1-banco article {
+      padding:13px 14px;border:1px solid #dce4d9;border-radius:14px;background:#fff;
+    }
+    #secao-banco-horas .resumo-p1-banco small { display:block;color:#758078;font-weight:800;letter-spacing:.08em; }
+    #secao-banco-horas .resumo-p1-banco strong { display:block;margin-top:5px;color:#18331f;font-size:22px; }
+    #secao-banco-horas .lista-baixa-p1-banco { display:grid;gap:10px; }
+    #secao-banco-horas .credito-p1-banco {
+      display:grid;grid-template-columns:minmax(92px,.28fr) minmax(0,1fr) auto;gap:13px;align-items:center;
+      padding:14px 15px;border:1px solid #dce4d9;border-radius:15px;background:#fff;
+    }
+    #secao-banco-horas .credito-p1-banco-data { display:grid;gap:2px; }
+    #secao-banco-horas .credito-p1-banco-data strong { color:#243928; }
+    #secao-banco-horas .credito-p1-banco-data span,
+    #secao-banco-horas .credito-p1-banco-dados span { color:#77827a;font-size:13px;line-height:1.45; }
+    #secao-banco-horas .credito-p1-banco-dados { min-width:0;display:grid;gap:4px; }
+    #secao-banco-horas .credito-p1-banco-dados strong { color:#18331f; }
+    #secao-banco-horas .credito-p1-banco-acoes { display:flex;align-items:center;gap:9px; }
+    #secao-banco-horas .confirmacao-documental-banco {
+      display:flex;align-items:flex-start;gap:11px;margin:14px 0;padding:14px 15px;
+      border:1px solid rgba(200,164,58,.34);border-radius:14px;background:rgba(245,233,184,.25);
+      color:#4e503e;line-height:1.45;cursor:pointer;
+    }
+    #secao-banco-horas .confirmacao-documental-banco input { width:20px;height:20px;flex:0 0 auto;margin-top:1px; }
+    #secao-banco-horas .confirmacao-documental-banco strong { color:#2b402f; }
+    @media(max-width:700px) {
+      #secao-banco-horas .resumo-p1-banco { grid-template-columns:1fr 1fr; }
+      #secao-banco-horas .resumo-p1-banco article:first-child { grid-column:1 / -1; }
+      #secao-banco-horas .credito-p1-banco { grid-template-columns:1fr;align-items:stretch; }
+      #secao-banco-horas .credito-p1-banco-acoes { justify-content:space-between; }
+      #secao-banco-horas .credito-p1-banco-acoes .botao { min-width:128px; }
+      #secao-banco-horas .policial-baixa-p1-selecionado { align-items:flex-start; }
+    }
+
+  
+
+    /* =========================================================
+       SIGA 5.9.0 — R9.7.7 • CRÉDITOS PELO POLICIAL OU GUARDA
+       ========================================================= */
+    #secao-banco-horas .registro-credito-banco-horas { margin:0 0 18px; }
+    #secao-banco-horas .topo-registro-credito-banco { align-items:flex-start; }
+    #secao-banco-horas .aviso-registro-credito-banco {
+      margin:12px 0 14px!important;
+      padding:12px 14px!important;
+      border-radius:14px!important;
+      font-size:13px!important;
+      line-height:1.45!important;
+    }
+    #secao-banco-horas .credito-proprio-identidade {
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      margin:0 0 14px;padding:11px 13px;border:1px solid #d8e1d5;border-radius:14px;
+      background:#f7faf6;color:#435141;
+    }
+    #secao-banco-horas .credito-proprio-identidade strong,
+    #secao-banco-horas .credito-proprio-identidade span { display:block; }
+    #secao-banco-horas .credito-proprio-identidade strong { color:#18331f;font-size:13px;line-height:1.3; }
+    #secao-banco-horas .credito-proprio-identidade span { margin-top:3px;color:#748076;font-size:11px; }
+    #secao-banco-horas .grade-registro-credito-banco {
+      display:grid!important;
+      grid-template-columns:minmax(0,1.28fr) minmax(98px,.72fr)!important;
+      gap:12px!important;
+      align-items:start;
+    }
+    #secao-banco-horas .grade-registro-credito-banco > .campo { min-width:0!important; }
+    #secao-banco-horas .grade-registro-credito-banco input { min-width:0!important;width:100%!important; }
+    #secao-banco-horas #horasCreditoBancoHoras,
+    #secao-banco-horas #paginaBancoHoras { text-align:left; }
+    #secao-banco-horas #botaoRegistrarCreditoBancoHoras { width:100%;margin-top:2px; }
+
+    @media(max-width:560px) {
+      #secao-banco-horas .registro-credito-banco-horas { padding:16px!important; }
+      #secao-banco-horas .topo-registro-credito-banco {
+        display:flex!important;align-items:flex-start!important;gap:10px!important;
+      }
+      #secao-banco-horas .topo-registro-credito-banco .status { flex:0 0 auto; }
+      #secao-banco-horas .grade-registro-credito-banco {
+        grid-template-columns:minmax(0,1.3fr) minmax(96px,.7fr)!important;
+        gap:10px!important;
+      }
+      #secao-banco-horas .grade-registro-credito-banco .campo label {
+        font-size:10px!important;white-space:nowrap;
+      }
+      #secao-banco-horas .grade-registro-credito-banco input {
+        padding-left:12px!important;padding-right:12px!important;font-size:14px!important;
+      }
+      #secao-banco-horas .grade-registro-credito-banco input[type="date"] {
+        font-size:13.5px!important;
+      }
+      #secao-banco-horas .credito-proprio-identidade { padding:10px 12px; }
+    }
+
+    @media(max-width:360px) {
+      #secao-banco-horas .grade-registro-credito-banco {
+        grid-template-columns:minmax(0,1.34fr) minmax(88px,.66fr)!important;
+        gap:8px!important;
+      }
+      #secao-banco-horas .grade-registro-credito-banco input { font-size:13px!important; }
+      #secao-banco-horas .grade-registro-credito-banco input[type="date"] { font-size:12.5px!important; }
+    }
+
 </style>
 </head>
 <body>
@@ -12557,7 +12692,7 @@
             <label for="senhaLogin">Senha</label>
             <input id="senhaLogin" name="password" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="current-password" enterkeyhint="go" aria-describedby="ajudaBiometria ajudaRecuperacaoLogin" placeholder="Digite sua senha" required>
             <small id="ajudaBiometria" class="ajuda ajuda-biometria">Selecione a credencial salva ou digite sua senha para desbloquear.</small>
-            <small id="ajudaRecuperacaoLogin" class="ajuda">A recuperação de acesso será liberada somente se forem atingidas 5 tentativas inválidas.</small>
+            <small id="ajudaRecuperacaoLogin" class="ajuda oculto" aria-live="polite"></small>
           </div>
           <button class="botao botao-largo" type="submit">ENTRAR</button>
           <div class="acoes-login">
@@ -12601,7 +12736,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.7.4
+        SIGA 3ª CIA — Versão 5.9.0 • R9.7.7
       </footer>
     </section>
   </main>
@@ -12674,7 +12809,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.4</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.7</footer>
     </aside>
 
     <div class="area-principal">
@@ -12977,9 +13112,8 @@
             <div>
               <span class="pagina-kicker">CRÉDITOS INDIVIDUAIS</span>
               <h2>Banco de horas</h2>
-              <p>Consulte os créditos registrados em livro e dê baixa somente quando utilizar as horas.</p>
+              <p>Registre e acompanhe seus créditos de banco de horas. A baixa continua sendo realizada exclusivamente pelo P1.</p>
             </div>
-            <button class="botao botao-secundario botao-atualizar-banco" type="button" onclick="carregarBancoHoras()" aria-label="Atualizar banco de horas" title="Atualizar banco de horas"><span class="botao-atualizar-banco-icone" aria-hidden="true">↻</span><span class="botao-atualizar-banco-texto">ATUALIZAR</span></button>
           </div>
 
           <section class="bloco-pagina bloco-resumo-banco">
@@ -12990,47 +13124,73 @@
             <article class="cartao-saldo-horas destaque">
               <small>Saldo disponível</small>
               <strong id="saldoBancoHoras">0h</strong>
-              <span>Pronto para utilização</span>
+              <span>Disponível para solicitação ao P1</span>
             </article>
             <article class="cartao-saldo-horas">
               <small>Total creditado</small>
               <strong id="totalCreditadoBancoHoras">0h</strong>
-              <span>Horas registradas pela Guarda</span>
+              <span>Créditos registrados no SIGA</span>
             </article>
             <article class="cartao-saldo-horas">
               <small>Total utilizado</small>
               <strong id="totalUtilizadoBancoHoras">0h</strong>
-              <span>Baixas confirmadas pelo usuário</span>
+              <span>Baixas registradas pelo P1</span>
             </article>
           </div>
           </section>
 
-          <div id="painelCreditoBancoHoras" class="painel somente-guarda oculto painel-credito-banco-horas">
+          <div class="orientacao-baixa-p1" role="note">
+            <strong>Como utilizar o banco de horas:</strong> apresente ao P1 uma solicitação de dispensa manuscrita informando o número do livro e a página do registro, acompanhada de uma cópia da respectiva página do livro. A baixa no SIGA é realizada somente pelo P1 após a conferência dessa documentação.
+          </div>
+
+          <div id="painelBaixaP1BancoHoras" class="painel somente-p1-banco oculto painel-baixa-p1-banco">
             <div class="cartao-topo">
               <div>
-                <span class="rotulo-suave">CORPO DA GUARDA</span>
-                <h3 style="margin:4px 0 0">Registrar horas excedentes</h3>
+                <span class="rotulo-suave">GESTÃO • P1</span>
+                <h3 style="margin:4px 0 0">Registrar baixa após conferência documental</h3>
+                <p>Localize o policial que apresentou a solicitação manuscrita, confira o livro/página e a cópia da página do livro e somente então registre a dispensa.</p>
+              </div>
+              <span class="p1-banco-etiqueta">EXCLUSIVO P1</span>
+            </div>
+            <div class="campo campo-busca-banco-horas busca-baixa-p1-banco">
+              <label for="pesquisaBaixaP1BancoHoras">Policial</label>
+              <input id="pesquisaBaixaP1BancoHoras" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra" oninput="agendarPesquisaBaixaP1BancoHoras(this.value)">
+              <div id="resultadosBaixaP1BancoHoras" class="pesquisa-resultados"></div>
+            </div>
+            <div id="policialBaixaP1BancoHorasSelecionado" class="policial-baixa-p1-selecionado oculto"></div>
+            <div id="resumoBaixaP1BancoHoras" class="resumo-p1-banco oculto" aria-live="polite"></div>
+            <div id="listaBaixaP1BancoHoras" class="lista-baixa-p1-banco">
+              <div class="vazio compacto">Selecione um policial para consultar os créditos disponíveis.</div>
+            </div>
+          </div>
+
+          <div id="painelCreditoBancoHoras" class="painel registro-credito-banco-horas oculto painel-credito-banco-horas">
+            <div class="cartao-topo topo-registro-credito-banco">
+              <div>
+                <span id="rotuloRegistroCreditoBancoHoras" class="rotulo-suave">MEU BANCO DE HORAS</span>
+                <h3 id="tituloRegistroCreditoBancoHoras" style="margin:4px 0 0">Registrar crédito</h3>
               </div>
               <span class="status status-neutro">REGISTRO EM LIVRO</span>
             </div>
-            <div class="mensagem info visivel aviso-banco-horas">
-              O crédito ficará vinculado ao policial, ao livro e à página informados. A baixa posterior não apaga o registro original.
+            <div id="avisoRegistroCreditoBancoHoras" class="mensagem info visivel aviso-banco-horas aviso-registro-credito-banco">
+              Informe os dados exatamente como constam no livro. A baixa será realizada somente pelo P1 após a conferência documental.
             </div>
             <form id="formCreditoBancoHoras" onsubmit="registrarCreditoBancoHorasApp(event)">
-              <div class="campo campo-busca-banco-horas">
+              <div id="campoPolicialCreditoBancoHoras" class="campo campo-busca-banco-horas oculto">
                 <label for="pesquisaPolicialBancoHoras">Policial</label>
                 <input id="pesquisaPolicialBancoHoras" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra" oninput="agendarPesquisaPolicialBancoHoras(this.value)">
                 <div id="resultadosPolicialBancoHoras" class="pesquisa-resultados"></div>
               </div>
               <div id="policialSelecionadoBancoHoras" class="policial-selecionado-banco oculto"></div>
-              <div class="grade-campos-banco-horas">
-                <div class="campo"><label for="dataCreditoBancoHoras">Data das horas</label><input id="dataCreditoBancoHoras" type="date" required></div>
-                <div class="campo"><label for="horasCreditoBancoHoras">Quantidade de horas</label><input id="horasCreditoBancoHoras" type="number" min="0.25" max="24" step="0.25" inputmode="decimal" placeholder="Ex.: 2,5" required></div>
-                <div class="campo"><label for="livroBancoHoras">Livro</label><input id="livroBancoHoras" maxlength="80" placeholder="Ex.: Livro da Guarda 01" required></div>
-                <div class="campo"><label for="paginaBancoHoras">Página</label><input id="paginaBancoHoras" maxlength="40" placeholder="Ex.: 128" required></div>
+              <div id="identidadeCreditoProprioBancoHoras" class="credito-proprio-identidade oculto" aria-live="polite"></div>
+              <div class="grade-campos-banco-horas grade-registro-credito-banco">
+                <div class="campo"><label for="dataCreditoBancoHoras">Data</label><input id="dataCreditoBancoHoras" type="date" required></div>
+                <div class="campo"><label for="horasCreditoBancoHoras">Qtd. horas</label><input id="horasCreditoBancoHoras" type="number" min="0.25" max="24" step="0.25" inputmode="decimal" placeholder="2,5" required></div>
+                <div class="campo"><label for="livroBancoHoras">Livro</label><input id="livroBancoHoras" maxlength="80" placeholder="Ex.: Guarda 01" required></div>
+                <div class="campo"><label for="paginaBancoHoras">Página</label><input id="paginaBancoHoras" maxlength="40" inputmode="numeric" placeholder="Ex.: 128" required></div>
               </div>
               <div class="campo"><label for="observacaoCreditoBancoHoras">Observação <span class="opcional">opcional</span></label><textarea id="observacaoCreditoBancoHoras" maxlength="500" rows="2" placeholder="Informação complementar do registro"></textarea></div>
-              <button id="botaoRegistrarCreditoBancoHoras" class="botao" type="submit">CREDITAR NO BANCO DE HORAS</button>
+              <button id="botaoRegistrarCreditoBancoHoras" class="botao" type="submit">REGISTRAR CRÉDITO</button>
             </form>
           </div>
 
@@ -13050,18 +13210,22 @@
           <div id="modalBaixaBancoHoras" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-labelledby="tituloModalBaixaBancoHoras" onclick="fecharBaixaBancoHoras()">
             <div class="painel modal-permuta-conteudo modal-baixa-banco-horas" onclick="event.stopPropagation()">
               <div class="cartao-topo">
-                <div><span class="rotulo-suave">UTILIZAÇÃO DE CRÉDITO</span><h3 id="tituloModalBaixaBancoHoras" style="margin:4px 0 0">Dar baixa nas horas</h3></div>
+                <div><span class="rotulo-suave">GESTÃO • P1</span><h3 id="tituloModalBaixaBancoHoras" style="margin:4px 0 0">Registrar baixa de horas</h3></div>
                 <button class="modal-permuta-fechar" type="button" aria-label="Fechar" onclick="fecharBaixaBancoHoras()">×</button>
               </div>
               <div id="resumoCreditoBaixaBancoHoras" class="resumo-credito-baixa"></div>
               <form id="formBaixaBancoHoras" onsubmit="confirmarBaixaBancoHoras(event)">
                 <div class="grade-campos-banco-horas">
-                  <div class="campo"><label for="dataBaixaBancoHoras">Data de utilização</label><input id="dataBaixaBancoHoras" type="date" required></div>
-                  <div class="campo"><label for="horasBaixaBancoHoras">Horas utilizadas</label><input id="horasBaixaBancoHoras" type="number" min="0.25" step="0.25" inputmode="decimal" required></div>
+                  <div class="campo"><label for="dataBaixaBancoHoras">Data da dispensa</label><input id="dataBaixaBancoHoras" type="date" required></div>
+                  <div class="campo"><label for="horasBaixaBancoHoras">Horas a baixar</label><input id="horasBaixaBancoHoras" type="number" min="0.25" step="0.25" inputmode="decimal" required></div>
                 </div>
-                <div class="campo"><label for="observacaoBaixaBancoHoras">Como as horas foram utilizadas <span class="opcional">opcional</span></label><textarea id="observacaoBaixaBancoHoras" maxlength="500" rows="2" placeholder="Ex.: saída antecipada autorizada"></textarea></div>
-                <div class="mensagem aviso visivel">A baixa pode ser parcial. Depois de confirmada, ela passa a compor o extrato e o mesmo saldo não poderá ser usado novamente.</div>
-                <button id="botaoConfirmarBaixaBancoHoras" class="botao botao-largo" type="submit">CONFIRMAR BAIXA</button>
+                <div class="campo"><label for="observacaoBaixaBancoHoras">Observação do P1 <span class="opcional">opcional</span></label><textarea id="observacaoBaixaBancoHoras" maxlength="420" rows="2" placeholder="Ex.: dispensa autorizada para o dia informado"></textarea></div>
+                <label class="confirmacao-documental-banco" for="documentacaoBaixaBancoHoras">
+                  <input id="documentacaoBaixaBancoHoras" type="checkbox" required>
+                  <span><strong>Documentação conferida.</strong> Confirmo que recebi a solicitação de dispensa manuscrita, contendo livro e página, e conferi a cópia da página do livro apresentada pelo policial.</span>
+                </label>
+                <div class="mensagem aviso visivel">A baixa pode ser parcial. O lançamento fica vinculado ao crédito original, ao policial e ao P1 responsável pela conferência e não poderá consumir novamente o mesmo saldo.</div>
+                <button id="botaoConfirmarBaixaBancoHoras" class="botao botao-largo" type="submit">REGISTRAR BAIXA PELO P1</button>
               </form>
             </div>
           </div>
@@ -14198,7 +14362,7 @@
 
       function medir() {
         const visual = window.visualViewport;
-        /* R9.7.4: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
+        /* R9.7.7: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
            A altura visual deve ser medida sem transformar essa oscilação em layout. */
         const alturaVisual = visual ? Number(visual.height || 0) : 0;
         const altura = Math.ceil(Math.max(
@@ -14248,7 +14412,7 @@
       });
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.7.4: não recalcular layout durante o bounce/scroll do visualViewport. */
+        /* R9.7.7: não recalcular layout durante o bounce/scroll do visualViewport. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const app = document.getElementById('appShell');
@@ -14268,7 +14432,7 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — R9.7.4 • CONTROLADOR DE ELASTICIDADE
+       SIGA 5.9.0 — R9.7.7 • CONTROLADOR DE ELASTICIDADE
        Mantém a rolagem normal do documento e intercepta somente
        a tentativa de ultrapassar o topo/rodapé. Assim o WebKit
        não move a viewport nem o cabeçalho, mas o usuário preserva
@@ -14418,7 +14582,7 @@
         temporizadorRetorno = window.setTimeout(limparClassesElasticas, TEMPO_RETORNO);
       }
 
-      function iniciarAtualizacao() {
+      async function iniciarAtualizacao() {
         if (atualizando) return;
         atualizando = true;
         const raiz = document.documentElement;
@@ -14431,8 +14595,24 @@
         el.style.transform = 'translate3d(-50%,5px,0) scale(1)';
         const texto = el.querySelector('.siga-pull-refresh-texto');
         if (texto) texto.textContent = 'Atualizando…';
-        /* Dá tempo para o feedback visual aparecer antes do reload. */
-        window.setTimeout(() => window.location.reload(), 430);
+
+        try {
+          if (typeof atualizarGuiaAtualPorGesto !== 'function') {
+            throw new Error('Atualização da guia indisponível.');
+          }
+          await atualizarGuiaAtualPorGesto();
+          if (texto) texto.textContent = 'Atualizado';
+          await new Promise(resolve => window.setTimeout(resolve, 260));
+        } catch (erro) {
+          if (texto) texto.textContent = 'Não foi possível atualizar';
+          if (typeof toast === 'function') {
+            toast(erro && erro.message ? erro.message : 'Não foi possível atualizar esta guia.', 'erro');
+          }
+          await new Promise(resolve => window.setTimeout(resolve, 520));
+        } finally {
+          atualizando = false;
+          retornarAoLimite();
+        }
       }
 
       function iniciar(evento) {
@@ -14530,6 +14710,7 @@
     const MIDIA_CACHE = new Map();
     const CHAVE_SESSAO_SIGA = 'siga3cia_token';
     const CHAVE_ATIVIDADE_SIGA = 'siga3cia_ultima_atividade';
+    const CHAVE_SECAO_SIGA = 'siga3cia_secao_atual';
     const LIMITE_INATIVIDADE_MS = 15 * 60 * 1000;
     try { localStorage.removeItem(CHAVE_SESSAO_SIGA); } catch (erro) {}
     const estado = {
@@ -14587,8 +14768,12 @@
       codigosRecuperacaoGeradosP1: {},
       policiaisBancoHoras: [],
       policialBancoHoras: null,
+      policiaisBaixaP1BancoHoras: [],
+      policialBaixaP1BancoHoras: null,
+      bancoHorasP1: null,
       creditoBaixaBancoHoras: null,
       timerPesquisaBancoHoras: null,
+      timerPesquisaBaixaP1BancoHoras: null,
       chaveCreditoBancoHoras: '',
       chaveBaixaBancoHoras: '',
       permutaAdminAberta: null,
@@ -14861,6 +15046,7 @@
       try {
         sessionStorage.removeItem(CHAVE_SESSAO_SIGA);
         sessionStorage.removeItem(CHAVE_ATIVIDADE_SIGA);
+        sessionStorage.removeItem(CHAVE_SECAO_SIGA);
         localStorage.removeItem(CHAVE_SESSAO_SIGA);
       } catch (erro) {}
       clearTimeout(timerInatividadeSessao);
@@ -15299,10 +15485,13 @@
       if (!ajuda) return;
       if (estado.recuperacaoSolicitadaLogin) {
         ajuda.textContent = 'Recuperação solicitada ao P1. Quando receber o código, use “Já tenho o código”.';
+        ajuda.classList.remove('oculto');
       } else if (estado.mostrarRecuperacaoLogin) {
         ajuda.textContent = 'O limite de 5 tentativas inválidas foi atingido. A recuperação de acesso está liberada.';
+        ajuda.classList.remove('oculto');
       } else {
-        ajuda.textContent = 'A recuperação de acesso será liberada somente se forem atingidas 5 tentativas inválidas.';
+        ajuda.textContent = '';
+        ajuda.classList.add('oculto');
       }
     }
 
@@ -15458,7 +15647,11 @@
         SIGA_VIEWPORT.atualizar();
         ocultarCarregando();
 
-        if (ehGuardaLogada()) {
+        let secaoRetomada = '';
+        try { secaoRetomada = sessionStorage.getItem(CHAVE_SECAO_SIGA) || ''; } catch (erro) {}
+        if (secaoRetomada && secaoDisponivelParaRetomada(secaoRetomada)) {
+          navegar(secaoRetomada);
+        } else if (ehGuardaLogada()) {
           navegar('inicio');
         } else if (estado.usuario.administrador) {
           navegar('painel-admin');
@@ -15550,6 +15743,8 @@
       $('menuUsuario').classList.toggle('oculto', usuario.administrador && !guardaHibrida);
       $('menuAdmin').classList.toggle('oculto', !usuario.administrador || guardaHibrida);
       document.querySelectorAll('.somente-guarda').forEach(el => el.classList.toggle('oculto', !guardaHibrida));
+      const p1BancoHoras = usuario.administrador && grupoSetorAdminCliente(setorAdmin) === 'P1';
+      document.querySelectorAll('.somente-p1-banco').forEach(el => el.classList.toggle('oculto', !p1BancoHoras));
       document.querySelectorAll('#menuAdmin [data-permissao]').forEach(botao => {
         botao.classList.toggle('oculto', !temPermissaoAdmin(botao.dataset.permissao));
       });
@@ -15718,11 +15913,113 @@
       catch(e){ if(area) area.innerHTML='<div class="vazio compacto">Comparativo temporariamente indisponível.</div>'; }
     }
 
+    function secaoAtivaCliente() {
+      const ativa = document.querySelector('.secao.ativa[id^="secao-"]');
+      return ativa ? String(ativa.id || '').replace(/^secao-/, '') : '';
+    }
+
+    function secaoDisponivelParaRetomada(secao) {
+      if (!secao || !$('secao-' + secao)) return false;
+      const item = Array.from(document.querySelectorAll('.menu-item[data-secao]')).find(function(botao) {
+        return botao.dataset.secao === secao;
+      });
+      if (!item) return secao === 'inicio';
+      if (item.classList.contains('oculto')) return false;
+      const grupo = item.closest('#menuUsuario, #menuAdmin');
+      return !(grupo && grupo.classList.contains('oculto'));
+    }
+
+    async function atualizarGuiaAtualPorGesto() {
+      if (!estado.token || !estado.usuario) throw new Error('Sua sessão não está disponível para atualização.');
+      const secao = secaoAtivaCliente();
+      registrarAtividadeSessao(true);
+
+      await revalidarGovernancaSessao(true);
+      if (!estado.token || !estado.usuario) throw new Error('Sua sessão foi encerrada. Entre novamente para continuar.');
+
+      const tarefas = [];
+      if (typeof carregarNotificacoes === 'function') tarefas.push(Promise.resolve(carregarNotificacoes(true)));
+
+      switch (secao) {
+        case 'inicio':
+          if (usuarioPodeUsarAreaComum()) {
+            estado.versaoCacheCalendario++;
+            estado.cacheCalendario = {};
+            estado.promessasCalendario = {};
+            tarefas.push(Promise.resolve(carregarResumoInicio430()));
+          }
+          break;
+        case 'calendario':
+          estado.versaoCacheCalendario++;
+          estado.cacheCalendario = {};
+          estado.promessasCalendario = {};
+          tarefas.push(Promise.resolve(carregarCalendarioUsuario(estado.calendarioAno, estado.calendarioMes)));
+          break;
+        case 'checklist':
+          /* Não recria o formulário em preenchimento; atualiza apenas o contexto da sessão/notificações. */
+          break;
+        case 'permutas':
+          tarefas.push(Promise.resolve(carregarMinhasPermutas()));
+          break;
+        case 'banco-horas':
+          tarefas.push(Promise.resolve(carregarBancoHoras(false)));
+          break;
+        case 'relatorios':
+          tarefas.push(Promise.resolve(carregarRelatorioUsuario()));
+          break;
+        case 'perfil':
+          tarefas.push(Promise.resolve(carregarSolicitacaoPerfilUsuario(true)));
+          break;
+        case 'painel-admin':
+          tarefas.push(Promise.resolve(carregarDashboardAdmin()));
+          break;
+        case 'guarda':
+          if (typeof carregarGuardaDia === 'function') tarefas.push(Promise.resolve(carregarGuardaDia()));
+          break;
+        case 'relatorio-guarda':
+          if (typeof carregarRelatorioGuarda === 'function') tarefas.push(Promise.resolve(carregarRelatorioGuarda()));
+          break;
+        case 'admin-permutas':
+          tarefas.push(Promise.resolve(carregarPermutasAdmin(true)));
+          break;
+        case 'admin-policiais':
+          tarefas.push(Promise.resolve(carregarRecuperacoesAcessoP1(true)));
+          tarefas.push(Promise.resolve(carregarSolicitacoesPerfilP1(true)));
+          break;
+        case 'admin-checklist':
+          tarefas.push(Promise.resolve(carregarChecklistsAdmin(true)));
+          break;
+        case 'p4-alertas':
+          tarefas.push(Promise.resolve(carregarAlertasP4(true)));
+          break;
+        case 'formularios':
+          /* Preserva alterações locais ainda não salvas no editor. */
+          break;
+        case 'setores':
+          tarefas.push(Promise.resolve(carregarSetoresAdmin()));
+          break;
+        case 'efetivo':
+          tarefas.push(Promise.resolve(carregarEfetivo(true)));
+          tarefas.push(Promise.resolve(carregarConfiguracaoEscalaAdmin()));
+          break;
+        case 'consultas':
+          /* Preserva a ficha/pesquisa aberta; governança e notificações já foram renovadas. */
+          break;
+        default:
+          break;
+      }
+
+      if (tarefas.length) await Promise.allSettled(tarefas);
+      registrarAtividadeSessao(true);
+      return secao;
+    }
+
     function navegar(secao) {
       if (estado.token && estado.usuario && !usuarioAcessoElegivelCliente(estado.usuario)) {
         encerrarSessaoAutomaticamente(mensagemGovernancaCliente(estado.usuario));
         return;
       }
+      try { if (estado.token) sessionStorage.setItem(CHAVE_SECAO_SIGA, secao); } catch (erro) {}
       document.querySelectorAll('.secao').forEach(function(item) {
         item.classList.remove('ativa');
         item.setAttribute('aria-hidden','true');
@@ -15739,7 +16036,7 @@
         else item.removeAttribute('aria-current');
       });
       const titulos = {
-        inicio:['Início','Área do policial'], calendario:['Calendário','Escala pessoal prevista'], checklist:['Checklist','Controle operacional da frota'], permutas:['Permutas','Solicitações e acompanhamento'], 'banco-horas':['Banco de horas','Créditos registrados em livro e baixas de utilização'],
+        inicio:['Início','Área do policial'], calendario:['Calendário','Escala pessoal prevista'], checklist:['Checklist','Controle operacional da frota'], permutas:['Permutas','Solicitações e acompanhamento'], 'banco-horas':['Banco de horas','Créditos em livro e baixas registradas pelo P1'],
         relatorios:['Relatórios','Resumo individual'], perfil:['Perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Efetivo, solicitações e afastamentos do P1'],
         'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão geral','Painel administrativo'], guarda:['Corpo da Guarda','Registro das alterações da escala impressa'], 'relatorio-guarda':['Relatório','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
         consultas:['Consultas','Ficha completa e histórico'], efetivo:['Efetivo','Gestão do quadro de policiais']
@@ -16649,10 +16946,67 @@
       return horas + 'h ' + restante + 'min';
     }
 
+    function ehP1BancoHorasCliente() {
+      return Boolean(
+        estado.usuario &&
+        estado.usuario.administrador &&
+        grupoSetorAdminCliente(estado.usuario.setorAdmin) === 'P1'
+      );
+    }
+
+    function podeRegistrarCreditoBancoHorasCliente() {
+      const usuario = estado.usuario;
+      if (!usuario || !usuarioAcessoElegivelCliente(usuario)) return false;
+      if (ehGuardaLogada()) return true;
+      const vinculo = codigoVinculoAcessoCliente(usuario);
+      /* Compatibilidade para cadastros comuns ainda sem governança materializada. */
+      return vinculo === 'EFETIVO_3_CIA' || (!vinculo && !usuario.administrador);
+    }
+
+    function configurarPainelRegistroCreditoBancoHoras() {
+      const painel = $('painelCreditoBancoHoras');
+      if (!painel) return;
+      const permitido = podeRegistrarCreditoBancoHorasCliente();
+      const modoGuarda = ehGuardaLogada();
+      painel.classList.toggle('oculto', !permitido);
+      if (!permitido) return;
+
+      $('campoPolicialCreditoBancoHoras')?.classList.toggle('oculto', !modoGuarda);
+      $('policialSelecionadoBancoHoras')?.classList.toggle('oculto', !modoGuarda || !estado.policialBancoHoras);
+      $('identidadeCreditoProprioBancoHoras')?.classList.toggle('oculto', modoGuarda);
+
+      const rotulo = $('rotuloRegistroCreditoBancoHoras');
+      const titulo = $('tituloRegistroCreditoBancoHoras');
+      const aviso = $('avisoRegistroCreditoBancoHoras');
+      const botao = $('botaoRegistrarCreditoBancoHoras');
+
+      if (modoGuarda) {
+        if (rotulo) rotulo.textContent = 'CORPO DA GUARDA';
+        if (titulo) titulo.textContent = 'Registrar crédito do policial';
+        if (aviso) aviso.textContent = 'Localize o policial e informe os dados exatamente como constam no livro. A baixa continuará exclusiva do P1.';
+        if (botao) botao.textContent = 'CREDITAR AO POLICIAL';
+      } else {
+        estado.policialBancoHoras = null;
+        if ($('resultadosPolicialBancoHoras')) $('resultadosPolicialBancoHoras').innerHTML = '';
+        if (rotulo) rotulo.textContent = 'MEU BANCO DE HORAS';
+        if (titulo) titulo.textContent = 'Registrar meu crédito';
+        if (aviso) aviso.textContent = 'Informe os dados exatamente como constam no livro. O registro entra no seu extrato; a baixa será feita somente pelo P1 após a conferência documental.';
+        if (botao) botao.textContent = 'REGISTRAR MEU CRÉDITO';
+        const identidade = $('identidadeCreditoProprioBancoHoras');
+        if (identidade) {
+          identidade.innerHTML = `<div><strong>${htmlIdentificacaoPolicial(estado.usuario)}</strong><span>Crédito vinculado automaticamente ao seu cadastro</span></div><span class="status status-neutro">VOCÊ</span>`;
+        }
+      }
+    }
+
     function prepararBancoHoras() {
+      configurarPainelRegistroCreditoBancoHoras();
       if ($('dataCreditoBancoHoras')) $('dataCreditoBancoHoras').max = dataHojeIso();
       if ($('dataCreditoBancoHoras') && !$('dataCreditoBancoHoras').value) {
         $('dataCreditoBancoHoras').value = dataHojeIso();
+      }
+      if ($('painelBaixaP1BancoHoras')) {
+        $('painelBaixaP1BancoHoras').classList.toggle('oculto', !ehP1BancoHorasCliente());
       }
       carregarBancoHoras();
     }
@@ -16663,10 +17017,22 @@
         const resposta = await api('obterBancoHoras', estado.token);
         estado.bancoHoras = resposta;
         renderizarBancoHoras();
+        if (ehP1BancoHorasCliente() && estado.policialBaixaP1BancoHoras) {
+          await carregarBancoHorasP1(false);
+        }
         ocultarCarregando();
       } catch (erro) {
         tratarErro(erro);
       }
+    }
+
+    function htmlHistoricoBaixasBancoHoras(baixasInformadas) {
+      const baixas = baixasInformadas || [];
+      if (!baixas.length) return '';
+      return `<details class="historico-baixas-horas"><summary>${baixas.length} ${baixas.length === 1 ? 'baixa registrada' : 'baixas registradas'}</summary><ul>${baixas.map(function(baixa) {
+        const responsavel = baixa.criadoPor ? ` • por ${escaparHtml(baixa.criadoPor)}` : '';
+        return `<li>${formatarData(baixa.data)} — ${formatarMinutosBancoHoras(baixa.minutos)}${responsavel}${baixa.observacao ? ' • ' + escaparHtml(baixa.observacao) : ''}</li>`;
+      }).join('')}</ul></details>`;
     }
 
     function renderizarBancoHoras() {
@@ -16681,13 +17047,6 @@
       }
 
       $('listaCreditosBancoHoras').innerHTML = creditos.map(function(credito) {
-        const baixas = credito.baixas || [];
-        const historico = baixas.length
-          ? `<details class="historico-baixas-horas"><summary>${baixas.length} ${baixas.length === 1 ? 'baixa registrada' : 'baixas registradas'}</summary><ul>${baixas.map(function(baixa) {
-              return `<li>${formatarData(baixa.data)} — ${formatarMinutosBancoHoras(baixa.minutos)}${baixa.observacao ? ' • ' + escaparHtml(baixa.observacao) : ''}</li>`;
-            }).join('')}</ul></details>`
-          : '';
-        const podeBaixar = Number(credito.restanteMinutos || 0) > 0;
         return `<article class="credito-banco-horas">
           <div class="credito-banco-data"><strong>${formatarData(credito.data)}</strong><span>crédito</span></div>
           <div class="credito-banco-conteudo">
@@ -16696,9 +17055,8 @@
           </div>
           <div class="credito-banco-acoes">
             <span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '')}</span>
-            ${podeBaixar ? `<button class="botao botao-secundario botao-baixa-horas" type="button" onclick="abrirBaixaBancoHoras('${escaparAtributo(credito.id)}')">DAR BAIXA</button>` : ''}
           </div>
-          ${historico}
+          ${htmlHistoricoBaixasBancoHoras(credito.baixas)}
         </article>`;
       }).join('');
     }
@@ -16759,14 +17117,19 @@
 
     async function registrarCreditoBancoHorasApp(evento) {
       evento.preventDefault();
-      if (!estado.policialBancoHoras) {
+      const modoGuarda = ehGuardaLogada();
+      if (!podeRegistrarCreditoBancoHorasCliente()) {
+        toast('Este cadastro não pode registrar créditos no banco de horas.', 'aviso');
+        return;
+      }
+      if (modoGuarda && !estado.policialBancoHoras) {
         toast('Selecione um policial na lista de resultados.', 'erro');
         return;
       }
       if (!estado.chaveCreditoBancoHoras) estado.chaveCreditoBancoHoras = novaChaveOperacaoBancoHoras('credito');
-      const policial = estado.policialBancoHoras;
+      const policial = modoGuarda ? estado.policialBancoHoras : estado.usuario;
       const dados = {
-        policialId: policial.id,
+        policialId: policial && policial.id ? policial.id : '',
         data: $('dataCreditoBancoHoras').value,
         horas: $('horasCreditoBancoHoras').value,
         livro: $('livroBancoHoras').value,
@@ -16774,29 +17137,145 @@
         observacao: $('observacaoCreditoBancoHoras').value,
         chaveOperacao: estado.chaveCreditoBancoHoras
       };
-      mostrarCarregando('Registrando crédito no banco de horas...');
+      mostrarCarregando(modoGuarda ? 'Registrando crédito do policial...' : 'Registrando seu crédito...');
       try {
         await api('registrarCreditoBancoHoras', estado.token, dados);
         $('formCreditoBancoHoras').reset();
         $('dataCreditoBancoHoras').value = dataHojeIso();
-        limparPolicialBancoHoras();
         estado.chaveCreditoBancoHoras = '';
+        if (modoGuarda) limparPolicialBancoHoras();
+        else configurarPainelRegistroCreditoBancoHoras();
         ocultarCarregando();
-        toast('Crédito registrado para ' + (policial.identificacao || 'o policial') + '.');
+        toast(modoGuarda
+          ? 'Crédito registrado para ' + ((policial && policial.identificacao) || 'o policial') + '.'
+          : 'Crédito registrado no seu banco de horas.');
         await carregarBancoHoras(false);
       } catch (erro) {
         tratarErro(erro);
       }
     }
 
+    function agendarPesquisaBaixaP1BancoHoras(termoInformado) {
+      if (!ehP1BancoHorasCliente()) return;
+      clearTimeout(estado.timerPesquisaBaixaP1BancoHoras);
+      const termo = String(termoInformado || '').trim();
+      const resultados = $('resultadosBaixaP1BancoHoras');
+      if (termo.length < 2) {
+        resultados.innerHTML = '';
+        return;
+      }
+      resultados.innerHTML = '<div class="resultado-pesquisa"><span>Localizando policial...</span></div>';
+      estado.timerPesquisaBaixaP1BancoHoras = setTimeout(function() {
+        pesquisarBaixaP1BancoHoras(termo);
+      }, 230);
+    }
+
+    async function pesquisarBaixaP1BancoHoras(termo) {
+      if (!ehP1BancoHorasCliente()) return;
+      try {
+        const resposta = await api('buscarPoliciaisBancoHoras', estado.token, termo);
+        estado.policiaisBaixaP1BancoHoras = resposta.policiais || [];
+        $('resultadosBaixaP1BancoHoras').innerHTML = estado.policiaisBaixaP1BancoHoras.length
+          ? estado.policiaisBaixaP1BancoHoras.map(function(policial) {
+              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBaixaP1BancoHoras('${escaparAtributo(policial.id)}')"><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Consultar créditos para baixa</span></button>`;
+            }).join('')
+          : '<div class="resultado-pesquisa"><span>Nenhum policial encontrado.</span></div>';
+      } catch (erro) {
+        $('resultadosBaixaP1BancoHoras').innerHTML = '';
+        tratarErro(erro);
+      }
+    }
+
+    async function selecionarPolicialBaixaP1BancoHoras(id) {
+      if (!ehP1BancoHorasCliente()) return;
+      const policial = (estado.policiaisBaixaP1BancoHoras || []).find(function(item) {
+        return String(item.id) === String(id);
+      });
+      if (!policial) return;
+      estado.policialBaixaP1BancoHoras = policial;
+      estado.bancoHorasP1 = null;
+      $('pesquisaBaixaP1BancoHoras').value = policial.identificacao || '';
+      $('resultadosBaixaP1BancoHoras').innerHTML = '';
+      $('policialBaixaP1BancoHorasSelecionado').innerHTML = `<div><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Solicitação física e cópia do livro devem ser conferidas antes da baixa.</span></div><button class="botao botao-secundario" type="button" onclick="limparPolicialBaixaP1BancoHoras()">TROCAR</button>`;
+      $('policialBaixaP1BancoHorasSelecionado').classList.remove('oculto');
+      $('listaBaixaP1BancoHoras').innerHTML = '<div class="vazio compacto">Carregando créditos...</div>';
+      await carregarBancoHorasP1(true);
+    }
+
+    function limparPolicialBaixaP1BancoHoras() {
+      estado.policialBaixaP1BancoHoras = null;
+      estado.bancoHorasP1 = null;
+      estado.creditoBaixaBancoHoras = null;
+      estado.chaveBaixaBancoHoras = '';
+      if ($('pesquisaBaixaP1BancoHoras')) $('pesquisaBaixaP1BancoHoras').value = '';
+      if ($('resultadosBaixaP1BancoHoras')) $('resultadosBaixaP1BancoHoras').innerHTML = '';
+      if ($('policialBaixaP1BancoHorasSelecionado')) {
+        $('policialBaixaP1BancoHorasSelecionado').classList.add('oculto');
+        $('policialBaixaP1BancoHorasSelecionado').innerHTML = '';
+      }
+      if ($('resumoBaixaP1BancoHoras')) {
+        $('resumoBaixaP1BancoHoras').classList.add('oculto');
+        $('resumoBaixaP1BancoHoras').innerHTML = '';
+      }
+      if ($('listaBaixaP1BancoHoras')) $('listaBaixaP1BancoHoras').innerHTML = '<div class="vazio compacto">Selecione um policial para consultar os créditos disponíveis.</div>';
+      if ($('pesquisaBaixaP1BancoHoras')) $('pesquisaBaixaP1BancoHoras').focus();
+    }
+
+    async function carregarBancoHorasP1(exibirCarregamento) {
+      if (!ehP1BancoHorasCliente() || !estado.policialBaixaP1BancoHoras) return;
+      if (exibirCarregamento) mostrarCarregando('Consultando banco de horas do policial...');
+      try {
+        const resposta = await api('obterBancoHoras', estado.token, estado.policialBaixaP1BancoHoras.id);
+        estado.bancoHorasP1 = resposta;
+        renderizarBancoHorasP1();
+        if (exibirCarregamento) ocultarCarregando();
+      } catch (erro) {
+        tratarErro(erro);
+      }
+    }
+
+    function renderizarBancoHorasP1() {
+      const banco = estado.bancoHorasP1 || {saldoMinutos:0,totalCreditadoMinutos:0,totalUtilizadoMinutos:0,creditos:[]};
+      const resumo = $('resumoBaixaP1BancoHoras');
+      resumo.innerHTML = `
+        <article><small>SALDO DISPONÍVEL</small><strong>${formatarMinutosBancoHoras(banco.saldoMinutos)}</strong></article>
+        <article><small>TOTAL CREDITADO</small><strong>${formatarMinutosBancoHoras(banco.totalCreditadoMinutos)}</strong></article>
+        <article><small>TOTAL BAIXADO</small><strong>${formatarMinutosBancoHoras(banco.totalUtilizadoMinutos)}</strong></article>`;
+      resumo.classList.remove('oculto');
+      const creditos = banco.creditos || [];
+      if (!creditos.length) {
+        $('listaBaixaP1BancoHoras').innerHTML = '<div class="vazio compacto">Este policial não possui créditos registrados.</div>';
+        return;
+      }
+      $('listaBaixaP1BancoHoras').innerHTML = creditos.map(function(credito) {
+        const podeBaixar = Number(credito.restanteMinutos || 0) > 0;
+        return `<article class="credito-p1-banco">
+          <div class="credito-p1-banco-data"><strong>${formatarData(credito.data)}</strong><span>crédito</span></div>
+          <div class="credito-p1-banco-dados">
+            <strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis de ${formatarMinutosBancoHoras(credito.minutos)}</strong>
+            <span>Livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}</span>
+            ${htmlHistoricoBaixasBancoHoras(credito.baixas)}
+          </div>
+          <div class="credito-p1-banco-acoes">
+            <span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '')}</span>
+            ${podeBaixar ? `<button class="botao botao-secundario botao-baixa-horas" type="button" onclick="abrirBaixaBancoHoras('${escaparAtributo(credito.id)}')">DAR BAIXA</button>` : ''}
+          </div>
+        </article>`;
+      }).join('');
+    }
+
     function abrirBaixaBancoHoras(creditoId) {
-      const credito = ((estado.bancoHoras && estado.bancoHoras.creditos) || []).find(function(item) {
+      if (!ehP1BancoHorasCliente() || !estado.policialBaixaP1BancoHoras) {
+        toast('A baixa do banco de horas é exclusiva do P1.', 'aviso');
+        return;
+      }
+      const credito = ((estado.bancoHorasP1 && estado.bancoHorasP1.creditos) || []).find(function(item) {
         return String(item.id) === String(creditoId);
       });
       if (!credito || Number(credito.restanteMinutos || 0) <= 0) return;
       estado.creditoBaixaBancoHoras = credito;
-      estado.chaveBaixaBancoHoras = novaChaveOperacaoBancoHoras('baixa');
-      $('resumoCreditoBaixaBancoHoras').innerHTML = `<strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong>Crédito de ${formatarData(credito.data)} • Livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}`;
+      estado.chaveBaixaBancoHoras = novaChaveOperacaoBancoHoras('baixa-p1');
+      $('resumoCreditoBaixaBancoHoras').innerHTML = `<strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong>${escaparHtml(estado.policialBaixaP1BancoHoras.identificacao || '')}<br>Crédito de ${formatarData(credito.data)} • Livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}`;
       $('dataBaixaBancoHoras').value = dataHojeIso();
       $('dataBaixaBancoHoras').min = credito.data || '';
       $('dataBaixaBancoHoras').max = dataHojeIso();
@@ -16804,6 +17283,7 @@
       $('horasBaixaBancoHoras').max = String(horas);
       $('horasBaixaBancoHoras').value = String(horas);
       $('observacaoBaixaBancoHoras').value = '';
+      $('documentacaoBaixaBancoHoras').checked = false;
       $('modalBaixaBancoHoras').classList.remove('oculto');
       document.body.style.overflow = 'hidden';
     }
@@ -16813,28 +17293,43 @@
       document.body.style.overflow = '';
       estado.creditoBaixaBancoHoras = null;
       estado.chaveBaixaBancoHoras = '';
+      if ($('documentacaoBaixaBancoHoras')) $('documentacaoBaixaBancoHoras').checked = false;
     }
 
     async function confirmarBaixaBancoHoras(evento) {
       evento.preventDefault();
+      if (!ehP1BancoHorasCliente() || !estado.policialBaixaP1BancoHoras) {
+        toast('A baixa do banco de horas é exclusiva do P1.', 'erro');
+        return;
+      }
       const credito = estado.creditoBaixaBancoHoras;
       if (!credito) return;
-      if (!estado.chaveBaixaBancoHoras) estado.chaveBaixaBancoHoras = novaChaveOperacaoBancoHoras('baixa');
+      if (!$('documentacaoBaixaBancoHoras').checked) {
+        toast('Confirme a conferência da solicitação manuscrita e da cópia da página do livro.', 'aviso');
+        return;
+      }
+      if (!estado.chaveBaixaBancoHoras) estado.chaveBaixaBancoHoras = novaChaveOperacaoBancoHoras('baixa-p1');
       const dados = {
+        policialId: estado.policialBaixaP1BancoHoras.id,
         creditoId: credito.id,
         data: $('dataBaixaBancoHoras').value,
         horas: $('horasBaixaBancoHoras').value,
         observacao: $('observacaoBaixaBancoHoras').value,
+        documentacaoConferida: true,
         chaveOperacao: estado.chaveBaixaBancoHoras
       };
-      mostrarCarregando('Confirmando baixa...');
+      mostrarCarregando('Registrando baixa pelo P1...');
       try {
         const resposta = await api('darBaixaBancoHoras', estado.token, dados);
-        estado.bancoHoras = resposta;
+        estado.bancoHorasP1 = resposta;
+        if (estado.usuario && String(estado.usuario.id) === String(estado.policialBaixaP1BancoHoras.id)) {
+          estado.bancoHoras = resposta;
+          renderizarBancoHoras();
+        }
         fecharBaixaBancoHoras();
-        renderizarBancoHoras();
+        renderizarBancoHorasP1();
         ocultarCarregando();
-        toast('Baixa registrada. O saldo foi atualizado.');
+        toast('Baixa registrada pelo P1. O saldo do policial foi atualizado.');
       } catch (erro) {
         tratarErro(erro);
       }
@@ -20267,7 +20762,7 @@
       window.addEventListener('focus', atualizar);
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.7.4: evita re-medição do cabeçalho durante o bounce do iOS. */
+        /* R9.7.7: evita re-medição do cabeçalho durante o bounce do iOS. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const topo = document.querySelector('.topbar');
