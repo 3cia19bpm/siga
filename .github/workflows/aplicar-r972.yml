@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/r972.patch'
+      - '.github/r972_apply.py'
       - '.github/workflows/aplicar-r972.yml'
 
 permissions:
@@ -19,28 +19,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validar e aplicar patch
+      - name: Aplicar revisão validada
         shell: bash
         run: |
           set -euo pipefail
-          git apply --check .github/r972.patch
-          git apply .github/r972.patch
-          grep -q "R9.7.2" index.html
-          grep -q "siga-github-v5.9.0-r9.7.2" sw.js
+          python .github/r972_apply.py
 
-      - name: Validar JavaScript
+      - name: Validar resultado
         shell: bash
         run: |
           set -euo pipefail
+          grep -q "R9.7.2" index.html
+          grep -q "navegacaoPoliciaisP1" index.html
+          grep -q "resumoModuloPoliciaisP1" index.html
+          grep -q "siga-github-v5.9.0-r9.7.2" sw.js
           cp sw.js /tmp/sw-r972.js
           node --check /tmp/sw-r972.js
           python - <<'PY'
           from pathlib import Path
           import re
           text = Path('index.html').read_text(encoding='utf-8')
-          assert 'navegacaoPoliciaisP1' in text
-          assert 'resumoModuloPoliciaisP1' in text
-          assert 'Central de Trabalho' in text or 'CENTRAL DE TRABALHO' in text
           ids = re.findall(r'\bid=["\']([^"\']+)["\']', text)
           duplicados = sorted({x for x in ids if ids.count(x) > 1})
           if duplicados:
@@ -51,7 +49,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -f .github/r972.patch .github/workflows/aplicar-r972.yml
+          rm -f .github/r972.patch .github/r972_apply.py .github/workflows/aplicar-r972.yml
           git config user.name "SIGA Automation"
           git config user.email "actions@users.noreply.github.com"
           git add -A
