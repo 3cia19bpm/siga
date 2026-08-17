@@ -8882,7 +8882,7 @@
     }
     #secao-admin-policiais .p1-modulos-nav{
       display:grid!important;
-      grid-template-columns:repeat(3,minmax(0,1fr))!important;
+      grid-template-columns:repeat(4,minmax(0,1fr))!important;
       gap:6px!important;
       padding:5px!important;
       border:1px solid #dce4d9!important;
@@ -9285,7 +9285,7 @@
       #secao-admin-policiais .p1-modulos-painel{padding:13px!important;}
       #secao-admin-policiais .p1-modulos-topo{margin-bottom:10px!important;padding-bottom:10px!important;}
       #secao-admin-policiais .p1-modulos-topo p{font-size:10.5px!important;line-height:1.45!important;}
-      #secao-admin-policiais .p1-modulos-nav{gap:4px!important;padding:4px!important;border-radius:15px!important;}
+      #secao-admin-policiais .p1-modulos-nav{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:4px!important;padding:4px!important;border-radius:15px!important;}
       #secao-admin-policiais .p1-modulo-btn{
         min-height:58px!important;
         padding:9px 8px!important;
@@ -12183,7 +12183,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.2
+       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.3
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
@@ -12312,7 +12312,7 @@
 
 
     /* =========================================================
-       R9.7.2 • CENTRAL DE TRABALHO DO P1
+       R9.7.3 • CENTRAL DE TRABALHO DO P1
        ========================================================= */
     .recuperacao-login-info{
       padding:14px 15px;border:1px solid #d6e0d3;border-radius:17px;background:#f6f8f4;
@@ -12439,13 +12439,14 @@
           </div>
           <div class="campo">
             <label for="senhaLogin">Senha</label>
-            <input id="senhaLogin" name="password" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="current-password" enterkeyhint="go" aria-describedby="ajudaBiometria" placeholder="Digite sua senha" required>
+            <input id="senhaLogin" name="password" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="current-password" enterkeyhint="go" aria-describedby="ajudaBiometria ajudaRecuperacaoLogin" placeholder="Digite sua senha" required>
             <small id="ajudaBiometria" class="ajuda ajuda-biometria">Selecione a credencial salva ou digite sua senha para desbloquear.</small>
+            <small id="ajudaRecuperacaoLogin" class="ajuda">A recuperação de acesso será liberada somente se forem atingidas 5 tentativas inválidas.</small>
           </div>
           <button class="botao botao-largo" type="submit">ENTRAR</button>
           <div class="acoes-login">
-            <button id="botaoRecuperarSenha" class="botao botao-secundario" type="button" onclick="abrirRecuperacaoSenha()">SOLICITAR RECUPERAÇÃO</button>
-            <button id="botaoUsarCodigoRecuperacao" class="botao botao-secundario" type="button" onclick="abrirFormularioCodigoRecuperacao()">JÁ TENHO O CÓDIGO</button>
+            <button id="botaoRecuperarSenha" class="botao botao-secundario oculto" type="button" onclick="abrirRecuperacaoSenha()">SOLICITAR RECUPERAÇÃO</button>
+            <button id="botaoUsarCodigoRecuperacao" class="botao botao-secundario oculto" type="button" onclick="abrirFormularioCodigoRecuperacao()">JÁ TENHO O CÓDIGO</button>
             <button class="botao botao-secundario" type="button" onclick="voltarParaMatricula()">TROCAR MATRÍCULA</button>
           </div>
         </form>
@@ -12484,7 +12485,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.7.2
+        SIGA 3ª CIA — Versão 5.9.0 • R9.7.3
       </footer>
     </section>
   </main>
@@ -12557,7 +12558,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.2</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.3</footer>
     </aside>
 
     <div class="area-principal">
@@ -13440,7 +13441,7 @@
             <div>
               <span class="pagina-kicker">GESTÃO DE PESSOAL</span>
               <h2>Policiais — P1</h2>
-              <p>Organize as entradas no efetivo, as atualizações cadastrais e as recuperações de acesso do P1.</p>
+              <p>Organize as entradas no efetivo, as atualizações cadastrais, as licenças administrativas e as recuperações de acesso do P1.</p>
             </div>
           </div>
 
@@ -13448,7 +13449,7 @@
             <div class="p1-modulos-topo">
               <div>
                 <span class="rotulo-suave">ORGANIZAÇÃO DO FLUXO</span>
-                <h3 style="margin:4px 0 0">Entradas, atualizações e senhas</h3>
+                <h3 style="margin:4px 0 0">Entradas, atualizações, licenças e senhas</h3>
                 <p>Escolha o módulo de trabalho para concentrar a ação do P1 em um único fluxo por vez.</p>
               </div>
             </div>
@@ -13525,7 +13526,7 @@
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
           </form>
 
-          <div class="painel painel-busca-policiais-p1" data-p1-modulo="atualizacoes">
+          <div class="painel painel-busca-policiais-p1" data-p1-modulo="licencas">
             <div class="cartao-topo painel-busca-policiais-topo">
               <div><span class="rotulo-suave">EFETIVO CADASTRADO</span><h3 style="margin:4px 0 0">Localizar policial</h3><p>Pesquise por matrícula funcional, numeral ou nome de guerra.</p></div>
             </div>
@@ -13539,7 +13540,7 @@
             <div id="resultadosPoliciaisP1" class="pesquisa-resultados"></div>
           </div>
 
-          <div id="painelPolicialP1" class="painel oculto" data-p1-modulo="atualizacoes">
+          <div id="painelPolicialP1" class="painel oculto" data-p1-modulo="licencas">
             <div class="cartao-topo">
               <div><h3 id="nomePolicialP1" style="margin:0"></h3><p id="dadosPolicialP1"></p></div>
               <button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirPolicialP1()">RETIRAR DO EFETIVO</button>
@@ -14180,6 +14181,8 @@
       timerPesquisaSetorAdmin: null,
       p1Policiais: [],
       abaPoliciaisP1: '',
+      mostrarRecuperacaoLogin: false,
+      recuperacaoSolicitadaLogin: false,
       calendario: null,
       calendarioAno: null,
       calendarioMes: null,
@@ -14891,12 +14894,38 @@
     function voltarParaMatricula() {
       estado.matriculaAtual = '';
       estado.cadastroConhecido = {};
+      estado.mostrarRecuperacaoLogin = false;
+      estado.recuperacaoSolicitadaLogin = false;
       $('formMatricula').reset();
       $('formLogin').reset();
       $('formRecuperacaoCodigo')?.reset();
       $('boasVindasLogin').classList.add('oculto');
+      atualizarAcoesRecuperacaoLogin();
       exibirFormulario('formMatricula');
       setTimeout(() => $('matriculaInicial').focus(), 50);
+    }
+
+    function atualizarAcoesRecuperacaoLogin(opcoes) {
+      const dados = opcoes || {};
+      if (Object.prototype.hasOwnProperty.call(dados, 'mostrarRecuperacao')) {
+        estado.mostrarRecuperacaoLogin = Boolean(dados.mostrarRecuperacao);
+      }
+      if (Object.prototype.hasOwnProperty.call(dados, 'recuperacaoSolicitada')) {
+        estado.recuperacaoSolicitadaLogin = Boolean(dados.recuperacaoSolicitada);
+      }
+      const botaoRecuperar = $('botaoRecuperarSenha');
+      const botaoCodigo = $('botaoUsarCodigoRecuperacao');
+      const ajuda = $('ajudaRecuperacaoLogin');
+      if (botaoRecuperar) botaoRecuperar.classList.toggle('oculto', !estado.mostrarRecuperacaoLogin);
+      if (botaoCodigo) botaoCodigo.classList.toggle('oculto', !estado.recuperacaoSolicitadaLogin);
+      if (!ajuda) return;
+      if (estado.recuperacaoSolicitadaLogin) {
+        ajuda.textContent = 'Recuperação solicitada ao P1. Quando receber o código, use “Já tenho o código”.';
+      } else if (estado.mostrarRecuperacaoLogin) {
+        ajuda.textContent = 'O limite de 5 tentativas inválidas foi atingido. A recuperação de acesso está liberada.';
+      } else {
+        ajuda.textContent = 'A recuperação de acesso será liberada somente se forem atingidas 5 tentativas inválidas.';
+      }
     }
 
     async function processarMatricula(matricula) {
@@ -14915,6 +14944,10 @@
           if ($('matriculaRecuperacao')) $('matriculaRecuperacao').value = resposta.matricula;
           $('boasVindasLogin').innerHTML = 'Bem-vindo(a), <strong>' + escaparHtml(resposta.identificacao || '') + '</strong>.';
           $('boasVindasLogin').classList.remove('oculto');
+          atualizarAcoesRecuperacaoLogin({
+            mostrarRecuperacao: Boolean(resposta.mostrarRecuperacao),
+            recuperacaoSolicitada: Boolean(resposta.recuperacaoSolicitada)
+          });
           exibirFormulario('formLogin');
           setTimeout(() => $('senhaLogin').focus(), 50);
           return;
@@ -14992,11 +15025,15 @@
     async function abrirRecuperacaoSenha() {
       const matricula = somenteNumeros(estado.matriculaAtual || $('matriculaLogin').value).slice(0,8);
       if (matricula.length < 7) return mostrarMensagem($('mensagemAcesso'),'Informe uma matrícula funcional válida.','erro');
+      if (!estado.mostrarRecuperacaoLogin && !estado.recuperacaoSolicitadaLogin) {
+        return mostrarMensagem($('mensagemAcesso'),'A recuperação de acesso só é liberada após 5 tentativas inválidas.','erro');
+      }
       mostrarCarregando('Enviando solicitação ao P1...');
       try {
         const resposta = await api('solicitarRecuperacaoAcesso', matricula);
         ocultarCarregando();
         estado.matriculaAtual = matricula;
+        atualizarAcoesRecuperacaoLogin({ mostrarRecuperacao: true, recuperacaoSolicitada: true });
         mostrarMensagem($('mensagemAcesso'), resposta.mensagem || 'Solicitação enviada ao P1.', 'sucesso');
       } catch (erro) { tratarErro(erro, $('mensagemAcesso')); }
     }
@@ -15004,6 +15041,9 @@
     function abrirFormularioCodigoRecuperacao() {
       const matricula = somenteNumeros(estado.matriculaAtual || $('matriculaLogin').value).slice(0,8);
       if (matricula.length < 7) return mostrarMensagem($('mensagemAcesso'),'Informe primeiro a matrícula funcional.','erro');
+      if (!estado.recuperacaoSolicitadaLogin) {
+        return mostrarMensagem($('mensagemAcesso'),'Não há solicitação de recuperação ativa para esta matrícula.','erro');
+      }
       $('formRecuperacaoCodigo').reset();
       $('matriculaRecuperacao').value = matricula;
       exibirFormulario('formRecuperacaoCodigo');
@@ -15014,6 +15054,7 @@
       const matricula = somenteNumeros($('matriculaRecuperacao').value || estado.matriculaAtual).slice(0,8);
       estado.matriculaAtual = matricula;
       $('matriculaLogin').value = matricula;
+      atualizarAcoesRecuperacaoLogin();
       exibirFormulario('formLogin');
       setTimeout(() => $('senhaLogin').focus(), 50);
     }
@@ -16977,13 +17018,14 @@
     function obterConfiguracaoModulosPoliciaisP1() {
       return [
         { id:'entradas', titulo:'Entradas', subtitulo:'Novo policial', quantidade:0 },
-        { id:'atualizacoes', titulo:'Atualizações', subtitulo:'Cadastro e licenças', quantidade:contarSolicitacoesAtualizacaoPendentesP1() },
+        { id:'atualizacoes', titulo:'Atualizações', subtitulo:'Cadastro pendente', quantidade:contarSolicitacoesAtualizacaoPendentesP1() },
+        { id:'licencas', titulo:'Licenças', subtitulo:'Afastamentos', quantidade:0 },
         { id:'senhas', titulo:'Senhas', subtitulo:'Recuperação P1', quantidade:Number(estado.recuperacoesPendentesP1 || 0) }
       ];
     }
 
     function moduloPoliciaisP1Padrao() {
-      const validos = new Set(['entradas','atualizacoes','senhas']);
+      const validos = new Set(['entradas','atualizacoes','licencas','senhas']);
       try {
         const salvo = localStorage.getItem('SIGA_P1_MODULO_ATIVO') || '';
         if (validos.has(salvo)) return salvo;
@@ -17016,12 +17058,24 @@
       if (modulo === 'atualizacoes') {
         return {
           kicker:'MANUTENÇÃO DO CADASTRO',
-          titulo:'Cadastro e situação administrativa',
-          descricao:'Analise alterações, localize o policial e registre afastamentos no mesmo fluxo de trabalho.',
+          titulo:'Solicitações de atualização',
+          descricao:'Analise as alterações cadastrais pendentes enviadas pelos policiais. O deferimento atualiza a ficha imediatamente.',
           metricas:[
             {rotulo:'Pendentes',valor:String(contarSolicitacoesAtualizacaoPendentesP1()),numero:true,destaque:contarSolicitacoesAtualizacaoPendentesP1()>0},
-            {rotulo:'Cadastro',valor:'Dados funcionais'},
-            {rotulo:'Licenças',valor:'Afastamentos'}
+            {rotulo:'Cadastro',valor:'Alterações'},
+            {rotulo:'Resultado',valor:'Ficha atualizada'}
+          ]
+        };
+      }
+      if (modulo === 'licencas') {
+        return {
+          kicker:'GESTÃO DE AFASTAMENTOS',
+          titulo:'Licenças e situação administrativa',
+          descricao:'Localize o policial do efetivo, registre a licença administrativa e acompanhe o histórico individual no mesmo fluxo.',
+          metricas:[
+            {rotulo:'Localizar',valor:'Efetivo cadastrado'},
+            {rotulo:'Licença',valor:'Registrar período'},
+            {rotulo:'Histórico',valor:'Controle individual'}
           ]
         };
       }
@@ -17056,7 +17110,7 @@
     }
 
     function alternarModuloPoliciaisP1(modulo, silencioso) {
-      const validos = new Set(['entradas','atualizacoes','senhas']);
+      const validos = new Set(['entradas','atualizacoes','licencas','senhas']);
       const alvo = validos.has(modulo) ? modulo : moduloPoliciaisP1Padrao();
       estado.abaPoliciaisP1 = alvo;
       try { localStorage.setItem('SIGA_P1_MODULO_ATIVO', alvo); } catch (erro) {}
@@ -18032,10 +18086,12 @@
           if (!resposta.sucesso) {
             ocultarCarregando();
             $('senhaLogin').value = '';
+            atualizarAcoesRecuperacaoLogin({ mostrarRecuperacao: Boolean(resposta.mostrarRecuperacao) });
             mostrarMensagem($('mensagemAcesso'), resposta.mensagem, 'erro');
             setTimeout(() => $('senhaLogin').focus(), 50);
             return;
           }
+          atualizarAcoesRecuperacaoLogin({ mostrarRecuperacao:false, recuperacaoSolicitada:false });
           await entrarAplicacao(resposta.token);
         } catch (erro) { tratarErro(erro, $('mensagemAcesso')); }
       });
@@ -18058,6 +18114,7 @@
           estado.matriculaAtual = dados.matricula;
           $('matriculaLogin').value = dados.matricula;
           $('senhaLogin').value = '';
+          atualizarAcoesRecuperacaoLogin({ mostrarRecuperacao:false, recuperacaoSolicitada:false });
           exibirFormulario('formLogin');
           mostrarMensagem($('mensagemAcesso'), resposta.mensagem || 'Senha redefinida com sucesso.', 'sucesso');
           setTimeout(() => $('senhaLogin').focus(), 80);
