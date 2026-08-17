@@ -1,4 +1,4 @@
-const CACHE_SIGA = 'siga-github-v5.9.0-r9.7.3';
+const CACHE_SIGA = 'siga-github-v5.9.0-r9.4';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
@@ -22,7 +22,7 @@ self.addEventListener('activate', function(evento) {
     caches.keys().then(function(chaves) {
       return Promise.all(
         chaves
-          .filter(function(chave) { return chave !== CACHE_SIGA && chave.indexOf('siga-github-') === 0; })
+          .filter(function(chave) { return chave !== CACHE_SIGA; })
           .map(function(chave) { return caches.delete(chave); })
       );
     })
