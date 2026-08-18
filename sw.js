@@ -2,12 +2,6 @@ const CACHE_SIGA = 'siga-github-v5.9.0-r9.8.4';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
-  './runtime/index-base-r982.html',
-  './runtime/r984-01.patch',
-  './runtime/r984-02.patch',
-  './runtime/r984-03.patch',
-  './runtime/r984-04.patch',
-  './runtime/r984-05.patch',
   './manifest.json',
   './apple-touch-icon.png',
   './icon-192.png',
