@@ -12183,7 +12183,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.8
+       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.9
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
@@ -12312,7 +12312,7 @@
 
 
     /* =========================================================
-       R9.7.8 • CENTRAL DE TRABALHO DO P1
+       R9.7.9 • CENTRAL DE TRABALHO DO P1
        ========================================================= */
     .recuperacao-login-info{
       padding:14px 15px;border:1px solid #d6e0d3;border-radius:17px;background:#f6f8f4;
@@ -12371,7 +12371,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — R9.7.8 • ATUALIZAÇÃO SEM REINÍCIO / iOS
+       SIGA 5.9.0 — R9.7.9 • ATUALIZAÇÃO SEM REINÍCIO / iOS
        - elimina o fundo branco do rubber-band nativo;
        - mantém o cabeçalho imóvel nos limites da página;
        - simula elasticidade controlada no topo e no rodapé;
@@ -12487,7 +12487,7 @@
 
 
     /* =========================================================
-       SIGA 5.9.0 — R9.7.8 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
+       SIGA 5.9.0 — R9.7.9 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
        ========================================================= */
     #secao-banco-horas .orientacao-baixa-p1 {
       margin:0 0 18px;
@@ -12556,7 +12556,7 @@
   
 
     /* =========================================================
-       SIGA 5.9.0 — R9.7.8 • CRÉDITOS PELO POLICIAL OU GUARDA
+       SIGA 5.9.0 — R9.7.9 • CRÉDITOS PELO POLICIAL OU GUARDA
        ========================================================= */
     #secao-banco-horas .registro-credito-banco-horas { margin:0 0 18px; }
     #secao-banco-horas .topo-registro-credito-banco { align-items:flex-start; }
@@ -12621,127 +12621,149 @@
 
 
     /* =======================================================
-       SIGA v5.9.0 — R9.7.8 • SELETOR DE DURAÇÃO DO BANCO DE HORAS
-       Labels alinhadas ao padrão do formulário e seleção sem teclado.
+       SIGA v5.9.0 — R9.7.9 • BANCO DE HORAS — FORMULÁRIO PROFISSIONAL
+       Corrige colisão da classe global .vazio, refina o seletor de duração
+       e inclui justificativa estruturada para cada crédito.
        ======================================================= */
     #secao-banco-horas .campo-horas-credito-banco { min-width:0; }
     #secao-banco-horas .campo-seletor-horas-credito {
-      width:100%;
-      height:var(--r96-control-h,54px);
-      min-height:var(--r96-control-h,54px);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:0 14px;
-      border:1px solid #cfd9cc;
-      border-radius:14px;
-      background:#fff;
-      color:#173622;
-      box-shadow:0 1px 0 rgba(20,48,28,.02);
-      font:inherit;
-      text-align:left;
-      cursor:pointer;
-      -webkit-tap-highlight-color:transparent;
-      transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
+      width:100%;height:var(--r96-control-h,54px);min-height:var(--r96-control-h,54px);
+      display:grid;grid-template-columns:minmax(0,1fr) 36px;align-items:center;gap:9px;
+      padding:0 9px 0 14px;border:1px solid #cfd9cc;border-radius:14px;background:#fff;
+      color:#173622;box-shadow:0 1px 0 rgba(20,48,28,.02);font:inherit;text-align:left;cursor:pointer;
+      -webkit-tap-highlight-color:transparent;transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
     }
     #secao-banco-horas .campo-seletor-horas-credito:focus-visible {
-      outline:none;
-      border-color:#667a59;
-      box-shadow:0 0 0 4px rgba(86,104,74,.13);
+      outline:none;border-color:#667a59;box-shadow:0 0 0 4px rgba(86,104,74,.13);
     }
     #secao-banco-horas .campo-seletor-horas-credito:active { background:#f8faf7; }
     #secao-banco-horas .campo-seletor-horas-valor {
-      min-width:0;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-      color:#183923;
-      font-size:16px;
-      font-weight:750;
-      line-height:1;
+      min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#183923;
+      font-size:15px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums;
     }
-    #secao-banco-horas .campo-seletor-horas-valor.vazio { color:#98a39a;font-weight:500; }
-    #secao-banco-horas .campo-seletor-horas-credito svg {
-      width:22px;height:22px;flex:0 0 auto;fill:none;stroke:#52684f;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;
+    #secao-banco-horas .campo-seletor-horas-valor.sem-valor { color:#8b978d;font-weight:600; }
+    #secao-banco-horas .campo-seletor-horas-icone {
+      width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#eef3eb;color:#52684f;
+    }
+    #secao-banco-horas .campo-seletor-horas-icone svg {
+      width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;
+    }
+
+    #secao-banco-horas .campo-justificativa-credito-banco { margin-top:2px; }
+    #secao-banco-horas .select-justificativa-banco { position:relative; }
+    #secao-banco-horas .select-justificativa-banco select {
+      width:100%;height:var(--r96-control-h,54px);min-height:var(--r96-control-h,54px);
+      padding:0 46px 0 14px;border:1px solid #cfd9cc;border-radius:14px;background:#fff;color:#183923;
+      font:inherit;font-size:15px;font-weight:650;appearance:none;-webkit-appearance:none;cursor:pointer;
+    }
+    #secao-banco-horas .select-justificativa-banco select:invalid { color:#8b978d;font-weight:550; }
+    #secao-banco-horas .select-justificativa-banco::after {
+      content:'';position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:2px solid #60725b;
+      border-bottom:2px solid #60725b;transform:translateY(-68%) rotate(45deg);pointer-events:none;
+    }
+    #secao-banco-horas .ajuda-campo-banco {
+      display:block;margin:6px 2px 0;color:#7b877d;font-size:10.5px;line-height:1.35;font-weight:600;
+    }
+    #secao-banco-horas .ajuda-campo-banco.destaque { color:#7a5b17; }
+    #secao-banco-horas .badge-campo-obrigatorio {
+      display:inline-flex;align-items:center;margin-left:5px;padding:2px 6px;border-radius:999px;background:#fff4d3;
+      color:#72530e;font-size:8px;font-weight:900;letter-spacing:.04em;vertical-align:middle;
     }
 
     #secao-banco-horas .modal-seletor-horas-credito {
-      width:min(100%,460px);
-      padding:20px;
-      overflow:visible;
-      border-radius:24px;
+      width:min(100%,480px);padding:20px;overflow:visible;border-radius:24px;
     }
     #secao-banco-horas .seletor-horas-topo {
-      display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;
     }
     #secao-banco-horas .seletor-horas-topo h3 {
-      margin:4px 0 0;color:#173622;font-size:24px;line-height:1.05;letter-spacing:-.025em;
+      margin:4px 0 0;color:#173622;font-size:23px;line-height:1.05;letter-spacing:-.025em;
     }
-    #secao-banco-horas .seletor-horas-total {
-      margin-bottom:16px;padding:16px;border:1px solid #d8e1d5;border-radius:18px;background:linear-gradient(145deg,#f7faf5,#eef4eb);
+    #secao-banco-horas .seletor-horas-display {
+      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;margin-bottom:12px;
+      padding:15px 16px;border:1px solid #d6dfd3;border-radius:18px;background:linear-gradient(145deg,#f8faf6,#eef4eb);
     }
-    #secao-banco-horas .seletor-horas-total small,
-    #secao-banco-horas .seletor-horas-total strong,
-    #secao-banco-horas .seletor-horas-total span { display:block; }
-    #secao-banco-horas .seletor-horas-total small { color:#71806f;font-size:10px;font-weight:900;letter-spacing:.12em; }
-    #secao-banco-horas .seletor-horas-total strong { margin-top:5px;color:#183923;font-size:34px;line-height:1;font-weight:900;letter-spacing:-.035em; }
-    #secao-banco-horas .seletor-horas-total span { margin-top:7px;color:#748176;font-size:11px;line-height:1.35; }
+    #secao-banco-horas .seletor-horas-display small,
+    #secao-banco-horas .seletor-horas-display strong,
+    #secao-banco-horas .seletor-horas-display span { display:block; }
+    #secao-banco-horas .seletor-horas-display small { color:#71806f;font-size:9px;font-weight:900;letter-spacing:.12em; }
+    #secao-banco-horas .seletor-horas-display strong {
+      margin-top:4px;color:#173622;font-size:30px;line-height:1;font-weight:900;letter-spacing:-.035em;font-variant-numeric:tabular-nums;
+    }
+    #secao-banco-horas .seletor-horas-display span { margin-top:5px;color:#748176;font-size:10.5px;line-height:1.3; }
+    #secao-banco-horas .seletor-horas-display-icone {
+      width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#fff;border:1px solid #d8e1d5;color:#4e6649;
+    }
+    #secao-banco-horas .seletor-horas-display-icone svg {
+      width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+    }
 
-    #secao-banco-horas .seletor-horas-grade { display:grid;grid-template-columns:1fr 1.15fr;gap:12px; }
-    #secao-banco-horas .seletor-horas-bloco {
-      min-width:0;padding:13px;border:1px solid #d8e0d6;border-radius:17px;background:#fff;
+    #secao-banco-horas .seletor-horas-ajuste {
+      display:grid;gap:10px;padding:13px;border:1px solid #d8e0d6;border-radius:18px;background:#fff;
     }
-    #secao-banco-horas .seletor-horas-bloco > small {
-      display:block;margin-bottom:9px;color:#657361;font-size:10px;font-weight:900;letter-spacing:.12em;text-align:center;
+    #secao-banco-horas .seletor-horas-linha {
+      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding-bottom:11px;border-bottom:1px solid #edf0eb;
     }
-    #secao-banco-horas .seletor-horas-stepper {
-      display:grid;grid-template-columns:44px minmax(44px,1fr) 44px;align-items:center;gap:6px;
+    #secao-banco-horas .seletor-horas-linha small,
+    #secao-banco-horas .seletor-horas-minutos > small {
+      display:block;color:#657361;font-size:9px;font-weight:900;letter-spacing:.12em;
     }
+    #secao-banco-horas .seletor-horas-linha strong {
+      display:block;margin-top:3px;color:#173622;font-size:27px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;
+    }
+    #secao-banco-horas .seletor-horas-stepper { display:grid;grid-template-columns:44px 44px;gap:8px; }
     #secao-banco-horas .seletor-horas-stepper button {
-      width:44px;height:44px;border:1px solid #cbd7c8;border-radius:13px;background:#f5f8f3;color:#21402a;font-size:27px;font-weight:600;line-height:1;cursor:pointer;
+      width:44px;height:44px;border:1px solid #cbd7c8;border-radius:13px;background:#f4f7f2;color:#21402a;
+      font-size:26px;font-weight:650;line-height:1;cursor:pointer;
     }
-    #secao-banco-horas .seletor-horas-stepper strong {
-      color:#173622;font-size:29px;font-weight:900;text-align:center;font-variant-numeric:tabular-nums;
-    }
-    #secao-banco-horas .seletor-minutos-opcoes { display:grid;grid-template-columns:repeat(2,1fr);gap:7px; }
+    #secao-banco-horas .seletor-horas-stepper button:disabled { opacity:.38;cursor:not-allowed; }
+    #secao-banco-horas .seletor-horas-minutos > small { margin-bottom:8px; }
+    #secao-banco-horas .seletor-minutos-opcoes { display:grid;grid-template-columns:repeat(4,1fr);gap:7px; }
     #secao-banco-horas .seletor-minutos-opcoes button {
-      min-height:42px;border:1px solid #d1dbcf;border-radius:12px;background:#f7f9f6;color:#536151;font-size:14px;font-weight:850;cursor:pointer;
+      min-height:42px;border:1px solid #d1dbcf;border-radius:12px;background:#f7f9f6;color:#536151;
+      font-size:13px;font-weight:850;cursor:pointer;font-variant-numeric:tabular-nums;
     }
     #secao-banco-horas .seletor-minutos-opcoes button.ativo {
       border-color:#435b3c;background:#435b3c;color:#fff;box-shadow:0 5px 12px rgba(38,65,39,.15);
     }
     #secao-banco-horas .seletor-minutos-opcoes button:disabled { opacity:.38;cursor:not-allowed; }
-
     #secao-banco-horas .seletor-horas-presets {
-      display:flex;gap:7px;overflow-x:auto;padding:13px 1px 2px;scrollbar-width:none;
+      display:flex;gap:7px;overflow-x:auto;padding:12px 1px 1px;scrollbar-width:none;
     }
     #secao-banco-horas .seletor-horas-presets::-webkit-scrollbar { display:none; }
     #secao-banco-horas .seletor-horas-presets button {
-      flex:0 0 auto;min-width:52px;min-height:36px;padding:0 12px;border:1px solid #d4ddd2;border-radius:999px;background:#fff;color:#475744;font-size:11px;font-weight:850;cursor:pointer;
+      flex:0 0 auto;min-width:54px;min-height:35px;padding:0 12px;border:1px solid #d4ddd2;border-radius:999px;
+      background:#fff;color:#475744;font-size:10.5px;font-weight:850;cursor:pointer;
     }
-    #secao-banco-horas .seletor-horas-presets button:active { background:#edf3ea; }
-    #secao-banco-horas .seletor-horas-acoes { display:grid;grid-template-columns:.85fr 1.15fr;gap:10px;margin-top:15px; }
+    #secao-banco-horas .seletor-horas-presets button.ativo { background:#eef4eb;border-color:#98aa92;color:#27402a; }
+    #secao-banco-horas .seletor-horas-acoes { display:grid;grid-template-columns:.82fr 1.18fr;gap:10px;margin-top:14px; }
     #secao-banco-horas .seletor-horas-acoes .botao { width:100%;margin:0; }
+
+    #secao-banco-horas .credito-motivo-banco {
+      display:inline-flex;align-items:center;width:max-content;max-width:100%;margin-top:5px;padding:4px 8px;border-radius:999px;
+      background:#eef3eb;color:#4c6248;font-size:9px;font-weight:850;line-height:1.2;
+    }
+    #secao-banco-horas .credito-p1-banco-motivo {
+      display:block;margin-top:5px;color:#566751;font-size:9.5px;font-weight:750;line-height:1.35;
+    }
 
     @media(max-width:700px) {
       #secao-banco-horas .modal-seletor-horas-credito {
         width:100%;max-height:none;padding:18px 16px max(18px,env(safe-area-inset-bottom));border-radius:24px 24px 0 0;
       }
-      #secao-banco-horas .seletor-horas-topo h3 { font-size:23px; }
-      #secao-banco-horas .seletor-horas-total { padding:14px; }
-      #secao-banco-horas .seletor-horas-total strong { font-size:32px; }
-      #secao-banco-horas .seletor-horas-grade { grid-template-columns:1fr 1.12fr;gap:9px; }
-      #secao-banco-horas .seletor-horas-bloco { padding:11px 9px; }
-      #secao-banco-horas .seletor-horas-stepper { grid-template-columns:42px minmax(36px,1fr) 42px;gap:4px; }
-      #secao-banco-horas .seletor-horas-stepper button { width:42px;height:44px; }
-      #secao-banco-horas .seletor-minutos-opcoes button { min-height:44px; }
+      #secao-banco-horas .seletor-horas-topo h3 { font-size:22px; }
+      #secao-banco-horas .seletor-horas-display { padding:13px 14px; }
+      #secao-banco-horas .seletor-horas-display strong { font-size:28px; }
     }
 
-    @media(max-width:360px) {
-      #secao-banco-horas .seletor-horas-grade { grid-template-columns:1fr; }
-      #secao-banco-horas .seletor-minutos-opcoes { grid-template-columns:repeat(4,1fr); }
-      #secao-banco-horas .seletor-horas-acoes { grid-template-columns:1fr; }
+    @media(max-width:390px) {
+      #secao-banco-horas .grade-registro-credito-banco {
+        grid-template-columns:minmax(0,1.08fr) minmax(132px,.92fr)!important;
+      }
+      #secao-banco-horas .campo-seletor-horas-credito { grid-template-columns:minmax(0,1fr) 34px;padding-left:11px;gap:6px; }
+      #secao-banco-horas .campo-seletor-horas-valor { font-size:14px; }
+      #secao-banco-horas .campo-seletor-horas-icone { width:32px;height:32px; }
+      #secao-banco-horas .seletor-horas-acoes { grid-template-columns:1fr 1.25fr; }
     }
 
   </style>
@@ -12861,7 +12883,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.7.8
+        SIGA 3ª CIA — Versão 5.9.0 • R9.7.9
       </footer>
     </section>
   </main>
@@ -12934,7 +12956,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.8</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.9</footer>
     </aside>
 
     <div class="area-principal">
@@ -13313,15 +13335,38 @@
                 <div class="campo campo-horas-credito-banco">
                   <label for="botaoSeletorHorasCredito">Qtd. horas</label>
                   <input id="horasCreditoBancoHoras" type="hidden" value="">
-                  <button id="botaoSeletorHorasCredito" class="campo-seletor-horas-credito" type="button" onclick="abrirSeletorHorasCredito()" aria-haspopup="dialog" aria-controls="modalSeletorHorasCredito" aria-label="Selecionar quantidade de horas">
-                    <span id="valorHorasCreditoBancoHoras" class="campo-seletor-horas-valor vazio">Selecionar</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.25 2"></path></svg>
+                  <button id="botaoSeletorHorasCredito" class="campo-seletor-horas-credito" type="button" onclick="abrirSeletorHorasCredito()" aria-haspopup="dialog" aria-controls="modalSeletorHorasCredito" aria-label="Definir quantidade de horas">
+                    <span id="valorHorasCreditoBancoHoras" class="campo-seletor-horas-valor sem-valor">Definir</span>
+                    <span class="campo-seletor-horas-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.25 2"></path></svg></span>
                   </button>
                 </div>
                 <div class="campo"><label for="livroBancoHoras">Nº do livro</label><input id="livroBancoHoras" maxlength="80" inputmode="numeric" placeholder="Ex.: 01" required></div>
                 <div class="campo"><label for="paginaBancoHoras">Página</label><input id="paginaBancoHoras" maxlength="40" inputmode="numeric" placeholder="Ex.: 128" required></div>
               </div>
-              <div class="campo"><label for="observacaoCreditoBancoHoras">Observação <span class="opcional">opcional</span></label><textarea id="observacaoCreditoBancoHoras" maxlength="500" rows="2" placeholder="Informação complementar do registro"></textarea></div>
+
+              <div class="campo campo-justificativa-credito-banco">
+                <label for="justificativaCreditoBancoHoras">Justificativa</label>
+                <div class="select-justificativa-banco">
+                  <select id="justificativaCreditoBancoHoras" required onchange="atualizarJustificativaCreditoBancoHoras()">
+                    <option value="" selected disabled>Selecione o motivo do crédito</option>
+                    <option value="PROLONGAMENTO_SERVICO">Prolongamento de serviço</option>
+                    <option value="SERVICO_EXTRAORDINARIO">Serviço extraordinário / convocação</option>
+                    <option value="REUNIAO_INSTITUCIONAL">Reunião institucional</option>
+                    <option value="INSTRUCAO_TREINAMENTO">Instrução / treinamento</option>
+                    <option value="OPERACAO_APOIO">Operação / apoio operacional</option>
+                    <option value="ATIVIDADE_ADMINISTRATIVA">Atividade administrativa</option>
+                    <option value="EVENTO_SOLENIDADE">Evento / solenidade</option>
+                    <option value="OUTRO">Outro</option>
+                  </select>
+                </div>
+                <small class="ajuda-campo-banco">Selecione o motivo que originou as horas excedentes.</small>
+              </div>
+
+              <div class="campo">
+                <label for="observacaoCreditoBancoHoras">Detalhamento <span id="estadoDetalhamentoCreditoBancoHoras" class="opcional">opcional</span></label>
+                <textarea id="observacaoCreditoBancoHoras" maxlength="500" rows="2" placeholder="Complemento do registro, se necessário"></textarea>
+                <small id="ajudaDetalhamentoCreditoBancoHoras" class="ajuda-campo-banco">Use este campo apenas quando precisar complementar a justificativa.</small>
+              </div>
               <button id="botaoRegistrarCreditoBancoHoras" class="botao" type="submit">REGISTRAR CRÉDITO</button>
             </form>
           </div>
@@ -13331,49 +13376,50 @@
               <div class="seletor-horas-topo">
                 <div>
                   <span class="rotulo-suave">DURAÇÃO DO CRÉDITO</span>
-                  <h3 id="tituloSeletorHorasCredito">Quantidade de horas</h3>
+                  <h3 id="tituloSeletorHorasCredito">Definir horas excedentes</h3>
                 </div>
                 <button class="modal-permuta-fechar" type="button" aria-label="Fechar seletor de horas" onclick="fecharSeletorHorasCredito()">×</button>
               </div>
 
-              <div class="seletor-horas-total" aria-live="polite">
-                <small>TOTAL SELECIONADO</small>
-                <strong id="resumoSeletorHorasCredito">1h</strong>
-                <span>Intervalos de 15 minutos • máximo de 24h</span>
+              <div class="seletor-horas-display" aria-live="polite">
+                <div>
+                  <small>TEMPO SELECIONADO</small>
+                  <strong id="resumoSeletorHorasCredito">01h 00min</strong>
+                  <span>Seleção em intervalos de 15 minutos, até 24 horas.</span>
+                </div>
+                <span class="seletor-horas-display-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.25 2"></path></svg></span>
               </div>
 
-              <div class="seletor-horas-grade">
-                <section class="seletor-horas-bloco" aria-labelledby="rotuloHorasInteirasCredito">
-                  <small id="rotuloHorasInteirasCredito">HORAS</small>
-                  <div class="seletor-horas-stepper">
-                    <button type="button" onclick="ajustarHorasInteirasCredito(-1)" aria-label="Diminuir uma hora">−</button>
-                    <strong id="valorHorasInteirasCredito">1</strong>
-                    <button type="button" onclick="ajustarHorasInteirasCredito(1)" aria-label="Aumentar uma hora">+</button>
+              <div class="seletor-horas-ajuste">
+                <div class="seletor-horas-linha">
+                  <div><small>HORAS</small><strong id="valorHorasInteirasCredito">01</strong></div>
+                  <div class="seletor-horas-stepper" role="group" aria-label="Ajustar horas">
+                    <button id="diminuirHorasCredito" type="button" onclick="ajustarHorasInteirasCredito(-1)" aria-label="Diminuir uma hora">−</button>
+                    <button id="aumentarHorasCredito" type="button" onclick="ajustarHorasInteirasCredito(1)" aria-label="Aumentar uma hora">+</button>
                   </div>
-                </section>
-
-                <section class="seletor-horas-bloco" aria-labelledby="rotuloMinutosCredito">
-                  <small id="rotuloMinutosCredito">MINUTOS</small>
+                </div>
+                <div class="seletor-horas-minutos">
+                  <small>MINUTOS</small>
                   <div class="seletor-minutos-opcoes" role="group" aria-label="Selecionar minutos">
                     <button type="button" data-minutos-credito="0" onclick="selecionarMinutosCredito(0)">00</button>
                     <button type="button" data-minutos-credito="15" onclick="selecionarMinutosCredito(15)">15</button>
                     <button type="button" data-minutos-credito="30" onclick="selecionarMinutosCredito(30)">30</button>
                     <button type="button" data-minutos-credito="45" onclick="selecionarMinutosCredito(45)">45</button>
                   </div>
-                </section>
+                </div>
               </div>
 
               <div class="seletor-horas-presets" aria-label="Atalhos de duração">
-                <button type="button" onclick="definirDuracaoCreditoRapida(60)">1h</button>
-                <button type="button" onclick="definirDuracaoCreditoRapida(120)">2h</button>
-                <button type="button" onclick="definirDuracaoCreditoRapida(240)">4h</button>
-                <button type="button" onclick="definirDuracaoCreditoRapida(360)">6h</button>
-                <button type="button" onclick="definirDuracaoCreditoRapida(480)">8h</button>
+                <button type="button" data-preset-minutos="60" onclick="definirDuracaoCreditoRapida(60)">1h</button>
+                <button type="button" data-preset-minutos="120" onclick="definirDuracaoCreditoRapida(120)">2h</button>
+                <button type="button" data-preset-minutos="240" onclick="definirDuracaoCreditoRapida(240)">4h</button>
+                <button type="button" data-preset-minutos="360" onclick="definirDuracaoCreditoRapida(360)">6h</button>
+                <button type="button" data-preset-minutos="480" onclick="definirDuracaoCreditoRapida(480)">8h</button>
               </div>
 
               <div class="seletor-horas-acoes">
                 <button class="botao botao-secundario" type="button" onclick="fecharSeletorHorasCredito()">CANCELAR</button>
-                <button class="botao" type="button" onclick="confirmarSeletorHorasCredito()">USAR DURAÇÃO</button>
+                <button class="botao" type="button" onclick="confirmarSeletorHorasCredito()">CONFIRMAR DURAÇÃO</button>
               </div>
             </div>
           </div>
@@ -13406,7 +13452,7 @@
                 <div class="campo"><label for="observacaoBaixaBancoHoras">Observação do P1 <span class="opcional">opcional</span></label><textarea id="observacaoBaixaBancoHoras" maxlength="420" rows="2" placeholder="Ex.: dispensa autorizada para o dia informado"></textarea></div>
                 <label class="confirmacao-documental-banco" for="documentacaoBaixaBancoHoras">
                   <input id="documentacaoBaixaBancoHoras" type="checkbox" required>
-                  <span><strong>Documentação conferida.</strong> Confirmo que recebi a solicitação de dispensa manuscrita, contendo livro e página, e conferi a cópia da página do livro apresentada pelo policial.</span>
+                  <span><strong>Documentação conferida.</strong> Confirmo que recebi a solicitação de dispensa manuscrita, contendo o nº do livro e a página, e conferi a cópia da página apresentada pelo policial.</span>
                 </label>
                 <div class="mensagem aviso visivel">A baixa pode ser parcial. O lançamento fica vinculado ao crédito original, ao policial e ao P1 responsável pela conferência e não poderá consumir novamente o mesmo saldo.</div>
                 <button id="botaoConfirmarBaixaBancoHoras" class="botao botao-largo" type="submit">REGISTRAR BAIXA PELO P1</button>
@@ -14546,7 +14592,7 @@
 
       function medir() {
         const visual = window.visualViewport;
-        /* R9.7.8: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
+        /* R9.7.9: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
            A altura visual deve ser medida sem transformar essa oscilação em layout. */
         const alturaVisual = visual ? Number(visual.height || 0) : 0;
         const altura = Math.ceil(Math.max(
@@ -14596,7 +14642,7 @@
       });
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.7.8: não recalcular layout durante o bounce/scroll do visualViewport. */
+        /* R9.7.9: não recalcular layout durante o bounce/scroll do visualViewport. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const app = document.getElementById('appShell');
@@ -14616,7 +14662,7 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — R9.7.8 • CONTROLADOR DE ELASTICIDADE
+       SIGA 5.9.0 — R9.7.9 • CONTROLADOR DE ELASTICIDADE
        Mantém a rolagem normal do documento e intercepta somente
        a tentativa de ultrapassar o topo/rodapé. Assim o WebKit
        não move a viewport nem o cabeçalho, mas o usuário preserva
@@ -17167,14 +17213,14 @@
       if (modoGuarda) {
         if (rotulo) rotulo.textContent = 'CORPO DA GUARDA';
         if (titulo) titulo.textContent = 'Registrar crédito do policial';
-        if (aviso) aviso.textContent = 'Localize o policial e informe os dados exatamente como constam no livro. A baixa continuará exclusiva do P1.';
+        if (aviso) aviso.textContent = 'Localize o policial e registre data, duração, justificativa e referência do livro. A baixa continua exclusiva do P1.';
         if (botao) botao.textContent = 'CREDITAR AO POLICIAL';
       } else {
         estado.policialBancoHoras = null;
         if ($('resultadosPolicialBancoHoras')) $('resultadosPolicialBancoHoras').innerHTML = '';
         if (rotulo) rotulo.textContent = 'MEU BANCO DE HORAS';
         if (titulo) titulo.textContent = 'Registrar meu crédito';
-        if (aviso) aviso.textContent = 'Informe os dados exatamente como constam no livro. O registro entra no seu extrato; a baixa será feita somente pelo P1 após a conferência documental.';
+        if (aviso) aviso.textContent = 'Registre data, duração, justificativa e referência do livro. O crédito entra no seu extrato; a baixa permanece exclusiva do P1.';
         if (botao) botao.textContent = 'REGISTRAR MEU CRÉDITO';
         const identidade = $('identidadeCreditoProprioBancoHoras');
         if (identidade) {
@@ -17203,6 +17249,13 @@
       return horas + 'h ' + String(minutos).padStart(2, '0') + 'min';
     }
 
+    function textoDuracaoCreditoCompleta(minutosInformados) {
+      const total = Math.max(0, Math.min(1440, Math.round(Number(minutosInformados || 0))));
+      const horas = Math.floor(total / 60);
+      const minutos = total % 60;
+      return String(horas).padStart(2, '0') + 'h ' + String(minutos).padStart(2, '0') + 'min';
+    }
+
     function atualizarInterfaceSeletorHorasCredito() {
       seletorHorasCreditoEstado.horas = Math.max(0, Math.min(24, Math.round(Number(seletorHorasCreditoEstado.horas || 0))));
       const minutosValidos = [0,15,30,45];
@@ -17213,13 +17266,21 @@
       const valorHoras = $('valorHorasInteirasCredito');
       const resumo = $('resumoSeletorHorasCredito');
       if (valorHoras) valorHoras.textContent = String(seletorHorasCreditoEstado.horas).padStart(2, '0');
-      if (resumo) resumo.textContent = total > 0 ? textoDuracaoCredito(total) : '0h';
+      if (resumo) resumo.textContent = textoDuracaoCreditoCompleta(total);
+
+      const diminuir = $('diminuirHorasCredito');
+      const aumentar = $('aumentarHorasCredito');
+      if (diminuir) diminuir.disabled = seletorHorasCreditoEstado.horas <= 0;
+      if (aumentar) aumentar.disabled = seletorHorasCreditoEstado.horas >= 24;
 
       document.querySelectorAll('[data-minutos-credito]').forEach(function(botao) {
         const minutos = Number(botao.dataset.minutosCredito || 0);
         botao.classList.toggle('ativo', minutos === seletorHorasCreditoEstado.minutos);
         botao.disabled = seletorHorasCreditoEstado.horas >= 24 && minutos !== 0;
         botao.setAttribute('aria-pressed', minutos === seletorHorasCreditoEstado.minutos ? 'true' : 'false');
+      });
+      document.querySelectorAll('[data-preset-minutos]').forEach(function(botao) {
+        botao.classList.toggle('ativo', Number(botao.dataset.presetMinutos || 0) === total);
       });
     }
 
@@ -17277,14 +17338,14 @@
       if (!oculto || !visual) return;
       if (total <= 0) {
         oculto.value = '';
-        visual.textContent = 'Selecionar';
-        visual.classList.add('vazio');
-        if (botao) botao.setAttribute('aria-label', 'Selecionar quantidade de horas');
+        visual.textContent = 'Definir';
+        visual.classList.add('sem-valor');
+        if (botao) botao.setAttribute('aria-label', 'Definir quantidade de horas');
         return;
       }
       oculto.value = String(total / 60);
       visual.textContent = textoDuracaoCredito(total);
-      visual.classList.remove('vazio');
+      visual.classList.remove('sem-valor');
       if (botao) botao.setAttribute('aria-label', 'Quantidade selecionada: ' + textoDuracaoCredito(total) + '. Toque para alterar.');
     }
 
@@ -17302,6 +17363,26 @@
       aplicarValorHorasCreditoBancoHoras(0);
     }
 
+    function atualizarJustificativaCreditoBancoHoras() {
+      const seletor = $('justificativaCreditoBancoHoras');
+      const detalhe = $('observacaoCreditoBancoHoras');
+      const estadoDetalhe = $('estadoDetalhamentoCreditoBancoHoras');
+      const ajuda = $('ajudaDetalhamentoCreditoBancoHoras');
+      if (!seletor || !detalhe) return;
+      const outro = String(seletor.value || '') === 'OUTRO';
+      detalhe.required = outro;
+      if (estadoDetalhe) {
+        estadoDetalhe.textContent = outro ? 'obrigatório' : 'opcional';
+        estadoDetalhe.classList.toggle('badge-campo-obrigatorio', outro);
+        estadoDetalhe.classList.toggle('opcional', !outro);
+      }
+      detalhe.placeholder = outro ? 'Descreva objetivamente o motivo das horas excedentes' : 'Complemento do registro, se necessário';
+      if (ajuda) {
+        ajuda.textContent = outro ? 'Como foi selecionado “Outro”, descreva o motivo para permitir a conferência posterior.' : 'Use este campo apenas quando precisar complementar a justificativa.';
+        ajuda.classList.toggle('destaque', outro);
+      }
+    }
+
     document.addEventListener('keydown', function(evento) {
       if (evento.key === 'Escape' && $('modalSeletorHorasCredito') && !$('modalSeletorHorasCredito').classList.contains('oculto')) {
         evento.preventDefault();
@@ -17317,6 +17398,7 @@
       }
       const minutosCreditoAtual = normalizarDuracaoCreditoParaMinutos($('horasCreditoBancoHoras') ? $('horasCreditoBancoHoras').value : '');
       aplicarValorHorasCreditoBancoHoras(minutosCreditoAtual);
+      atualizarJustificativaCreditoBancoHoras();
       if ($('painelBaixaP1BancoHoras')) {
         $('painelBaixaP1BancoHoras').classList.toggle('oculto', !ehP1BancoHorasCliente());
       }
@@ -17363,7 +17445,9 @@
           <div class="credito-banco-data"><strong>${formatarData(credito.data)}</strong><span>crédito</span></div>
           <div class="credito-banco-conteudo">
             <strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis de ${formatarMinutosBancoHoras(credito.minutos)}</strong>
-            <span>Livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')} • registrado por ${escaparHtml(credito.criadoPor || 'Corpo da Guarda')}${credito.observacao ? '<br>' + escaparHtml(credito.observacao) : ''}</span>
+            <span>Nº do livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')} • registrado por ${escaparHtml(credito.criadoPor || 'Corpo da Guarda')}</span>
+            ${credito.justificativa ? `<span class="credito-motivo-banco">${escaparHtml(credito.justificativa)}</span>` : ''}
+            ${credito.observacao ? `<span>${escaparHtml(credito.observacao)}</span>` : ''}
           </div>
           <div class="credito-banco-acoes">
             <span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '')}</span>
@@ -17440,8 +17524,20 @@
       }
       const horasCreditoSelecionadas = $('horasCreditoBancoHoras') ? String($('horasCreditoBancoHoras').value || '').trim() : '';
       if (!horasCreditoSelecionadas) {
-        toast('Selecione a quantidade de horas do crédito.', 'aviso');
+        toast('Defina a quantidade de horas do crédito.', 'aviso');
         abrirSeletorHorasCredito();
+        return;
+      }
+      const justificativaCredito = $('justificativaCreditoBancoHoras') ? String($('justificativaCreditoBancoHoras').value || '').trim() : '';
+      const detalhamentoCredito = $('observacaoCreditoBancoHoras') ? String($('observacaoCreditoBancoHoras').value || '').trim() : '';
+      if (!justificativaCredito) {
+        toast('Selecione a justificativa do crédito.', 'aviso');
+        $('justificativaCreditoBancoHoras')?.focus();
+        return;
+      }
+      if (justificativaCredito === 'OUTRO' && !detalhamentoCredito) {
+        toast('Descreva o motivo do crédito quando selecionar Outro.', 'aviso');
+        $('observacaoCreditoBancoHoras')?.focus();
         return;
       }
       if (!estado.chaveCreditoBancoHoras) estado.chaveCreditoBancoHoras = novaChaveOperacaoBancoHoras('credito');
@@ -17452,7 +17548,8 @@
         horas: horasCreditoSelecionadas,
         livro: $('livroBancoHoras').value,
         pagina: $('paginaBancoHoras').value,
-        observacao: $('observacaoCreditoBancoHoras').value,
+        justificativa: justificativaCredito,
+        observacao: detalhamentoCredito,
         chaveOperacao: estado.chaveCreditoBancoHoras
       };
       mostrarCarregando(modoGuarda ? 'Registrando crédito do policial...' : 'Registrando seu crédito...');
@@ -17461,6 +17558,7 @@
         $('formCreditoBancoHoras').reset();
         $('dataCreditoBancoHoras').value = dataHojeIso();
         limparHorasCreditoBancoHoras();
+        atualizarJustificativaCreditoBancoHoras();
         estado.chaveCreditoBancoHoras = '';
         if (modoGuarda) limparPolicialBancoHoras();
         else configurarPainelRegistroCreditoBancoHoras();
@@ -17572,7 +17670,9 @@
           <div class="credito-p1-banco-data"><strong>${formatarData(credito.data)}</strong><span>crédito</span></div>
           <div class="credito-p1-banco-dados">
             <strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis de ${formatarMinutosBancoHoras(credito.minutos)}</strong>
-            <span>Livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}</span>
+            <span>Nº do livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}</span>
+            ${credito.justificativa ? `<span class="credito-p1-banco-motivo">Justificativa: ${escaparHtml(credito.justificativa)}</span>` : ''}
+            ${credito.observacao ? `<span class="credito-p1-banco-motivo">Detalhamento: ${escaparHtml(credito.observacao)}</span>` : ''}
             ${htmlHistoricoBaixasBancoHoras(credito.baixas)}
           </div>
           <div class="credito-p1-banco-acoes">
@@ -17594,7 +17694,7 @@
       if (!credito || Number(credito.restanteMinutos || 0) <= 0) return;
       estado.creditoBaixaBancoHoras = credito;
       estado.chaveBaixaBancoHoras = novaChaveOperacaoBancoHoras('baixa-p1');
-      $('resumoCreditoBaixaBancoHoras').innerHTML = `<strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong>${escaparHtml(estado.policialBaixaP1BancoHoras.identificacao || '')}<br>Crédito de ${formatarData(credito.data)} • Livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}`;
+      $('resumoCreditoBaixaBancoHoras').innerHTML = `<strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong>${escaparHtml(estado.policialBaixaP1BancoHoras.identificacao || '')}<br>Crédito de ${formatarData(credito.data)} • Nº do livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}${credito.justificativa ? '<br>Justificativa: ' + escaparHtml(credito.justificativa) : ''}`;
       $('dataBaixaBancoHoras').value = dataHojeIso();
       $('dataBaixaBancoHoras').min = credito.data || '';
       $('dataBaixaBancoHoras').max = dataHojeIso();
@@ -21081,7 +21181,7 @@
       window.addEventListener('focus', atualizar);
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.7.8: evita re-medição do cabeçalho durante o bounce do iOS. */
+        /* R9.7.9: evita re-medição do cabeçalho durante o bounce do iOS. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const topo = document.querySelector('.topbar');
