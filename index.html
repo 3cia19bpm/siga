@@ -13374,7 +13374,7 @@
     }
 
     /* =======================================================
-       SIGA v5.9.0 — R9.10.0 • DESIGN SYSTEM RESPONSIVO AUDITADO
+       SIGA v5.9.0 — R9.10.1 • CORREÇÃO DE TOQUE WEBKIT
        Camada única de acabamento para todos os perfis e módulos.
        ======================================================= */
     :root{
@@ -13982,9 +13982,10 @@
       .p1-grade-duas-colunas{grid-template-columns:1fr!important;}
     }
 
-    /* R9.10.0: gestos de deslocamento continuam ativos, sem expor gesto de
-       ampliacao; nenhum zoom ou transformacao e usado para ajustar o layout. */
+    /* R9.10.1: restaura a semantica de toque comprovada da R9.9.1 nos
+       controles. O viewport continua fixo em escala 1 e bloqueia o zoom. */
     html,body{touch-action:pan-x pan-y!important;}
+    body.modo-acesso{touch-action:none!important;}
     .sidebar .menu-lateral,.sidebar.sidebar-guarda .menu-lateral{touch-action:pan-y!important;}
     .subnavegacao,.p1-modulos-nav,.guarda-subnavegacao{touch-action:pan-x!important;}
     body.modo-acesso .acesso-cartao,
@@ -13992,11 +13993,23 @@
     body.modo-acesso form,
     body.modo-acesso .campo,
     body.modo-acesso input,
-    body.modo-acesso button{pointer-events:auto!important;touch-action:pan-y!important;}
+    body.modo-acesso button{pointer-events:auto!important;}
     body.modo-acesso .acesso-topo::after{pointer-events:none!important;}
     body.modo-acesso .campo-toque-integral,
     body.modo-acesso input,
-    body.modo-acesso button{position:relative;z-index:2;}
+    body.modo-acesso button{
+      position:relative;
+      z-index:2;
+      touch-action:manipulation!important;
+    }
+    body.modo-acesso input{-webkit-user-select:text!important;user-select:text!important;}
+    body.modo-acesso #carregando.oculto,
+    html[data-siga-tela="acesso"] .app-shell.oculto{
+      display:none!important;
+      visibility:hidden!important;
+      pointer-events:none!important;
+    }
+    body.modo-acesso .toast-area:empty{pointer-events:none!important;}
 
     .painel,.bloco-pagina,.cartao-item,.dashboard-card,.checklist-secao,
     .form-etapa,.consulta-edicao-secao,.config-escala-bloco-r95,
@@ -14112,7 +14125,7 @@
         <div id="mensagemAcesso" class="mensagem" role="status" aria-live="polite"></div>
         <p id="boasVindasLogin" class="boas-vindas oculto"></p>
 
-        <form id="formMatricula" autocomplete="on">
+        <form id="formMatricula" autocomplete="on" novalidate>
           <div class="campo campo-toque-integral" data-foco-campo="matriculaInicial">
             <label for="matriculaInicial">Matrícula funcional</label>
             <input id="matriculaInicial" name="username" type="text" inputmode="numeric" autocomplete="username" autocapitalize="none" spellcheck="false" enterkeyhint="next" maxlength="8" placeholder="Digite 7 ou 8 números" required>
@@ -14174,7 +14187,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.10.0
+        SIGA 3ª CIA — Versão 5.9.0 • R9.10.1
       </footer>
     </section>
   </main>
@@ -14247,7 +14260,7 @@
         <button class="menu-item menu-sair" type="button" onclick="sair()"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.10.0</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.10.1</footer>
     </aside>
 
     <div class="area-principal">
@@ -16505,7 +16518,7 @@
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
           iframe.referrerPolicy = 'strict-origin';
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.10.0';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.10.1';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -20763,11 +20776,11 @@
       });
 
       document.querySelectorAll('[data-foco-campo]').forEach(area => {
-        area.addEventListener('click', () => {
+        area.addEventListener('click', evento => {
           const campo = $(area.dataset.focoCampo);
           if (!campo || campo.disabled) return;
-          try { campo.focus({ preventScroll: true }); }
-          catch (erro) { campo.focus(); }
+          if (evento.target.closest('input,button,select,textarea,label,a')) return;
+          campo.focus();
         });
       });
 
@@ -20822,7 +20835,15 @@
       });
       $('formMatricula').addEventListener('submit', e => {
         e.preventDefault();
-        processarMatricula($('matriculaInicial').value);
+        limparMensagem($('mensagemAcesso'));
+        const matricula = somenteNumeros($('matriculaInicial').value).slice(0,8);
+        $('matriculaInicial').value = matricula;
+        if (matricula.length < 7) {
+          mostrarMensagem($('mensagemAcesso'), 'Informe uma matrícula funcional com 7 ou 8 números.', 'erro');
+          $('matriculaInicial').focus();
+          return;
+        }
+        processarMatricula(matricula);
       });
 
       $('formLogin').addEventListener('submit', async e => {
