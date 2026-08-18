@@ -1,9 +1,11 @@
-const CACHE_SIGA = 'siga-github-v5.9.0-r9.8.5';
+const CACHE_SIGA = 'siga-github-v5.9.0-r9.8.5-auditoria-1';
 const ARQUIVOS_SIGA = [
   './',
   './index.html',
   './manifest.json',
   './apple-touch-icon.png',
+  './brasao-pmce.png',
+  './brasao-19bpm.png',
   './icon-192.png',
   './icon-512.png'
 ];
@@ -40,15 +42,23 @@ self.addEventListener('fetch', function(evento) {
       cache: evento.request.mode === 'navigate' ? 'reload' : 'no-store'
     })
       .then(function(resposta) {
-        const copia = resposta.clone();
-        caches.open(CACHE_SIGA).then(function(cache) {
-          cache.put(evento.request, copia);
-        });
+        if (resposta && resposta.ok) {
+          const copia = resposta.clone();
+          evento.waitUntil(
+            caches.open(CACHE_SIGA)
+              .then(function(cache) {
+                return cache.put(evento.request, copia);
+              })
+              .catch(function() { return undefined; })
+          );
+        }
         return resposta;
       })
       .catch(function() {
         return caches.match(evento.request).then(function(resposta) {
-          return resposta || caches.match('./index.html');
+          if (resposta) return resposta;
+          if (evento.request.mode === 'navigate') return caches.match('./index.html');
+          return Response.error();
         });
       })
   );
