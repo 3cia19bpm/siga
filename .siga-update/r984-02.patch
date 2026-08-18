@@ -1,0 +1,114 @@
++    #secao-banco-horas .resumo-p1-banco strong{font-size:22px!important;letter-spacing:-.025em!important;}
++    #secao-banco-horas .lista-baixa-p1-banco{display:grid!important;gap:10px!important;}
++    #secao-banco-horas .credito-p1-banco{
++      grid-template-columns:90px minmax(0,1fr) auto!important;gap:14px!important;padding:14px!important;
++      border:1px solid #d9e2d6!important;border-radius:18px!important;background:#fff!important;
++      box-shadow:0 7px 20px rgba(29,49,31,.045)!important;
++    }
++    #secao-banco-horas .credito-p1-banco-data{
++      align-self:start;padding-right:12px;border-right:1px solid #edf0eb;min-height:54px;align-content:start;
++    }
++    #secao-banco-horas .credito-p1-banco-data strong{font-size:12px!important;}
++    #secao-banco-horas .credito-p1-banco-dados>strong{font-size:14px!important;line-height:1.25!important;}
++    #secao-banco-horas .credito-p1-banco-acoes .botao-baixa-horas{
++      min-height:40px!important;padding:0 13px!important;border-radius:12px!important;font-size:8.5px!important;
++    }
++
++    /* ---------- Registrar crédito ---------- */
++    #secao-banco-horas .painel-credito-banco-horas{
++      position:relative;padding:20px!important;margin-top:18px!important;
++    }
++    #secao-banco-horas .painel-credito-banco-horas::before{
++      content:'';position:absolute;left:20px;right:20px;top:0;height:4px;border-radius:0 0 99px 99px;
++      background:linear-gradient(90deg,#617e58,rgba(97,126,88,.08));
++    }
++    #secao-banco-horas .topo-registro-credito-banco{
++      margin-bottom:14px!important;padding-bottom:14px!important;border-bottom:1px solid var(--bh984-border-soft)!important;
++    }
++    #secao-banco-horas .topo-registro-credito-banco .rotulo-suave{font-size:9px!important;letter-spacing:.18em!important;}
++    #secao-banco-horas .topo-registro-credito-banco h3{
++      margin-top:5px!important;color:var(--bh984-ink)!important;font-size:22px!important;line-height:1.06!important;letter-spacing:-.025em!important;
++    }
++    #secao-banco-horas .painel-acoes-banco-horas .alternador-filtros-permutas{
++      width:38px!important;height:38px!important;flex-basis:38px!important;border-radius:12px!important;
++      border-color:#d4ddd1!important;background:#fff!important;box-shadow:0 3px 10px rgba(31,49,32,.04)!important;
++    }
++    #secao-banco-horas .credito-proprio-identidade{
++      margin:0 0 17px!important;padding:13px 14px!important;border:1px solid #d3ded0!important;border-left:5px solid #58764f!important;
++      border-radius:17px!important;background:linear-gradient(135deg,#fafcf9,#f2f6f0)!important;box-shadow:none!important;
++    }
++    #secao-banco-horas .credito-proprio-identidade strong{font-size:13.5px!important;letter-spacing:.01em!important;}
++    #secao-banco-horas .credito-proprio-identidade span:not(.status){font-size:10.5px!important;line-height:1.35!important;color:#718077!important;}
++    #secao-banco-horas .credito-proprio-identidade .status{min-height:30px!important;padding:0 10px!important;border-radius:999px!important;font-size:8px!important;}
++    #secao-banco-horas .subsecao-form-banco{
++      margin:18px 0 10px!important;padding:0!important;border:0!important;background:transparent!important;
++    }
++    #secao-banco-horas .subsecao-form-banco span{
++      display:block!important;margin:0 0 4px!important;color:#637563!important;font-size:8.5px!important;font-weight:950!important;letter-spacing:.19em!important;
++    }
++    #secao-banco-horas .subsecao-form-banco p{
++      margin:0!important;color:#8a958d!important;font-size:10.5px!important;line-height:1.38!important;
++    }
++    #secao-banco-horas .grade-registro-credito-banco{gap:12px!important;}
++    #secao-banco-horas .grade-registro-credito-banco .campo label,
++    #secao-banco-horas .campo-justificativa-credito-banco>label,
++    #secao-banco-horas #formCreditoBancoHoras>.campo>label{
++      margin-bottom:7px!important;color:#29432f!important;font-size:12.5px!important;font-weight:850!important;
++    }
++    #secao-banco-horas .grade-registro-credito-banco input,
++    #secao-banco-horas .campo-seletor-horas-credito,
++    #secao-banco-horas .select-justificativa-banco select,
++    #secao-banco-horas #observacaoCreditoBancoHoras{
++      border:1px solid #cfd9cc!important;border-radius:16px!important;background:#fff!important;
++      box-shadow:inset 0 1px 0 rgba(255,255,255,.85)!important;
++    }
++    #secao-banco-horas .grade-registro-credito-banco input,
++    #secao-banco-horas .campo-seletor-horas-credito,
++    #secao-banco-horas .select-justificativa-banco select{min-height:56px!important;height:56px!important;}
++    #secao-banco-horas .campo-seletor-horas-icone{
++      width:34px!important;height:34px!important;border:0!important;background:transparent!important;color:#4d674b!important;
++    }
++    #secao-banco-horas .select-justificativa-banco::after{right:20px!important;}
++    #secao-banco-horas #observacaoCreditoBancoHoras{min-height:88px!important;padding:13px 14px!important;resize:vertical;}
++    #secao-banco-horas .ajuda-campo-banco{margin-top:6px!important;font-size:9.5px!important;color:#859088!important;}
++    #secao-banco-horas #botaoRegistrarCreditoBancoHoras{
++      min-height:56px!important;margin-top:15px!important;border-radius:17px!important;font-size:10px!important;letter-spacing:.09em!important;
++      box-shadow:0 10px 22px rgba(29,61,37,.14)!important;
++    }
++    #secao-banco-horas .protecao-duplicidade-banco{
++      margin-top:11px!important;padding:10px 12px!important;border:1px solid #dde5da!important;border-radius:14px!important;
++      background:#f8faf7!important;box-shadow:none!important;
++    }
++    #secao-banco-horas .protecao-duplicidade-banco>span{
++      width:22px!important;height:22px!important;border-radius:50%!important;background:#e9f0e6!important;color:#4d6748!important;
++    }
++    #secao-banco-horas .protecao-duplicidade-banco strong{font-size:9.5px!important;}
++    #secao-banco-horas .protecao-duplicidade-banco small{font-size:8.7px!important;line-height:1.35!important;}
++
++    /* ---------- Meu extrato ---------- */
++    #secao-banco-horas .painel-extrato-banco-horas{padding:20px!important;margin-top:18px!important;}
++    #secao-banco-horas .topo-extrato-banco{
++      margin-bottom:14px!important;padding-bottom:14px!important;border-bottom:1px solid var(--bh984-border-soft)!important;
++    }
++    #secao-banco-horas .topo-extrato-banco h3{
++      color:var(--bh984-ink)!important;font-size:21px!important;line-height:1.08!important;letter-spacing:-.02em!important;
++    }
++    #secao-banco-horas .topo-extrato-banco .legenda-seguranca-banco{
++      min-height:30px;padding:0 10px;border:1px solid #dce4d9;border-radius:999px;background:#f8faf7;color:#657464!important;
++      font-size:7.5px!important;letter-spacing:.07em!important;
++    }
++    #secao-banco-horas .lista-creditos-banco-horas{display:grid!important;gap:11px!important;margin-top:0!important;}
++    #secao-banco-horas .credito-banco-horas{
++      position:relative;overflow:hidden;grid-template-columns:88px minmax(0,1fr)!important;align-items:start!important;gap:14px!important;
++      padding:14px 15px!important;border:1px solid #d9e2d6!important;border-radius:18px!important;background:#fff!important;
++      box-shadow:0 7px 20px rgba(29,49,31,.045)!important;
++    }
++    #secao-banco-horas .credito-banco-horas::before{
++      content:'';position:absolute;left:0;top:13px;bottom:13px;width:4px;border-radius:0 99px 99px 0;background:#d6b843;
++    }
++    #secao-banco-horas .credito-banco-data{
++      padding-right:12px!important;border-right:1px solid #edf0eb!important;min-height:58px!important;
++    }
++    #secao-banco-horas .credito-banco-data strong{font-size:12px!important;line-height:1.25!important;}
++    #secao-banco-horas .credito-banco-tipo{font-size:7px!important;letter-spacing:.12em!important;}
++    #secao-banco-horas .credito-banco-linha-principal{
