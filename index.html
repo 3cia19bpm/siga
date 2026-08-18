@@ -13352,6 +13352,154 @@
       max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px)!important;
       overflow:hidden!important;
     }
+
+    /* =======================================================
+       SIGA v5.9.0 — R9.8.5 • BANCO DE HORAS PADRONIZADO
+       Densidade alinhada às demais guias e painéis recolhíveis reais.
+       ======================================================= */
+    #secao-banco-horas .bloco-resumo-banco,
+    #secao-banco-horas .painel-baixa-p1-banco,
+    #secao-banco-horas .painel-credito-banco-horas,
+    #secao-banco-horas .painel-extrato-banco-horas{
+      margin:0 0 16px!important;
+      border:1px solid var(--ds-line,#d7dfd4)!important;
+      border-radius:22px!important;
+      background:#fff!important;
+      box-shadow:var(--ds-shadow,0 14px 34px rgba(22,45,28,.065))!important;
+    }
+    #secao-banco-horas .bloco-resumo-banco{
+      padding:17px!important;
+    }
+    #secao-banco-horas .bloco-resumo-banco .bloco-pagina-cabecalho{
+      margin:0 0 11px!important;
+    }
+    #secao-banco-horas .resumo-banco-horas{
+      grid-template-columns:1.2fr 1fr 1fr!important;
+      gap:10px!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas{
+      min-height:108px!important;
+      padding:16px!important;
+      border-radius:18px!important;
+      box-shadow:0 6px 16px rgba(29,49,31,.045)!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas.destaque{
+      min-height:108px!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas strong{
+      margin:8px 0 6px!important;
+      font-size:clamp(28px,2.4vw,36px)!important;
+      line-height:1!important;
+    }
+    #secao-banco-horas .cartao-saldo-horas:not(.destaque) strong{
+      white-space:nowrap;
+    }
+    #secao-banco-horas .cartao-saldo-horas span{
+      margin-top:5px!important;
+      font-size:10.5px!important;
+      line-height:1.38!important;
+    }
+    #secao-banco-horas .orientacao-baixa-p1{
+      margin:0 0 16px!important;
+    }
+    #secao-banco-horas .painel-baixa-p1-banco,
+    #secao-banco-horas .painel-credito-banco-horas,
+    #secao-banco-horas .painel-extrato-banco-horas{
+      padding:18px!important;
+    }
+    #secao-banco-horas .topo-registro-credito-banco,
+    #secao-banco-horas .topo-extrato-banco{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto!important;
+      align-items:center!important;
+      gap:12px!important;
+      margin:0 0 14px!important;
+      padding:0 0 14px!important;
+      border-bottom:1px solid var(--ds-line,#d7dfd4)!important;
+    }
+    #secao-banco-horas .painel-acoes-banco-horas{
+      display:flex!important;
+      align-items:center!important;
+      justify-content:flex-end!important;
+      gap:8px!important;
+    }
+    #secao-banco-horas .alternador-painel-banco-horas{
+      width:44px!important;
+      height:44px!important;
+      min-width:44px!important;
+      flex:0 0 44px!important;
+      border-radius:14px!important;
+      -webkit-tap-highlight-color:transparent;
+    }
+    #secao-banco-horas .alternador-painel-banco-horas .icone-svg{
+      transform:rotate(90deg)!important;
+      transition:transform .18s ease!important;
+    }
+    #secao-banco-horas .painel-credito-banco-horas.recolhido .alternador-painel-banco-horas .icone-svg,
+    #secao-banco-horas .painel-extrato-banco-horas.recolhido .alternador-painel-banco-horas .icone-svg{
+      transform:rotate(0deg)!important;
+    }
+    #secao-banco-horas .painel-credito-banco-horas.recolhido .topo-registro-credito-banco,
+    #secao-banco-horas .painel-extrato-banco-horas.recolhido .topo-extrato-banco{
+      margin-bottom:0!important;
+      padding-bottom:0!important;
+      border-bottom:0!important;
+    }
+    #secao-banco-horas #formCreditoBancoHoras[hidden],
+    #secao-banco-horas #conteudoExtratoBancoHoras[hidden]{
+      display:none!important;
+    }
+    #secao-banco-horas .painel-extrato-banco-horas .vazio,
+    #secao-banco-horas .lista-baixa-p1-banco>.vazio{
+      min-height:84px!important;
+      padding:18px!important;
+    }
+
+    @media(max-width:620px){
+      #secao-banco-horas .bloco-resumo-banco{
+        padding:15px!important;
+      }
+      #secao-banco-horas .resumo-banco-horas{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+        gap:9px!important;
+      }
+      #secao-banco-horas .cartao-saldo-horas.destaque{
+        grid-column:1/-1!important;
+      }
+      #secao-banco-horas .cartao-saldo-horas{
+        min-height:104px!important;
+        padding:15px!important;
+      }
+      #secao-banco-horas .cartao-saldo-horas:not(.destaque) strong{
+        font-size:clamp(24px,6.5vw,29px)!important;
+      }
+      #secao-banco-horas .painel-baixa-p1-banco,
+      #secao-banco-horas .painel-credito-banco-horas,
+      #secao-banco-horas .painel-extrato-banco-horas{
+        padding:15px!important;
+        border-radius:20px!important;
+      }
+      #secao-banco-horas .topo-registro-credito-banco h3,
+      #secao-banco-horas .topo-extrato-banco h3{
+        max-width:none!important;
+        font-size:19px!important;
+      }
+      #secao-banco-horas .alternador-painel-banco-horas{
+        width:42px!important;
+        height:42px!important;
+        min-width:42px!important;
+        flex-basis:42px!important;
+      }
+    }
+
+    @media(max-width:340px){
+      #secao-banco-horas .resumo-banco-horas{
+        grid-template-columns:1fr!important;
+      }
+      #secao-banco-horas .cartao-saldo-horas.destaque{
+        grid-column:auto!important;
+      }
+    }
 </style>
 </head>
 <body class="modo-acesso">
@@ -13897,16 +14045,16 @@
             </div>
           </div>
 
-          <div id="painelCreditoBancoHoras" class="painel registro-credito-banco-horas oculto painel-credito-banco-horas">
+          <div id="painelCreditoBancoHoras" class="painel registro-credito-banco-horas oculto painel-credito-banco-horas recolhido">
             <div class="cartao-topo topo-registro-credito-banco">
               <div>
                 <span id="rotuloRegistroCreditoBancoHoras" class="rotulo-suave">MEU BANCO DE HORAS</span>
                 <h3 id="tituloRegistroCreditoBancoHoras" style="margin:4px 0 0">Registrar crédito</h3>
               </div>
-              <div class="painel-cabecalho-acoes painel-acoes-banco-horas"><button id="alternadorRegistroCreditoBancoHoras" class="alternador-filtros-permutas" type="button" aria-expanded="true" aria-controls="formCreditoBancoHoras" aria-label="Ocultar registro de crédito" title="Ocultar registro de crédito" onclick="alternarPainelRegistroCreditoBancoHoras()"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></button></div>
+              <div class="painel-cabecalho-acoes painel-acoes-banco-horas"><button id="alternadorRegistroCreditoBancoHoras" class="alternador-filtros-permutas alternador-painel-banco-horas recolhido" type="button" aria-expanded="false" aria-controls="formCreditoBancoHoras" aria-label="Mostrar registro de crédito" title="Mostrar registro de crédito" onclick="alternarPainelRegistroCreditoBancoHoras()"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></button></div>
             </div>
             <div id="avisoRegistroCreditoBancoHoras" class="mensagem info visivel aviso-banco-horas aviso-registro-credito-banco oculto"></div>
-            <form id="formCreditoBancoHoras" onsubmit="registrarCreditoBancoHorasApp(event)">
+            <form id="formCreditoBancoHoras" aria-hidden="true" hidden onsubmit="registrarCreditoBancoHorasApp(event)">
               <div id="campoPolicialCreditoBancoHoras" class="campo campo-busca-banco-horas oculto">
                 <label for="pesquisaPolicialBancoHoras">Policial</label>
                 <input id="pesquisaPolicialBancoHoras" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra" oninput="agendarPesquisaPolicialBancoHoras(this.value)">
@@ -14002,7 +14150,7 @@
             </div>
           </div>
 
-          <div id="painelExtratoBancoHoras" class="painel painel-extrato-banco-horas">
+          <div id="painelExtratoBancoHoras" class="painel painel-extrato-banco-horas recolhido">
             <div class="cartao-topo topo-extrato-banco">
               <div>
                 <span class="rotulo-suave">CRÉDITOS E UTILIZAÇÕES</span>
@@ -14010,10 +14158,10 @@
               </div>
               <div class="painel-cabecalho-acoes painel-acoes-banco-horas">
                 <span class="legenda-seguranca-banco"><svg class="icone-svg" aria-hidden="true"><use href="#icone-banco-horas"></use></svg> sem duplicidade</span>
-                <button id="alternadorExtratoBancoHoras" class="alternador-filtros-permutas" type="button" aria-expanded="true" aria-controls="conteudoExtratoBancoHoras" aria-label="Ocultar meu extrato" title="Ocultar meu extrato" onclick="alternarExtratoBancoHoras()"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></button>
+                <button id="alternadorExtratoBancoHoras" class="alternador-filtros-permutas alternador-painel-banco-horas recolhido" type="button" aria-expanded="false" aria-controls="conteudoExtratoBancoHoras" aria-label="Mostrar meu extrato" title="Mostrar meu extrato" onclick="alternarExtratoBancoHoras()"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></button>
               </div>
             </div>
-            <div id="conteudoExtratoBancoHoras">
+            <div id="conteudoExtratoBancoHoras" aria-hidden="true" hidden>
               <div id="listaCreditosBancoHoras" class="lista-creditos-banco-horas">
                 <div class="vazio">Carregando banco de horas...</div>
               </div>
@@ -17832,12 +17980,6 @@
           identidade.innerHTML = `<div><strong>${principalAtual}</strong><span>Crédito vinculado automaticamente ao seu cadastro</span></div><span class="status status-neutro">VOCÊ</span>`;
         }
       }
-      if ($('painelCreditoBancoHoras') && $('alternadorRegistroCreditoBancoHoras')) {
-        alternarPainelRegistroCreditoBancoHoras(true);
-      }
-      if ($('painelExtratoBancoHoras') && $('alternadorExtratoBancoHoras')) {
-        alternarExtratoBancoHoras(true);
-      }
     }
 
     const seletorHorasCreditoEstado = {
@@ -18008,9 +18150,11 @@
       if (!painel || !formulario || !botao) return;
       const recolher = typeof forcarExpandido === 'boolean' ? !forcarExpandido : !painel.classList.contains('recolhido');
       painel.classList.toggle('recolhido', recolher);
+      botao.classList.toggle('recolhido', recolher);
       botao.setAttribute('aria-expanded', recolher ? 'false' : 'true');
       botao.setAttribute('aria-label', recolher ? 'Mostrar registro de crédito' : 'Ocultar registro de crédito');
       botao.setAttribute('title', recolher ? 'Mostrar registro de crédito' : 'Ocultar registro de crédito');
+      formulario.hidden = recolher;
       formulario.setAttribute('aria-hidden', recolher ? 'true' : 'false');
     }
 
@@ -18021,9 +18165,11 @@
       if (!painel || !conteudo || !botao) return;
       const recolher = typeof forcarExpandido === 'boolean' ? !forcarExpandido : !painel.classList.contains('recolhido');
       painel.classList.toggle('recolhido', recolher);
+      botao.classList.toggle('recolhido', recolher);
       botao.setAttribute('aria-expanded', recolher ? 'false' : 'true');
       botao.setAttribute('aria-label', recolher ? 'Mostrar meu extrato' : 'Ocultar meu extrato');
       botao.setAttribute('title', recolher ? 'Mostrar meu extrato' : 'Ocultar meu extrato');
+      conteudo.hidden = recolher;
       conteudo.setAttribute('aria-hidden', recolher ? 'true' : 'false');
     }
 
@@ -18036,6 +18182,8 @@
 
     function prepararBancoHoras() {
       configurarPainelRegistroCreditoBancoHoras();
+      alternarPainelRegistroCreditoBancoHoras(false);
+      alternarExtratoBancoHoras(false);
       if ($('dataCreditoBancoHoras')) $('dataCreditoBancoHoras').max = dataHojeIso();
       if ($('dataCreditoBancoHoras') && !$('dataCreditoBancoHoras').value) {
         $('dataCreditoBancoHoras').value = dataHojeIso();
