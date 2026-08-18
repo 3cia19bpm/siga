@@ -3,9 +3,10 @@
 <head>
   <base target="_top">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#172b1e">
   <meta name="application-name" content="SIGA">
+  <meta name="description" content="Sistema Integrado de Gestão Administrativa da 3ª CIA / 19º BPM">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -15,6 +16,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="https://3cia19bpm.github.io/siga/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://3cia19bpm.github.io/siga/apple-touch-icon.png">
   <link rel="manifest" href="https://3cia19bpm.github.io/siga/manifest.json">
+  <title>SIGA — 3ª CIA / 19º BPM</title>
   <style>
     :root {
       --verde-950: #142317;
@@ -2108,7 +2110,7 @@
     .categoria-saude{display:inline-flex;margin-top:6px;padding:4px 7px;border-radius:8px;background:#eef2e8;color:#526037;font-size:7px;font-weight:850}
     .cautelas-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
     .cautelas-grid>div{min-width:0;padding:9px;border-radius:11px;background:#f7f9f7;border:1px solid #e2e8e3}
-    .cautelas-grid small{display:block;margin-bottom:5px;color:#6b786f;font-size:7px;font-weight:900;text-transform:uppercase}
+    .cautelas-grid small,.cautelas-grid label{display:block;margin-bottom:5px;color:#6b786f;font-size:7px;font-weight:900;text-transform:uppercase}
     .select-cautela{width:100%;min-width:0;min-height:34px;padding:6px 7px;font-size:8px}
     @media(max-width:760px){
       .menu-item{min-height:55px!important}
@@ -3364,7 +3366,7 @@
       .cautela-card { padding:18px; }
       .cautelas-grid { gap:12px; }
       .cautelas-grid>div { padding:13px;border-radius:13px; }
-      .cautelas-grid small { margin-bottom:7px;font-size:9px; }
+      .cautelas-grid small,.cautelas-grid label { margin-bottom:7px;font-size:9px; }
       .select-cautela { min-height:44px;padding:8px 10px;font-size:12px; }
 
       .grade-relatorio-guarda {
@@ -12183,7 +12185,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.8.4
+       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.8.5
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
@@ -12312,7 +12314,7 @@
 
 
     /* =========================================================
-       R9.8.4 • CENTRAL DE TRABALHO DO P1
+       R9.8.5 • CENTRAL DE TRABALHO DO P1
        ========================================================= */
     .recuperacao-login-info{
       padding:14px 15px;border:1px solid #d6e0d3;border-radius:17px;background:#f6f8f4;
@@ -12371,7 +12373,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — R9.8.4 • ATUALIZAÇÃO SEM REINÍCIO / iOS
+       SIGA 5.9.0 — R9.8.5 • ATUALIZAÇÃO SEM REINÍCIO / iOS
        - elimina o fundo branco do rubber-band nativo;
        - mantém o cabeçalho imóvel nos limites da página;
        - simula elasticidade controlada no topo e no rodapé;
@@ -12487,7 +12489,7 @@
 
 
     /* =========================================================
-       SIGA 5.9.0 — R9.8.4 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
+       SIGA 5.9.0 — R9.8.5 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
        ========================================================= */
     #secao-banco-horas .orientacao-baixa-p1 {
       margin:0 0 18px;
@@ -12556,7 +12558,7 @@
   
 
     /* =========================================================
-       SIGA 5.9.0 — R9.8.4 • CRÉDITOS PELO POLICIAL OU GUARDA
+       SIGA 5.9.0 — R9.8.5 • CRÉDITOS PELO POLICIAL OU GUARDA
        ========================================================= */
     #secao-banco-horas .registro-credito-banco-horas { margin:0 0 18px; }
     #secao-banco-horas .topo-registro-credito-banco { align-items:flex-start; }
@@ -12623,7 +12625,7 @@
 
 
     /* =======================================================
-       SIGA v5.9.0 — R9.8.4 • BANCO DE HORAS — AJUSTE FINO PREMIUM
+       SIGA v5.9.0 — R9.8.5 • BANCO DE HORAS — AJUSTE FINO PREMIUM
        Hierarquia, formulário, justificativas e extrato refinados.
        ======================================================= */
     #secao-banco-horas { --bh-verde:#173923;--bh-verde-2:#425b3c;--bh-ouro:#d4b043;--bh-borda:#d5ddd2;--bh-suave:#f6f8f4; }
@@ -12797,7 +12799,7 @@
     }
 
     /* =======================================================
-       SIGA v5.9.0 — R9.8.4 • BANCO DE HORAS — FORMULÁRIO PROFISSIONAL
+       SIGA v5.9.0 — R9.8.5 • BANCO DE HORAS — FORMULÁRIO PROFISSIONAL
        Corrige colisão da classe global .vazio, refina o seletor de duração
        e inclui justificativa estruturada para cada crédito.
        ======================================================= */
@@ -12955,7 +12957,7 @@
 
 
     /* =======================================================
-       SIGA v5.9.0 — R9.8.4 • BANCO DE HORAS — ACABAMENTO PREMIUM
+       SIGA v5.9.0 — R9.8.5 • BANCO DE HORAS — ACABAMENTO PREMIUM
        Refino visual integrado: P1, registro, extrato e duração.
        ======================================================= */
     #secao-banco-horas{
@@ -13306,9 +13308,687 @@
       #secao-banco-horas .seletor-horas-acoes .botao{font-size:8px!important;padding-left:9px!important;padding-right:9px!important;}
     }
 
-  </style>
+  
+
+    /* =======================================================
+       SIGA v5.9.0 — R9.8.5 • REFINO BANCO DE HORAS + ACESSO FIXO
+       ======================================================= */
+    #secao-banco-horas .credito-proprio-identidade{display:none!important;}
+    #secao-banco-horas .painel-credito-banco-horas #formCreditoBancoHoras > .subsecao-form-banco:first-of-type{
+      margin-top:4px!important;
+    }
+    #secao-banco-horas .painel-credito-banco-horas{padding-top:18px!important;}
+    #secao-banco-horas .topo-registro-credito-banco{margin-bottom:12px!important;padding-bottom:12px!important;}
+    #secao-banco-horas .grade-registro-credito-banco{margin-top:0!important;}
+
+    /* A tela de acesso é um painel fixo: sem rolagem nem rubber-band. */
+    body.modo-acesso{
+      height:100vh!important;
+      height:100dvh!important;
+      overflow:hidden!important;
+      overscroll-behavior:none!important;
+      touch-action:none!important;
+    }
+    body.modo-acesso .tela-acesso{
+      position:fixed!important;
+      inset:0!important;
+      width:100%!important;
+      height:100vh!important;
+      height:100dvh!important;
+      min-height:0!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      overflow:hidden!important;
+      overscroll-behavior:none!important;
+      -webkit-overflow-scrolling:auto!important;
+      padding-top:calc(12px + env(safe-area-inset-top))!important;
+      padding-right:calc(12px + env(safe-area-inset-right))!important;
+      padding-bottom:calc(12px + env(safe-area-inset-bottom))!important;
+      padding-left:calc(12px + env(safe-area-inset-left))!important;
+    }
+    body.modo-acesso .tela-acesso > .acesso-cartao{
+      flex:0 1 auto!important;
+      width:min(100%,520px)!important;
+      margin:0!important;
+      max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px)!important;
+      overflow:hidden!important;
+    }
+
+    /* =======================================================
+       SIGA v5.9.0 — R9.9.0 • DESIGN SYSTEM OPERACIONAL
+       Camada única de acabamento para todos os perfis e módulos.
+       ======================================================= */
+    :root{
+      --verde-950:#14271a;
+      --verde-900:#1d3524;
+      --verde-800:#2c4b33;
+      --verde-700:#3d6545;
+      --verde-600:#557d59;
+      --verde-100:#e8f0e7;
+      --verde-050:#f5f8f4;
+      --dourado:#c5a548;
+      --dourado-claro:#f5e8b9;
+      --texto:#172019;
+      --texto-suave:#667168;
+      --borda:#d8dfd6;
+      --fundo:#edf2ec;
+      --branco:#fff;
+      --sombra:0 18px 46px rgba(24,45,29,.11);
+      --sidebar:252px;
+      --siga-superficie:#fff;
+      --siga-superficie-suave:#f7f9f6;
+      --siga-superficie-elevada:#fbfcfa;
+      --siga-borda:#d8e0d6;
+      --siga-borda-forte:#c7d2c4;
+      --siga-texto:#172019;
+      --siga-texto-suave:#667168;
+      --siga-primaria:#2c4b33;
+      --siga-primaria-forte:#193522;
+      --siga-primaria-suave:#eaf1e8;
+      --siga-destaque:#c5a548;
+      --siga-perigo:#b42318;
+      --siga-raio-controle:13px;
+      --siga-raio-card:19px;
+      --siga-raio-pagina:24px;
+      --siga-altura-controle:48px;
+      --siga-sombra-card:0 10px 28px rgba(29,52,34,.065);
+      --siga-sombra-elevada:0 20px 48px rgba(25,47,31,.13);
+      --siga-conteudo:1240px;
+    }
+
+    html{
+      background:var(--siga-primaria-forte)!important;
+      color-scheme:light;
+    }
+    body.modo-app{
+      background:
+        radial-gradient(circle at 92% 0,rgba(197,165,72,.09),transparent 25rem),
+        linear-gradient(180deg,#eef3ed 0%,#e9eee8 100%)!important;
+      color:var(--siga-texto)!important;
+    }
+    body.modo-app .app-shell{background:transparent!important;}
+    body.modo-app .area-principal{min-width:0!important;background:transparent!important;}
+
+    .siga-skip-link{
+      position:fixed;
+      z-index:10000;
+      top:10px;
+      left:10px;
+      padding:11px 15px;
+      border-radius:11px;
+      background:#fff;
+      color:var(--siga-primaria-forte);
+      font-size:12px;
+      font-weight:850;
+      box-shadow:var(--siga-sombra-elevada);
+      transform:translateY(-150%);
+      transition:transform .16s ease;
+    }
+    .siga-skip-link:focus{transform:translateY(0);}
+    body.modo-acesso .siga-skip-link{display:none;}
+
+    .topbar{
+      min-height:72px!important;
+      padding:11px clamp(18px,3.2vw,38px)!important;
+      background:rgba(255,255,255,.94)!important;
+      border-bottom:1px solid rgba(207,217,204,.9)!important;
+      box-shadow:0 7px 24px rgba(23,43,28,.045)!important;
+      backdrop-filter:blur(18px) saturate(1.12)!important;
+    }
+    .topbar-identidade{display:flex;align-items:center;gap:11px;min-width:0;}
+    .topbar-identidade>div:last-child{min-width:0;}
+    .topbar h1{
+      color:var(--siga-primaria-forte)!important;
+      font-size:clamp(18px,2vw,21px)!important;
+      font-weight:840!important;
+      letter-spacing:-.018em!important;
+      line-height:1.1!important;
+    }
+    .topbar p{
+      margin-top:4px!important;
+      color:var(--siga-texto-suave)!important;
+      font-size:10px!important;
+      font-weight:720!important;
+      letter-spacing:.015em!important;
+    }
+    .topbar-acoes{gap:9px!important;}
+    .botao-menu-mobile,.botao-notificacoes{
+      width:43px!important;
+      height:43px!important;
+      min-width:43px!important;
+      border:1px solid var(--siga-borda)!important;
+      border-radius:13px!important;
+      background:#fff!important;
+      color:var(--siga-primaria)!important;
+      box-shadow:0 5px 14px rgba(25,47,31,.055)!important;
+    }
+
+    .sidebar{
+      width:var(--sidebar)!important;
+      background:
+        radial-gradient(circle at 25% 0,rgba(197,165,72,.18),transparent 17rem),
+        linear-gradient(180deg,#1b3021 0%,#223d2a 56%,#172a1d 100%)!important;
+      border-right:1px solid rgba(255,255,255,.08)!important;
+      box-shadow:13px 0 34px rgba(18,35,22,.13)!important;
+    }
+    .sidebar-marca{
+      min-height:82px!important;
+      padding:15px 16px!important;
+      gap:11px!important;
+      border-bottom:1px solid rgba(255,255,255,.09)!important;
+    }
+    .marca-siga-sidebar{
+      width:45px!important;
+      height:45px!important;
+      min-width:45px!important;
+      border-radius:14px!important;
+      box-shadow:0 10px 25px rgba(0,0,0,.22)!important;
+    }
+    .sidebar-marca h2{font-size:17px!important;letter-spacing:.045em!important;white-space:nowrap;}
+    .sidebar-marca p{font-size:8px!important;letter-spacing:.105em!important;color:#c2d2c2!important;}
+    .usuario-sidebar{
+      margin:13px 12px 7px!important;
+      padding:12px!important;
+      border:1px solid rgba(255,255,255,.11)!important;
+      border-radius:15px!important;
+      background:rgba(255,255,255,.055)!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04)!important;
+    }
+    .usuario-sidebar strong{font-size:11.5px!important;line-height:1.35!important;}
+    .usuario-sidebar span{font-size:9px!important;line-height:1.4!important;color:#bfd0bf!important;}
+    .menu-lateral{gap:3px!important;padding:8px 9px 10px!important;}
+    .menu-grupo-titulo{
+      margin:10px 10px 4px!important;
+      color:#9fb49f!important;
+      font-size:7.5px!important;
+      font-weight:900!important;
+      letter-spacing:.16em!important;
+    }
+    .menu-item{
+      min-height:44px!important;
+      gap:10px!important;
+      padding:8px 10px!important;
+      border:1px solid transparent!important;
+      border-radius:12px!important;
+      color:#d7e2d6!important;
+      font-size:11.5px!important;
+      font-weight:760!important;
+      letter-spacing:.005em!important;
+      transition:background .16s ease,border-color .16s ease,color .16s ease,transform .16s ease!important;
+    }
+    .menu-item:hover{background:rgba(255,255,255,.075)!important;border-color:rgba(255,255,255,.055)!important;}
+    .menu-item.ativo{
+      background:linear-gradient(135deg,#fff 0%,#f1f5ef 100%)!important;
+      border-color:rgba(255,255,255,.75)!important;
+      color:var(--siga-primaria-forte)!important;
+      box-shadow:0 9px 20px rgba(0,0,0,.2)!important;
+    }
+    .menu-item.ativo::before{
+      content:'';
+      width:3px;
+      align-self:stretch;
+      margin:-2px 0 -2px -5px;
+      border-radius:999px;
+      background:var(--siga-destaque);
+    }
+    .menu-icone{
+      width:31px!important;
+      height:31px!important;
+      min-width:31px!important;
+      display:grid!important;
+      place-items:center!important;
+      border-radius:10px!important;
+      background:rgba(255,255,255,.07)!important;
+    }
+    .menu-item.ativo .menu-icone{background:var(--siga-primaria-suave)!important;color:var(--siga-primaria)!important;}
+    .menu-item.menu-sair{margin-top:5px!important;color:#f1c7c2!important;}
+    .sidebar-rodape{padding:11px 14px calc(14px + env(safe-area-inset-bottom))!important;font-size:8px!important;}
+
+    .conteudo-app{
+      width:min(100%,var(--siga-conteudo))!important;
+      margin:0 auto!important;
+      padding:26px clamp(18px,3.2vw,38px) 56px!important;
+    }
+    .secao.ativa{
+      display:flex!important;
+      flex-direction:column!important;
+      gap:18px!important;
+      animation:sigaEntradaSecao .2s ease-out!important;
+    }
+    .secao[tabindex="-1"]:focus{outline:none;}
+    @keyframes sigaEntradaSecao{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+    .cabecalho-secao,.hero-siga{
+      position:relative!important;
+      isolation:isolate!important;
+      overflow:hidden!important;
+      margin:0!important;
+      padding:clamp(20px,2.7vw,28px)!important;
+      border:1px solid var(--siga-borda)!important;
+      border-radius:var(--siga-raio-pagina)!important;
+      box-shadow:var(--siga-sombra-card)!important;
+    }
+    .cabecalho-secao{
+      min-height:126px!important;
+      align-items:center!important;
+      background:linear-gradient(135deg,rgba(255,255,255,.99),rgba(246,249,245,.98))!important;
+    }
+    .cabecalho-secao::after,.hero-siga::after{
+      content:'';
+      position:absolute;
+      z-index:-1;
+      width:185px;
+      height:185px;
+      right:-68px;
+      bottom:-92px;
+      border:18px solid rgba(87,117,88,.09);
+      border-radius:50%;
+      box-shadow:inset 0 0 0 32px rgba(87,117,88,.045);
+      pointer-events:none;
+    }
+    .cabecalho-secao::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:24px;
+      bottom:24px;
+      width:5px;
+      border-radius:0 999px 999px 0;
+      background:linear-gradient(180deg,#e0c76d,var(--siga-destaque));
+    }
+    .cabecalho-secao h2,.hero-siga h2{
+      margin:3px 0 0!important;
+      font-size:clamp(26px,3.1vw,34px)!important;
+      font-weight:850!important;
+      letter-spacing:-.035em!important;
+      line-height:1.08!important;
+    }
+    .cabecalho-secao h2{color:var(--siga-primaria-forte)!important;}
+    .cabecalho-secao p,.hero-siga p{max-width:720px!important;margin:8px 0 0!important;font-size:12.5px!important;line-height:1.58!important;}
+    .hero-siga{
+      min-height:170px!important;
+      display:flex!important;
+      align-items:flex-end!important;
+      background:
+        radial-gradient(circle at 87% 10%,rgba(227,202,111,.23),transparent 18rem),
+        linear-gradient(135deg,#2e5037 0%,#193421 100%)!important;
+      border-color:rgba(255,255,255,.1)!important;
+      color:#fff!important;
+      box-shadow:0 18px 42px rgba(25,50,31,.18)!important;
+    }
+    .hero-siga::after{border-color:rgba(255,255,255,.08);box-shadow:inset 0 0 0 32px rgba(255,255,255,.035);}
+    .hero-siga h2{color:#fff!important;}
+    .hero-siga p{color:#d6e2d5!important;}
+    .pagina-kicker,.eyebrow,.rotulo-suave{
+      color:#6a795f!important;
+      font-size:8.5px!important;
+      font-weight:900!important;
+      letter-spacing:.16em!important;
+      line-height:1.3!important;
+      text-transform:uppercase!important;
+    }
+    .hero-siga .eyebrow{color:#ead98d!important;}
+
+    .painel,.bloco-pagina,.cartao-item,.dashboard-card,.checklist-secao,.form-etapa,
+    .consulta-edicao-secao,.config-escala-bloco-r95,.guarda-parte>.guarda-nota-operacional{
+      border-color:var(--siga-borda)!important;
+      border-radius:var(--siga-raio-card)!important;
+      background:var(--siga-superficie)!important;
+      box-shadow:var(--siga-sombra-card)!important;
+    }
+    .painel,.bloco-pagina{margin:0!important;padding:clamp(17px,2.2vw,22px)!important;}
+    .painel h3,.bloco-pagina h3,.cartao-topo h3{
+      color:var(--siga-primaria-forte)!important;
+      font-weight:820!important;
+      letter-spacing:-.018em!important;
+    }
+    .painel p,.bloco-pagina p,.subtitulo{color:var(--siga-texto-suave)!important;line-height:1.56!important;}
+    .titulo-cartao{margin:4px 0 0!important;}
+    .titulo-sem-margem{margin:0!important;}
+
+    .resumos{
+      grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr))!important;
+      gap:12px!important;
+      margin:0!important;
+    }
+    .resumo{
+      min-width:0!important;
+      min-height:104px!important;
+      display:flex!important;
+      flex-direction:column!important;
+      justify-content:center!important;
+      padding:17px 18px 16px 21px!important;
+      border:1px solid var(--siga-borda)!important;
+      border-radius:17px!important;
+      background:linear-gradient(145deg,#fff,#f7faf6)!important;
+      box-shadow:0 7px 20px rgba(27,50,32,.055)!important;
+    }
+    .resumo::before{top:15px!important;bottom:15px!important;width:4px!important;}
+    .resumo::after{width:96px!important;height:96px!important;right:-45px!important;bottom:-52px!important;border-width:10px!important;opacity:.62!important;}
+    .resumo small{color:#718068!important;font-size:8px!important;font-weight:900!important;letter-spacing:.13em!important;}
+    .resumo strong{margin-top:5px!important;color:var(--siga-primaria)!important;font-size:clamp(24px,3vw,31px)!important;line-height:1!important;}
+    .resumo span{margin-top:7px!important;color:var(--siga-texto-suave)!important;font-size:9px!important;line-height:1.35!important;}
+
+    .campo{margin-bottom:14px!important;min-width:0!important;}
+    .campo label,.rotulo{
+      margin-bottom:7px!important;
+      color:#364139!important;
+      font-size:10px!important;
+      font-weight:850!important;
+      letter-spacing:.035em!important;
+      line-height:1.35!important;
+    }
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),select,textarea{
+      border:1px solid var(--siga-borda)!important;
+      border-radius:var(--siga-raio-controle)!important;
+      background:#fbfcfa!important;
+      color:var(--siga-texto)!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.85)!important;
+      transition:border-color .16s ease,box-shadow .16s ease,background .16s ease!important;
+    }
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),select{
+      min-height:var(--siga-altura-controle)!important;
+      padding:10px 13px!important;
+    }
+    textarea{min-height:108px!important;padding:12px 13px!important;line-height:1.5!important;resize:vertical!important;}
+    input::placeholder,textarea::placeholder{color:#929d94!important;opacity:1!important;}
+    input:focus,select:focus,textarea:focus{
+      border-color:#6c926e!important;
+      background:#fff!important;
+      box-shadow:0 0 0 4px rgba(72,111,76,.13)!important;
+      outline:none!important;
+    }
+    input:disabled,input[readonly],select:disabled,textarea:disabled{
+      border-color:#dde3dc!important;
+      background:#f0f3ef!important;
+      color:#737d75!important;
+      opacity:1!important;
+    }
+    .ajuda,.filtro-automatico-nota{color:#758078!important;font-size:9.5px!important;line-height:1.45!important;}
+    .siga-search-field-r961{position:relative!important;display:block!important;width:100%!important;}
+    .siga-search-field-r961 input{padding-left:43px!important;padding-right:14px!important;}
+    .siga-search-icon-r961{left:14px!important;color:#708071!important;pointer-events:none!important;}
+
+    .botao{
+      min-height:46px!important;
+      padding:10px 16px!important;
+      border:1px solid transparent!important;
+      border-radius:13px!important;
+      background:linear-gradient(135deg,#496e4d 0%,#23412c 100%)!important;
+      color:#fff!important;
+      box-shadow:0 8px 18px rgba(34,67,43,.14)!important;
+      font-size:10px!important;
+      font-weight:900!important;
+      letter-spacing:.055em!important;
+      line-height:1.2!important;
+      text-transform:uppercase!important;
+      transition:transform .15s ease,filter .15s ease,box-shadow .15s ease!important;
+    }
+    .botao:hover{filter:brightness(1.045)!important;box-shadow:0 10px 22px rgba(34,67,43,.18)!important;}
+    .botao:active{transform:translateY(1px)!important;}
+    .botao:focus-visible,.menu-item:focus-visible,.subaba:focus-visible,.atalho-siga:focus-visible,
+    .botao-menu-mobile:focus-visible,.botao-notificacoes:focus-visible{
+      outline:3px solid rgba(197,165,72,.48)!important;
+      outline-offset:2px!important;
+    }
+    .botao-secundario{
+      border-color:var(--siga-borda-forte)!important;
+      background:#fff!important;
+      color:var(--siga-primaria)!important;
+      box-shadow:0 4px 12px rgba(28,50,33,.045)!important;
+    }
+    .botao-perigo{background:linear-gradient(135deg,#c43c31,#9e2119)!important;}
+    .botao:disabled,.botao[aria-disabled="true"]{filter:none!important;opacity:.48!important;box-shadow:none!important;cursor:not-allowed!important;}
+
+    .subnavegacao,.p1-modulos-nav,.guarda-subnavegacao{
+      width:fit-content!important;
+      max-width:100%!important;
+      gap:5px!important;
+      margin:0!important;
+      padding:5px!important;
+      border:1px solid var(--siga-borda)!important;
+      border-radius:14px!important;
+      background:#f2f5f1!important;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.8)!important;
+      overflow-x:auto!important;
+    }
+    .subaba,.p1-modulo-botao,.guarda-subaba{
+      min-height:39px!important;
+      border-radius:10px!important;
+      color:#647067!important;
+      font-size:9px!important;
+      font-weight:880!important;
+      letter-spacing:.045em!important;
+      white-space:nowrap!important;
+    }
+    .subaba.ativa,.p1-modulo-botao.ativo,.guarda-subaba.ativa{
+      background:linear-gradient(135deg,#456b4b,#25432e)!important;
+      color:#fff!important;
+      box-shadow:0 7px 15px rgba(38,69,45,.14)!important;
+    }
+
+    .filtros,.filtros-automaticos{
+      gap:12px!important;
+      padding:14px!important;
+      border:1px solid var(--siga-borda)!important;
+      border-radius:16px!important;
+      background:var(--siga-superficie-suave)!important;
+    }
+    .filtros .campo,.filtros-automaticos .campo{margin:0!important;}
+    .lista-cartoes,.lista-permutas-compacta{gap:11px!important;}
+    .cartao-item{
+      margin:0!important;
+      padding:17px!important;
+      overflow:hidden!important;
+    }
+    .cartao-topo{gap:12px!important;margin-bottom:13px!important;}
+    .cartao-topo h4{font-size:14px!important;line-height:1.32!important;}
+    .cartao-topo p{font-size:10px!important;line-height:1.45!important;}
+    .cartao-dados,.grade-dados{gap:9px!important;}
+    .cartao-dados .dado,.grade-dados .dado{
+      padding:11px 12px!important;
+      border:1px solid #e0e6de!important;
+      border-radius:12px!important;
+      background:#fafcfa!important;
+    }
+    .status,.status-siga{
+      min-height:25px!important;
+      padding:5px 8px!important;
+      border-radius:999px!important;
+      font-size:7.5px!important;
+      font-weight:900!important;
+      letter-spacing:.075em!important;
+      white-space:nowrap!important;
+    }
+    .vazio,.notificacoes-vazio{
+      min-height:96px!important;
+      display:grid!important;
+      place-items:center!important;
+      padding:22px!important;
+      border:1px dashed var(--siga-borda-forte)!important;
+      border-radius:16px!important;
+      background:#f9fbf8!important;
+      color:var(--siga-texto-suave)!important;
+      text-align:center!important;
+      font-size:11px!important;
+      line-height:1.5!important;
+    }
+    .vazio.compacto{min-height:58px!important;padding:14px!important;}
+
+    table{width:100%!important;border-collapse:separate!important;border-spacing:0!important;}
+    thead th{
+      padding:11px 12px!important;
+      border-bottom:1px solid var(--siga-borda)!important;
+      background:#f2f5f1!important;
+      color:#667368!important;
+      font-size:8px!important;
+      font-weight:900!important;
+      letter-spacing:.085em!important;
+      text-transform:uppercase!important;
+    }
+    tbody td{padding:12px!important;border-bottom:1px solid #e5eae3!important;color:#303a32!important;font-size:10.5px!important;}
+    tbody tr:last-child td{border-bottom:0!important;}
+    tbody tr:hover td{background:#fafcfa!important;}
+
+    .modal-permuta-admin{
+      padding:clamp(12px,3vw,28px)!important;
+      background:rgba(15,29,19,.57)!important;
+      backdrop-filter:blur(7px)!important;
+    }
+    .modal-permuta-conteudo,.modal-seletor-horas-credito{
+      width:min(100%,720px)!important;
+      max-height:min(88dvh,820px)!important;
+      border:1px solid rgba(255,255,255,.7)!important;
+      border-radius:23px!important;
+      background:#fff!important;
+      box-shadow:0 30px 90px rgba(12,27,17,.29)!important;
+    }
+    .painel-notificacoes{
+      border-left:1px solid var(--siga-borda)!important;
+      background:#fff!important;
+      box-shadow:-20px 0 50px rgba(17,36,23,.19)!important;
+    }
+    .toast{
+      border:1px solid rgba(255,255,255,.13)!important;
+      border-radius:14px!important;
+      background:#1e3524!important;
+      color:#fff!important;
+      box-shadow:0 18px 42px rgba(17,34,22,.25)!important;
+      font-size:11px!important;
+      line-height:1.45!important;
+    }
+
+    .atalhos-siga{gap:11px!important;}
+    .atalho-siga{
+      min-height:84px!important;
+      padding:15px!important;
+      border:1px solid var(--siga-borda)!important;
+      border-radius:16px!important;
+      background:linear-gradient(145deg,#fff,#f8faf7)!important;
+      box-shadow:0 7px 18px rgba(27,51,33,.05)!important;
+    }
+    .atalho-siga:hover{transform:translateY(-1px)!important;border-color:var(--siga-borda-forte)!important;box-shadow:0 11px 24px rgba(27,51,33,.08)!important;}
+    .atalho-icone{border-radius:12px!important;background:var(--siga-primaria-suave)!important;color:var(--siga-primaria)!important;}
+    .atalho-siga strong{color:var(--siga-primaria-forte)!important;font-size:12px!important;}
+    .atalho-siga small{color:var(--siga-texto-suave)!important;font-size:9px!important;line-height:1.38!important;}
+
+    .mensagem{
+      border-radius:14px!important;
+      padding:12px 14px!important;
+      font-size:11px!important;
+      line-height:1.5!important;
+    }
+    .checklist-intro,.painel-informativo,.guarda-nota-operacional,.acesso-regra-card,.orientacao-baixa-p1{
+      border-color:var(--siga-borda)!important;
+      border-radius:16px!important;
+      background:linear-gradient(135deg,#f8fbf7,#f1f5ef)!important;
+    }
+    .declaracao-checklist,.confirm-card,.confirmacao{
+      border-radius:15px!important;
+      border-color:var(--siga-borda)!important;
+      background:#fafcfa!important;
+    }
+
+    .u-mt-9{margin-top:9px!important;}
+    .u-mt-18{margin-top:18px!important;}
+    .u-visivel{display:block!important;}
+    .campo-sem-margem{margin:0!important;}
+    .campo-linha-inteira{grid-column:1/-1!important;}
+    .painel-suave{background:#f8faf7!important;}
+    .filtro-licencas-largura{max-width:260px!important;}
+    .p1-grade-uma-coluna{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;}
+    .p1-grade-duas-colunas{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;width:100%!important;}
+
+    @media(max-width:1020px){
+      :root{--sidebar:236px;}
+      .conteudo-app{padding-left:20px!important;padding-right:20px!important;}
+      .resumos{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+    }
+
+    @media(max-width:700px){
+      :root{--siga-altura-controle:50px;--siga-raio-card:17px;--siga-raio-pagina:20px;}
+      body.modo-app .area-principal{margin-left:0!important;}
+      .sidebar{
+        width:min(86vw,318px)!important;
+        padding-top:env(safe-area-inset-top)!important;
+      }
+      .topbar{
+        min-height:64px!important;
+        padding:9px calc(12px + env(safe-area-inset-right)) 9px calc(12px + env(safe-area-inset-left))!important;
+      }
+      .topbar h1{font-size:17px!important;}
+      .topbar p{max-width:53vw!important;font-size:8.5px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+      #perfilTopo{display:none!important;}
+      .conteudo-app{
+        width:100%!important;
+        padding:14px calc(12px + env(safe-area-inset-right)) calc(38px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))!important;
+      }
+      .secao.ativa{gap:13px!important;}
+      .cabecalho-secao,.hero-siga{padding:18px!important;border-radius:20px!important;}
+      .cabecalho-secao{min-height:112px!important;}
+      .hero-siga{min-height:148px!important;}
+      .cabecalho-secao h2,.hero-siga h2{font-size:25px!important;}
+      .cabecalho-secao p,.hero-siga p{font-size:11px!important;line-height:1.48!important;}
+      .cabecalho-secao::after,.hero-siga::after{width:130px;height:130px;right:-55px;bottom:-70px;border-width:13px;}
+      .painel,.bloco-pagina{padding:15px!important;border-radius:17px!important;}
+      .resumos{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;}
+      .resumo{min-height:92px!important;padding:14px 13px 13px 17px!important;border-radius:15px!important;}
+      .resumo strong{font-size:24px!important;}
+      .resumo span{font-size:8px!important;}
+      .grade-3,.grade-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+      .filtros,.filtros-automaticos{padding:11px!important;gap:9px!important;border-radius:14px!important;}
+      .subnavegacao,.p1-modulos-nav,.guarda-subnavegacao{width:100%!important;}
+      .cartao-item{padding:14px!important;border-radius:16px!important;}
+      .modal-permuta-admin{align-items:flex-end!important;padding:10px!important;padding-bottom:calc(10px + env(safe-area-inset-bottom))!important;}
+      .modal-permuta-conteudo,.modal-seletor-horas-credito{max-height:91dvh!important;border-radius:21px!important;}
+      .toast-area{right:10px!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;left:10px!important;}
+      .toast{width:100%!important;}
+      .p1-grade-duas-colunas{gap:9px!important;}
+    }
+
+    @media(max-width:520px){
+      .grade-2,.grade-3,.grade-4,.p1-grade-duas-colunas{grid-template-columns:1fr!important;}
+      .acoes-em-linha>.botao{flex:1 1 100%!important;}
+    }
+
+    @media(max-width:380px){
+      .topbar-acoes{gap:5px!important;}
+      .botao-menu-mobile,.botao-notificacoes{width:40px!important;height:40px!important;min-width:40px!important;}
+      .resumos{gap:7px!important;}
+      .resumo{padding-left:14px!important;}
+      .resumo strong{font-size:21px!important;}
+      .grade-2,.grade-3,.grade-4{grid-template-columns:1fr!important;}
+      .p1-grade-duas-colunas{grid-template-columns:1fr!important;}
+    }
+
+    /* Preserva zoom por gesto e ampliação do navegador (WCAG 1.4.4). */
+    html,body{touch-action:pan-x pan-y pinch-zoom!important;}
+    body.modo-acesso{touch-action:pinch-zoom!important;}
+    .sidebar .menu-lateral,.sidebar.sidebar-guarda .menu-lateral{touch-action:pan-y pinch-zoom!important;}
+
+    /* Utilitários de apresentação usados por componentes renderizados via JS. */
+    .mensagem.mensagem-visivel{display:block!important;}
+    .registro-meta{display:block;margin-top:4px;color:var(--texto-suave);font-size:8px;}
+    .registro-conclusao{margin:10px 0 0;color:var(--texto-suave);font-size:10px;}
+    .vazio.vazio-com-respiro{padding:14px;}
+    .recuperacao-validade{font-size:12px;letter-spacing:0;}
+    .historico-observacao{font-size:11px;color:var(--texto-suave);}
+    .acoes-em-linha.efetivo-acoes{margin-top:13px;}
+    .campo.campo-com-respiro{margin-top:10px;}
+    .checklist-respostas-json{white-space:pre-wrap;font-size:11px;}
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+    }
+    @media(forced-colors:active){
+      .menu-item.ativo,.botao,.subaba.ativa{border:2px solid ButtonText!important;}
+      .cabecalho-secao::before,.cabecalho-secao::after,.hero-siga::after{display:none!important;}
+    }
+</style>
 </head>
-<body>
+<body class="modo-acesso">
+  <a class="siga-skip-link" href="#conteudoPrincipal">Ir para o conteúdo principal</a>
   <svg class="svg-sprite" aria-hidden="true" focusable="false">
     <symbol id="icone-inicio" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></symbol>
     <symbol id="icone-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></symbol>
@@ -13401,17 +14081,17 @@
             <div class="campo"><label for="repetirSenhaRecuperacao">Repetir nova senha</label><input id="repetirSenhaRecuperacao" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="new-password" required></div>
           </div>
           <button class="botao botao-largo" type="submit">REDEFINIR SENHA</button>
-          <button class="botao botao-secundario botao-largo" style="margin-top:9px" type="button" onclick="voltarLoginDesdeRecuperacao()">VOLTAR AO LOGIN</button>
+          <button class="botao botao-secundario botao-largo u-mt-9" type="button" onclick="voltarLoginDesdeRecuperacao()">VOLTAR AO LOGIN</button>
         </form>
 
         <form id="formCadastro" class="oculto">
           <div id="camposCadastro"></div>
           <button class="botao botao-largo" type="submit">CONCLUIR CADASTRO</button>
-          <button class="botao botao-secundario botao-largo" style="margin-top:9px" type="button" onclick="voltarParaMatricula()">VOLTAR</button>
+          <button class="botao botao-secundario botao-largo u-mt-9" type="button" onclick="voltarParaMatricula()">VOLTAR</button>
         </form>
 
         <div id="painelPendente" class="oculto">
-          <div class="mensagem aviso" style="display:block">
+          <div class="mensagem aviso u-visivel">
             O cadastro está aguardando análise administrativa.
           </div>
           <div class="grade-2">
@@ -13423,7 +14103,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.8.4
+        SIGA 3ª CIA — Versão 5.9.0 • R9.9.0
       </footer>
     </section>
   </main>
@@ -13431,7 +14111,7 @@
   <div id="appShell" class="app-shell oculto">
     <div id="overlayMobile" class="overlay-mobile" onclick="fecharMenuMobile()"></div>
 
-    <aside id="sidebar" class="sidebar">
+    <aside id="sidebar" class="sidebar" aria-label="Navegação principal">
       <div class="sidebar-marca">
         <div class="marca-siga marca-siga-sidebar" aria-hidden="true">
           <img src="https://3cia19bpm.github.io/siga/icon-192.png" alt="">
@@ -13449,60 +14129,60 @@
         <span id="matriculaSidebar"></span>
       </div>
 
-      <nav id="menuUsuario" class="menu-lateral">
+      <nav id="menuUsuario" class="menu-lateral" aria-label="Menu do policial">
         <div class="menu-grupo-titulo">MEU SERVIÇO</div>
-        <button class="menu-item ativo" data-secao="inicio" onclick="navegar('inicio')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-inicio"></use></svg></span><span>Início</span></button>
-        <button class="menu-item" data-secao="calendario" onclick="navegar('calendario')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-calendario"></use></svg></span><span>Calendário</span></button>
-        <button class="menu-item" data-secao="checklist" onclick="navegar('checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
-        <button class="menu-item" data-secao="permutas" onclick="navegar('permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
-        <button class="menu-item" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
+        <button class="menu-item ativo" type="button" data-secao="inicio" aria-current="page" onclick="navegar('inicio')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-inicio"></use></svg></span><span>Início</span></button>
+        <button class="menu-item" type="button" data-secao="calendario" onclick="navegar('calendario')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-calendario"></use></svg></span><span>Calendário</span></button>
+        <button class="menu-item" type="button" data-secao="checklist" onclick="navegar('checklist')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
+        <button class="menu-item" type="button" data-secao="permutas" onclick="navegar('permutas')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
+        <button class="menu-item" type="button" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
 
         <div class="menu-grupo-titulo somente-guarda oculto">CORPO DA GUARDA</div>
-        <button class="menu-item somente-guarda oculto" data-secao="guarda" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
-        <button class="menu-item somente-guarda oculto" data-secao="relatorio-guarda" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório operacional</span></button>
+        <button class="menu-item somente-guarda oculto" type="button" data-secao="guarda" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
+        <button class="menu-item somente-guarda oculto" type="button" data-secao="relatorio-guarda" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-relatorio"></use></svg></span><span>Relatório operacional</span></button>
 
         <div class="menu-grupo-titulo">ACOMPANHAMENTO</div>
-        <button class="menu-item" data-secao="relatorios" onclick="navegar('relatorios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatórios</span></button>
-        <button class="menu-item" data-secao="perfil" onclick="navegar('perfil')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-usuario"></use></svg></span><span>Meu perfil</span></button>
+        <button class="menu-item" type="button" data-secao="relatorios" onclick="navegar('relatorios')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-relatorio"></use></svg></span><span>Relatórios</span></button>
+        <button class="menu-item" type="button" data-secao="perfil" onclick="navegar('perfil')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-usuario"></use></svg></span><span>Meu perfil</span></button>
 
         <div class="menu-espacador"></div>
-        <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
+        <button class="menu-item menu-sair" type="button" onclick="sair()"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <nav id="menuAdmin" class="menu-lateral oculto">
+      <nav id="menuAdmin" class="menu-lateral oculto" aria-label="Menu administrativo">
         <div class="menu-grupo-titulo">GESTÃO</div>
-        <button class="menu-item ativo" data-secao="painel-admin" onclick="navegar('painel-admin')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-painel"></use></svg></span><span>Visão geral</span></button>
-        <button class="menu-item" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
+        <button class="menu-item ativo" type="button" data-secao="painel-admin" aria-current="page" onclick="navegar('painel-admin')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-painel"></use></svg></span><span>Visão geral</span></button>
+        <button class="menu-item" type="button" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="P1">P1 • PESSOAL</div>
-        <button class="menu-item" data-secao="admin-permutas" data-permissao="PERMUTAS" onclick="navegar('admin-permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
-        <button class="menu-item" data-secao="admin-policiais" data-permissao="POLICIAIS" onclick="navegar('admin-policiais')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Policiais</span><span id="badgeSolicitacoesPerfilP1" class="menu-badge oculto">0</span></button>
+        <button class="menu-item" type="button" data-secao="admin-permutas" data-permissao="PERMUTAS" onclick="navegar('admin-permutas')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
+        <button class="menu-item" type="button" data-secao="admin-policiais" data-permissao="POLICIAIS" onclick="navegar('admin-policiais')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-efetivo"></use></svg></span><span>Policiais</span><span id="badgeSolicitacoesPerfilP1" class="menu-badge oculto">0</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="P4">P4 • FROTA</div>
-        <button class="menu-item" data-secao="admin-checklist" data-permissao="CHECKLIST" onclick="navegar('admin-checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
-        <button class="menu-item" data-secao="p4-alertas" data-permissao="ALERTAS_P4" onclick="navegar('p4-alertas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-alerta"></use></svg></span><span>Cautelas</span><span id="badgeAlertasP4" class="menu-badge oculto">0</span></button>
+        <button class="menu-item" type="button" data-secao="admin-checklist" data-permissao="CHECKLIST" onclick="navegar('admin-checklist')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
+        <button class="menu-item" type="button" data-secao="p4-alertas" data-permissao="ALERTAS_P4" onclick="navegar('p4-alertas')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-alerta"></use></svg></span><span>Cautelas</span><span id="badgeAlertasP4" class="menu-badge oculto">0</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="GUARDA">CORPO DA GUARDA</div>
-        <button class="menu-item" data-secao="guarda" data-permissao="GUARDA" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
-        <button class="menu-item" data-secao="relatorio-guarda" data-permissao="RELATORIO_GUARDA" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório da Guarda</span></button>
+        <button class="menu-item" type="button" data-secao="guarda" data-permissao="GUARDA" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
+        <button class="menu-item" type="button" data-secao="relatorio-guarda" data-permissao="RELATORIO_GUARDA" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-relatorio"></use></svg></span><span>Relatório da Guarda</span></button>
 
         <div class="menu-grupo-titulo">ADMINISTRAÇÃO</div>
-        <button class="menu-item" data-secao="formularios" data-permissao="FORMULARIOS" onclick="navegar('formularios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-editar"></use></svg></span><span>Formulários</span></button>
-        <button class="menu-item" data-secao="consultas" onclick="navegar('consultas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-pesquisa"></use></svg></span><span>Consultas</span></button>
-        <button class="menu-item" data-secao="efetivo" onclick="navegar('efetivo')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Efetivo</span></button>
-        <button class="menu-item" data-secao="setores" data-permissao="SETORES" onclick="navegar('setores')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-setores"></use></svg></span><span>Setores e acessos</span></button>
+        <button class="menu-item" type="button" data-secao="formularios" data-permissao="FORMULARIOS" onclick="navegar('formularios')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-editar"></use></svg></span><span>Formulários</span></button>
+        <button class="menu-item" type="button" data-secao="consultas" onclick="navegar('consultas')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-pesquisa"></use></svg></span><span>Consultas</span></button>
+        <button class="menu-item" type="button" data-secao="efetivo" onclick="navegar('efetivo')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-efetivo"></use></svg></span><span>Efetivo</span></button>
+        <button class="menu-item" type="button" data-secao="setores" data-permissao="SETORES" onclick="navegar('setores')"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-setores"></use></svg></span><span>Setores e acessos</span></button>
 
         <div class="menu-espacador"></div>
-        <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
+        <button class="menu-item menu-sair" type="button" onclick="sair()"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.8.4</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.9.0</footer>
     </aside>
 
     <div class="area-principal">
       <header class="topbar">
-        <div style="display:flex;align-items:center;gap:11px">
-          <button class="botao-menu-mobile" type="button" onclick="abrirMenuMobile()" aria-label="Abrir menu"><svg class="icone-svg" aria-hidden="true"><use href="#icone-menu"></use></svg></button>
+        <div class="topbar-identidade">
+          <button id="botaoMenuMobile" class="botao-menu-mobile" type="button" onclick="abrirMenuMobile()" aria-label="Abrir menu" aria-controls="sidebar" aria-expanded="false"><svg class="icone-svg" aria-hidden="true"><use href="#icone-menu"></use></svg></button>
           <div>
             <h1 id="tituloTopo">Checklist</h1>
             <p id="subtituloTopo">Controle administrativo diário</p>
@@ -13515,7 +14195,7 @@
       </header>
 
       <div id="overlayNotificacoes" class="overlay-notificacoes oculto" onclick="fecharPainelNotificacoes()"></div>
-      <aside id="painelNotificacoes" class="painel-notificacoes oculto" aria-hidden="true" aria-label="Central de notificações">
+      <aside id="painelNotificacoes" class="painel-notificacoes oculto" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Central de notificações">
         <div class="notificacoes-topo">
           <div><span class="rotulo-suave">CENTRAL PESSOAL</span><h3>Notificações</h3></div>
           <div class="notificacoes-acoes"><button class="botao-texto-notificacao" type="button" onclick="marcarTodasNotificacoesLidasCliente()">MARCAR LIDAS</button><button class="botao-fechar-notificacao" type="button" aria-label="Fechar notificações" onclick="fecharPainelNotificacoes()">×</button></div>
@@ -13523,7 +14203,7 @@
         <div id="listaNotificacoes" class="lista-notificacoes"><div class="notificacoes-vazio">Carregando notificações...</div></div>
       </aside>
 
-      <div class="conteudo-app">
+      <div id="conteudoPrincipal" class="conteudo-app" role="main" tabindex="-1">
         <div id="mensagemInterna" class="mensagem" role="status" aria-live="polite"></div>
 
         <section id="secao-inicio" class="secao ativa">
@@ -13682,7 +14362,7 @@
 
           <div class="painel checklist-historico-painel">
             <div class="cartao-topo">
-              <div><span class="rotulo-suave">ACOMPANHAMENTO</span><h3 style="margin:4px 0 0">Checklists enviados recentemente</h3></div>
+              <div><span class="rotulo-suave">ACOMPANHAMENTO</span><h3 class="titulo-cartao">Checklists enviados recentemente</h3></div>
               <svg class="icone-svg" aria-hidden="true"><use href="#icone-relatorio"></use></svg>
             </div>
             <div id="historicoChecklist" class="lista-cartoes"></div>
@@ -13778,12 +14458,12 @@
             </div>
             <div id="listaMinhasPermutas" class="lista-minhas-permutas"></div>
 
-            <div id="modalMinhaPermuta" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-labelledby="tituloModalMinhaPermuta" onclick="fecharDetalheMinhaPermuta()">
+            <div id="modalMinhaPermuta" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="tituloModalMinhaPermuta" onclick="fecharDetalheMinhaPermuta()">
               <div class="painel modal-permuta-conteudo modal-minha-permuta-conteudo" onclick="event.stopPropagation()">
                 <div class="cartao-topo">
                   <div>
                     <span class="rotulo-suave">DETALHES DA PERMUTA</span>
-                    <h3 id="tituloModalMinhaPermuta" style="margin:4px 0 0">Permuta</h3>
+                    <h3 id="tituloModalMinhaPermuta" class="titulo-cartao">Permuta</h3>
                   </div>
                   <button class="modal-permuta-fechar" type="button" aria-label="Fechar detalhes" onclick="fecharDetalheMinhaPermuta()">×</button>
                 </div>
@@ -13834,7 +14514,7 @@
             <div class="cartao-topo topo-p1-banco">
               <div>
                 <span class="rotulo-suave">GESTÃO • P1</span>
-                <h3 style="margin:4px 0 0">Registrar baixa após conferência documental</h3>
+                <h3 class="titulo-cartao">Registrar baixa após conferência documental</h3>
                 <p>Localize o policial que apresentou a solicitação manuscrita, confira o livro/página e a cópia da página do livro e somente então registre a dispensa.</p>
               </div>
               <span class="p1-banco-etiqueta">EXCLUSIVO P1</span>
@@ -13855,7 +14535,7 @@
             <div class="cartao-topo topo-registro-credito-banco">
               <div>
                 <span id="rotuloRegistroCreditoBancoHoras" class="rotulo-suave">MEU BANCO DE HORAS</span>
-                <h3 id="tituloRegistroCreditoBancoHoras" style="margin:4px 0 0">Registrar crédito</h3>
+                <h3 id="tituloRegistroCreditoBancoHoras" class="titulo-cartao">Registrar crédito</h3>
               </div>
               <div class="painel-cabecalho-acoes painel-acoes-banco-horas"><button id="alternadorRegistroCreditoBancoHoras" class="alternador-filtros-permutas" type="button" aria-expanded="true" aria-controls="formCreditoBancoHoras" aria-label="Ocultar registro de crédito" title="Ocultar registro de crédito" onclick="alternarPainelRegistroCreditoBancoHoras()"><svg class="icone-svg" aria-hidden="true"><use href="#icone-seta-direita"></use></svg></button></div>
             </div>
@@ -13912,7 +14592,7 @@
             </form>
           </div>
 
-          <div id="modalSeletorHorasCredito" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-labelledby="tituloSeletorHorasCredito" onclick="fecharSeletorHorasCredito()">
+          <div id="modalSeletorHorasCredito" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="tituloSeletorHorasCredito" onclick="fecharSeletorHorasCredito()">
             <div class="painel modal-permuta-conteudo modal-seletor-horas-credito" onclick="event.stopPropagation()">
               <div class="seletor-horas-topo">
                 <div>
@@ -13960,7 +14640,7 @@
             <div class="cartao-topo topo-extrato-banco">
               <div>
                 <span class="rotulo-suave">CRÉDITOS E UTILIZAÇÕES</span>
-                <h3 style="margin:4px 0 0">Meu extrato</h3>
+                <h3 class="titulo-cartao">Meu extrato</h3>
               </div>
               <div class="painel-cabecalho-acoes painel-acoes-banco-horas">
                 <span class="legenda-seguranca-banco"><svg class="icone-svg" aria-hidden="true"><use href="#icone-banco-horas"></use></svg> sem duplicidade</span>
@@ -13974,10 +14654,10 @@
             </div>
           </div>
 
-          <div id="modalBaixaBancoHoras" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-labelledby="tituloModalBaixaBancoHoras" onclick="fecharBaixaBancoHoras()">
+          <div id="modalBaixaBancoHoras" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="tituloModalBaixaBancoHoras" onclick="fecharBaixaBancoHoras()">
             <div class="painel modal-permuta-conteudo modal-baixa-banco-horas" onclick="event.stopPropagation()">
               <div class="cartao-topo">
-                <div><span class="rotulo-suave">GESTÃO • P1</span><h3 id="tituloModalBaixaBancoHoras" style="margin:4px 0 0">Registrar baixa de horas</h3></div>
+                <div><span class="rotulo-suave">GESTÃO • P1</span><h3 id="tituloModalBaixaBancoHoras" class="titulo-cartao">Registrar baixa de horas</h3></div>
                 <button class="modal-permuta-fechar" type="button" aria-label="Fechar" onclick="fecharBaixaBancoHoras()">×</button>
               </div>
               <div id="resumoCreditoBaixaBancoHoras" class="resumo-credito-baixa"></div>
@@ -14015,12 +14695,12 @@
             <div id="resumoRelatorioUsuario" class="resumos"></div>
           </section>
           <div class="painel painel-relatorio-permutas">
-            <div class="cartao-topo"><div><span class="rotulo-suave">SOLICITAÇÕES</span><h3 style="margin:4px 0 0">Permutas</h3></div></div>
+            <div class="cartao-topo"><div><span class="rotulo-suave">SOLICITAÇÕES</span><h3 class="titulo-cartao">Permutas</h3></div></div>
             <div id="tabelaRelatorioPermutas"></div>
             <div id="cardsRelatorioPermutas" class="relatorio-mobile-lista"></div>
           </div>
           <div class="painel painel-relatorio-checklists">
-            <div class="cartao-topo"><div><span class="rotulo-suave">FROTA</span><h3 style="margin:4px 0 0">Checklists recentes</h3></div></div>
+            <div class="cartao-topo"><div><span class="rotulo-suave">FROTA</span><h3 class="titulo-cartao">Checklists recentes</h3></div></div>
             <div id="tabelaRelatorioChecklist"></div>
             <div id="cardsRelatorioChecklist" class="relatorio-mobile-lista"></div>
           </div>
@@ -14115,7 +14795,7 @@
 
           <div class="painel painel-organizacao-siga">
             <div class="cartao-topo painel-organizacao-topo">
-              <div><span class="rotulo-suave">ESTRUTURA ADMINISTRATIVA</span><h3 style="margin:4px 0 0">Organização do SIGA</h3></div>
+              <div><span class="rotulo-suave">ESTRUTURA ADMINISTRATIVA</span><h3 class="titulo-cartao">Organização do SIGA</h3></div>
             </div>
             <div class="grade-dados">
               <button type="button" class="dado dado-navegavel" data-org-setores="P1,COMANDO" onclick="navegar('admin-policiais')"><small>P1</small><strong>Permutas, policiais, licenças, afastamentos e análise das solicitações cadastrais.</strong><span class="dado-rodape-atalho">Abrir gestão de pessoal</span></button>
@@ -14149,7 +14829,7 @@
 
           <div class="guarda-cabecalho-operacional">
             <div class="guarda-data-card">
-              <small>DATA DO SERVIÇO</small>
+              <label for="dataGuarda"><small>DATA DO SERVIÇO</small></label>
               <input id="dataGuarda" type="date" onchange="carregarGuardaDia()">
             </div>
           </div>
@@ -14217,7 +14897,7 @@
             <div class="cartao-topo">
               <div>
                 <small class="rotulo-suave">REGISTRO DO SERVIÇO</small>
-                <h3 id="tituloTipoGuarda" style="margin:2px 0 0">Permuta autorizada</h3>
+                <h3 id="tituloTipoGuarda" class="titulo-cartao">Permuta autorizada</h3>
               </div>
             </div>
 
@@ -14242,7 +14922,7 @@
             </div>
 
             <div id="blocoPolicialEscaladoGuarda" class="campo">
-              <label id="labelPolicialEscaladoGuarda">Policial previsto na escala</label>
+              <label id="labelPolicialEscaladoGuarda" for="pesquisaGuardaPolicial">Policial previsto na escala</label>
               <input id="pesquisaGuardaPolicial" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra" oninput="pesquisarGuardaPoliciais('escalado')">
               <input id="usuarioGuardaId" type="hidden">
               <div id="resultadosGuardaPolicial" class="pesquisa-resultados"></div>
@@ -14250,7 +14930,7 @@
             </div>
 
             <div id="blocoSubstitutoGuarda" class="campo">
-              <label>Policial que assumiu o serviço</label>
+              <label for="pesquisaSubstitutoGuarda">Policial que assumiu o serviço</label>
               <input id="pesquisaSubstitutoGuarda" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra" oninput="pesquisarGuardaPoliciais('substituto')">
               <input id="usuarioSubstitutoGuardaId" type="hidden">
               <div id="resultadosSubstitutoGuarda" class="pesquisa-resultados"></div>
@@ -14272,7 +14952,7 @@
           <div class="painel">
             <div class="cartao-topo">
               <div>
-                <h3 style="margin:0">Permutas disponíveis no dia</h3>
+                <h3 class="titulo-sem-margem">Permutas disponíveis no dia</h3>
                 <p>Permutas validadas pelo SIGA para a data selecionada. A Guarda apenas registra a ocorrência no serviço.</p>
               </div>
             </div>
@@ -14282,7 +14962,7 @@
           <div class="painel">
             <div class="cartao-topo">
               <div>
-                <h3 style="margin:0">Livro de alterações do serviço</h3>
+                <h3 class="titulo-sem-margem">Livro de alterações do serviço</h3>
                 <p>Histórico cronológico das alterações vinculadas à escala do dia.</p>
               </div>
             </div>
@@ -14325,7 +15005,7 @@
               <div class="painel">
                 <div class="cartao-topo">
                   <div>
-                    <h3 style="margin:0">Resumo do turno</h3>
+                    <h3 class="titulo-sem-margem">Resumo do turno</h3>
                     <p>Faltas e dispensas vêm do livro do serviço. “Nos postos” e “VTRs” são calculados automaticamente.</p>
                   </div>
                   <span class="chip-automatico">CÁLCULO AUTOMÁTICO</span>
@@ -14342,7 +15022,7 @@
               <div class="painel">
                 <div class="cartao-topo">
                   <div>
-                    <h3 style="margin:0">Guarda da Companhia</h3>
+                    <h3 class="titulo-sem-margem">Guarda da Companhia</h3>
                     <p>O HT da Guarda já vem preenchido com o padrão da Companhia, mas pode ser corrigido quando necessário.</p>
                   </div>
                   <span class="status status-CONFIRMADO">HT PADRÃO</span>
@@ -14380,7 +15060,7 @@
               <div class="painel">
                 <div class="cartao-topo postos-relatorio-topo">
                   <div>
-                    <h3 style="margin:0">Viaturas, Bike e bases fixas</h3>
+                    <h3 class="titulo-sem-margem">Viaturas, Bike e bases fixas</h3>
                     <p>As três bases e o Bike já vêm preenchidos. Nas VTRs, prefixo, HT e área são digitados manualmente.</p>
                   </div>
                   <div id="acoesPostosRelatorioGuarda" class="acoes-inline">
@@ -14395,12 +15075,12 @@
               <button id="salvarRelatorioGuarda" class="botao botao-largo" type="button" onclick="salvarRelatorioOperacionalGuarda()">SALVAR RELATÓRIO</button>
             </div>
 
-            <aside class="coluna-previa-relatorio">
+            <aside class="coluna-previa-relatorio" aria-label="Prévia e relatórios recentes">
               <div class="painel previa-whatsapp-relatorio painel-resumo-operacional">
                 <div class="cartao-topo">
                   <div>
                     <span class="rotulo-suave">PAINEL OPERACIONAL CONSOLIDADO</span>
-                    <h3 style="margin:3px 0 0">Resumo do turno em tela</h3>
+                    <h3 class="titulo-cartao">Resumo do turno em tela</h3>
                     <p>As informações ficam organizadas diretamente no aplicativo para leitura rápida do Comando.</p>
                   </div>
                   <svg class="icone-svg" aria-hidden="true"><use href="#icone-painel"></use></svg>
@@ -14416,7 +15096,7 @@
               <div class="painel">
                 <div class="cartao-topo">
                   <div>
-                    <h3 style="margin:0">Relatórios recentes</h3>
+                    <h3 class="titulo-sem-margem">Relatórios recentes</h3>
                     <p>Toque em um dia para abrir, sem botão de filtro.</p>
                   </div>
                 </div>
@@ -14460,12 +15140,12 @@
             <div id="listaPermutasAdmin" class="lista-permutas-compacta"></div>
           </div>
 
-          <div id="modalPermutaAdmin" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-labelledby="tituloModalPermutaAdmin" onclick="fecharDetalhePermutaAdmin()">
+          <div id="modalPermutaAdmin" class="modal-permuta-admin oculto" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="tituloModalPermutaAdmin" onclick="fecharDetalhePermutaAdmin()">
             <div class="painel modal-permuta-conteudo" onclick="event.stopPropagation()">
               <div class="cartao-topo">
                 <div>
                   <span class="rotulo-suave">DETALHES DA SOLICITAÇÃO</span>
-                  <h3 id="tituloModalPermutaAdmin" style="margin:4px 0 0">Permuta</h3>
+                  <h3 id="tituloModalPermutaAdmin" class="titulo-cartao">Permuta</h3>
                 </div>
                 <button class="modal-permuta-fechar" type="button" aria-label="Fechar detalhes" onclick="fecharDetalhePermutaAdmin()">×</button>
               </div>
@@ -14496,7 +15176,7 @@
             <div class="p1-modulos-topo">
               <div>
                 <span class="rotulo-suave">ORGANIZAÇÃO DO FLUXO</span>
-                <h3 style="margin:4px 0 0">Entradas, atualizações, licenças e senhas</h3>
+                <h3 class="titulo-cartao">Entradas, atualizações, licenças e senhas</h3>
                 <p>Escolha o módulo de trabalho para concentrar a ação do P1 em um único fluxo por vez.</p>
               </div>
             </div>
@@ -14531,18 +15211,16 @@
           </div>
 
           <form id="formPreCadastroP1" class="painel p1-entrada-efetivo" data-p1-modulo="entradas" onsubmit="preCadastrarPolicialP1(event)">
-            <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 style="margin:4px 0 0">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
+            <div class="cartao-topo"><div><span class="rotulo-suave">NOVO POLICIAL</span><h3 class="titulo-cartao">Entrada no efetivo</h3><p>Informe os dados funcionais do policial. No primeiro acesso ele completa os dados pessoais e cria sua senha.</p></div></div>
             <div class="grade-pre-cadastro-p1">
-              <div class="linha-pre-cadastro-p1 linha-pre-cadastro-full linha-pre-nome"
-                   style="display:grid;grid-template-columns:minmax(0,1fr);width:100%;">
-                <div class="campo campo-pre-nome"><label>Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
+              <div class="linha-pre-cadastro-p1 linha-pre-cadastro-full linha-pre-nome p1-grade-uma-coluna">
+                <div class="campo campo-pre-nome"><label for="preNomeP1">Nome completo</label><input id="preNomeP1" autocomplete="name" required></div>
               </div>
 
-              <div class="linha-pre-cadastro-p1 linha-pre-matricula-posto"
-                   style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;">
-                <div class="campo campo-pre-matricula"><label>Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
+              <div class="linha-pre-cadastro-p1 linha-pre-matricula-posto p1-grade-duas-colunas">
+                <div class="campo campo-pre-matricula"><label for="preMatriculaP1">Matrícula</label><input id="preMatriculaP1" inputmode="numeric" maxlength="8" autocomplete="off" required></div>
                 <div class="campo campo-pre-posto">
-                  <label>Posto/graduação</label>
+                  <label for="prePostoP1">Posto/graduação</label>
                   <select id="prePostoP1" required onchange="atualizarNumeralPreCadastroP1()">
                     <option value="">SELECIONE</option>
                     <option value="SOLDADO">SOLDADO</option>
@@ -14563,11 +15241,10 @@
               </div>
 
               <div id="linhaPreIdentidadeP1"
-                   class="linha-pre-cadastro-p1 linha-pre-identidade"
-                   style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:100%;">
-                <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label>Numeral</label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
-                <div class="campo campo-pre-guerra"><label>Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
-                <div class="campo campo-pre-contato"><label>Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
+                   class="linha-pre-cadastro-p1 linha-pre-identidade p1-grade-duas-colunas">
+                <div id="campoPreNumeralP1" class="campo campo-pre-numeral oculto"><label for="preNumeralP1">Numeral</label><input id="preNumeralP1" inputmode="numeric" autocomplete="off" disabled></div>
+                <div class="campo campo-pre-guerra"><label for="preNomeGuerraP1">Nome de guerra</label><input id="preNomeGuerraP1" autocomplete="off" required></div>
+                <div class="campo campo-pre-contato"><label for="preContatoP1">Contato / WhatsApp</label><input id="preContatoP1" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel" placeholder="(85) 99999-9999" required></div>
               </div>
             </div>
             <button class="botao" type="submit">ADICIONAR AO EFETIVO</button>
@@ -14575,10 +15252,10 @@
 
           <div class="painel painel-busca-policiais-p1" data-p1-modulo="licencas">
             <div class="cartao-topo painel-busca-policiais-topo">
-              <div><span class="rotulo-suave">EFETIVO CADASTRADO</span><h3 style="margin:4px 0 0">Localizar policial</h3><p>Pesquise por matrícula funcional, numeral ou nome de guerra.</p></div>
+              <div><span class="rotulo-suave">EFETIVO CADASTRADO</span><h3 class="titulo-cartao">Localizar policial</h3><p>Pesquise por matrícula funcional, numeral ou nome de guerra.</p></div>
             </div>
             <div class="grade-2">
-              <div class="campo" style="grid-column:1/-1">
+              <div class="campo campo-linha-inteira">
                 <label for="pesquisaPolicialP1">Pesquisar</label>
                 <input id="pesquisaPolicialP1" type="search" placeholder="Comece a digitar..." autocomplete="off" oninput="agendarPesquisaPolicialP1()">
                 <small class="ajuda">A lista é filtrada automaticamente enquanto você digita.</small>
@@ -14589,7 +15266,7 @@
 
           <div id="painelPolicialP1" class="painel oculto" data-p1-modulo="licencas">
             <div class="cartao-topo">
-              <div><h3 id="nomePolicialP1" style="margin:0"></h3><p id="dadosPolicialP1"></p></div>
+              <div><h3 id="nomePolicialP1" class="titulo-sem-margem"></h3><p id="dadosPolicialP1"></p></div>
               <button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirPolicialP1()">RETIRAR DO EFETIVO</button>
             </div>
 
@@ -14645,7 +15322,7 @@
               <button class="botao" type="submit">REGISTRAR LICENÇA</button>
             </form>
 
-            <div style="margin-top:18px">
+            <div class="u-mt-18">
               <h3>Histórico do policial</h3>
               <div id="historicoPolicialP1" class="lista-cartoes"></div>
             </div>
@@ -14858,7 +15535,7 @@
 
           <div class="painel">
             <div class="filtros filtros-automaticos filtro-unico">
-              <div class="campo" style="margin:0"><label for="pesquisaConsultaAdmin">Pesquisar policial</label><input id="pesquisaConsultaAdmin" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra"></div>
+              <div class="campo campo-sem-margem"><label for="pesquisaConsultaAdmin">Pesquisar policial</label><input id="pesquisaConsultaAdmin" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra"></div>
             </div>
             <small class="filtro-automatico-nota">Digite ao menos dois caracteres para consultar automaticamente.</small>
             <div id="resultadosConsultaAdmin" class="pesquisa-resultados"></div>
@@ -14949,11 +15626,11 @@
 
             <div id="areaHistoricoConsulta" class="oculto consulta-historico-area">
               <div class="historico-cabecalho">
-                <h3 style="margin:0">Histórico</h3>
+                <h3 class="titulo-sem-margem">Histórico</h3>
                 <button class="botao botao-pequeno" type="button" onclick="alternarFormularioHistorico()">NOVO REGISTRO</button>
               </div>
 
-              <form id="formHistoricoAdmin" class="painel oculto" style="background:#f8faf7">
+              <form id="formHistoricoAdmin" class="painel painel-suave oculto">
                 <div class="grade-3">
                   <div class="campo"><label for="tipoHistoricoAdmin">Tipo</label><select id="tipoHistoricoAdmin"><option value="ATESTADO">ATESTADO</option></select></div>
                   <div id="campoSubtipoHistorico" class="campo oculto"><label for="subtipoHistoricoAdmin">Licença</label><select id="subtipoHistoricoAdmin"><option value="LTS">LTS</option><option value="LTSD">LTSD</option><option value="LTIP">LTIP</option><option value="OUTRAS">OUTRAS</option></select></div>
@@ -14984,10 +15661,10 @@
                 <div class="licencas-info">
                   <div class="licenca-info"><strong>LTS <span class="icone-info" title="Licença para Tratar Saúde Própria.">i</span></strong><br>Licença para Tratar Saúde Própria.</div>
                   <div class="licenca-info"><strong>LTSD <span class="icone-info" title="Licença para Tratar Saúde de Dependente.">i</span></strong><br>Licença para Tratar Saúde de Dependente.</div>
-                  <div class="licenca-info"><strong>LTIP <span class="icone-info" title="Licença para Tratar de Interesses Particular.">i</span></strong><br>Licença para Tratar de Interesses Particular.</div>
-                  <div class="licenca-info"><strong>Outras <span class="icone-info" title="Licença a Gestante/Paternidade.">i</span></strong><br>Licença a Gestante/Paternidade.</div>
+                  <div class="licenca-info"><strong>LTIP <span class="icone-info" title="Licença para Tratar de Interesse Particular.">i</span></strong><br>Licença para Tratar de Interesse Particular.</div>
+                  <div class="licenca-info"><strong>Outras <span class="icone-info" title="Licença gestante/paternidade.">i</span></strong><br>Licença gestante/paternidade.</div>
                 </div>
-                <div class="campo" style="max-width:260px"><label for="filtroLicencas">Filtrar licença</label><select id="filtroLicencas"><option value="TODOS">TODAS</option><option value="LTS">LTS</option><option value="LTSD">LTSD</option><option value="LTIP">LTIP</option><option value="OUTRAS">OUTRAS</option></select></div>
+                <div class="campo filtro-licencas-largura"><label for="filtroLicencas">Filtrar licença</label><select id="filtroLicencas"><option value="TODOS">TODAS</option><option value="LTS">LTS</option><option value="LTSD">LTSD</option><option value="LTIP">LTIP</option><option value="OUTRAS">OUTRAS</option></select></div>
                 <div id="listaLicencas" class="lista-cartoes"></div>
               </div>
             </div>
@@ -15008,7 +15685,7 @@
             <div class="cartao-topo">
               <div>
                 <span class="rotulo-suave">CONFIGURAÇÃO DAS ESCALAS</span>
-                <h3 style="margin:4px 0 0">Grades do efetivo</h3>
+                <h3 class="titulo-cartao">Grades do efetivo</h3>
                 <p>Configure separadamente a escala geral e as Bikes. As demais grades são calculadas automaticamente.</p>
               </div>
             </div>
@@ -15046,7 +15723,7 @@
 
           <div class="painel painel-lista-efetivo">
             <div class="cartao-topo painel-lista-efetivo-topo">
-              <div><span class="rotulo-suave">CONSULTA DO QUADRO</span><h3 style="margin:4px 0 0">Policiais do efetivo</h3><p>Use os filtros para localizar e conferir a situação cadastral.</p></div>
+              <div><span class="rotulo-suave">CONSULTA DO QUADRO</span><h3 class="titulo-cartao">Policiais do efetivo</h3><p>Use os filtros para localizar e conferir a situação cadastral.</p></div>
             </div>
             <div class="filtros filtros-automaticos">
               <div class="campo"><label for="filtroEfetivo">Pesquisar</label><input id="filtroEfetivo" type="search" autocomplete="off" placeholder="Matrícula, numeral ou nome de guerra"></div>
@@ -15063,53 +15740,6 @@
 
   <script>
     'use strict';
-    const VIEWPORT_SIGA = 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover';
-    let gestoEscalaSigaAtivo = false;
-
-    function obterMetaViewportSiga() {
-      let meta = document.querySelector('meta[name="viewport"]');
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.name = 'viewport';
-        document.head.appendChild(meta);
-      }
-      return meta;
-    }
-
-    function restaurarEscalaPadraoSiga() {
-      const meta = obterMetaViewportSiga();
-      meta.setAttribute(
-        'content',
-        'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.01, user-scalable=no, viewport-fit=cover'
-      );
-      requestAnimationFrame(() => meta.setAttribute('content', VIEWPORT_SIGA));
-    }
-
-    obterMetaViewportSiga().setAttribute('content', VIEWPORT_SIGA);
-    ['gesturestart', 'gesturechange'].forEach(tipo => {
-      document.addEventListener(tipo, evento => {
-        gestoEscalaSigaAtivo = true;
-        evento.preventDefault();
-      }, { passive: false });
-    });
-    document.addEventListener('touchmove', evento => {
-      if (evento.touches.length < 2) return;
-      gestoEscalaSigaAtivo = true;
-      evento.preventDefault();
-    }, { passive: false });
-    document.addEventListener('gestureend', evento => {
-      evento.preventDefault();
-      gestoEscalaSigaAtivo = false;
-      window.setTimeout(restaurarEscalaPadraoSiga, 40);
-    }, { passive: false });
-    document.addEventListener('touchend', evento => {
-      const escalaAlterada = window.visualViewport
-        && Math.abs(window.visualViewport.scale - 1) > .01;
-      if (evento.touches.length || (!gestoEscalaSigaAtivo && !escalaAlterada)) return;
-      gestoEscalaSigaAtivo = false;
-      window.setTimeout(restaurarEscalaPadraoSiga, 40);
-    }, { passive: true });
-
     const SIGA_VIEWPORT = (() => {
       let quadroAgendado = 0;
       let temporizadores = [];
@@ -15129,7 +15759,7 @@
 
       function medir() {
         const visual = window.visualViewport;
-        /* R9.8.4: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
+        /* R9.8.5: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
            A altura visual deve ser medida sem transformar essa oscilação em layout. */
         const alturaVisual = visual ? Number(visual.height || 0) : 0;
         const altura = Math.ceil(Math.max(
@@ -15179,7 +15809,7 @@
       });
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.8.4: não recalcular layout durante o bounce/scroll do visualViewport. */
+        /* R9.8.5: não recalcular layout durante o bounce/scroll do visualViewport. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const app = document.getElementById('appShell');
@@ -15199,7 +15829,7 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — R9.8.4 • CONTROLADOR DE ELASTICIDADE
+       SIGA 5.9.0 — R9.8.5 • CONTROLADOR DE ELASTICIDADE
        Mantém a rolagem normal do documento e intercepta somente
        a tentativa de ultrapassar o topo/rodapé. Assim o WebKit
        não move a viewport nem o cabeçalho, mas o usuário preserva
@@ -15479,9 +16109,21 @@
     const CHAVE_ATIVIDADE_SIGA = 'siga3cia_ultima_atividade';
     const CHAVE_SECAO_SIGA = 'siga3cia_secao_atual';
     const LIMITE_INATIVIDADE_MS = 15 * 60 * 1000;
+    function lerSessaoLocalSegura(chave) {
+      try { return sessionStorage.getItem(chave) || ''; }
+      catch (erro) { return ''; }
+    }
+    function gravarSessaoLocalSegura(chave, valor) {
+      try {
+        sessionStorage.setItem(chave, String(valor == null ? '' : valor));
+        return true;
+      } catch (erro) {
+        return false;
+      }
+    }
     try { localStorage.removeItem(CHAVE_SESSAO_SIGA); } catch (erro) {}
     const estado = {
-      token: sessionStorage.getItem(CHAVE_SESSAO_SIGA) || '',
+      token: lerSessaoLocalSegura(CHAVE_SESSAO_SIGA),
       usuario: null,
       configuracao: null,
       matriculaAtual: '',
@@ -15555,6 +16197,58 @@
     };
 
     const $ = id => document.getElementById(id);
+    const FOCOS_ANTERIORES_DIALOGOS = new WeakMap();
+
+    function elementosFocaveisDialogo(dialogo) {
+      if (!dialogo) return [];
+      return Array.from(dialogo.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'))
+        .filter(function(item) { return !item.disabled && item.offsetParent !== null; });
+    }
+
+    function exibirDialogo(dialogo) {
+      if (!dialogo) return;
+      const foco = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      if (foco && !dialogo.contains(foco)) FOCOS_ANTERIORES_DIALOGOS.set(dialogo, foco);
+      dialogo.classList.remove('oculto');
+      dialogo.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(function() {
+        const focaveis = elementosFocaveisDialogo(dialogo);
+        if (focaveis[0]) focaveis[0].focus({preventScroll:true});
+      });
+    }
+
+    function ocultarDialogo(dialogo) {
+      if (!dialogo || dialogo.classList.contains('oculto')) return;
+      dialogo.classList.add('oculto');
+      dialogo.setAttribute('aria-hidden','true');
+      if (!document.querySelector('.modal-permuta-admin:not(.oculto)')) document.body.style.overflow = '';
+      const foco = FOCOS_ANTERIORES_DIALOGOS.get(dialogo);
+      FOCOS_ANTERIORES_DIALOGOS.delete(dialogo);
+      if (foco && foco.isConnected) requestAnimationFrame(function() { foco.focus({preventScroll:true}); });
+    }
+
+    document.addEventListener('keydown', function(evento) {
+      const dialogos = Array.from(document.querySelectorAll('.modal-permuta-admin[role="dialog"]:not(.oculto)'));
+      const dialogo = dialogos[dialogos.length - 1];
+      if (!dialogo) return;
+      if (evento.key === 'Escape') {
+        evento.preventDefault();
+        ({
+          modalMinhaPermuta:fecharDetalheMinhaPermuta,
+          modalSeletorHorasCredito:fecharSeletorHorasCredito,
+          modalBaixaBancoHoras:fecharBaixaBancoHoras,
+          modalPermutaAdmin:fecharDetalhePermutaAdmin
+        }[dialogo.id] || function(){ ocultarDialogo(dialogo); })();
+        return;
+      }
+      if (evento.key !== 'Tab') return;
+      const focaveis = elementosFocaveisDialogo(dialogo);
+      if (!focaveis.length) { evento.preventDefault(); return; }
+      const primeiro = focaveis[0]; const ultimo = focaveis[focaveis.length - 1];
+      if (evento.shiftKey && document.activeElement === primeiro) { evento.preventDefault(); ultimo.focus(); }
+      else if (!evento.shiftKey && document.activeElement === ultimo) { evento.preventDefault(); primeiro.focus(); }
+    });
 
     const SIGA_PONTE = (() => {
       const URL_WEB_APP = 'https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec';
@@ -15582,9 +16276,10 @@
       }
 
       function origemGoogleValida(origem) {
-        if (origem === 'null') return true;
         try {
-          const host = new URL(origem).hostname.toLowerCase();
+          const url = new URL(origem);
+          if (url.protocol !== 'https:' || url.port) return false;
+          const host = url.hostname.toLowerCase();
           return host === 'script.google.com' || host === 'script.googleusercontent.com' || host.endsWith('.googleusercontent.com');
         } catch (erro) {
           return false;
@@ -15666,6 +16361,7 @@
           function receberPonte(evento) {
             const dados = evento.data || {};
             if (dados.tipo !== 'SIGA_PONTE_PRONTA' || dados.chave !== chave) return;
+            if (evento.source !== iframe.contentWindow) return;
             if (!origemGoogleValida(evento.origin) || !evento.ports || !evento.ports[0]) return;
 
             concluida = true;
@@ -15686,7 +16382,8 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.6.2';
+          iframe.referrerPolicy = 'strict-origin';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.9.0';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -15821,7 +16518,7 @@
     }
 
     function obterUltimaAtividadeSessao() {
-      const valor = Number(sessionStorage.getItem(CHAVE_ATIVIDADE_SIGA) || 0);
+      const valor = Number(lerSessaoLocalSegura(CHAVE_ATIVIDADE_SIGA) || 0);
       return Number.isFinite(valor) ? valor : 0;
     }
 
@@ -15838,7 +16535,7 @@
       const agora = Date.now();
       if (!forcar && agora - ultimaPersistenciaAtividade < 5000) return;
       ultimaPersistenciaAtividade = agora;
-      sessionStorage.setItem(CHAVE_ATIVIDADE_SIGA, String(agora));
+      gravarSessaoLocalSegura(CHAVE_ATIVIDADE_SIGA, agora);
       agendarExpiracaoSessao();
     }
 
@@ -15846,7 +16543,7 @@
       if (!estado.token || encerrandoSessaoAutomaticamente) return;
       const ultima = obterUltimaAtividadeSessao();
       if (!ultima || Date.now() - ultima >= LIMITE_INATIVIDADE_MS) {
-        encerrarSessaoAutomaticamente('Sessão encerrada após 15 minutos sem uso.');
+        encerrarSessaoAutomaticamente('Sessão encerrada.');
         return;
       }
       agendarExpiracaoSessao();
@@ -15972,6 +16669,25 @@
         .replace(/'/g, '&#039;');
     }
 
+    function argumentoJsAtributo(valor) {
+      const serializado = JSON.stringify(String(valor == null ? '' : valor))
+        .replace(/\u2028/g, '\\u2028')
+        .replace(/\u2029/g, '\\u2029');
+      return escaparAtributo(serializado);
+    }
+
+    function tokenClasseSeguro(valor, fallback) {
+      const token = String(valor == null ? '' : valor)
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '')
+        .slice(0, 64);
+      return token || String(fallback || 'neutro');
+    }
+
+    function tokenClasseSeguroMaiusculo(valor, fallback) {
+      return tokenClasseSeguro(valor, fallback || 'NEUTRO').toUpperCase();
+    }
+
     function somenteNumeros(valor) { return String(valor || '').replace(/\D/g, ''); }
 
     function dataHojeIso() {
@@ -15982,8 +16698,11 @@
 
     function formatarData(iso) {
       if (!iso) return '—';
-      const partes = String(iso).split('-');
-      return partes.length === 3 ? partes[2] + '/' + partes[1] + '/' + partes[0] : iso;
+      const texto = String(iso).trim();
+      const padraoIso = texto.match(/^(\d{4})-(\d{2})-(\d{2})(?:T|\s|$)/);
+      if (padraoIso) return padraoIso[3] + '/' + padraoIso[2] + '/' + padraoIso[1];
+      const padraoBr = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s|$)/);
+      return padraoBr ? padraoBr[1] + '/' + padraoBr[2] + '/' + padraoBr[3] : '—';
     }
 
     function formatarDataHora(valor) { return valor || '—'; }
@@ -15995,7 +16714,7 @@
       if (br) return br[1] + ' ' + br[2];
       const iso = texto.match(/^(\d{4})-(\d{2})-(\d{2})(?:T|\s)(\d{2}):(\d{2})(?::\d{2})?/);
       if (iso) return iso[3] + '/' + iso[2] + '/' + iso[1] + ' ' + iso[4] + ':' + iso[5];
-      return texto.replace(/(\d{2}:\d{2}):\d{2}\b/, '$1');
+      return '—';
     }
 
     function rotuloPostoGraduacaoUi(posto) {
@@ -16119,7 +16838,7 @@
       if (iso) return iso[3] + '/' + iso[2] + '/' + iso[1].slice(-2);
       const br = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
       if (br) return br[1] + '/' + br[2] + '/' + br[3].slice(-2);
-      return texto;
+      return '—';
     }
 
     function formatarDataHoraCurtaPermuta(valor) {
@@ -16143,7 +16862,7 @@
     function montarDetalhesPermutaPadrao(item) {
       const status = String(item.status || '').toUpperCase();
       const situacaoExcepcional = ['NEGADA','CANCELADA','PENDENTE'].includes(status)
-        ? `<span class="status ${escaparHtml(status)}">${escaparHtml(status)}</span>` : '';
+        ? `<span class="status ${tokenClasseSeguroMaiusculo(status)}">${escaparHtml(status)}</span>` : '';
       const modalidade = item.modalidade && String(item.modalidade).trim() !== '—'
         ? `<span>${escaparHtml(item.modalidade)}</span>` : '';
       const metaTitular = metaPolicialPermuta(item.matriculaSolicitante, item.gradeSolicitante);
@@ -16155,7 +16874,7 @@
       const justificativa = item.justificativa
         ? `<p class="detalhe-permuta-justificativa"><strong>Justificativa:</strong> ${escaparHtml(item.justificativa)}</p>` : '';
       const negativa = status === 'NEGADA' && item.observacaoAdmin
-        ? `<div class="mensagem erro" style="display:block"><strong>Motivo da negativa:</strong> ${escaparHtml(item.observacaoAdmin)}</div>` : '';
+        ? `<div class="mensagem mensagem-visivel erro"><strong>Motivo da negativa:</strong> ${escaparHtml(item.observacaoAdmin)}</div>` : '';
 
       return `
         <div class="detalhe-permuta-cabecalho">
@@ -16316,27 +17035,27 @@
         'ASPIRANTE','2º TENENTE','1º TENENTE','CAPITÃO','MAJOR','TENENTE-CORONEL','CORONEL'
       ];
       $('camposCadastro').innerHTML = `
-        <div class="campo"><label>Matrícula funcional</label><input name="matricula" value="${escaparHtml(matricula)}" readonly></div>
+        <div class="campo"><label for="cadastroMatricula">Matrícula funcional</label><input id="cadastroMatricula" name="matricula" value="${escaparHtml(matricula)}" readonly></div>
         <div class="grade-2">
-          <div class="campo"><label>Nome completo</label><input name="nomeCompleto" value="${escaparHtml(conhecido.nomeCompleto || '')}" required></div>
-          <div class="campo"><label>Nome de guerra</label><input name="nomeGuerra" value="${escaparHtml(conhecido.nomeGuerra || '')}" required></div>
+          <div class="campo"><label for="cadastroNomeCompleto">Nome completo</label><input id="cadastroNomeCompleto" name="nomeCompleto" value="${escaparHtml(conhecido.nomeCompleto || '')}" required></div>
+          <div class="campo"><label for="cadastroNomeGuerra">Nome de guerra</label><input id="cadastroNomeGuerra" name="nomeGuerra" value="${escaparHtml(conhecido.nomeGuerra || '')}" required></div>
         </div>
         <div class="grade-2">
-          <div class="campo"><label>E-mail</label><input name="email" type="email" value="${escaparHtml(conhecido.email || '')}" required></div>
-          <div class="campo"><label>Contato / WhatsApp</label><input name="contato" type="tel" inputmode="numeric" value="${escaparHtml(conhecido.contato || '')}" required></div>
+          <div class="campo"><label for="cadastroEmail">E-mail</label><input id="cadastroEmail" name="email" type="email" value="${escaparHtml(conhecido.email || '')}" required></div>
+          <div class="campo"><label for="cadastroContato">Contato / WhatsApp</label><input id="cadastroContato" name="contato" type="tel" inputmode="numeric" value="${escaparHtml(conhecido.contato || '')}" required></div>
         </div>
         <div class="grade-2">
-          <div class="campo"><label>Data de nascimento</label><input name="dataNascimento" type="date" value="${escaparHtml(conhecido.dataNascimento || '')}" required></div>
-          <div class="campo"><label>Data da última promoção</label><input name="dataUltimaPromocao" type="date" value="${escaparHtml(conhecido.dataUltimaPromocao || '')}" required></div>
+          <div class="campo"><label for="cadastroNascimento">Data de nascimento</label><input id="cadastroNascimento" name="dataNascimento" type="date" value="${escaparHtml(conhecido.dataNascimento || '')}" required></div>
+          <div class="campo"><label for="cadastroPromocao">Data da última promoção</label><input id="cadastroPromocao" name="dataUltimaPromocao" type="date" value="${escaparHtml(conhecido.dataUltimaPromocao || '')}" required></div>
         </div>
         <div class="grade-2">
-          <div class="campo"><label>Posto/graduação</label><select name="postoGraduacao" id="cadastroPosto" required><option value="">SELECIONE</option>${postos.map(p => `<option value="${p}" ${p === conhecido.postoGraduacao ? 'selected' : ''}>${p === 'TENENTE-CORONEL' ? 'TEN.-CORONEL' : p}</option>`).join('')}</select></div>
-          <div class="campo"><label>Numeral</label><input name="numeral" id="cadastroNumeral" inputmode="numeric" value="${escaparHtml(conhecido.numeral || '')}"></div>
+          <div class="campo"><label for="cadastroPosto">Posto/graduação</label><select name="postoGraduacao" id="cadastroPosto" required><option value="">SELECIONE</option>${postos.map(p => `<option value="${p}" ${p === conhecido.postoGraduacao ? 'selected' : ''}>${p === 'TENENTE-CORONEL' ? 'TEN.-CORONEL' : p}</option>`).join('')}</select></div>
+          <div class="campo"><label for="cadastroNumeral">Numeral</label><input name="numeral" id="cadastroNumeral" inputmode="numeric" value="${escaparHtml(conhecido.numeral || '')}"></div>
         </div>
-        <div class="campo"><label>Unidade</label><input value="3ª CIA / 19º BPM" readonly></div>
+        <div class="campo"><label for="cadastroUnidade">Unidade</label><input id="cadastroUnidade" value="3ª CIA / 19º BPM" readonly></div>
         <div class="grade-2">
-          <div class="campo"><label>Criar senha</label><input name="senha" type="password" inputmode="numeric" minlength="4" maxlength="32" required><small class="ajuda">De 4 a 32 dígitos numéricos.</small></div>
-          <div class="campo"><label>Repetir senha</label><input name="repetirSenha" type="password" inputmode="numeric" minlength="4" maxlength="32" required></div>
+          <div class="campo"><label for="cadastroSenha">Criar senha</label><input id="cadastroSenha" name="senha" type="password" inputmode="numeric" minlength="4" maxlength="32" aria-describedby="ajudaCadastroSenha" required><small id="ajudaCadastroSenha" class="ajuda">De 4 a 32 dígitos numéricos.</small></div>
+          <div class="campo"><label for="cadastroRepetirSenha">Repetir senha</label><input id="cadastroRepetirSenha" name="repetirSenha" type="password" inputmode="numeric" minlength="4" maxlength="32" required></div>
         </div>`;
       $('cadastroPosto').addEventListener('change', atualizarNumeralCadastro);
       atualizarNumeralCadastro();
@@ -16420,11 +17139,12 @@
         estado.configuracao = resposta.configuracao;
         ultimaRevalidacaoGovernanca = Date.now();
         estado.rotinasAdminAquecidas = false;
-        sessionStorage.setItem(CHAVE_SESSAO_SIGA, token);
+        gravarSessaoLocalSegura(CHAVE_SESSAO_SIGA, token);
         registrarAtividadeSessao(true);
         await configurarAplicacao();
         $('telaAcesso').classList.add('oculto');
         $('appShell').classList.remove('oculto');
+        document.body.classList.remove('modo-acesso');
         SIGA_VIEWPORT.atualizar();
         ocultarCarregando();
 
@@ -16590,7 +17310,7 @@
       area.innerHTML=lista.length?lista.map(function(n){
         const lida=String(n.status||'').toUpperCase()==='LIDA';
         const prioridade=String(n.prioridade||'NORMAL').toLowerCase().replace(/[áàãâ]/g,'a').replace(/[íìî]/g,'i');
-        return `<button type="button" class="notificacao-item ${lida?'':'nao-lida'} prioridade-${escaparAtributo(prioridade)}" onclick="abrirNotificacaoCliente('${escaparAtributo(n.id)}')">
+        return `<button type="button" class="notificacao-item ${lida?'':'nao-lida'} prioridade-${tokenClasseSeguro(prioridade)}" onclick="abrirNotificacaoCliente(${argumentoJsAtributo(n.id)})">
           <span class="notificacao-icone">${escaparHtml(iconeCategoriaNotificacao(n.categoria))}</span>
           <span><strong>${escaparHtml(n.titulo||'Notificação')}</strong><p>${escaparHtml(n.mensagem||'')}</p><span class="notificacao-meta"><span>${escaparHtml(n.categoria||'SIGA')}</span><span>${escaparHtml(n.criadaEm||'')}</span>${lida?'<span>Lida</span>':'<span>Nova</span>'}</span></span>
         </button>`;
@@ -16612,17 +17332,37 @@
       $('overlayNotificacoes').classList.remove('oculto');
       $('painelNotificacoes').setAttribute('aria-hidden','false');
       $('botaoNotificacoes').setAttribute('aria-expanded','true');
+      requestAnimationFrame(function(){ $('painelNotificacoes').querySelector('.botao-fechar-notificacao')?.focus(); });
       carregarNotificacoes(true);
     }
     function fecharPainelNotificacoes() {
+      const focoEstavaNoPainel=$('painelNotificacoes').contains(document.activeElement);
       $('painelNotificacoes').classList.add('oculto');
       $('overlayNotificacoes').classList.add('oculto');
       $('painelNotificacoes').setAttribute('aria-hidden','true');
       $('botaoNotificacoes').setAttribute('aria-expanded','false');
+      if(focoEstavaNoPainel)$('botaoNotificacoes').focus();
     }
     function alternarPainelNotificacoes() {
       if ($('painelNotificacoes').classList.contains('oculto')) abrirPainelNotificacoes(); else fecharPainelNotificacoes();
     }
+    document.addEventListener('keydown',function(evento){
+      const painel=$('painelNotificacoes');
+      if(!painel||painel.classList.contains('oculto'))return;
+      if(evento.key==='Escape'){
+        evento.preventDefault();
+        fecharPainelNotificacoes();
+        return;
+      }
+      if(evento.key==='Tab'){
+        const focaveis=Array.from(painel.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'))
+          .filter(function(item){return !item.disabled&&item.offsetParent!==null;});
+        if(!focaveis.length){evento.preventDefault();return;}
+        const primeiro=focaveis[0]; const ultimo=focaveis[focaveis.length-1];
+        if(evento.shiftKey&&document.activeElement===primeiro){evento.preventDefault();ultimo.focus();}
+        else if(!evento.shiftKey&&document.activeElement===ultimo){evento.preventDefault();primeiro.focus();}
+      }
+    });
     async function abrirNotificacaoCliente(id) {
       const item=(estado.notificacoes||[]).find(function(n){return String(n.id)===String(id);});
       if(!item) return;
@@ -16679,10 +17419,14 @@
 
     function renderizarComparativoComando(r) {
       const area=$('conteudoComparativoComando'); if(!area) return;
-      const serie=r.serie||[]; const totais=r.totais||{}; const max=Math.max(1,...serie.map(function(x){return Math.max(x.permutas||0,x.checklists||0,x.perfil||0,x.auditoria||0);}));
-      area.innerHTML=`<div class="comparativo-resumo"><div class="comparativo-kpi"><small>Permutas</small><strong>${Number(totais.permutas||0)}</strong></div><div class="comparativo-kpi"><small>Checklists</small><strong>${Number(totais.checklists||0)}</strong></div><div class="comparativo-kpi"><small>Solicitações perfil</small><strong>${Number(totais.perfil||0)}</strong></div><div class="comparativo-kpi"><small>Auditoria</small><strong>${Number(totais.auditoria||0)}</strong></div><div class="comparativo-kpi"><small>Média diária</small><strong>${Number(r.mediaDiaria||0)}</strong></div></div>
-      <div class="comparativo-grafico" style="--comparativo-colunas:${Math.max(7,serie.length)}">${serie.map(function(x){const label=String(x.data||'').slice(5).split('-').reverse().join('/'); const h=function(v){return Math.max(2,Math.round((Number(v||0)/max)*135));}; return `<div class="comparativo-dia" title="${escaparAtributo(x.data)} • Total ${Number(x.total||0)}"><div class="comparativo-barras"><span class="comparativo-barra" style="height:${h(x.permutas)}px" title="Permutas: ${x.permutas}"></span><span class="comparativo-barra checklist" style="height:${h(x.checklists)}px" title="Checklists: ${x.checklists}"></span><span class="comparativo-barra perfil" style="height:${h(x.perfil)}px" title="Perfil: ${x.perfil}"></span><span class="comparativo-barra auditoria" style="height:${h(x.auditoria)}px" title="Auditoria: ${x.auditoria}"></span></div><small>${label}</small></div>`;}).join('')}</div>
-      <div class="comparativo-legenda"><span>Permutas</span><span class="leg-check">Checklists</span><span class="leg-perfil">Solicitações cadastrais</span><span class="leg-audit">Auditoria</span><strong>Variação entre metades do período: ${Number(r.variacao||0)>0?'+':''}${Number(r.variacao||0)}%</strong></div>`;
+      r=r&&typeof r==='object'?r:{};
+      const numero=function(valor){const n=Number(valor);return Number.isFinite(n)?n:0;};
+      const serie=Array.isArray(r.serie)?r.serie:[]; const totais=r.totais&&typeof r.totais==='object'?r.totais:{};
+      const max=Math.max(1,...serie.map(function(x){x=x||{};return Math.max(numero(x.permutas),numero(x.checklists),numero(x.perfil),numero(x.auditoria));}));
+      const variacao=numero(r.variacao);
+      area.innerHTML=`<div class="comparativo-resumo"><div class="comparativo-kpi"><small>Permutas</small><strong>${numero(totais.permutas)}</strong></div><div class="comparativo-kpi"><small>Checklists</small><strong>${numero(totais.checklists)}</strong></div><div class="comparativo-kpi"><small>Solicitações perfil</small><strong>${numero(totais.perfil)}</strong></div><div class="comparativo-kpi"><small>Auditoria</small><strong>${numero(totais.auditoria)}</strong></div><div class="comparativo-kpi"><small>Média diária</small><strong>${numero(r.mediaDiaria)}</strong></div></div>
+      <div class="comparativo-grafico" style="--comparativo-colunas:${Math.max(7,serie.length)}">${serie.map(function(x){x=x||{}; const data=String(x.data||''); const label=data.slice(5).split('-').reverse().join('/'); const h=function(v){return Math.max(2,Math.round((numero(v)/max)*135));}; const permutas=numero(x.permutas); const checklists=numero(x.checklists); const perfil=numero(x.perfil); const auditoria=numero(x.auditoria); return `<div class="comparativo-dia" title="${escaparAtributo(data)} • Total ${numero(x.total)}"><div class="comparativo-barras"><span class="comparativo-barra" style="height:${h(permutas)}px" title="Permutas: ${permutas}"></span><span class="comparativo-barra checklist" style="height:${h(checklists)}px" title="Checklists: ${checklists}"></span><span class="comparativo-barra perfil" style="height:${h(perfil)}px" title="Perfil: ${perfil}"></span><span class="comparativo-barra auditoria" style="height:${h(auditoria)}px" title="Auditoria: ${auditoria}"></span></div><small>${escaparHtml(label)}</small></div>`;}).join('')}</div>
+      <div class="comparativo-legenda"><span>Permutas</span><span class="leg-check">Checklists</span><span class="leg-perfil">Solicitações cadastrais</span><span class="leg-audit">Auditoria</span><strong>Variação entre metades do período: ${variacao>0?'+':''}${variacao}%</strong></div>`;
     }
     async function carregarComparativoComando(dias) {
       if(!ehComandoAdminCliente(estado.usuario&&estado.usuario.setorAdmin)) return;
@@ -16809,6 +17553,7 @@
       if (alvo) {
         alvo.classList.add('ativa');
         alvo.setAttribute('aria-hidden','false');
+        alvo.setAttribute('tabindex','-1');
       }
       document.querySelectorAll('.menu-item[data-secao]').forEach(function(item) {
         const ativo = item.dataset.secao === secao;
@@ -16829,6 +17574,7 @@
       document.title='SIGA • '+tituloAtual;
       fecharMenuMobile();
       window.scrollTo({top:0,left:0,behavior:'auto'});
+      if (alvo) requestAnimationFrame(function(){ alvo.focus({preventScroll:true}); });
       if (secao==='calendario') carregarCalendarioUsuario();
       if (secao==='checklist') carregarChecklist();
       if (secao==='permutas') {
@@ -16862,7 +17608,7 @@
       sidebar.querySelectorAll('.menu-lateral').forEach(function(menu) {
         menu.style.setProperty('overflow-y','auto','important');
         menu.style.setProperty('overflow-x','hidden','important');
-        menu.style.setProperty('touch-action','pan-y','important');
+        menu.style.setProperty('touch-action','pan-y pinch-zoom','important');
         menu.style.setProperty('-webkit-overflow-scrolling','touch','important');
         menu.style.setProperty('overscroll-behavior-y','contain','important');
         menu.style.setProperty('min-height','0','important');
@@ -16887,6 +17633,7 @@
     function abrirMenuMobile() {
       $('sidebar').classList.add('aberta');
       $('overlayMobile').classList.add('ativo');
+      $('botaoMenuMobile')?.setAttribute('aria-expanded','true');
       normalizarRolagemMenuLateral();
       SIGA_VIEWPORT.atualizar();
       requestAnimationFrame(normalizarRolagemMenuLateral);
@@ -16894,9 +17641,17 @@
     function fecharMenuMobile() {
       $('sidebar').classList.remove('aberta');
       $('overlayMobile').classList.remove('ativo');
+      $('botaoMenuMobile')?.setAttribute('aria-expanded','false');
       normalizarRolagemMenuLateral();
       SIGA_VIEWPORT.atualizar();
     }
+
+    document.addEventListener('keydown', function(evento) {
+      if (evento.key !== 'Escape' || !$('sidebar')?.classList.contains('aberta')) return;
+      evento.preventDefault();
+      fecharMenuMobile();
+      $('botaoMenuMobile')?.focus();
+    });
 
     window.addEventListener('pageshow', recuperarInteracaoAoRetomar);
     window.addEventListener('focus', recuperarInteracaoAoRetomar);
@@ -16918,6 +17673,7 @@
     function voltarParaAcesso() {
       $('appShell').classList.add('oculto');
       $('telaAcesso').classList.remove('oculto');
+      document.body.classList.add('modo-acesso');
       SIGA_VIEWPORT.atualizar();
       voltarParaMatricula();
     }
@@ -16939,8 +17695,8 @@
 
     function campoTextoChecklist(nome, rotulo, placeholder, tipo) {
       const tag = tipo === 'input'
-        ? `<input name="${escaparHtml(nome)}" type="text" maxlength="1200" placeholder="${escaparHtml(placeholder || 'Descreva a situação encontrada.')}" required data-checklist-obrigatorio>`
-        : `<textarea name="${escaparHtml(nome)}" maxlength="1200" placeholder="${escaparHtml(placeholder || 'Descreva a situação encontrada.')}" required data-checklist-obrigatorio></textarea>`;
+        ? `<input name="${escaparHtml(nome)}" type="text" aria-label="${escaparHtml(rotulo)}" maxlength="1200" placeholder="${escaparHtml(placeholder || 'Descreva a situação encontrada.')}" required data-checklist-obrigatorio>`
+        : `<textarea name="${escaparHtml(nome)}" aria-label="${escaparHtml(rotulo)}" maxlength="1200" placeholder="${escaparHtml(placeholder || 'Descreva a situação encontrada.')}" required data-checklist-obrigatorio></textarea>`;
       return `<div class="campo"><label>${escaparHtml(rotulo)} *</label>${tag}</div>`;
     }
 
@@ -17057,9 +17813,9 @@
         : `<div class="declaracao-checklist">${escaparHtml(campo.label)}</div>`;
       if (campo.tipo==='IMAGE') return `<div class="campo"><h4>${escaparHtml(campo.label||'')}</h4><div class="midia-lazy" data-midia="${escaparHtml(campo.arquivo||'')}"><div class="vazio">Imagem será carregada ao aparecer na tela.</div></div></div>`;
       if (campo.tipo==='GALLERY') return `<div class="campo"><h4>${escaparHtml(campo.label||'')}</h4><div class="manual-grid">${(campo.arquivos||[]).map((a,i)=>`<figure class="manual-pagina"><figcaption>${i+1}/${(campo.arquivos||[]).length}</figcaption><div class="midia-lazy" data-midia="${escaparHtml(a)}"><div class="vazio">Carregando sob demanda...</div></div></figure>`).join('')}</div></div>`;
-      if (campo.tipo==='PROFILE') return `<div class="campo"><label>${escaparHtml(campo.label)}</label><input type="text" value="${escaparHtml(estado.usuario[campo.fonte]||'')}" readonly></div>`;
+      if (campo.tipo==='PROFILE') return `<div class="campo"><label>${escaparHtml(campo.label)}</label><input type="text" aria-label="${escaparHtml(campo.label)}" value="${escaparHtml(estado.usuario[campo.fonte]||'')}" readonly></div>`;
       if (campo.tipo==='POLICE_SEARCH') return `<div class="campo"><label id="labelPolicialPermuta" for="pesquisaSubstituto">${escaparHtml(campo.label)}${obrig}</label><input id="pesquisaSubstituto" type="search" autocomplete="off" aria-describedby="ajudaPolicialPermuta" placeholder="${escaparHtml(campo.placeholder||'Digite matrícula, numeral ou nome de guerra')}"><small id="ajudaPolicialPermuta" class="ajuda"></small><div id="resultadosSubstituto" class="pesquisa-resultados"></div><div id="substitutoSelecionado" class="pessoa-selecionada oculto"></div></div>`;
-      if (campo.tipo==='FILES') return `<div class="campo"><label>${escaparHtml(campo.label)}</label><div class="upload-checklist"><input id="fotosChecklist" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple><small class="ajuda">Até ${Number(campo.maxArquivos||5)} fotos, ${Number(campo.maxMb||5)} MB por arquivo.</small><div id="listaFotosChecklist" class="lista-anexos-pendentes"></div></div></div>`;
+      if (campo.tipo==='FILES') return `<div class="campo"><label for="fotosChecklist">${escaparHtml(campo.label)}</label><div class="upload-checklist"><input id="fotosChecklist" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple><small class="ajuda">Até ${Number(campo.maxArquivos||5)} fotos, ${Number(campo.maxMb||5)} MB por arquivo.</small><div id="listaFotosChecklist" class="lista-anexos-pendentes"></div></div></div>`;
       if (campo.tipo==='CONFIRM') {
         if (modulo==='PERMUTAS') return `<label class="confirm-card"><input type="checkbox" data-form-id="${escaparHtml(campo.id)}"${attr}><span class="confirm-check">✓</span><span class="confirm-texto">${escaparHtml(campo.label)}</span></label>`;
         return `<div class="campo"><div class="declaracao-checklist">${escaparHtml(campo.label)}</div><label class="confirmacao"><input type="checkbox" data-form-id="${escaparHtml(campo.id)}"${attr}><span>CONFIRMO A LEITURA</span></label></div>`;
@@ -17072,11 +17828,11 @@
         const muitoCurtas=modulo==='CHECKLIST' && visuais.length<=3 && visuais.every(op=>String(op.rotulo).length<=3);
         const possuiAviso=visuais.some(op=>Boolean(op.aviso));
         const classeOpcoes=muitoCurtas?'opcoes-muito-curtas':compacta?'opcoes-compactas':'opcoes-longas';
-        return `<div class="campo campo-escolha"><label>${escaparHtml(campo.label)}${obrig}</label><div class="opcoes-radio ${classeOpcoes}">${visuais.map(op=>`<label class="opcao-radio"><input type="radio" name="dyn-${modulo}-${escaparHtml(campo.id)}" data-form-id="${escaparHtml(campo.id)}" value="${escaparHtml(op.original)}"${op.aviso?` data-aviso-operacional="${escaparHtml(op.aviso)}"`:''}${attr}><span>${escaparHtml(op.rotulo)}</span></label>`).join('')}</div>${possuiAviso?'<div class="aviso-operacional-campo oculto" data-aviso-box></div>':''}${campo.ajuda?`<small class="ajuda">${escaparHtml(campo.ajuda)}</small>`:''}</div>`;
+        return `<div class="campo campo-escolha"><label>${escaparHtml(campo.label)}${obrig}</label><div class="opcoes-radio ${classeOpcoes}" role="radiogroup" aria-label="${escaparHtml(campo.label)}">${visuais.map(op=>`<label class="opcao-radio"><input type="radio" name="dyn-${modulo}-${escaparHtml(campo.id)}" data-form-id="${escaparHtml(campo.id)}" value="${escaparHtml(op.original)}"${op.aviso?` data-aviso-operacional="${escaparHtml(op.aviso)}"`:''}${attr}><span>${escaparHtml(op.rotulo)}</span></label>`).join('')}</div>${possuiAviso?'<div class="aviso-operacional-campo oculto" data-aviso-box></div>':''}${campo.ajuda?`<small class="ajuda">${escaparHtml(campo.ajuda)}</small>`:''}</div>`;
       }
-      if (campo.tipo==='SELECT') return `<div class="campo"><label>${escaparHtml(campo.label)}${obrig}</label><select data-form-id="${escaparHtml(campo.id)}"${attr}><option value="">SELECIONE</option>${(campo.opcoes||[]).map(op=>`<option value="${escaparHtml(op)}">${escaparHtml(op)}</option>`).join('')}</select></div>`;
+      if (campo.tipo==='SELECT') return `<div class="campo"><label>${escaparHtml(campo.label)}${obrig}</label><select aria-label="${escaparHtml(campo.label)}" data-form-id="${escaparHtml(campo.id)}"${attr}><option value="">SELECIONE</option>${(campo.opcoes||[]).map(op=>`<option value="${escaparHtml(op)}">${escaparHtml(op)}</option>`).join('')}</select></div>`;
       const placeholderTexto = campo.placeholder || (modulo==='CHECKLIST' && campo.tipo==='TEXTAREA' ? 'Descreva a condição observada.' : '');
-      const tag = campo.tipo==='TEXTAREA' ? `<textarea rows="1" data-form-id="${escaparHtml(campo.id)}" maxlength="5000" placeholder="${escaparHtml(placeholderTexto)}"${attr}></textarea>` : `<input data-form-id="${escaparHtml(campo.id)}" type="${campo.tipo==='DATE'?'date':campo.tipo==='NUMBER'?'number':'text'}" placeholder="${escaparHtml(campo.placeholder||'')}" ${campo.minHoje?'min="'+dataHojeIso()+'"':''}${attr}>`;
+      const tag = campo.tipo==='TEXTAREA' ? `<textarea rows="1" aria-label="${escaparHtml(campo.label)}" data-form-id="${escaparHtml(campo.id)}" maxlength="5000" placeholder="${escaparHtml(placeholderTexto)}"${attr}></textarea>` : `<input aria-label="${escaparHtml(campo.label)}" data-form-id="${escaparHtml(campo.id)}" type="${campo.tipo==='DATE'?'date':campo.tipo==='NUMBER'?'number':'text'}" placeholder="${escaparHtml(campo.placeholder||'')}" ${campo.minHoje?'min="'+dataHojeIso()+'"':''}${attr}>`;
       return `<div class="campo"><label>${escaparHtml(campo.label)}${obrig}</label>${tag}${campo.ajuda?`<small class="ajuda">${escaparHtml(campo.ajuda)}</small>`:''}</div>`;
     }
 
@@ -17245,8 +18001,15 @@
       try {
         let data=MIDIA_CACHE.get(nome);
         if(!data){const r=await api('obterMidiaFormulario',estado.token,nome);if(!r.sucesso)throw new Error(r.mensagem||'Mídia indisponível.');data=r.dataUrl;MIDIA_CACHE.set(nome,data);}
-        alvo.innerHTML=`<img class="imagem-orientacao" src="${data}" alt="${escaparHtml(nome)}">`;
-      } catch(e){alvo.innerHTML=`<div class="mensagem aviso" style="display:block">${escaparHtml(e.message||String(e))}</div>`;}
+        if (!/^data:image\/(?:png|jpe?g|webp|gif);base64,[a-z0-9+/=\s]+$/i.test(String(data || ''))) {
+          throw new Error('O formato da mídia recebida não é válido.');
+        }
+        const imagem = document.createElement('img');
+        imagem.className = 'imagem-orientacao';
+        imagem.src = data;
+        imagem.alt = String(nome || 'Imagem de orientação');
+        alvo.replaceChildren(imagem);
+      } catch(e){alvo.innerHTML=`<div class="mensagem mensagem-visivel aviso">${escaparHtml(e.message||String(e))}</div>`;}
     }
 
     function observarMidiasLazy(container) {
@@ -17530,7 +18293,7 @@
             <div class="dado"><small>Fotos</small><strong>${(item.fotos || []).length}</strong></div>
             <div class="dado"><small>Protocolo</small><strong>${escaparHtml(item.id || '—')}</strong></div>
           </div>
-          <p style="margin:10px 0 0;color:var(--texto-suave);font-size:10px">Concluído em ${escaparHtml(item.concluidoEm || '—')}</p>
+          <p class="registro-conclusao">Concluído em ${escaparHtml(item.concluidoEm || '—')}</p>
         </article>`).join('');
     }
 
@@ -17558,7 +18321,7 @@
           const policiais = resposta.policiais || [];
           $('resultadosSubstituto').innerHTML = policiais.length
             ? policiais.map(p => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" data-policial='${escaparHtml(JSON.stringify(p))}'><strong>${htmlIdentificacaoPolicial(p)}</strong><span>Toque para selecionar</span></button>`).join('')
-            : '<div class="vazio" style="padding:14px">Nenhum policial localizado.</div>';
+            : '<div class="vazio vazio-com-respiro">Nenhum policial localizado.</div>';
           document.querySelectorAll('[data-policial]').forEach(botao => {
             botao.addEventListener('click', () => selecionarSubstituto(JSON.parse(botao.dataset.policial)));
           });
@@ -17671,7 +18434,7 @@
             <strong>${escaparHtml(item.solicitante)} → ${escaparHtml(item.substituto)}</strong>
             <small>${escaparHtml(item.tipo || 'PERMUTA')}</small>
           </div>
-          <button class="permuta-olho" type="button" aria-label="Ver detalhes da permuta de ${escaparAtributo(item.dataServico)}" title="Ver detalhes" onclick="abrirDetalheMinhaPermuta('${escaparAtributo(item.id)}')">
+          <button class="permuta-olho" type="button" aria-label="Ver detalhes da permuta de ${escaparAtributo(item.dataServico)}" title="Ver detalhes" onclick="abrirDetalheMinhaPermuta(${argumentoJsAtributo(item.id)})">
             <svg class="icone-svg" aria-hidden="true"><use href="#icone-olho"></use></svg>
           </button>
         </article>`).join('');
@@ -17684,16 +18447,14 @@
       $('tituloModalMinhaPermuta').textContent = item.solicitante + ' → ' + item.substituto;
       $('detalhesMinhaPermuta').innerHTML = `
         ${montarDetalhesPermutaPadrao(item)}
-        ${item.status === 'PENDENTE' && item.podeCancelar ? `<button class="botao botao-perigo botao-largo" type="button" onclick="cancelarPermutaUsuario('${escaparAtributo(item.id)}')">CANCELAR SOLICITAÇÃO</button>` : ''}`;
-      $('modalMinhaPermuta').classList.remove('oculto');
-      document.body.style.overflow='hidden';
+        ${item.status === 'PENDENTE' && item.podeCancelar ? `<button class="botao botao-perigo botao-largo" type="button" onclick="cancelarPermutaUsuario(${argumentoJsAtributo(item.id)})">CANCELAR SOLICITAÇÃO</button>` : ''}`;
+      exibirDialogo($('modalMinhaPermuta'));
       const hist=$('historicoMinhaPermuta'); if(hist){hist.classList.remove('oculto'); const area=hist.querySelector('.historico-eventos'); if(area) area.innerHTML='<div class="vazio compacto">Carregando histórico...</div>'; }
       carregarHistoricoRegistroCliente('PERMUTA',item.id,'historicoMinhaPermuta');
     }
 
     function fecharDetalheMinhaPermuta() {
-      $('modalMinhaPermuta').classList.add('oculto');
-      document.body.style.overflow='';
+      ocultarDialogo($('modalMinhaPermuta'));
       estado.minhaPermutaAberta=null;
     }
 
@@ -17720,7 +18481,8 @@
     }
 
     function formatarMinutosBancoHoras(minutosInformados) {
-      const minutos = Math.max(0, Math.round(Number(minutosInformados || 0)));
+      const numero = Number(minutosInformados);
+      const minutos = Number.isFinite(numero) ? Math.max(0, Math.round(numero)) : 0;
       const horas = Math.floor(minutos / 60);
       const restante = minutos % 60;
       if (!restante) return horas + 'h';
@@ -17794,8 +18556,7 @@
 
     const seletorHorasCreditoEstado = {
       horas: 1,
-      minutos: 0,
-      focoAnterior: null
+      minutos: 0
     };
 
     function normalizarDuracaoCreditoParaMinutos(valor) {
@@ -17854,24 +18615,14 @@
       const base = atual > 0 ? atual : 60;
       seletorHorasCreditoEstado.horas = Math.floor(base / 60);
       seletorHorasCreditoEstado.minutos = base % 60;
-      seletorHorasCreditoEstado.focoAnterior = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       atualizarInterfaceSeletorHorasCredito();
-      modal.classList.remove('oculto');
-      document.body.style.overflow = 'hidden';
-      requestAnimationFrame(function() {
-        const fechar = modal.querySelector('.modal-permuta-fechar');
-        if (fechar) fechar.focus({preventScroll:true});
-      });
+      exibirDialogo(modal);
     }
 
     function fecharSeletorHorasCredito() {
       const modal = $('modalSeletorHorasCredito');
       if (!modal || modal.classList.contains('oculto')) return;
-      modal.classList.add('oculto');
-      document.body.style.overflow = '';
-      const foco = seletorHorasCreditoEstado.focoAnterior;
-      seletorHorasCreditoEstado.focoAnterior = null;
-      if (foco && foco.isConnected) requestAnimationFrame(function(){ foco.focus({preventScroll:true}); });
+      ocultarDialogo(modal);
     }
 
     function ajustarHorasInteirasCredito(delta) {
@@ -17979,13 +18730,6 @@
       conteudo.setAttribute('aria-hidden', recolher ? 'true' : 'false');
     }
 
-    document.addEventListener('keydown', function(evento) {
-      if (evento.key === 'Escape' && $('modalSeletorHorasCredito') && !$('modalSeletorHorasCredito').classList.contains('oculto')) {
-        evento.preventDefault();
-        fecharSeletorHorasCredito();
-      }
-    });
-
     function prepararBancoHoras() {
       configurarPainelRegistroCreditoBancoHoras();
       if ($('dataCreditoBancoHoras')) $('dataCreditoBancoHoras').max = dataHojeIso();
@@ -18041,7 +18785,7 @@
         return `<article class="credito-banco-horas">
           <div class="credito-banco-data"><span class="credito-banco-tipo">CRÉDITO</span><strong>${formatarData(credito.data)}</strong></div>
           <div class="credito-banco-conteudo">
-            <div class="credito-banco-linha-principal"><strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong><span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${situacao}</span></div>
+            <div class="credito-banco-linha-principal"><strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong><span class="situacao-banco-horas ${tokenClasseSeguroMaiusculo(credito.situacao)}">${situacao}</span></div>
             <span class="credito-banco-total">Crédito original: ${formatarMinutosBancoHoras(credito.minutos)}</span>
             <div class="credito-banco-meta">
               <span><b>Nº do livro</b> ${escaparHtml(credito.livro || '—')}</span>
@@ -18079,7 +18823,7 @@
         estado.policiaisBancoHoras = resposta.policiais || [];
         $('resultadosPolicialBancoHoras').innerHTML = estado.policiaisBancoHoras.length
           ? estado.policiaisBancoHoras.map(function(policial) {
-              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBancoHoras('${escaparAtributo(policial.id)}')"><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Toque para selecionar</span></button>`;
+              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBancoHoras(${argumentoJsAtributo(policial.id)})"><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Toque para selecionar</span></button>`;
             }).join('')
           : '<div class="resultado-pesquisa"><span>Nenhum policial encontrado.</span></div>';
       } catch (erro) {
@@ -18194,7 +18938,7 @@
         estado.policiaisBaixaP1BancoHoras = resposta.policiais || [];
         $('resultadosBaixaP1BancoHoras').innerHTML = estado.policiaisBaixaP1BancoHoras.length
           ? estado.policiaisBaixaP1BancoHoras.map(function(policial) {
-              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBaixaP1BancoHoras('${escaparAtributo(policial.id)}')"><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Consultar créditos para baixa</span></button>`;
+              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialBaixaP1BancoHoras(${argumentoJsAtributo(policial.id)})"><strong>${htmlIdentificacaoPolicial(policial)}</strong><span>Consultar créditos para baixa</span></button>`;
             }).join('')
           : '<div class="resultado-pesquisa"><span>Nenhum policial encontrado.</span></div>';
       } catch (erro) {
@@ -18277,8 +19021,8 @@
             ${htmlHistoricoBaixasBancoHoras(credito.baixas)}
           </div>
           <div class="credito-p1-banco-acoes">
-            <span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '')}</span>
-            ${podeBaixar ? `<button class="botao botao-secundario botao-baixa-horas" type="button" onclick="abrirBaixaBancoHoras('${escaparAtributo(credito.id)}')">DAR BAIXA</button>` : ''}
+            <span class="situacao-banco-horas ${tokenClasseSeguroMaiusculo(credito.situacao)}">${credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '')}</span>
+            ${podeBaixar ? `<button class="botao botao-secundario botao-baixa-horas" type="button" onclick="abrirBaixaBancoHoras(${argumentoJsAtributo(credito.id)})">DAR BAIXA</button>` : ''}
           </div>
         </article>`;
       }).join('');
@@ -18304,13 +19048,11 @@
       $('horasBaixaBancoHoras').value = String(horas);
       $('observacaoBaixaBancoHoras').value = '';
       $('documentacaoBaixaBancoHoras').checked = false;
-      $('modalBaixaBancoHoras').classList.remove('oculto');
-      document.body.style.overflow = 'hidden';
+      exibirDialogo($('modalBaixaBancoHoras'));
     }
 
     function fecharBaixaBancoHoras() {
-      $('modalBaixaBancoHoras').classList.add('oculto');
-      document.body.style.overflow = '';
+      ocultarDialogo($('modalBaixaBancoHoras'));
       estado.creditoBaixaBancoHoras = null;
       estado.chaveBaixaBancoHoras = '';
       if ($('documentacaoBaixaBancoHoras')) $('documentacaoBaixaBancoHoras').checked = false;
@@ -18399,7 +19141,7 @@
       status.textContent=itens.length + (itens.length === 1 ? ' item' : ' itens');
       status.className='status-siga ' + (itens.some(function(item){return item.prioridade;}) ? 'aviso' : 'info');
       lista.innerHTML=itens.map(function(item){
-        return `<button type="button" class="acao-usuario-pendente ${item.prioridade?'prioridade':''}" onclick="navegar('${escaparAtributo(item.secao)}')">
+        return `<button type="button" class="acao-usuario-pendente ${item.prioridade?'prioridade':''}" onclick="navegar(${argumentoJsAtributo(item.secao)})">
           <span class="acao-usuario-icone">${escaparHtml(item.icone)}</span>
           <span><strong>${escaparHtml(item.titulo)}</strong><small>${escaparHtml(item.descricao)}</small></span>
           <span class="acao-usuario-seta" aria-hidden="true">›</span>
@@ -18428,7 +19170,7 @@
           <div class="resumo">
             <strong>${escaparHtml(String(item[1]))}</strong>
             <span>${escaparHtml(item[0])}</span>
-            <small style="display:block;margin-top:4px;color:#7b877f;font-size:8px">${escaparHtml(item[2])}</small>
+            <small class="registro-meta">${escaparHtml(item[2])}</small>
           </div>`).join('');
         renderizarCentralUsuarioInicio(r, estado.solicitacaoPerfil);
         api('obterSolicitacaoPerfilUsuario',estado.token).then(function(respostaPerfil) {
@@ -18647,10 +19389,12 @@
       const hoje = dataHojeIso();
 
       const itens = dias.map(d => {
-        const turno = d.configurado ? (d.turno || '') : '';
+        d = d && typeof d === 'object' ? d : {};
+        const turnoRecebido = String(d.turno || '').toUpperCase();
+        const turno = d.configurado && ['A','B','AB'].includes(turnoRecebido) ? turnoRecebido : '';
         const classe = turno ? (' turno-' + turno) : ' sem-servico';
         const label = d.configurado ? turno : '—';
-        return `<button type="button" class="calendario-dia${classe}${d.data===hoje?' hoje':''}" title="${escaparAtributo(d.motivo || '')}" aria-label="${escaparAtributo(formatarData(d.data) + (turno ? ', turno ' + turno : ', sem serviço previsto'))}" onclick="selecionarDiaCalendario('${escaparAtributo(d.data)}', this)">
+        return `<button type="button" class="calendario-dia${classe}${d.data===hoje?' hoje':''}" title="${escaparAtributo(d.motivo || '')}" aria-label="${escaparAtributo(formatarData(d.data) + (turno ? ', turno ' + turno : ', sem serviço previsto'))}" onclick="selecionarDiaCalendario(${argumentoJsAtributo(d.data)}, this)">
           <span class="numero">${Number(d.dia)}</span>
           ${label ? `<span class="turno">${escaparHtml(label)}</span>` : ''}
         </button>`;
@@ -18869,8 +19613,8 @@
         INDEFERIDA:['INDEFERIDA','Solicitação indeferida','Os dados atuais foram mantidos.']
       };
       const info = mapa[s.status] || [s.status || 'REGISTRADA','Solicitação registrada',''];
-      alvo.innerHTML = `<div class="perfil-status-card perfil-status-${String(s.status || '').toLowerCase()}">
-        <div class="perfil-status-topo"><span class="status ${escaparHtml(info[0])}">${escaparHtml(info[0])}</span><small>${escaparHtml(s.solicitadoEm || '')}</small></div>
+      alvo.innerHTML = `<div class="perfil-status-card perfil-status-${tokenClasseSeguro(s.status)}">
+        <div class="perfil-status-topo"><span class="status ${tokenClasseSeguroMaiusculo(info[0])}">${escaparHtml(info[0])}</span><small>${escaparHtml(s.solicitadoEm || '')}</small></div>
         <strong>${escaparHtml(info[1])}</strong>
         <p>${escaparHtml(info[2])}</p>
         <div class="mudancas-perfil">${mudancasSolicitacaoPerfilHtml(s)}</div>
@@ -18997,7 +19741,7 @@
       const atual = estado.abaPoliciaisP1 || moduloPoliciaisP1Padrao();
       nav.innerHTML = obterConfiguracaoModulosPoliciaisP1().map(function(item) {
         const badge = item.quantidade > 99 ? '99+' : String(item.quantidade || '');
-        return `<button class="p1-modulo-btn ${item.id === atual ? 'ativo' : ''}" id="tabModuloPoliciaisP1-${item.id}" type="button" role="tab" aria-selected="${item.id === atual ? 'true' : 'false'}" onclick="alternarModuloPoliciaisP1('${item.id}')"><span class="p1-modulo-titulo"><strong>${escaparHtml(item.titulo)}</strong><span class="p1-modulo-badge ${item.quantidade ? '' : 'oculto'}">${escaparHtml(badge)}</span></span><span class="p1-modulo-subtitulo">${escaparHtml(item.subtitulo)}</span></button>`;
+        return `<button class="p1-modulo-btn ${item.id === atual ? 'ativo' : ''}" id="tabModuloPoliciaisP1-${escaparAtributo(item.id)}" type="button" role="tab" aria-selected="${item.id === atual ? 'true' : 'false'}" onclick="alternarModuloPoliciaisP1(${argumentoJsAtributo(item.id)})"><span class="p1-modulo-titulo"><strong>${escaparHtml(item.titulo)}</strong><span class="p1-modulo-badge ${item.quantidade ? '' : 'oculto'}">${escaparHtml(badge)}</span></span><span class="p1-modulo-subtitulo">${escaparHtml(item.subtitulo)}</span></button>`;
       }).join('');
       renderizarResumoModuloPoliciaisP1();
     }
@@ -19065,8 +19809,8 @@
         <div class="solicitacao-p1-grade">${compararSolicitacaoPerfilP1Html(item)}</div>
         <div class="campo solicitacao-p1-justificativa"><label for="justPerfil-${escaparAtributo(item.id)}">Justificativa <span class="opcional">obrigatória ao indeferir</span></label><textarea id="justPerfil-${escaparAtributo(item.id)}" maxlength="1500" rows="2" placeholder="Informe o motivo apenas se a solicitação for indeferida."></textarea></div>
         <div class="solicitacao-p1-acoes">
-          <button class="botao" type="button" onclick="analisarSolicitacaoPerfilP1('${escaparAtributo(item.id)}','DEFERIDA')">DEFERIR</button>
-          <button class="botao botao-perigo" type="button" onclick="analisarSolicitacaoPerfilP1('${escaparAtributo(item.id)}','INDEFERIDA')">INDEFERIR</button>
+          <button class="botao" type="button" onclick="analisarSolicitacaoPerfilP1(${argumentoJsAtributo(item.id)},'DEFERIDA')">DEFERIR</button>
+          <button class="botao botao-perigo" type="button" onclick="analisarSolicitacaoPerfilP1(${argumentoJsAtributo(item.id)},'INDEFERIDA')">INDEFERIR</button>
         </div>
       </article>`).join('');
     }
@@ -19094,22 +19838,22 @@
         let acoes='';
         let avisoOutro='';
         if(status==='PENDENTE'){
-          acoes=`<button class="botao" type="button" onclick="assumirRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">ATENDER</button>`;
+          acoes=`<button class="botao" type="button" onclick="assumirRecuperacaoAcessoP1(${argumentoJsAtributo(item.id)})">ATENDER</button>`;
         }else if(status==='EM_ATENDIMENTO'){
-          if(meuAtendimento) acoes=`<button class="botao" type="button" onclick="gerarCodigoRecuperacaoP1('${escaparAtributo(item.id)}')">GERAR CÓDIGO</button><button class="botao botao-secundario" type="button" onclick="devolverRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">DEVOLVER À FILA</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">CANCELAR</button>`;
+          if(meuAtendimento) acoes=`<button class="botao" type="button" onclick="gerarCodigoRecuperacaoP1(${argumentoJsAtributo(item.id)})">GERAR CÓDIGO</button><button class="botao botao-secundario" type="button" onclick="devolverRecuperacaoAcessoP1(${argumentoJsAtributo(item.id)})">DEVOLVER À FILA</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1(${argumentoJsAtributo(item.id)})">CANCELAR</button>`;
           else if(outroAtendimento) avisoOutro=`<div class="recuperacao-em-outro">Em atendimento por <strong>${escaparHtml(item.atendidoPor||item.atendidoPorMatricula)}</strong>.</div>`;
         }else if(['CODIGO_GERADO','BLOQUEADA','EXPIRADA'].includes(status)){
           if(codigoLocal&&codigoLocal.urlWhatsApp){
-            acoes=`<button class="botao" type="button" onclick="enviarWhatsappRecuperacaoP1('${escaparAtributo(item.id)}')">ENVIAR NO WHATSAPP</button><button class="botao botao-secundario" type="button" onclick="gerarCodigoRecuperacaoP1('${escaparAtributo(item.id)}',true)">GERAR NOVO CÓDIGO</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">CANCELAR</button>`;
+            acoes=`<button class="botao" type="button" onclick="enviarWhatsappRecuperacaoP1(${argumentoJsAtributo(item.id)})">ENVIAR NO WHATSAPP</button><button class="botao botao-secundario" type="button" onclick="gerarCodigoRecuperacaoP1(${argumentoJsAtributo(item.id)},true)">GERAR NOVO CÓDIGO</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1(${argumentoJsAtributo(item.id)})">CANCELAR</button>`;
           }else if(meuAtendimento){
-            acoes=`<button class="botao" type="button" onclick="gerarCodigoRecuperacaoP1('${escaparAtributo(item.id)}',true)">GERAR NOVO CÓDIGO</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1('${escaparAtributo(item.id)}')">CANCELAR</button>`;
+            acoes=`<button class="botao" type="button" onclick="gerarCodigoRecuperacaoP1(${argumentoJsAtributo(item.id)},true)">GERAR NOVO CÓDIGO</button><button class="botao botao-perigo" type="button" onclick="cancelarRecuperacaoAcessoP1(${argumentoJsAtributo(item.id)})">CANCELAR</button>`;
           }else if(outroAtendimento){
             avisoOutro=`<div class="recuperacao-em-outro">Atendimento vinculado a <strong>${escaparHtml(item.atendidoPor||item.atendidoPorMatricula)}</strong>.</div>`;
           }
         }
-        const blocoCodigo=codigoLocal?`<div class="recuperacao-codigo-gerado"><div><small>Código gerado nesta sessão</small><strong>${escaparHtml(codigoLocal.codigo)}</strong></div><div><small>Válido até</small><strong style="font-size:12px;letter-spacing:0">${escaparHtml(codigoLocal.expiraEm||item.codigoExpiraEm||'')}</strong></div></div>`:'';
-        return `<article class="recuperacao-card-p1 status-${status.toLowerCase()}">
-          <div class="recuperacao-card-p1-topo"><div class="recuperacao-card-identidade"><strong>${escaparHtml(item.policial||'Policial')}</strong><span>M.F. ${escaparHtml(formatarMatriculaFuncional(item.matricula))} • ${escaparHtml(formatarContatoUi(item.contato))}</span></div><span class="recuperacao-status ${status.toLowerCase()}">${escaparHtml(rotuloStatusRecuperacaoP1(status))}</span></div>
+        const blocoCodigo=codigoLocal?`<div class="recuperacao-codigo-gerado"><div><small>Código gerado nesta sessão</small><strong>${escaparHtml(codigoLocal.codigo)}</strong></div><div><small>Válido até</small><strong class="recuperacao-validade">${escaparHtml(codigoLocal.expiraEm||item.codigoExpiraEm||'')}</strong></div></div>`:'';
+        return `<article class="recuperacao-card-p1 status-${tokenClasseSeguro(status)}">
+          <div class="recuperacao-card-p1-topo"><div class="recuperacao-card-identidade"><strong>${escaparHtml(item.policial||'Policial')}</strong><span>M.F. ${escaparHtml(formatarMatriculaFuncional(item.matricula))} • ${escaparHtml(formatarContatoUi(item.contato))}</span></div><span class="recuperacao-status ${tokenClasseSeguro(status)}">${escaparHtml(rotuloStatusRecuperacaoP1(status))}</span></div>
           <div class="recuperacao-card-meta"><div class="recuperacao-meta-item"><small>Solicitado</small><strong>${escaparHtml(item.solicitadoEm||'—')}</strong></div><div class="recuperacao-meta-item"><small>Atendimento</small><strong>${escaparHtml(item.atendidoPor||'Aguardando P1')}</strong></div><div class="recuperacao-meta-item"><small>Validade</small><strong>${escaparHtml(item.codigoExpiraEm||'Código ainda não gerado')}</strong></div></div>
           ${blocoCodigo}${avisoOutro}${acoes?`<div class="recuperacao-card-acoes">${acoes}</div>`:''}
         </article>`;
@@ -19153,8 +19897,15 @@
     function enviarWhatsappRecuperacaoP1(id){
       const info=estado.codigosRecuperacaoGeradosP1[id];
       if(!info||!info.urlWhatsApp) return toast('Gere um novo código para habilitar o envio pelo WhatsApp.','aviso');
-      const janela=window.open(info.urlWhatsApp,'_blank','noopener');
-      if(!janela) window.location.href=info.urlWhatsApp;
+      let url;
+      try{
+        url=new URL(String(info.urlWhatsApp));
+        if(url.protocol!=='https:'||!['wa.me','api.whatsapp.com'].includes(url.hostname.toLowerCase())) throw new Error('Destino inválido');
+      }catch(erro){
+        return toast('O link de envio retornado é inválido. Gere um novo código.','erro');
+      }
+      const janela=window.open(url.href,'_blank','noopener,noreferrer');
+      if(!janela) window.location.assign(url.href);
     }
 
     async function cancelarRecuperacaoAcessoP1(id){
@@ -19366,10 +20117,10 @@
             <div class="permuta-linha-meta"><small>${escaparHtml(item.tipo)} • ${formatarDataCurtaPermuta(item.dataServico)}${turno}${item.criadoEm ? ' • enviada ' + formatarDataHoraCurtaPermuta(item.criadoEm) : ''}</small></div>
           </div>
           <div class="permuta-linha-acoes">
-            <button class="permuta-copiar" type="button" aria-label="Copiar resumo da permuta" title="Copiar permuta" onclick="copiarResumoPermutaAdmin('${escaparAtributo(item.id)}')">
+            <button class="permuta-copiar" type="button" aria-label="Copiar resumo da permuta" title="Copiar permuta" onclick="copiarResumoPermutaAdmin(${argumentoJsAtributo(item.id)})">
               <svg class="icone-svg" aria-hidden="true"><use href="#icone-copiar"></use></svg>
             </button>
-            <button class="permuta-olho" type="button" aria-label="Ver solicitação de ${escaparAtributo(item.solicitante)}" title="Ver detalhes" onclick="abrirDetalhePermutaAdmin('${escaparAtributo(item.id)}')">
+            <button class="permuta-olho" type="button" aria-label="Ver solicitação de ${escaparAtributo(item.solicitante)}" title="Ver detalhes" onclick="abrirDetalhePermutaAdmin(${argumentoJsAtributo(item.id)})">
               <svg class="icone-svg" aria-hidden="true"><use href="#icone-olho"></use></svg>
             </button>
           </div>
@@ -19385,13 +20136,11 @@
       $('detalhesPermutaAdmin').innerHTML = montarDetalhesPermutaPadrao(item);
       $('justificativaNegativaPermutaAdmin').value = '';
       $('acaoNegarPermutaAdmin').classList.toggle('oculto', !['APROVADA','PENDENTE'].includes(item.status));
-      $('modalPermutaAdmin').classList.remove('oculto');
-      document.body.style.overflow = 'hidden';
+      exibirDialogo($('modalPermutaAdmin'));
     }
 
     function fecharDetalhePermutaAdmin() {
-      $('modalPermutaAdmin').classList.add('oculto');
-      document.body.style.overflow = '';
+      ocultarDialogo($('modalPermutaAdmin'));
       estado.permutaAdminAberta = null;
     }
 
@@ -19444,7 +20193,7 @@
         if (requisicao !== estado.requisicoes.consulta) return;
         const usuarios = resposta.usuarios || [];
         $('resultadosConsultaAdmin').innerHTML = usuarios.length
-          ? usuarios.slice(0, 20).map(u => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" onclick="abrirFichaConsulta('${escaparHtml(u.id)}')"><strong>${htmlIdentificacaoPolicial(u)}</strong><span>${escaparHtml(u.statusCadastro || 'CONFIRMADO')}</span></button>`).join('')
+          ? usuarios.slice(0, 20).map(u => `<button class="resultado-pessoa resultado-policial-padronizado" type="button" onclick="abrirFichaConsulta(${argumentoJsAtributo(u.id)})"><strong>${htmlIdentificacaoPolicial(u)}</strong><span>${escaparHtml(u.statusCadastro || 'CONFIRMADO')}</span></button>`).join('')
           : '<div class="vazio">Nenhum policial localizado.</div>';
       } catch (erro) {
         if (requisicao === estado.requisicoes.consulta) tratarErro(erro);
@@ -19623,8 +20372,8 @@
       if (!lista.length) return '<div class="vazio">Nenhum registro encontrado.</div>';
       return lista.map(h => `
         <article class="cartao-item">
-          <div class="cartao-topo"><div><h4>${escaparHtml(h.subtipo)}</h4><p>${formatarData(h.dataInicio)} a ${formatarData(h.dataFim)} • ${h.dias} dia(s)</p></div>${(h.tipo!=='LICENÇA'||grupoSetorAdminCliente(estado.usuario?.setorAdmin)==='P1')?`<button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirHistorico('${escaparHtml(h.id)}')">EXCLUIR</button>`:''}</div>
-          ${h.observacao ? `<p style="font-size:11px;color:var(--texto-suave)">${escaparHtml(h.observacao)}</p>` : ''}
+          <div class="cartao-topo"><div><h4>${escaparHtml(h.subtipo)}</h4><p>${formatarData(h.dataInicio)} a ${formatarData(h.dataFim)} • ${Number(h.dias || 0)} dia(s)</p></div>${(h.tipo!=='LICENÇA'||grupoSetorAdminCliente(estado.usuario?.setorAdmin)==='P1')?`<button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirHistorico(${argumentoJsAtributo(h.id)})">EXCLUIR</button>`:''}</div>
+          ${h.observacao ? `<p class="historico-observacao">${escaparHtml(h.observacao)}</p>` : ''}
           <small class="ajuda">Registrado em ${escaparHtml(h.criadoEm || '—')} por ${escaparHtml(h.administrador || '—')}</small>
         </article>`).join('');
     }
@@ -19718,7 +20467,7 @@
               <h4>${escaparHtml(u.identificacao)}</h4>
               <p>M.F. ${escaparHtml(u.matricula)} • ${escaparHtml(u.opm || '')}</p>
             </div>
-            <span class="status ${escaparHtml(u.statusCadastro)}">${escaparHtml(u.statusCadastro)}</span>
+            <span class="status ${tokenClasseSeguroMaiusculo(u.statusCadastro)}">${escaparHtml(u.statusCadastro)}</span>
           </div>
 
           <div class="cartao-dados">
@@ -19728,27 +20477,27 @@
             <div class="dado"><small>E-mail</small><strong>${escaparHtml(u.email || '—')}</strong></div>
           </div>
 
-          <div class="acoes-em-linha" style="margin-top:13px">
+          <div class="acoes-em-linha efetivo-acoes">
             ${podeGerirGrade ? `
-              <select id="grade-${escaparHtml(u.id)}" class="select-escala-admin">
+              <select id="grade-${escaparAtributo(u.id)}" class="select-escala-admin" aria-label="Grade de ${escaparAtributo(u.identificacao || u.matricula || 'policial')}">
                 <option value="">GRADE</option>
                 ${opcoesReferenciaRegimeUi(u.turnoFixo).map(g => `<option value="${g}" ${u.grade === g ? 'selected' : ''}>${rotuloReferenciaRegimeUi(g,u.turnoFixo)}</option>`).join('')}
               </select>
 
-              <select id="turnofixo-${escaparHtml(u.id)}" class="select-escala-admin regime" onchange="ajustarGradesPorRegime('${escaparHtml(u.id)}')">
+              <select id="turnofixo-${escaparAtributo(u.id)}" class="select-escala-admin regime" aria-label="Regime de ${escaparAtributo(u.identificacao || u.matricula || 'policial')}" onchange="ajustarGradesPorRegime(${argumentoJsAtributo(u.id)})">
                 <option value="" ${!u.turnoFixo ? 'selected' : ''}>12h A/B • VIATURA / BASES</option>
                 <option value="AB" ${u.turnoFixo === 'AB' ? 'selected' : ''}>24h AB • GUARDA</option>
                 <option value="A" ${u.turnoFixo === 'A' ? 'selected' : ''}>BIKE • FIXO A</option>
                 <option value="B" ${u.turnoFixo === 'B' ? 'selected' : ''}>BIKE • FIXO B</option>
               </select>
 
-              <button class="botao botao-pequeno" type="button" onclick="atualizarGradeEfetivo('${escaparHtml(u.id)}')">SALVAR ESCALA</button>
+              <button class="botao botao-pequeno" type="button" onclick="atualizarGradeEfetivo(${argumentoJsAtributo(u.id)})">SALVAR ESCALA</button>
             ` : ''}
 
-            ${u.statusCadastro !== 'CONFIRMADO' ? `<button class="botao botao-pequeno" type="button" onclick="alterarStatusEfetivo('${escaparHtml(u.id)}','CONFIRMADO')">LIBERAR</button>` : ''}
-            ${u.statusCadastro === 'CONFIRMADO' ? `<button class="botao botao-alerta botao-pequeno" type="button" onclick="alterarStatusEfetivo('${escaparHtml(u.id)}','BLOQUEADO')">BLOQUEAR</button>` : ''}
-            ${u.statusCadastro === 'PENDENTE' ? `<button class="botao botao-perigo botao-pequeno" type="button" onclick="alterarStatusEfetivo('${escaparHtml(u.id)}','REPROVADO')">REPROVAR</button>` : ''}
-            <button class="botao botao-secundario botao-pequeno" type="button" onclick="navegarConsultaEfetivo('${escaparHtml(u.id)}')">VER FICHA</button>
+            ${u.statusCadastro !== 'CONFIRMADO' ? `<button class="botao botao-pequeno" type="button" onclick="alterarStatusEfetivo(${argumentoJsAtributo(u.id)},'CONFIRMADO')">LIBERAR</button>` : ''}
+            ${u.statusCadastro === 'CONFIRMADO' ? `<button class="botao botao-alerta botao-pequeno" type="button" onclick="alterarStatusEfetivo(${argumentoJsAtributo(u.id)},'BLOQUEADO')">BLOQUEAR</button>` : ''}
+            ${u.statusCadastro === 'PENDENTE' ? `<button class="botao botao-perigo botao-pequeno" type="button" onclick="alterarStatusEfetivo(${argumentoJsAtributo(u.id)},'REPROVADO')">REPROVAR</button>` : ''}
+            <button class="botao botao-secundario botao-pequeno" type="button" onclick="navegarConsultaEfetivo(${argumentoJsAtributo(u.id)})">VER FICHA</button>
           </div>
         </article>`).join('');
     }
@@ -19934,14 +20683,6 @@
       $('statusAlertasP4').addEventListener('change', () => carregarAlertasP4(true));
       document.querySelectorAll('input[name="papelPermuta"]').forEach(input =>
         input.addEventListener('change', () => atualizarContextoPapelPermuta(true)));
-      document.addEventListener('keydown', function(evento) {
-        if (evento.key !== 'Escape') return;
-        if (!$('modalPermutaAdmin').classList.contains('oculto')) fecharDetalhePermutaAdmin();
-        if (!$('modalMinhaPermuta').classList.contains('oculto')) fecharDetalheMinhaPermuta();
-        if (!$('modalBaixaBancoHoras').classList.contains('oculto')) fecharBaixaBancoHoras();
-        if (!$('painelNotificacoes').classList.contains('oculto')) fecharPainelNotificacoes();
-      });
-
       $('formSetorAdmin').addEventListener('submit', salvarAcessoSetorAdmin);
       $('pesquisaSetorAdmin').addEventListener('input', agendarPesquisaSetorAdmin);
       $('postoSetorAdmin').addEventListener('change', atualizarNumeralSetorAdmin);
@@ -20228,7 +20969,10 @@
 
     function selectCautelaHtml(id,campo,valor){
       const ops=['PENDENTE','RECOLHIDO','NÃO POSSUI','NÃO SE APLICA'];
-      return `<select id="${campo}-${escaparAtributo(id)}" class="select-cautela">${ops.map(o=>`<option value="${o}" ${valor===o?'selected':''}>${o}</option>`).join('')}</select>`;
+      const rotulos={arma:'Arma',carregadores:'Carregadores',municoes:'Munições',colete:'Colete'};
+      const chave=Object.prototype.hasOwnProperty.call(rotulos,campo)?campo:'cautela';
+      const controleId=chave+'-'+String(id==null?'':id);
+      return `<label for="${escaparAtributo(controleId)}">${escaparHtml(rotulos[chave]||'Cautela')}</label><select id="${escaparAtributo(controleId)}" class="select-cautela">${ops.map(o=>`<option value="${o}" ${valor===o?'selected':''}>${o}</option>`).join('')}</select>`;
     }
 
     function renderizarAlertasP4(){
@@ -20236,10 +20980,10 @@
       if(!estado.alertasP4.length){area.innerHTML='<div class="vazio">Nenhuma cautela encontrada.</div>';return;}
       area.innerHTML=estado.alertasP4.map(a=>`<article class="cartao-item cautela-card ${a.status==='PENDENTE'?'pendente':''}">
         <div class="cartao-topo"><div><h4>${escaparHtml(a.policial)}</h4><p>M.F. ${escaparHtml(a.matricula)} • ${escaparHtml(a.licenca)} • ${formatarData(a.dataInicio)} a ${formatarData(a.dataFim)}</p>${a.categoriaSaude&&a.categoriaSaude!=='NÃO SE APLICA'?`<span class="categoria-saude">${escaparHtml(a.categoriaSaude)}</span>`:''}</div><span class="status ${a.status==='PENDENTE'?'PENDENTE':'CONFIRMADO'}">${escaparHtml(a.status)}</span></div>
-        ${a.status==='CANCELADO'?'<div class="mensagem aviso">Licença cancelada/excluída pelo P1.</div>':`
-        <div class="cautelas-grid"><div><small>Arma</small>${selectCautelaHtml(a.id,'arma',a.arma)}</div><div><small>Carregadores</small>${selectCautelaHtml(a.id,'carregadores',a.carregadores)}</div><div><small>Munições</small>${selectCautelaHtml(a.id,'municoes',a.municoes)}</div><div><small>Colete</small>${selectCautelaHtml(a.id,'colete',a.colete)}</div></div>
-        <div class="campo" style="margin-top:10px"><label>Observação do P4</label><input id="obs-cautela-${escaparAtributo(a.id)}" value="${escaparHtml(a.observacao||'')}" maxlength="1000" placeholder="Opcional"></div>
-        <button class="botao botao-pequeno" type="button" onclick="salvarAlertaP4('${escaparAtributo(a.id)}')">SALVAR CAUTELAS</button>`}
+        ${a.status==='CANCELADO'?'<div class="mensagem mensagem-visivel aviso">Licença cancelada/excluída pelo P1.</div>':`
+        <div class="cautelas-grid"><div>${selectCautelaHtml(a.id,'arma',a.arma)}</div><div>${selectCautelaHtml(a.id,'carregadores',a.carregadores)}</div><div>${selectCautelaHtml(a.id,'municoes',a.municoes)}</div><div>${selectCautelaHtml(a.id,'colete',a.colete)}</div></div>
+        <div class="campo campo-com-respiro"><label for="obs-cautela-${escaparAtributo(a.id)}">Observação do P4</label><input id="obs-cautela-${escaparAtributo(a.id)}" type="text" value="${escaparAtributo(a.observacao||'')}" maxlength="1000" placeholder="Opcional"></div>
+        <button class="botao botao-pequeno" type="button" onclick="salvarAlertaP4(${argumentoJsAtributo(a.id)})">SALVAR CAUTELAS</button>`}
       </article>`).join('');
     }
 
@@ -20266,13 +21010,13 @@
     }
     function renderizarChecklistsAdmin(){
       const l=estado.checklistsAdmin||[]; if(!l.length){$('listaChecklistAdmin').innerHTML='<div class="vazio">Nenhum checklist encontrado.</div>';return;}
-      $('listaChecklistAdmin').innerHTML=l.map(i=>`<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(i.identificacao||'')}</h4><p>M.F. ${escaparHtml(i.matricula||'')} • ${escaparHtml(i.concluidoEm||'')}</p></div><span class="status APROVADA">REGISTRADO</span></div><div class="cartao-dados"><div class="dado"><small>Data</small><strong>${formatarData(i.data)}</strong></div><div class="dado"><small>Turno</small><strong>${escaparHtml(i.turno||'—')}</strong></div><div class="dado"><small>Viatura</small><strong>${escaparHtml((i.modeloVeiculo||'—')+' / '+(i.placa||'—'))}</strong></div><div class="dado"><small>Prefixo</small><strong>${escaparHtml(i.prefixo||'—')}</strong></div></div><details><summary>VER RESPOSTAS</summary><pre style="white-space:pre-wrap;font-size:11px">${escaparHtml(JSON.stringify(i.respostas||{},null,2))}</pre></details><button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirChecklistAdmin('${escaparHtml(i.id)}')">EXCLUIR REGISTRO</button></article>`).join('');
+      $('listaChecklistAdmin').innerHTML=l.map(i=>`<article class="cartao-item"><div class="cartao-topo"><div><h4>${escaparHtml(i.identificacao||'')}</h4><p>M.F. ${escaparHtml(i.matricula||'')} • ${escaparHtml(i.concluidoEm||'')}</p></div><span class="status APROVADA">REGISTRADO</span></div><div class="cartao-dados"><div class="dado"><small>Data</small><strong>${formatarData(i.data)}</strong></div><div class="dado"><small>Turno</small><strong>${escaparHtml(i.turno||'—')}</strong></div><div class="dado"><small>Viatura</small><strong>${escaparHtml((i.modeloVeiculo||'—')+' / '+(i.placa||'—'))}</strong></div><div class="dado"><small>Prefixo</small><strong>${escaparHtml(i.prefixo||'—')}</strong></div></div><details><summary>VER RESPOSTAS</summary><pre class="checklist-respostas-json">${escaparHtml(JSON.stringify(i.respostas||{},null,2))}</pre></details><button class="botao botao-perigo botao-pequeno" type="button" onclick="excluirChecklistAdmin(${argumentoJsAtributo(i.id)})">EXCLUIR REGISTRO</button></article>`).join('');
     }
     async function excluirChecklistAdmin(id){if(!confirm('Excluir definitivamente este checklist?'))return;try{const r=await api('adminExcluirChecklist',estado.token,id);toast(r.mensagem);carregarChecklistsAdmin();}catch(e){tratarErro(e);}}
 
     function modulosEditorPermitidos(){const a=[];if(temPermissaoAdmin('FORMULARIOS_CHECKLIST'))a.push('CHECKLIST');if(temPermissaoAdmin('FORMULARIOS_PERMUTAS'))a.push('PERMUTAS');return a;}
     async function abrirEditorFormularios(){
-      const mods=modulosEditorPermitidos(); $('botoesModuloFormulario').innerHTML=mods.map(m=>`<button class="subaba ${m===estado.moduloEditor?'ativa':''}" type="button" onclick="carregarFormularioAdmin('${m}')">${m}</button>`).join(''); if(!mods.length)return;
+      const mods=modulosEditorPermitidos(); $('botoesModuloFormulario').innerHTML=mods.map(m=>`<button class="subaba ${m===estado.moduloEditor?'ativa':''}" type="button" onclick="carregarFormularioAdmin(${argumentoJsAtributo(m)})">${escaparHtml(m)}</button>`).join(''); if(!mods.length)return;
       if(!estado.moduloEditor||!mods.includes(estado.moduloEditor))await carregarFormularioAdmin(mods[0]); else renderizarEditorFormulario();
     }
     async function carregarFormularioAdmin(modulo){mostrarCarregando('Carregando formulário...');try{const r=await api('adminObterFormulario',estado.token,modulo);estado.moduloEditor=modulo;estado.formularioEditor=JSON.parse(JSON.stringify(r.formulario));ocultarCarregando();abrirEditorFormularios();}catch(e){tratarErro(e);}}
@@ -20322,9 +21066,13 @@
         const aberto=estado.editorCamposExpandidos.has(id);
         const tipo=rotuloTipoCampo(c.tipo);
         const busca=[c.label,c.id,tipo,c.sistema?'sistema':'',c.obrigatorio?'obrigatorio':'opcional'].join(' ').toLowerCase();
+        const idRotulo='editorRotulo-'+i;
+        const idTipo='editorTipo-'+i;
+        const idOpcoes='editorOpcoes-'+i;
+        const idMidia='editorMidia-'+i;
         const editLabel=(c.tipo==='INFO'||String(c.label||'').length>75)
-          ? `<textarea rows="2" data-edit-label="${i}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>${escaparHtml(c.label||'')}</textarea>`
-          : `<input data-edit-label="${i}" value="${escaparAtributo(c.label||'')}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>`;
+          ? `<textarea id="${idRotulo}" rows="2" data-edit-label="${i}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>${escaparHtml(c.label||'')}</textarea>`
+          : `<input id="${idRotulo}" type="text" data-edit-label="${i}" value="${escaparAtributo(c.label||'')}" ${c.sistema&&['PROFILE','POLICE_SEARCH'].includes(c.tipo)?'readonly':''}>`;
         const temOpcoes=['SELECT','RADIO','GALLERY'].includes(c.tipo);
         const ehImagem=c.tipo==='IMAGE';
         return `
@@ -20344,7 +21092,7 @@
                 ${c.sistema?'<span class="editor-meta-sistema">SISTEMA</span>':'<span>PERSONALIZÁVEL</span>'}
               </div>
             </div>
-            <button type="button" class="editor-campo-expandir" aria-expanded="${aberto?'true':'false'}" aria-label="${aberto?'Recolher':'Editar'} campo ${i+1}" onclick="alternarCampoEditorFormulario('${escaparAtributo(id)}',this)">
+            <button type="button" class="editor-campo-expandir" aria-expanded="${aberto?'true':'false'}" aria-label="${aberto?'Recolher':'Editar'} campo ${i+1}" onclick="alternarCampoEditorFormulario(${argumentoJsAtributo(id)},this)">
               <svg class="icone-svg" aria-hidden="true"><use href="#icone-editar"></use></svg>
               <span>${aberto?'RECOLHER':'EDITAR'}</span>
             </button>
@@ -20355,13 +21103,13 @@
 
             <div class="editor-config-grid">
               <div class="campo editor-config-rotulo">
-                <label>Rótulo / texto exibido</label>
+                <label for="${idRotulo}">Rótulo / texto exibido</label>
                 ${editLabel}
                 <small class="editor-ajuda">É o texto que o usuário verá durante o preenchimento.</small>
               </div>
               <div class="campo editor-config-tipo">
-                <label>Tipo de campo</label>
-                <select data-edit-tipo="${i}" ${c.sistema?'disabled':''}>
+                <label for="${idTipo}">Tipo de campo</label>
+                <select id="${idTipo}" data-edit-tipo="${i}" ${c.sistema?'disabled':''}>
                   ${tiposEditaveis.map(t=>`<option value="${t}" ${t===c.tipo?'selected':''}>${escaparHtml(rotuloTipoCampo(t))}</option>`).join('')}
                 </select>
                 <small class="editor-ajuda">${c.sistema?'Tipo protegido pelo sistema.':'Define como a resposta será coletada.'}</small>
@@ -20369,14 +21117,14 @@
             </div>
 
             ${temOpcoes?`<div class="campo editor-config-opcoes">
-              <label>${c.tipo==='GALLERY'?'Arquivos da galeria':'Opções de resposta'} <span class="editor-label-dica">uma linha por item</span></label>
-              <textarea rows="4" data-edit-opcoes="${i}">${escaparHtml((c.tipo==='GALLERY'?c.arquivos:c.opcoes||[]).join('\n'))}</textarea>
+              <label for="${idOpcoes}">${c.tipo==='GALLERY'?'Arquivos da galeria':'Opções de resposta'} <span class="editor-label-dica">uma linha por item</span></label>
+              <textarea id="${idOpcoes}" rows="4" data-edit-opcoes="${i}">${escaparHtml((c.tipo==='GALLERY'?c.arquivos:c.opcoes||[]).join('\n'))}</textarea>
               <small class="editor-ajuda">A ordem das linhas será a ordem apresentada ao usuário.</small>
             </div>`:`<textarea data-edit-opcoes="${i}" disabled hidden></textarea>`}
 
             ${ehImagem?`<div class="campo editor-config-midia">
-              <label>Arquivo de mídia</label>
-              <input data-edit-arquivo="${i}" value="${escaparAtributo(c.arquivo||'')}" placeholder="Nome ou referência do arquivo de imagem">
+              <label for="${idMidia}">Arquivo de mídia</label>
+              <input id="${idMidia}" type="text" data-edit-arquivo="${i}" value="${escaparAtributo(c.arquivo||'')}" placeholder="Nome ou referência do arquivo de imagem">
               <small class="editor-ajuda">Use somente o arquivo associado a este campo de imagem.</small>
             </div>`:`<input data-edit-arquivo="${i}" value="${escaparAtributo(c.arquivo||'')}" disabled hidden>`}
 
@@ -20522,7 +21270,7 @@
           ${fora19 ? '<span>O cadastro e o histórico permanecem preservados, mas nenhum novo acesso pode ser concedido até a revalidação do vínculo com o 19º BPM.</span>' : ''}
         </div>
         <div class="acesso-selecionado-acoes">
-          ${fora19 ? `<button type="button" class="acesso-acao-secundaria" onclick="revalidarVinculoSetorAdmin('${escaparAtributo(policial.matricula)}')">REVALIDAR VÍNCULO</button>` : ''}
+          ${fora19 ? `<button type="button" class="acesso-acao-secundaria" onclick="revalidarVinculoSetorAdmin(${argumentoJsAtributo(policial.matricula)})">REVALIDAR VÍNCULO</button>` : ''}
           <button type="button" class="acesso-trocar" onclick="trocarPolicialSetorAdmin()">TROCAR</button>
         </div>`;
       $('policialSelecionadoSetorAdmin').classList.remove('oculto');
@@ -20580,7 +21328,7 @@
                 : (p.setorAtualRotulo || 'Sem acesso administrativo ativo'));
             const contexto = escaparHtml(contextoBruto);
             const vinculo = escaparHtml(p.vinculoRotulo || 'Cadastro localizado');
-            return `<button class="acesso-resultado" type="button" onclick="selecionarPolicialSetorAdmin('${escaparAtributo(p.id)}')">
+            return `<button class="acesso-resultado" type="button" onclick="selecionarPolicialSetorAdmin(${argumentoJsAtributo(p.id)})">
               <span class="acesso-resultado-identidade">
                 <strong>${identificacao}</strong>
                 <span class="acesso-resultado-mf">M.F.: ${matricula}</span>
@@ -20668,10 +21416,10 @@
         const cadastroRotulo=rotuloStatusCadastroUi(a.usuarioStatus);
         const contato=formatarContatoUi(a.whatsapp);
         const acoes=fora19?`<div class="acesso-card-acoes">
-          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="revalidarVinculoSetorAdmin('${escaparAtributo(a.matricula)}')">REVALIDAR VÍNCULO</button>`:''}
+          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="revalidarVinculoSetorAdmin(${argumentoJsAtributo(a.matricula)})">REVALIDAR VÍNCULO</button>`:''}
         </div>`:(!inativo?`<div class="acesso-card-acoes">
-          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="removerSetorAdmin('${escaparAtributo(a.matricula)}')">RETIRAR ACESSO</button>`:''}
-          ${podeRevogar?`<button class="acesso-acao-perigo" type="button" onclick="bloquearTransferidoSetorAdmin('${escaparAtributo(a.matricula)}')">FORA DO 19º BPM</button>`:''}
+          ${podeRevogar?`<button class="acesso-acao-secundaria" type="button" onclick="removerSetorAdmin(${argumentoJsAtributo(a.matricula)})">RETIRAR ACESSO</button>`:''}
+          ${podeRevogar?`<button class="acesso-acao-perigo" type="button" onclick="bloquearTransferidoSetorAdmin(${argumentoJsAtributo(a.matricula)})">FORA DO 19º BPM</button>`:''}
         </div>`:'');
         const governanca=!podeRevogar&&!inativo?`<div class="acesso-card-governanca"><svg class="icone-svg" aria-hidden="true"><use href="#icone-info"></use></svg><span>Gerenciado pelo Comando</span></div>`:'';
         return `<article class="acesso-card ${inativo?'inativo':''}">
@@ -20847,7 +21595,7 @@
           }).join('');
           const status=p.statusCadastro&&p.statusCadastro!=='CONFIRMADO'
             ? `<span class="mini-status status-neutro">${escaparHtml(p.statusCadastro)}</span>`:'';
-          return `<button class="resultado-policial-compacto" type="button" onclick="selecionarPolicialP1('${escaparAtributo(p.id)}')">
+          return `<button class="resultado-policial-compacto" type="button" onclick="selecionarPolicialP1(${argumentoJsAtributo(p.id)})">
                     <strong>${htmlIdentificacaoPolicial(p)}</strong>
                     ${(lic||status)?'<span class="mini-status-wrap">'+status+lic+'</span>':''}
                   </button>`;
@@ -20968,7 +21716,7 @@
       selo.textContent = itens.length + (itens.length === 1 ? ' prioridade' : ' prioridades');
       selo.className = 'status-siga aviso';
       area.innerHTML = itens.map(function(item) {
-        return `<button type="button" class="pendencia-operacional ${item.prioridade?'prioridade':''}" onclick="navegar('${escaparAtributo(item.secao)}')">
+        return `<button type="button" class="pendencia-operacional ${item.prioridade?'prioridade':''}" onclick="navegar(${argumentoJsAtributo(item.secao)})">
           <span class="pendencia-numero">${escaparHtml(String(item.numero))}</span>
           <span><strong>${escaparHtml(item.titulo)}</strong><small>${escaparHtml(item.descricao)}</small></span>
           <span class="pendencia-seta" aria-hidden="true">›</span>
@@ -21020,7 +21768,7 @@
         if(i.relatoriosGuardaHoje!==undefined) cards.push(['Relatórios da Guarda',i.relatoriosGuardaHoje,i.statusRelatorioGuarda||'Abrir painel organizado','relatorio-guarda']);
         if(!cards.length) cards.push(['Setor',setor,'Acesso administrativo ativo']);
         $('dashboardAdmin').innerHTML=cards.map(c=>c[3]
-          ? `<button type="button" class="dashboard-card dashboard-card-atalho" onclick="navegar('${escaparAtributo(c[3])}')"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span><b>ABRIR</b></button>`
+          ? `<button type="button" class="dashboard-card dashboard-card-atalho" onclick="navegar(${argumentoJsAtributo(c[3])})"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span><b>ABRIR</b></button>`
           : `<div class="dashboard-card"><small>${escaparHtml(c[0])}</small><strong>${escaparHtml(String(c[1]))}</strong><span>${escaparHtml(c[2])}</span></div>`).join('');
         renderizarCentralPendenciasAdmin(i);
         renderizarAuditoriaDashboardAdmin(auditoria.registros || []);
@@ -21111,7 +21859,7 @@
         estado.guardaPoliciaisBusca = r.policiais || [];
         area.innerHTML = estado.guardaPoliciaisBusca.map(function(p) {
           return `<button type="button" class="resultado-pesquisa"
-            onclick="selecionarPolicialGuarda350('${escaparAtributo(p.id)}','${alvo}')">
+            onclick="selecionarPolicialGuarda350(${argumentoJsAtributo(p.id)},${argumentoJsAtributo(alvo)})">
             <strong>${htmlIdentificacaoPolicial(p)}</strong>
             <span>${p.turno ? 'Turno ' + escaparHtml(p.turno) : 'Toque para selecionar'}</span>
           </button>`;
@@ -21178,7 +21926,7 @@
                 <small>${formatarDataCurtaPermuta(p.dataServico || data)}${p.turnoServico ? ' • Turno ' + escaparHtml(p.turnoServico) : ''}</small>
               </div>
               <button class="botao botao-secundario" type="button"
-                onclick="preencherPermutaGuarda('${escaparAtributo(p.solicitanteId || '')}','${escaparAtributo(p.substitutoId || '')}')">
+                onclick="preencherPermutaGuarda(${argumentoJsAtributo(p.solicitanteId || '')},${argumentoJsAtributo(p.substitutoId || '')})">
                 REGISTRAR ALTERAÇÃO
               </button>
             </div>
@@ -21201,7 +21949,7 @@
               ${m.autorizadoPor ? '<p>Autorizada/determinada por: ' + escaparHtml(m.autorizadoPor) + '</p>' : ''}
               <small>Constava na escala: ${escaparHtml(m.constaEscala || 'SIM')} • Registrado por ${escaparHtml(m.registradoPor || '')}</small>
             </div>
-            <button class="botao botao-perigo" type="button" onclick="excluirMovGuarda('${escaparAtributo(m.id)}')">EXCLUIR</button>
+            <button class="botao botao-perigo" type="button" onclick="excluirMovGuarda(${argumentoJsAtributo(m.id)})">EXCLUIR</button>
           </div>`;
         }).join('') : '<div class="vazio">Nenhuma alteração registrada para esta data.</div>';
 
@@ -21397,7 +22145,7 @@
         return `<article class="unidade-relatorio ${u.ativo === false ? 'inativa' : ''}" data-unidade-relatorio="${indice}">
           <div class="unidade-relatorio-topo">
             <div>
-              <span class="status status-${escaparHtml(u.tipo)}">${escaparHtml(u.tipo)}</span>
+              <span class="status status-${tokenClasseSeguroMaiusculo(u.tipo)}">${escaparHtml(u.tipo)}</span>
               <h4>${escaparHtml(u.tipo === 'VTR' && u.prefixo ? 'VTR ' + u.prefixo : titulo)}</h4>
             </div>
             <div class="controle-unidade-relatorio">
@@ -21409,12 +22157,12 @@
             </div>
           </div>
           <div class="grade-2">
-            ${u.tipo === 'VTR' ? `<div class="campo"><label>Prefixo da VTR</label><input data-relatorio-edicao maxlength="30" value="${escaparAtributo(u.prefixo || '')}" placeholder="Ex.: 19491" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'prefixo',this.value)"></div>` : `<div class="campo"><label>Posto / modalidade</label><input data-relatorio-edicao maxlength="120" value="${escaparAtributo(u.titulo || '')}" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'titulo',this.value)"></div>`}
-            <div class="campo"><label>Horário</label><input data-relatorio-edicao maxlength="50" value="${escaparAtributo(u.horario || '')}" placeholder="Informe o horário" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'horario',this.value)"></div>
-            <div class="campo campo-busca-relatorio"><label>Comandante</label><input data-relatorio-edicao maxlength="160" autocomplete="off" value="${escaparAtributo(u.comandante || '')}" placeholder="Matrícula, numeral ou nome de guerra" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'comandante',this.value);agendarPesquisaPolicialRelatorioGuarda('unidade',this.value,${indice})"><div id="resultadosRelatorioUnidade-${indice}" class="pesquisa-resultados"></div></div>
-            <div class="campo"><label>Contato</label><input data-relatorio-edicao maxlength="40" inputmode="tel" value="${escaparAtributo(u.contato || '')}" placeholder="(85) 99999-9999" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'contato',this.value)"></div>
-            <div class="campo"><label>HT</label><input data-relatorio-edicao maxlength="40" value="${escaparAtributo(u.ht || '')}" placeholder="Número do HT" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'ht',this.value)"></div>
-            <div class="campo"><label>${areaRotulo}</label><input data-relatorio-edicao maxlength="400" value="${escaparAtributo(u.area || '')}" placeholder="${u.tipo === 'BASE' ? 'Endereço' : 'Bairros / setor de patrulhamento'}" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'area',this.value)"></div>
+            ${u.tipo === 'VTR' ? `<div class="campo"><label for="unidadeRelatorioPrefixo-${indice}">Prefixo da VTR</label><input id="unidadeRelatorioPrefixo-${indice}" type="text" data-relatorio-edicao maxlength="30" value="${escaparAtributo(u.prefixo || '')}" placeholder="Ex.: 19491" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'prefixo',this.value)"></div>` : `<div class="campo"><label for="unidadeRelatorioTitulo-${indice}">Posto / modalidade</label><input id="unidadeRelatorioTitulo-${indice}" type="text" data-relatorio-edicao maxlength="120" value="${escaparAtributo(u.titulo || '')}" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'titulo',this.value)"></div>`}
+            <div class="campo"><label for="unidadeRelatorioHorario-${indice}">Horário</label><input id="unidadeRelatorioHorario-${indice}" type="text" data-relatorio-edicao maxlength="50" value="${escaparAtributo(u.horario || '')}" placeholder="Informe o horário" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'horario',this.value)"></div>
+            <div class="campo campo-busca-relatorio"><label for="unidadeRelatorioComandante-${indice}">Comandante</label><input id="unidadeRelatorioComandante-${indice}" type="text" data-relatorio-edicao maxlength="160" autocomplete="off" value="${escaparAtributo(u.comandante || '')}" placeholder="Matrícula, numeral ou nome de guerra" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'comandante',this.value);agendarPesquisaPolicialRelatorioGuarda('unidade',this.value,${indice})"><div id="resultadosRelatorioUnidade-${indice}" class="pesquisa-resultados"></div></div>
+            <div class="campo"><label for="unidadeRelatorioContato-${indice}">Contato</label><input id="unidadeRelatorioContato-${indice}" type="tel" data-relatorio-edicao maxlength="40" inputmode="tel" value="${escaparAtributo(u.contato || '')}" placeholder="(85) 99999-9999" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'contato',this.value)"></div>
+            <div class="campo"><label for="unidadeRelatorioHt-${indice}">HT</label><input id="unidadeRelatorioHt-${indice}" type="text" data-relatorio-edicao maxlength="40" value="${escaparAtributo(u.ht || '')}" placeholder="Número do HT" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'ht',this.value)"></div>
+            <div class="campo"><label for="unidadeRelatorioArea-${indice}">${areaRotulo}</label><input id="unidadeRelatorioArea-${indice}" type="text" data-relatorio-edicao maxlength="400" value="${escaparAtributo(u.area || '')}" placeholder="${u.tipo === 'BASE' ? 'Endereço' : 'Bairros / setor de patrulhamento'}" oninput="alterarCampoUnidadeRelatorioGuarda(${indice},'area',this.value)"></div>
           </div>
         </article>`;
       }).join('') : '<div class="vazio">Nenhum posto cadastrado para este relatório.</div>';
@@ -21454,7 +22202,7 @@
         estado.policiaisRelatorioGuarda = resposta.policiais || [];
         area.innerHTML = estado.policiaisRelatorioGuarda.length
           ? estado.policiaisRelatorioGuarda.slice(0,12).map(function(p) {
-              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialRelatorioGuarda('${escaparAtributo(p.id)}','${alvo}',${Number.isInteger(indice) ? indice : -1})"><strong>${htmlIdentificacaoPolicial(p)}</strong><span>${p.contato ? 'Contato: ' + escaparHtml(p.contato) : 'Contato não cadastrado'}</span></button>`;
+              return `<button type="button" class="resultado-pesquisa resultado-policial-padronizado" onclick="selecionarPolicialRelatorioGuarda(${argumentoJsAtributo(p.id)},${argumentoJsAtributo(alvo)},${Number.isInteger(indice) ? indice : -1})"><strong>${htmlIdentificacaoPolicial(p)}</strong><span>${p.contato ? 'Contato: ' + escaparHtml(p.contato) : 'Contato não cadastrado'}</span></button>`;
             }).join('')
           : '<div class="vazio compacto">Nenhum policial localizado.</div>';
       } catch (erro) {
@@ -21716,9 +22464,9 @@
       const lista = estado.relatoriosGuardaRecentes || [];
       $('historicoRelatoriosGuarda').innerHTML = lista.length ? lista.map(function(item) {
         const ativo = item.data === $('dataRelatorioGuarda').value && item.turno === $('turnoRelatorioGuarda').value;
-        return `<button type="button" class="item-historico-relatorio ${ativo?'ativo':''}" onclick="abrirRelatorioGuardaHistorico('${escaparAtributo(item.data)}','${escaparAtributo(item.turno)}')">
+        return `<button type="button" class="item-historico-relatorio ${ativo?'ativo':''}" onclick="abrirRelatorioGuardaHistorico(${argumentoJsAtributo(item.data)},${argumentoJsAtributo(item.turno)})">
           <span><strong>${formatarData(item.data)} • Turno ${escaparHtml(item.turno)}</strong><small>${escaparHtml(item.atualizadoEm || 'Sem horário')} • ${escaparHtml(item.atualizadoPor || 'Guarda')}</small></span>
-          <span class="status status-${escaparHtml(item.status || 'RASCUNHO')}">${escaparHtml(item.status || 'RASCUNHO')}</span>
+          <span class="status status-${tokenClasseSeguroMaiusculo(item.status || 'RASCUNHO')}">${escaparHtml(item.status || 'RASCUNHO')}</span>
         </button>`;
       }).join('') : '<div class="vazio compacto">Nenhum relatório salvo ainda.</div>';
     }
@@ -21782,7 +22530,7 @@
       window.addEventListener('focus', atualizar);
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.8.4: evita re-medição do cabeçalho durante o bounce do iOS. */
+        /* R9.8.5: evita re-medição do cabeçalho durante o bounce do iOS. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const topo = document.querySelector('.topbar');
@@ -21970,11 +22718,8 @@
         const iconeExistente = wrapper.querySelector(':scope > .icone-svg');
         if (iconeExistente) iconeExistente.classList.add('siga-search-icon-r961');
       }
-      /* O reset global da R9.6 usa seletores de alta especificidade.
-         Padding inline com !important garante que nenhuma tela volte a
-         sobrepor placeholder e lupa em iOS ou em componentes antigos. */
-      input.style.setProperty('padding-left', window.matchMedia('(max-width:700px)').matches ? '42px' : '44px', 'important');
-      input.style.setProperty('padding-right', '14px', 'important');
+      /* O espaçamento do campo é controlado pelo Design System R9.9.0.
+         Evitar estilo inline permite adaptar desktop e celular sem nova varredura. */
       input.dataset.r961Search = '1';
     }
 
@@ -21995,7 +22740,23 @@
 
     function iniciarDesignR96() {
       varrerCamposR96();
-      if (!window.__sigaR96Interval) window.__sigaR96Interval = window.setInterval(varrerCamposR96, 650);
+      if (window.__sigaR99Observer || !window.MutationObserver) return;
+      const raiz = document.getElementById('appShell');
+      if (!raiz) return;
+      let quadro = 0;
+      const agendar = function() {
+        if (quadro) return;
+        quadro = window.requestAnimationFrame(function() {
+          quadro = 0;
+          varrerCamposR96();
+        });
+      };
+      window.__sigaR99Observer = new MutationObserver(function(mutacoes) {
+        if (mutacoes.some(function(mutacao) { return mutacao.addedNodes && mutacao.addedNodes.length; })) agendar();
+      });
+      window.__sigaR99Observer.observe(raiz, { childList:true, subtree:true });
+      window.addEventListener('pageshow', agendar);
+      window.addEventListener('orientationchange', agendar);
     }
 
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciarDesignR96, {once:true});
