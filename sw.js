@@ -1,4 +1,4 @@
-const CACHE_SIGA = 'siga-github-v5.9.0-r9.9.1';
+const CACHE_SIGA = 'siga-github-v5.9.0-r9.10.0';
 const INDEX_SIGA = './index.html';
 const ARQUIVOS_ESSENCIAIS_SIGA = [
   './',
@@ -8,7 +8,9 @@ const ARQUIVOS_ESSENCIAIS_SIGA = [
 const ARQUIVOS_OPCIONAIS_SIGA = [
   './apple-touch-icon.png',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './brasao-pmce.png',
+  './brasao-19bpm.png'
 ];
 
 self.addEventListener('install', function(evento) {
