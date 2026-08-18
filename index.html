@@ -13374,7 +13374,7 @@
     }
 
     /* =======================================================
-       SIGA v5.9.0 — R9.10.1 • CORREÇÃO DE TOQUE WEBKIT
+       SIGA v5.9.0 — R9.10.2 • TOQUE WEBKIT E PONTE APPS SCRIPT
        Camada única de acabamento para todos os perfis e módulos.
        ======================================================= */
     :root{
@@ -14187,7 +14187,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.10.1
+        SIGA 3ª CIA — Versão 5.9.0 • R9.10.2
       </footer>
     </section>
   </main>
@@ -14260,7 +14260,7 @@
         <button class="menu-item menu-sair" type="button" onclick="sair()"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.10.1</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.10.2</footer>
     </aside>
 
     <div class="area-principal">
@@ -16415,10 +16415,34 @@
           const url = new URL(origem);
           if (url.protocol !== 'https:' || url.port) return false;
           const host = url.hostname.toLowerCase();
-          return host === 'script.google.com' || host === 'script.googleusercontent.com' || host.endsWith('.googleusercontent.com');
+          return host === 'script.google.com' ||
+            host === 'script.googleusercontent.com' ||
+            host.endsWith('-script.googleusercontent.com');
         } catch (erro) {
           return false;
         }
+      }
+
+      /* O HTML Service do Apps Script cria uma arvore interna de frames:
+         iframe externo -> sandboxFrame -> userHtmlFrame. A mensagem parte do
+         frame mais interno, portanto comparar evento.source diretamente com
+         iframe.contentWindow rejeita uma resposta legitima. Percorrer os pais
+         preserva a vinculacao ao iframe criado por esta inicializacao. */
+      function fontePertenceAoIframe(fonte, iframe) {
+        if (!fonte || !iframe || !iframe.contentWindow) return false;
+        const raiz = iframe.contentWindow;
+        let atual = fonte;
+        try {
+          for (let nivel = 0; nivel < 8; nivel += 1) {
+            if (atual === raiz) return true;
+            const pai = atual.parent;
+            if (!pai || pai === atual) return false;
+            atual = pai;
+          }
+        } catch (erro) {
+          return false;
+        }
+        return false;
       }
 
       function encerrarPendentes(mensagem) {
@@ -16496,8 +16520,8 @@
           function receberPonte(evento) {
             const dados = evento.data || {};
             if (dados.tipo !== 'SIGA_PONTE_PRONTA' || dados.chave !== chave) return;
-            if (evento.source !== iframe.contentWindow) return;
             if (!origemGoogleValida(evento.origin) || !evento.ports || !evento.ports[0]) return;
+            if (!fontePertenceAoIframe(evento.source, iframe)) return;
 
             concluida = true;
             limparEscuta();
@@ -16518,7 +16542,7 @@
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
           iframe.referrerPolicy = 'strict-origin';
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.10.1';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.10.2';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
