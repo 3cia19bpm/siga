@@ -3,7 +3,7 @@
 <head>
   <base target="_top">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <meta name="theme-color" content="#172b1e">
   <meta name="application-name" content="SIGA">
   <meta name="description" content="Sistema Integrado de Gestão Administrativa da 3ª CIA / 19º BPM">
@@ -13356,7 +13356,7 @@
     }
 
     /* =======================================================
-       SIGA v5.9.0 — R9.9.0 • DESIGN SYSTEM OPERACIONAL
+       SIGA v5.9.0 — R9.9.1 • DESIGN SYSTEM OPERACIONAL
        Camada única de acabamento para todos os perfis e módulos.
        ======================================================= */
     :root{
@@ -13962,10 +13962,27 @@
       .p1-grade-duas-colunas{grid-template-columns:1fr!important;}
     }
 
-    /* Preserva zoom por gesto e ampliação do navegador (WCAG 1.4.4). */
-    html,body{touch-action:pan-x pan-y pinch-zoom!important;}
-    body.modo-acesso{touch-action:pinch-zoom!important;}
-    .sidebar .menu-lateral,.sidebar.sidebar-guarda .menu-lateral{touch-action:pan-y pinch-zoom!important;}
+    /* Hotfix R9.9.1: preserva o comportamento solicitado para o aplicativo
+       instalado, bloqueando zoom sem impedir toque, foco ou rolagem interna. */
+    html,body{touch-action:pan-x pan-y!important;}
+    body.modo-acesso{touch-action:none!important;}
+    .sidebar .menu-lateral,.sidebar.sidebar-guarda .menu-lateral{touch-action:pan-y!important;}
+    body.modo-acesso .acesso-cartao,
+    body.modo-acesso .acesso-corpo,
+    body.modo-acesso form,
+    body.modo-acesso .campo,
+    body.modo-acesso input,
+    body.modo-acesso button{
+      pointer-events:auto!important;
+    }
+    body.modo-acesso .acesso-topo::after{pointer-events:none!important;}
+    body.modo-acesso .campo-toque-integral,
+    body.modo-acesso input,
+    body.modo-acesso button{
+      position:relative;
+      z-index:2;
+      touch-action:manipulation!important;
+    }
 
     /* Utilitários de apresentação usados por componentes renderizados via JS. */
     .mensagem.mensagem-visivel{display:block!important;}
@@ -14103,7 +14120,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.9.0
+        SIGA 3ª CIA — Versão 5.9.0 • R9.9.1
       </footer>
     </section>
   </main>
@@ -14176,7 +14193,7 @@
         <button class="menu-item menu-sair" type="button" onclick="sair()"><span class="menu-icone"><svg class="icone-svg" aria-hidden="true"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.9.0</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.9.1</footer>
     </aside>
 
     <div class="area-principal">
@@ -15740,6 +15757,57 @@
 
   <script>
     'use strict';
+    const VIEWPORT_SIGA = 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover';
+    let gestoEscalaSigaAtivo = false;
+
+    function obterMetaViewportSiga() {
+      let meta = document.querySelector('meta[name="viewport"]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'viewport';
+        document.head.appendChild(meta);
+      }
+      return meta;
+    }
+
+    function restaurarEscalaPadraoSiga() {
+      const meta = obterMetaViewportSiga();
+      meta.setAttribute(
+        'content',
+        'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.01, user-scalable=no, viewport-fit=cover'
+      );
+      requestAnimationFrame(() => meta.setAttribute('content', VIEWPORT_SIGA));
+    }
+
+    obterMetaViewportSiga().setAttribute('content', VIEWPORT_SIGA);
+    ['gesturestart', 'gesturechange'].forEach(tipo => {
+      document.addEventListener(tipo, evento => {
+        gestoEscalaSigaAtivo = true;
+        evento.preventDefault();
+      }, { passive:false });
+    });
+    document.addEventListener('touchmove', evento => {
+      if (evento.touches.length < 2) return;
+      gestoEscalaSigaAtivo = true;
+      evento.preventDefault();
+    }, { passive:false });
+    document.addEventListener('gestureend', evento => {
+      evento.preventDefault();
+      gestoEscalaSigaAtivo = false;
+      window.setTimeout(restaurarEscalaPadraoSiga, 40);
+    }, { passive:false });
+    document.addEventListener('touchend', evento => {
+      const escalaAlterada = window.visualViewport
+        && Math.abs(window.visualViewport.scale - 1) > .01;
+      if (evento.touches.length || (!gestoEscalaSigaAtivo && !escalaAlterada)) return;
+      gestoEscalaSigaAtivo = false;
+      window.setTimeout(restaurarEscalaPadraoSiga, 40);
+    }, { passive:true });
+    window.addEventListener('pageshow', restaurarEscalaPadraoSiga);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) restaurarEscalaPadraoSiga();
+    });
+
     const SIGA_VIEWPORT = (() => {
       let quadroAgendado = 0;
       let temporizadores = [];
@@ -16383,7 +16451,7 @@
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
           iframe.referrerPolicy = 'strict-origin';
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.9.0';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.9.1';
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -22718,7 +22786,7 @@
         const iconeExistente = wrapper.querySelector(':scope > .icone-svg');
         if (iconeExistente) iconeExistente.classList.add('siga-search-icon-r961');
       }
-      /* O espaçamento do campo é controlado pelo Design System R9.9.0.
+      /* O espaçamento do campo é controlado pelo Design System R9.9.1.
          Evitar estilo inline permite adaptar desktop e celular sem nova varredura. */
       input.dataset.r961Search = '1';
     }
