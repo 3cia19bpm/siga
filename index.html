@@ -12183,7 +12183,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.7.9
+       SIGA 5.9.0 — CENTRAL DE TRABALHO P1 R9.8.1
        Pesquisa consistente, calendário iOS e estados vazios.
        ======================================================= */
 
@@ -12312,7 +12312,7 @@
 
 
     /* =========================================================
-       R9.7.9 • CENTRAL DE TRABALHO DO P1
+       R9.8.1 • CENTRAL DE TRABALHO DO P1
        ========================================================= */
     .recuperacao-login-info{
       padding:14px 15px;border:1px solid #d6e0d3;border-radius:17px;background:#f6f8f4;
@@ -12371,7 +12371,7 @@
   
 
     /* =======================================================
-       SIGA 5.9.0 — R9.7.9 • ATUALIZAÇÃO SEM REINÍCIO / iOS
+       SIGA 5.9.0 — R9.8.1 • ATUALIZAÇÃO SEM REINÍCIO / iOS
        - elimina o fundo branco do rubber-band nativo;
        - mantém o cabeçalho imóvel nos limites da página;
        - simula elasticidade controlada no topo e no rodapé;
@@ -12487,7 +12487,7 @@
 
 
     /* =========================================================
-       SIGA 5.9.0 — R9.7.9 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
+       SIGA 5.9.0 — R9.8.1 • BANCO DE HORAS / REGISTRO DE CRÉDITOS + BAIXA P1
        ========================================================= */
     #secao-banco-horas .orientacao-baixa-p1 {
       margin:0 0 18px;
@@ -12556,7 +12556,7 @@
   
 
     /* =========================================================
-       SIGA 5.9.0 — R9.7.9 • CRÉDITOS PELO POLICIAL OU GUARDA
+       SIGA 5.9.0 — R9.8.1 • CRÉDITOS PELO POLICIAL OU GUARDA
        ========================================================= */
     #secao-banco-horas .registro-credito-banco-horas { margin:0 0 18px; }
     #secao-banco-horas .topo-registro-credito-banco { align-items:flex-start; }
@@ -12573,9 +12573,11 @@
       background:#f7faf6;color:#435141;
     }
     #secao-banco-horas .credito-proprio-identidade strong,
-    #secao-banco-horas .credito-proprio-identidade span { display:block; }
+    #secao-banco-horas .credito-proprio-identidade span,
+    #secao-banco-horas .credito-proprio-identidade small { display:block; }
     #secao-banco-horas .credito-proprio-identidade strong { color:#18331f;font-size:13px;line-height:1.3; }
-    #secao-banco-horas .credito-proprio-identidade span { margin-top:3px;color:#748076;font-size:11px; }
+    #secao-banco-horas .credito-proprio-identidade small { margin-top:3px;color:#546252;font-size:10px;font-weight:800; }
+    #secao-banco-horas .credito-proprio-identidade span { margin-top:4px;color:#748076;font-size:11px; }
     #secao-banco-horas .grade-registro-credito-banco {
       display:grid!important;
       grid-template-columns:minmax(0,1.28fr) minmax(98px,.72fr)!important;
@@ -12609,6 +12611,11 @@
       #secao-banco-horas .credito-proprio-identidade { padding:10px 12px; }
     }
 
+    @media(max-width:560px) {
+      #secao-banco-horas .grade-justificativas-banco { grid-template-columns:1fr; }
+      #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+
     @media(max-width:360px) {
       #secao-banco-horas .grade-registro-credito-banco {
         grid-template-columns:minmax(0,1.34fr) minmax(88px,.66fr)!important;
@@ -12616,12 +12623,168 @@
       }
       #secao-banco-horas .grade-registro-credito-banco input { font-size:13px!important; }
       #secao-banco-horas .grade-registro-credito-banco input[type="date"] { font-size:12.5px!important; }
+      #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
 
 
 
     /* =======================================================
-       SIGA v5.9.0 — R9.7.9 • BANCO DE HORAS — FORMULÁRIO PROFISSIONAL
+       SIGA v5.9.0 — R9.8.1 • BANCO DE HORAS — AJUSTE FINO PREMIUM
+       Hierarquia, formulário, justificativas e extrato refinados.
+       ======================================================= */
+    #secao-banco-horas { --bh-verde:#173923;--bh-verde-2:#425b3c;--bh-ouro:#d4b043;--bh-borda:#d5ddd2;--bh-suave:#f6f8f4; }
+    #secao-banco-horas .banco-horas-cabecalho {
+      margin-bottom:18px;padding:2px 2px 16px;border-bottom:1px solid #dfe5dc;position:relative;
+    }
+    #secao-banco-horas .banco-horas-cabecalho::after {
+      content:'';position:absolute;left:0;bottom:-1px;width:82px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--bh-ouro),rgba(212,176,67,.08));
+    }
+    #secao-banco-horas .banco-horas-cabecalho p { max-width:720px; }
+    #secao-banco-horas .bloco-resumo-banco {
+      padding:20px;border:1px solid var(--bh-borda);border-radius:24px;background:linear-gradient(145deg,#fbfcfa,#f1f5ef);box-shadow:0 16px 34px rgba(31,53,34,.055);
+    }
+    #secao-banco-horas .bloco-resumo-banco .bloco-pagina-cabecalho { margin-bottom:14px; }
+    #secao-banco-horas .bloco-resumo-banco .bloco-pagina-cabecalho small { color:#728075;letter-spacing:.16em; }
+    #secao-banco-horas .resumo-banco-horas { grid-template-columns:1.35fr 1fr 1fr;gap:12px;margin:0; }
+    #secao-banco-horas .cartao-saldo-horas {
+      position:relative;overflow:hidden;isolation:isolate;min-height:124px;padding:18px 18px 17px;border-radius:20px;border-color:#d6ded3;box-shadow:0 10px 24px rgba(35,54,36,.055);
+    }
+    #secao-banco-horas .cartao-saldo-horas::before {
+      content:'';position:absolute;left:0;top:17px;bottom:17px;width:5px;border-radius:0 99px 99px 0;background:linear-gradient(180deg,#e3c75e,var(--bh-ouro));z-index:-1;
+    }
+    #secao-banco-horas .cartao-saldo-horas::after {
+      content:'';position:absolute;width:130px;height:130px;right:-58px;bottom:-72px;border:18px solid rgba(210,219,207,.20);border-radius:50%;z-index:-1;
+    }
+    #secao-banco-horas .cartao-saldo-horas.destaque { background:linear-gradient(135deg,#435d3d,#1e3b28);border-color:#355139; }
+    #secao-banco-horas .cartao-saldo-horas.destaque::before { background:linear-gradient(180deg,#f0d66d,#d6ac34); }
+    #secao-banco-horas .cartao-saldo-horas.destaque::after { border-color:rgba(255,255,255,.06); }
+    #secao-banco-horas .cartao-saldo-horas small { font-size:9px;letter-spacing:.13em; }
+    #secao-banco-horas .cartao-saldo-horas strong { margin:10px 0 8px;font-size:34px;letter-spacing:-.035em; }
+    #secao-banco-horas .cartao-saldo-horas span { max-width:190px;font-size:10px;line-height:1.4; }
+
+    #secao-banco-horas .orientacao-baixa-p1 {
+      position:relative;margin:16px 0 18px;padding:13px 15px 13px 44px;border:1px solid #d9e1d5;border-radius:16px;background:#f7f9f6;color:#60705f;font-size:11px;line-height:1.55;
+    }
+    #secao-banco-horas .orientacao-baixa-p1::before {
+      content:'i';position:absolute;left:14px;top:14px;width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:#e8eee4;color:#40583c;font-size:12px;font-weight:900;
+    }
+    #secao-banco-horas .orientacao-baixa-p1 strong { color:#334d38; }
+
+    #secao-banco-horas .registro-credito-banco-horas,
+    #secao-banco-horas .painel-extrato-banco-horas,
+    #secao-banco-horas .painel-baixa-p1-banco {
+      border:1px solid var(--bh-borda);border-radius:24px;background:#fff;box-shadow:0 18px 42px rgba(29,49,31,.065);
+    }
+    #secao-banco-horas .registro-credito-banco-horas { padding:22px; }
+    #secao-banco-horas .topo-registro-credito-banco { padding-bottom:15px;border-bottom:1px solid #e3e8e0;margin-bottom:14px; }
+    #secao-banco-horas .topo-registro-credito-banco h3 { font-size:23px;letter-spacing:-.025em; }
+    #secao-banco-horas .topo-registro-credito-banco .status { border:1px solid #dde3d9;background:#f2f4f0;color:#657161; }
+    #secao-banco-horas .aviso-registro-credito-banco {
+      margin:0 0 16px!important;padding:11px 13px!important;border:1px solid #d9e0d6!important;border-left:4px solid var(--bh-ouro)!important;border-radius:14px!important;background:#f7f9f6!important;color:#59685a!important;font-size:11px!important;line-height:1.5!important;
+    }
+    #secao-banco-horas .credito-proprio-identidade {
+      margin:0 0 16px;padding:13px 14px;border:1px solid #d4ded1;border-left:4px solid #607756;border-radius:16px;background:linear-gradient(145deg,#fbfcfa,#f3f7f1);
+    }
+    #secao-banco-horas .credito-proprio-identidade strong { font-size:14px;letter-spacing:.01em; }
+    #secao-banco-horas .credito-proprio-identidade small { font-size:10.5px; }
+    #secao-banco-horas .credito-proprio-identidade .status { flex:0 0 auto;background:#e9eee6;color:#536451; }
+
+    #secao-banco-horas .subsecao-form-banco { margin:19px 0 11px;padding-top:1px; }
+    #secao-banco-horas .subsecao-form-banco span { display:block;color:#6e7c70;font-size:9px;font-weight:950;letter-spacing:.15em; }
+    #secao-banco-horas .subsecao-form-banco p { margin:4px 0 0;color:#8a958c;font-size:10.5px;line-height:1.4; }
+    #secao-banco-horas .subsecao-motivo-banco { margin-top:22px;padding-top:17px;border-top:1px solid #e6eae3; }
+    #secao-banco-horas .grade-registro-credito-banco { grid-template-columns:minmax(0,1.15fr) minmax(135px,.85fr)!important;gap:13px!important; }
+    #secao-banco-horas .grade-registro-credito-banco .campo { margin:0 0 2px; }
+    #secao-banco-horas .grade-registro-credito-banco .campo label,
+    #secao-banco-horas .campo-justificativa-credito-banco > label { margin-bottom:7px;font-size:13px!important;line-height:1.2;color:#29412f; }
+    #secao-banco-horas .grade-registro-credito-banco input,
+    #secao-banco-horas .campo-seletor-horas-credito { height:58px;min-height:58px;border-radius:16px!important;border-color:#ccd8c9!important; }
+    #secao-banco-horas .campo-seletor-horas-credito { padding-left:15px; }
+    #secao-banco-horas .campo-seletor-horas-valor { font-size:15.5px; }
+    #secao-banco-horas .campo-seletor-horas-icone { background:transparent!important;border:0!important;width:34px;height:34px; }
+    #secao-banco-horas .campo-seletor-horas-icone svg { width:24px;height:24px; }
+
+    #secao-banco-horas .resumo-justificativa-banco { display:none; }
+    #secao-banco-horas .grade-justificativas-banco { grid-template-columns:repeat(2,minmax(0,1fr));gap:9px; }
+    #secao-banco-horas .opcao-justificativa-banco {
+      min-height:56px;padding:11px 13px;border-radius:15px;background:#fafbfa;border-color:#d4ddd1;font-size:12px;line-height:1.25;
+    }
+    #secao-banco-horas .opcao-justificativa-banco.ativa { background:linear-gradient(135deg,#506745,#304b34);border-color:#40583b;box-shadow:0 9px 18px rgba(40,70,44,.14); }
+    #secao-banco-horas #observacaoCreditoBancoHoras { min-height:104px;resize:vertical;border-radius:16px; }
+    #secao-banco-horas #botaoRegistrarCreditoBancoHoras { min-height:58px;margin-top:12px;border-radius:17px;font-size:12px;letter-spacing:.10em; }
+    #secao-banco-horas .protecao-duplicidade-banco {
+      display:flex;align-items:flex-start;gap:9px;margin:10px 2px 0;padding:10px 12px;border-radius:13px;background:#f5f7f3;color:#69766b;
+    }
+    #secao-banco-horas .protecao-duplicidade-banco > span { width:22px;height:22px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:#e5ece1;color:#3e5b42;font-size:11px;font-weight:900; }
+    #secao-banco-horas .protecao-duplicidade-banco strong,
+    #secao-banco-horas .protecao-duplicidade-banco small { display:block; }
+    #secao-banco-horas .protecao-duplicidade-banco strong { color:#435744;font-size:9.5px;letter-spacing:.02em; }
+    #secao-banco-horas .protecao-duplicidade-banco small { margin-top:2px;font-size:9px;line-height:1.4; }
+
+    #secao-banco-horas .painel-extrato-banco-horas { padding:20px; }
+    #secao-banco-horas .painel-extrato-banco-horas .cartao-topo { padding-bottom:14px;border-bottom:1px solid #e5e9e2; }
+    #secao-banco-horas .lista-creditos-banco-horas { gap:11px;margin-top:15px; }
+    #secao-banco-horas .credito-banco-horas {
+      position:relative;display:grid;grid-template-columns:94px minmax(0,1fr);align-items:start;gap:15px;padding:15px 16px;border:1px solid #d8e0d5;border-radius:18px;background:linear-gradient(145deg,#fff,#fbfcfa);box-shadow:0 7px 18px rgba(33,53,35,.04);
+    }
+    #secao-banco-horas .credito-banco-horas::before { content:'';position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:0 99px 99px 0;background:#d9bc55; }
+    #secao-banco-horas .credito-banco-data { padding-top:1px;color:#7b877d;font-size:9px; }
+    #secao-banco-horas .credito-banco-data .credito-banco-tipo { display:block;margin-bottom:6px;color:#7b877d;font-size:7.5px;font-weight:950;letter-spacing:.13em; }
+    #secao-banco-horas .credito-banco-data strong { font-size:12px;color:#314233; }
+    #secao-banco-horas .credito-banco-linha-principal { display:flex;align-items:center;justify-content:space-between;gap:10px; }
+    #secao-banco-horas .credito-banco-linha-principal > strong { font-size:14px;color:#213d29; }
+    #secao-banco-horas .credito-banco-total { margin-top:3px!important;color:#8a958c!important;font-size:9px!important; }
+    #secao-banco-horas .credito-banco-meta { display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:10px; }
+    #secao-banco-horas .credito-banco-meta span { margin:0!important;padding:5px 8px;border-radius:9px;background:#f3f6f1;color:#667267!important;font-size:8.5px!important;line-height:1.3!important; }
+    #secao-banco-horas .credito-banco-meta b { color:#445444; }
+    #secao-banco-horas .credito-motivo-banco,
+    #secao-banco-horas .credito-p1-banco-motivo { display:inline-flex!important;width:auto;margin-top:9px!important;padding:5px 9px;border-radius:999px;background:#eef3eb;color:#476044!important;font-size:8.5px!important;font-weight:850; }
+    #secao-banco-horas .credito-banco-observacao { margin:8px 0 0;color:#6f7b71;font-size:9.5px;line-height:1.5; }
+    #secao-banco-horas .situacao-banco-horas { flex:0 0 auto;padding:5px 8px;font-size:7px; }
+    #secao-banco-horas .historico-baixas-horas { grid-column:2;margin-top:1px; }
+
+    #secao-banco-horas .painel-baixa-p1-banco { padding:20px; }
+    #secao-banco-horas .credito-p1-banco { border-radius:17px;border-color:#d8e0d5;background:#fff;box-shadow:0 6px 16px rgba(33,53,35,.04); }
+    #secao-banco-horas .credito-p1-banco-dados .credito-banco-meta { margin-top:8px; }
+    #secao-banco-horas .credito-p1-banco-acoes { align-items:center; }
+
+    #secao-banco-horas .modal-seletor-horas-credito { padding:18px;border-radius:28px; }
+    #secao-banco-horas .seletor-horas-display { padding:14px 15px; }
+    #secao-banco-horas .seletor-horas-display strong { font-size:27px; }
+    #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(5,minmax(0,1fr)); }
+
+    @media(min-width:900px) {
+      #secao-banco-horas .grade-justificativas-banco { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    }
+    @media(max-width:760px) {
+      #secao-banco-horas .bloco-resumo-banco { padding:16px; }
+      #secao-banco-horas .resumo-banco-horas { grid-template-columns:1fr 1fr; }
+      #secao-banco-horas .cartao-saldo-horas.destaque { grid-column:1/-1; }
+      #secao-banco-horas .registro-credito-banco-horas,
+      #secao-banco-horas .painel-extrato-banco-horas,
+      #secao-banco-horas .painel-baixa-p1-banco { padding:16px; }
+      #secao-banco-horas .grade-registro-credito-banco { grid-template-columns:minmax(0,1.17fr) minmax(122px,.83fr)!important;gap:10px!important; }
+      #secao-banco-horas .grade-campos-banco-horas { gap:10px; }
+      #secao-banco-horas .credito-banco-horas { grid-template-columns:76px minmax(0,1fr);gap:11px;padding:14px; }
+      #secao-banco-horas .credito-banco-registrado-por { flex-basis:100%; }
+      #secao-banco-horas .historico-baixas-horas { grid-column:1/-1; }
+      #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    @media(max-width:390px) {
+      #secao-banco-horas .resumo-banco-horas { grid-template-columns:1fr; }
+      #secao-banco-horas .cartao-saldo-horas.destaque { grid-column:auto; }
+      #secao-banco-horas .grade-registro-credito-banco { grid-template-columns:minmax(0,1.14fr) minmax(112px,.86fr)!important; }
+      #secao-banco-horas .grade-justificativas-banco { grid-template-columns:1fr; }
+      #secao-banco-horas .credito-banco-horas { grid-template-columns:1fr; }
+      #secao-banco-horas .credito-banco-data { display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:8px;border-bottom:1px solid #edf0eb; }
+      #secao-banco-horas .credito-banco-data .credito-banco-tipo { margin:0; }
+      #secao-banco-horas .credito-banco-linha-principal { align-items:flex-start; }
+      #secao-banco-horas .historico-baixas-horas { grid-column:1; }
+      #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
+    /* =======================================================
+       SIGA v5.9.0 — R9.8.1 • BANCO DE HORAS — FORMULÁRIO PROFISSIONAL
        Corrige colisão da classe global .vazio, refina o seletor de duração
        e inclui justificativa estruturada para cada crédito.
        ======================================================= */
@@ -12643,26 +12806,36 @@
     }
     #secao-banco-horas .campo-seletor-horas-valor.sem-valor { color:#8b978d;font-weight:600; }
     #secao-banco-horas .campo-seletor-horas-icone {
-      width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#eef3eb;color:#52684f;
+      width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:transparent;border:1px solid #d8e1d5;color:#52684f;
     }
     #secao-banco-horas .campo-seletor-horas-icone svg {
       width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;
     }
 
     #secao-banco-horas .campo-justificativa-credito-banco { margin-top:2px; }
-    #secao-banco-horas .select-justificativa-banco { position:relative; }
-    #secao-banco-horas .select-justificativa-banco select {
-      width:100%;height:var(--r96-control-h,54px);min-height:var(--r96-control-h,54px);
-      padding:0 46px 0 14px;border:1px solid #cfd9cc;border-radius:14px;background:#fff;color:#183923;
-      font:inherit;font-size:15px;font-weight:650;appearance:none;-webkit-appearance:none;cursor:pointer;
+    #secao-banco-horas .grade-justificativas-banco {
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:4px;
     }
-    #secao-banco-horas .select-justificativa-banco select:invalid { color:#8b978d;font-weight:550; }
-    #secao-banco-horas .select-justificativa-banco::after {
-      content:'';position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:2px solid #60725b;
-      border-bottom:2px solid #60725b;transform:translateY(-68%) rotate(45deg);pointer-events:none;
+    #secao-banco-horas .opcao-justificativa-banco {
+      min-height:58px;padding:12px 13px;border:1px solid #d5ddd2;border-radius:16px;background:#fff;
+      color:#24412d;font:inherit;font-size:13px;font-weight:800;line-height:1.25;text-align:left;cursor:pointer;
+      box-shadow:0 1px 0 rgba(20,48,28,.02);transition:transform .14s ease,border-color .14s ease,box-shadow .14s ease,background .14s ease,color .14s ease;
+      -webkit-tap-highlight-color:transparent;
     }
+    #secao-banco-horas .opcao-justificativa-banco:hover { transform:translateY(-1px); }
+    #secao-banco-horas .opcao-justificativa-banco.ativa {
+      border-color:#435b3c;background:linear-gradient(135deg,#4b6340,#30462e);color:#fff;box-shadow:0 10px 18px rgba(38,65,39,.16);
+    }
+    #secao-banco-horas .opcao-justificativa-banco:focus-visible {
+      outline:none;border-color:#667a59;box-shadow:0 0 0 4px rgba(86,104,74,.13);
+    }
+    #secao-banco-horas .resumo-justificativa-banco {
+      margin:0 0 9px;padding:12px 14px;border:1px solid #d6dfd3;border-radius:14px;background:#f8faf7;
+      color:#183923;font-size:14px;font-weight:750;line-height:1.35;
+    }
+    #secao-banco-horas .resumo-justificativa-banco.sem-valor { color:#8b978d;font-weight:650; }
     #secao-banco-horas .ajuda-campo-banco {
-      display:block;margin:6px 2px 0;color:#7b877d;font-size:10.5px;line-height:1.35;font-weight:600;
+      display:block;margin:7px 2px 0;color:#7b877d;font-size:10.5px;line-height:1.35;font-weight:600;
     }
     #secao-banco-horas .ajuda-campo-banco.destaque { color:#7a5b17; }
     #secao-banco-horas .badge-campo-obrigatorio {
@@ -12671,28 +12844,28 @@
     }
 
     #secao-banco-horas .modal-seletor-horas-credito {
-      width:min(100%,480px);padding:20px;overflow:visible;border-radius:24px;
+      width:min(100%,490px);padding:18px;overflow:visible;border-radius:28px;box-shadow:0 28px 70px rgba(17,34,22,.22);
     }
     #secao-banco-horas .seletor-horas-topo {
       display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;
     }
     #secao-banco-horas .seletor-horas-topo h3 {
-      margin:4px 0 0;color:#173622;font-size:23px;line-height:1.05;letter-spacing:-.025em;
+      margin:4px 0 0;color:#173622;font-size:21px;line-height:1.08;letter-spacing:-.025em;
     }
     #secao-banco-horas .seletor-horas-display {
       display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;margin-bottom:12px;
-      padding:15px 16px;border:1px solid #d6dfd3;border-radius:18px;background:linear-gradient(145deg,#f8faf6,#eef4eb);
+      padding:14px 15px;border:1px solid #d6dfd3;border-radius:20px;background:linear-gradient(145deg,#f9fbf8,#eef4eb);
     }
     #secao-banco-horas .seletor-horas-display small,
     #secao-banco-horas .seletor-horas-display strong,
     #secao-banco-horas .seletor-horas-display span { display:block; }
     #secao-banco-horas .seletor-horas-display small { color:#71806f;font-size:9px;font-weight:900;letter-spacing:.12em; }
     #secao-banco-horas .seletor-horas-display strong {
-      margin-top:4px;color:#173622;font-size:30px;line-height:1;font-weight:900;letter-spacing:-.035em;font-variant-numeric:tabular-nums;
+      margin-top:4px;color:#173622;font-size:28px;line-height:1;font-weight:900;letter-spacing:-.035em;font-variant-numeric:tabular-nums;
     }
     #secao-banco-horas .seletor-horas-display span { margin-top:5px;color:#748176;font-size:10.5px;line-height:1.3; }
     #secao-banco-horas .seletor-horas-display-icone {
-      width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:#fff;border:1px solid #d8e1d5;color:#4e6649;
+      width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:#fff;border:1px solid #d8e1d5;color:#4e6649;
     }
     #secao-banco-horas .seletor-horas-display-icone svg {
       width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
@@ -12883,7 +13056,7 @@
 
       <footer class="rodape-acesso">
         Desenvolvido para a gestão administrativa da 3ª CIA / 19º BPM<br>
-        SIGA 3ª CIA — Versão 5.9.0 • R9.7.9
+        SIGA 3ª CIA — Versão 5.9.0 • R9.8.1
       </footer>
     </section>
   </main>
@@ -12956,7 +13129,7 @@
         <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
-      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.7.9</footer>
+      <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.8.1</footer>
     </aside>
 
     <div class="area-principal">
@@ -13330,6 +13503,7 @@
               </div>
               <div id="policialSelecionadoBancoHoras" class="policial-selecionado-banco oculto"></div>
               <div id="identidadeCreditoProprioBancoHoras" class="credito-proprio-identidade oculto" aria-live="polite"></div>
+              <div class="subsecao-form-banco"><span>DADOS DO CRÉDITO</span><p>Informe quando ocorreu, a duração e a referência exata no livro.</p></div>
               <div class="grade-campos-banco-horas grade-registro-credito-banco">
                 <div class="campo"><label for="dataCreditoBancoHoras">Data</label><input id="dataCreditoBancoHoras" type="date" required></div>
                 <div class="campo campo-horas-credito-banco">
@@ -13344,20 +13518,20 @@
                 <div class="campo"><label for="paginaBancoHoras">Página</label><input id="paginaBancoHoras" maxlength="40" inputmode="numeric" placeholder="Ex.: 128" required></div>
               </div>
 
+              <div class="subsecao-form-banco subsecao-motivo-banco"><span>MOTIVO DO CRÉDITO</span><p>Classifique a origem das horas para facilitar conferência e auditoria.</p></div>
               <div class="campo campo-justificativa-credito-banco">
                 <label for="justificativaCreditoBancoHoras">Justificativa</label>
-                <div class="select-justificativa-banco">
-                  <select id="justificativaCreditoBancoHoras" required onchange="atualizarJustificativaCreditoBancoHoras()">
-                    <option value="" selected disabled>Selecione o motivo do crédito</option>
-                    <option value="PROLONGAMENTO_SERVICO">Prolongamento de serviço</option>
-                    <option value="SERVICO_EXTRAORDINARIO">Serviço extraordinário / convocação</option>
-                    <option value="REUNIAO_INSTITUCIONAL">Reunião institucional</option>
-                    <option value="INSTRUCAO_TREINAMENTO">Instrução / treinamento</option>
-                    <option value="OPERACAO_APOIO">Operação / apoio operacional</option>
-                    <option value="ATIVIDADE_ADMINISTRATIVA">Atividade administrativa</option>
-                    <option value="EVENTO_SOLENIDADE">Evento / solenidade</option>
-                    <option value="OUTRO">Outro</option>
-                  </select>
+                <input id="justificativaCreditoBancoHoras" type="hidden" value="">
+                <div id="resumoJustificativaCreditoBancoHoras" class="resumo-justificativa-banco sem-valor" aria-live="polite">Selecione o motivo do crédito</div>
+                <div id="gradeJustificativasCreditoBancoHoras" class="grade-justificativas-banco" role="group" aria-label="Opções de justificativa">
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="PROLONGAMENTO_SERVICO" onclick="selecionarJustificativaCreditoBancoHoras('PROLONGAMENTO_SERVICO','Prolongamento de serviço')">Prolongamento de serviço</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="SERVICO_EXTRAORDINARIO" onclick="selecionarJustificativaCreditoBancoHoras('SERVICO_EXTRAORDINARIO','Serviço extraordinário / convocação')">Serviço extraordinário / convocação</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="REUNIAO_INSTITUCIONAL" onclick="selecionarJustificativaCreditoBancoHoras('REUNIAO_INSTITUCIONAL','Reunião institucional')">Reunião institucional</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="INSTRUCAO_TREINAMENTO" onclick="selecionarJustificativaCreditoBancoHoras('INSTRUCAO_TREINAMENTO','Instrução / treinamento')">Instrução / treinamento</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="OPERACAO_APOIO" onclick="selecionarJustificativaCreditoBancoHoras('OPERACAO_APOIO','Operação / apoio operacional')">Operação / apoio operacional</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="ATIVIDADE_ADMINISTRATIVA" onclick="selecionarJustificativaCreditoBancoHoras('ATIVIDADE_ADMINISTRATIVA','Atividade administrativa')">Atividade administrativa</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="EVENTO_SOLENIDADE" onclick="selecionarJustificativaCreditoBancoHoras('EVENTO_SOLENIDADE','Evento / solenidade')">Evento / solenidade</button>
+                  <button type="button" class="opcao-justificativa-banco" data-justificativa="OUTRO" onclick="selecionarJustificativaCreditoBancoHoras('OUTRO','Outro')">Outro</button>
                 </div>
                 <small class="ajuda-campo-banco">Selecione o motivo que originou as horas excedentes.</small>
               </div>
@@ -13368,6 +13542,7 @@
                 <small id="ajudaDetalhamentoCreditoBancoHoras" class="ajuda-campo-banco">Use este campo apenas quando precisar complementar a justificativa.</small>
               </div>
               <button id="botaoRegistrarCreditoBancoHoras" class="botao" type="submit">REGISTRAR CRÉDITO</button>
+              <div class="protecao-duplicidade-banco" role="note"><span aria-hidden="true">✓</span><div><strong>Proteção contra duplicidade</strong><small>O SIGA bloqueia novo crédito idêntico para o mesmo policial, data, duração, livro, página e justificativa.</small></div></div>
             </form>
           </div>
 
@@ -14592,7 +14767,7 @@
 
       function medir() {
         const visual = window.visualViewport;
-        /* R9.7.9: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
+        /* R9.8.1: offsetTop do visualViewport oscila durante o rubber-band do WebKit.
            A altura visual deve ser medida sem transformar essa oscilação em layout. */
         const alturaVisual = visual ? Number(visual.height || 0) : 0;
         const altura = Math.ceil(Math.max(
@@ -14642,7 +14817,7 @@
       });
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.7.9: não recalcular layout durante o bounce/scroll do visualViewport. */
+        /* R9.8.1: não recalcular layout durante o bounce/scroll do visualViewport. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const app = document.getElementById('appShell');
@@ -14662,7 +14837,7 @@
 
 
     /* =======================================================
-       SIGA 5.9.0 — R9.7.9 • CONTROLADOR DE ELASTICIDADE
+       SIGA 5.9.0 — R9.8.1 • CONTROLADOR DE ELASTICIDADE
        Mantém a rolagem normal do documento e intercepta somente
        a tentativa de ultrapassar o topo/rodapé. Assim o WebKit
        não move a viewport nem o cabeçalho, mas o usuário preserva
@@ -15562,9 +15737,13 @@
 
     function identificacaoPolicialExibicao(policial) {
       const p = policial || {};
-      const identificacao = String(p.identificacao || p.nomeGuerra || p.nomeCompleto || '').trim();
+      const posto = String(p.postoGraduacao || '').trim();
+      const numeral = String(p.numeral || '').trim();
+      const nome = String(p.nomeGuerra || p.nomeCompleto || p.identificacao || '').trim();
+      const usarNumeral = typeof postoUsaNumeral === 'function' ? postoUsaNumeral(posto) : true;
+      const principal = [posto, usarNumeral ? numeral : '', nome].filter(Boolean).join(' ').trim() || String(p.identificacao || '').trim() || nome;
       const matricula = formatarMatriculaFuncional(p.matricula);
-      return identificacao + (matricula !== '—' ? ' - M.F.: ' + matricula : '');
+      return principal + (matricula !== '—' ? ' - M.F.: ' + matricula : '');
     }
 
     function htmlIdentificacaoPolicial(policial) {
@@ -17224,7 +17403,13 @@
         if (botao) botao.textContent = 'REGISTRAR MEU CRÉDITO';
         const identidade = $('identidadeCreditoProprioBancoHoras');
         if (identidade) {
-          identidade.innerHTML = `<div><strong>${htmlIdentificacaoPolicial(estado.usuario)}</strong><span>Crédito vinculado automaticamente ao seu cadastro</span></div><span class="status status-neutro">VOCÊ</span>`;
+          const usuarioAtual = estado.usuario || {};
+          const postoAtual = String(usuarioAtual.postoGraduacao || '').trim();
+          const numeralAtual = (typeof postoUsaNumeral === 'function' && !postoUsaNumeral(postoAtual)) ? '' : String(usuarioAtual.numeral || '').trim();
+          const nomeAtual = String(usuarioAtual.nomeGuerra || usuarioAtual.nomeCompleto || usuarioAtual.identificacao || '').trim();
+          const principalAtual = escaparHtml([postoAtual, numeralAtual, nomeAtual].filter(Boolean).join(' ').trim() || identificacaoPolicialExibicao(usuarioAtual));
+          const matriculaAtual = formatarMatriculaFuncional(usuarioAtual.matricula);
+          identidade.innerHTML = `<div><strong>${principalAtual}</strong>${matriculaAtual !== '—' ? `<small>M.F.: ${escaparHtml(matriculaAtual)}</small>` : ''}<span>Crédito vinculado automaticamente ao seu cadastro</span></div><span class="status status-neutro">VOCÊ</span>`;
         }
       }
     }
@@ -17363,13 +17548,45 @@
       aplicarValorHorasCreditoBancoHoras(0);
     }
 
+    function selecionarJustificativaCreditoBancoHoras(codigo, rotulo) {
+      const campo = $('justificativaCreditoBancoHoras');
+      const resumo = $('resumoJustificativaCreditoBancoHoras');
+      if (campo) campo.value = String(codigo || '');
+      document.querySelectorAll('[data-justificativa]').forEach(function(botao) {
+        const ativo = String(botao.dataset.justificativa || '') === String(codigo || '');
+        botao.classList.toggle('ativa', ativo);
+        botao.setAttribute('aria-pressed', ativo ? 'true' : 'false');
+      });
+      if (resumo) {
+        if (codigo && rotulo) {
+          resumo.textContent = rotulo;
+          resumo.classList.remove('sem-valor');
+        } else {
+          resumo.textContent = 'Selecione o motivo do crédito';
+          resumo.classList.add('sem-valor');
+        }
+      }
+      atualizarJustificativaCreditoBancoHoras();
+    }
+
     function atualizarJustificativaCreditoBancoHoras() {
-      const seletor = $('justificativaCreditoBancoHoras');
+      const campo = $('justificativaCreditoBancoHoras');
       const detalhe = $('observacaoCreditoBancoHoras');
       const estadoDetalhe = $('estadoDetalhamentoCreditoBancoHoras');
       const ajuda = $('ajudaDetalhamentoCreditoBancoHoras');
-      if (!seletor || !detalhe) return;
-      const outro = String(seletor.value || '') === 'OUTRO';
+      const codigo = campo ? String(campo.value || '').trim() : '';
+      document.querySelectorAll('[data-justificativa]').forEach(function(botao) {
+        const ativo = String(botao.dataset.justificativa || '') === codigo;
+        botao.classList.toggle('ativa', ativo);
+        botao.setAttribute('aria-pressed', ativo ? 'true' : 'false');
+      });
+      const resumo = $('resumoJustificativaCreditoBancoHoras');
+      if (resumo && !codigo) {
+        resumo.textContent = 'Selecione o motivo do crédito';
+        resumo.classList.add('sem-valor');
+      }
+      if (!detalhe) return;
+      const outro = codigo === 'OUTRO';
       detalhe.required = outro;
       if (estadoDetalhe) {
         estadoDetalhe.textContent = outro ? 'obrigatório' : 'opcional';
@@ -17441,16 +17658,19 @@
       }
 
       $('listaCreditosBancoHoras').innerHTML = creditos.map(function(credito) {
+        const situacao = credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '');
         return `<article class="credito-banco-horas">
-          <div class="credito-banco-data"><strong>${formatarData(credito.data)}</strong><span>crédito</span></div>
+          <div class="credito-banco-data"><span class="credito-banco-tipo">CRÉDITO</span><strong>${formatarData(credito.data)}</strong></div>
           <div class="credito-banco-conteudo">
-            <strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis de ${formatarMinutosBancoHoras(credito.minutos)}</strong>
-            <span>Nº do livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')} • registrado por ${escaparHtml(credito.criadoPor || 'Corpo da Guarda')}</span>
+            <div class="credito-banco-linha-principal"><strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong><span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${situacao}</span></div>
+            <span class="credito-banco-total">Crédito original: ${formatarMinutosBancoHoras(credito.minutos)}</span>
+            <div class="credito-banco-meta">
+              <span><b>Nº do livro</b> ${escaparHtml(credito.livro || '—')}</span>
+              <span><b>Página</b> ${escaparHtml(credito.pagina || '—')}</span>
+              <span class="credito-banco-registrado-por"><b>Registrado por</b> ${escaparHtml(credito.criadoPor || 'Corpo da Guarda')}</span>
+            </div>
             ${credito.justificativa ? `<span class="credito-motivo-banco">${escaparHtml(credito.justificativa)}</span>` : ''}
-            ${credito.observacao ? `<span>${escaparHtml(credito.observacao)}</span>` : ''}
-          </div>
-          <div class="credito-banco-acoes">
-            <span class="situacao-banco-horas ${escaparHtml(credito.situacao || '')}">${credito.situacao === 'DISPONIVEL' ? 'DISPONÍVEL' : escaparHtml(credito.situacao || '')}</span>
+            ${credito.observacao ? `<p class="credito-banco-observacao">${escaparHtml(credito.observacao)}</p>` : ''}
           </div>
           ${htmlHistoricoBaixasBancoHoras(credito.baixas)}
         </article>`;
@@ -17532,7 +17752,7 @@
       const detalhamentoCredito = $('observacaoCreditoBancoHoras') ? String($('observacaoCreditoBancoHoras').value || '').trim() : '';
       if (!justificativaCredito) {
         toast('Selecione a justificativa do crédito.', 'aviso');
-        $('justificativaCreditoBancoHoras')?.focus();
+        document.querySelector('[data-justificativa]')?.focus();
         return;
       }
       if (justificativaCredito === 'OUTRO' && !detalhamentoCredito) {
@@ -17558,6 +17778,7 @@
         $('formCreditoBancoHoras').reset();
         $('dataCreditoBancoHoras').value = dataHojeIso();
         limparHorasCreditoBancoHoras();
+        selecionarJustificativaCreditoBancoHoras('', '');
         atualizarJustificativaCreditoBancoHoras();
         estado.chaveCreditoBancoHoras = '';
         if (modoGuarda) limparPolicialBancoHoras();
@@ -17667,12 +17888,13 @@
       $('listaBaixaP1BancoHoras').innerHTML = creditos.map(function(credito) {
         const podeBaixar = Number(credito.restanteMinutos || 0) > 0;
         return `<article class="credito-p1-banco">
-          <div class="credito-p1-banco-data"><strong>${formatarData(credito.data)}</strong><span>crédito</span></div>
+          <div class="credito-p1-banco-data"><span class="credito-banco-tipo">CRÉDITO</span><strong>${formatarData(credito.data)}</strong></div>
           <div class="credito-p1-banco-dados">
-            <strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis de ${formatarMinutosBancoHoras(credito.minutos)}</strong>
-            <span>Nº do livro ${escaparHtml(credito.livro || '—')} • página ${escaparHtml(credito.pagina || '—')}</span>
-            ${credito.justificativa ? `<span class="credito-p1-banco-motivo">Justificativa: ${escaparHtml(credito.justificativa)}</span>` : ''}
-            ${credito.observacao ? `<span class="credito-p1-banco-motivo">Detalhamento: ${escaparHtml(credito.observacao)}</span>` : ''}
+            <strong>${formatarMinutosBancoHoras(credito.restanteMinutos)} disponíveis</strong>
+            <span class="credito-banco-total">Crédito original: ${formatarMinutosBancoHoras(credito.minutos)}</span>
+            <div class="credito-banco-meta"><span><b>Nº do livro</b> ${escaparHtml(credito.livro || '—')}</span><span><b>Página</b> ${escaparHtml(credito.pagina || '—')}</span></div>
+            ${credito.justificativa ? `<span class="credito-p1-banco-motivo">${escaparHtml(credito.justificativa)}</span>` : ''}
+            ${credito.observacao ? `<p class="credito-banco-observacao">${escaparHtml(credito.observacao)}</p>` : ''}
             ${htmlHistoricoBaixasBancoHoras(credito.baixas)}
           </div>
           <div class="credito-p1-banco-acoes">
@@ -21181,7 +21403,7 @@
       window.addEventListener('focus', atualizar);
       if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', atualizar);
-        /* R9.7.9: evita re-medição do cabeçalho durante o bounce do iOS. */
+        /* R9.8.1: evita re-medição do cabeçalho durante o bounce do iOS. */
       }
       document.addEventListener('DOMContentLoaded', () => {
         const topo = document.querySelector('.topbar');
