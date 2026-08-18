@@ -1726,7 +1726,7 @@
     }
     .calendario-topo > div { text-align:center; }
     .calendario-topo small { color:#7b877f;font-size:8px;font-weight:850;letter-spacing:.1em; }
-    .calendario-topo h3 { margin:2px 0 0;font-size:19px;text-transform:capitalize; }
+    .calendario-topo h3 { margin:2px 0 0;font-size:19px; }
     .calendario-nav {
       width:42px;height:42px;border:1px solid #dce5dd;border-radius:12px;
       background:#fff;color:#244630;font-size:18px;font-weight:800;cursor:pointer;
@@ -6307,6 +6307,11 @@
     .acao-usuario-pendente strong { display:block;font-size:12.5px;line-height:1.3; }
     .acao-usuario-pendente small { display:block;margin-top:3px;color:#6d7a6d;font-size:10.5px;line-height:1.4; }
     .acao-usuario-seta { color:#73806e;font-size:20px; }
+
+    .lista-pendencias-relatorio {
+      display:grid;gap:4px;margin:10px 0 0;padding-left:19px;
+    }
+    .lista-pendencias-relatorio li { line-height:1.4; }
 
     #secao-relatorio-guarda.modo-comando-relatorio .grade-relatorio-guarda {
       grid-template-columns:1fr!important;
@@ -13656,7 +13661,7 @@
         <button class="menu-item somente-guarda oculto" data-secao="relatorio-guarda" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório operacional</span></button>
 
         <div class="menu-grupo-titulo">ACOMPANHAMENTO</div>
-        <button class="menu-item" data-secao="relatorios" onclick="navegar('relatorios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatórios</span></button>
+        <button class="menu-item" data-secao="relatorios" onclick="navegar('relatorios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Meu histórico</span></button>
         <button class="menu-item" data-secao="perfil" onclick="navegar('perfil')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-usuario"></use></svg></span><span>Meu perfil</span></button>
 
         <div class="menu-espacador"></div>
@@ -14196,7 +14201,7 @@
           <div class="cabecalho-secao">
             <div>
               <span class="pagina-kicker">MEU HISTÓRICO</span>
-              <h2>Relatórios</h2>
+              <h2>Meu histórico</h2>
               <p>Resumo individual de permutas e checklists.</p>
             </div>
             <div class="acoes-em-linha acoes-nao-imprimir">
@@ -14224,7 +14229,7 @@
           <div class="cabecalho-secao">
             <div>
               <span class="pagina-kicker">CADASTRO FUNCIONAL</span>
-              <h2>Perfil</h2>
+              <h2>Meu perfil</h2>
               <p>Consulte seus dados funcionais e solicite ao P1 a atualização dos dados pessoais autorizados.</p>
             </div>
           </div>
@@ -14245,7 +14250,7 @@
               <div>
                 <span class="rotulo-suave">ATUALIZAÇÃO CADASTRAL</span>
                 <h3>Solicitar alterações</h3>
-                <p>Você pode solicitar alteração apenas de e-mail, Contato / WhatsApp e nome de guerra. O cadastro só será modificado após deferimento do P1.</p>
+                <p>Você pode solicitar alteração apenas de e-mail, contato / WhatsApp e nome de guerra. O cadastro só será modificado após deferimento do P1.</p>
               </div>
             </div>
 
@@ -14274,9 +14279,9 @@
               </div>
             </div>
             <div class="grade-3">
-              <div class="campo"><label for="senhaAtual">Senha atual</label><input id="senhaAtual" type="password" inputmode="numeric" required></div>
-              <div class="campo"><label for="novaSenha">Nova senha</label><input id="novaSenha" type="password" inputmode="numeric" minlength="4" maxlength="32" required></div>
-              <div class="campo"><label for="repetirNovaSenha">Repetir nova senha</label><input id="repetirNovaSenha" type="password" inputmode="numeric" minlength="4" maxlength="32" required></div>
+              <div class="campo"><label for="senhaAtual">Senha atual</label><input id="senhaAtual" type="password" inputmode="numeric" autocomplete="current-password" required></div>
+              <div class="campo"><label for="novaSenha">Nova senha</label><input id="novaSenha" type="password" inputmode="numeric" autocomplete="new-password" minlength="4" maxlength="32" pattern="[0-9]{4,32}" aria-describedby="ajudaNovaSenha" required><small id="ajudaNovaSenha" class="ajuda">Use de 4 a 32 dígitos numéricos.</small></div>
+              <div class="campo"><label for="repetirNovaSenha">Repetir nova senha</label><input id="repetirNovaSenha" type="password" inputmode="numeric" autocomplete="new-password" minlength="4" maxlength="32" pattern="[0-9]{4,32}" required></div>
             </div>
             <button class="botao" type="submit">ALTERAR SENHA</button>
           </form>
@@ -14335,8 +14340,8 @@
         <section id="secao-guarda" class="secao">
           <div class="cabecalho-secao">
             <div>
-              <span class="pagina-kicker">REGISTRO DO SERVIÇO</span>
-              <h2>Corpo da Guarda</h2>
+              <span class="pagina-kicker">CORPO DA GUARDA</span>
+              <h2>Registro do serviço</h2>
               <p>Registro digital das alterações que seriam anotadas na escala oficial impressa.</p>
             </div>
           </div>
@@ -14348,7 +14353,7 @@
             </div>
           </div>
 
-          <div class="guarda-subnavegacao" role="tablist" aria-label="Partes do Corpo da Guarda">
+          <div class="guarda-subnavegacao" role="tablist" aria-label="Etapas do registro do serviço">
             <button id="abaGuardaApresentacao" class="guarda-subaba ativa" type="button" role="tab" aria-selected="true" onclick="alternarParteGuarda('apresentacao')">1. APRESENTAÇÃO</button>
             <button id="abaGuardaAlteracoes" class="guarda-subaba" type="button" role="tab" aria-selected="false" onclick="alternarParteGuarda('alteracoes')">2. ALTERAÇÕES</button>
           </div>
@@ -17013,8 +17018,8 @@
       });
       const titulos = {
         inicio:['Início','Área do policial'], calendario:['Calendário','Escala pessoal prevista'], checklist:['Checklist','Controle operacional da frota'], permutas:['Permutas','Solicitações e acompanhamento'], 'banco-horas':['Banco de horas','Créditos em livro e baixas registradas pelo P1'],
-        relatorios:['Relatórios','Resumo individual'], perfil:['Perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Efetivo, solicitações e afastamentos do P1'],
-        'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão geral','Painel administrativo'], guarda:['Corpo da Guarda','Registro das alterações da escala impressa'], 'relatorio-guarda':['Relatório','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
+        relatorios:['Meu histórico','Resumo individual'], perfil:['Meu perfil','Dados cadastrais'], 'admin-permutas':['Permutas','Painel do P1'], 'admin-policiais':['Policiais','Efetivo, solicitações e afastamentos do P1'],
+        'admin-checklist':['Checklist','Painel do P4'], 'p4-alertas':['Cautelas','Materiais vinculados a policiais afastados'], 'painel-admin':['Visão geral','Painel administrativo'], guarda:['Registro do serviço','Corpo da Guarda • alterações da escala impressa'], 'relatorio-guarda':['Relatório','Informação operacional compartilhada com o Comando'], formularios:['Formulários','Editor dinâmico'], setores:['Setores','Controle de permissões'],
         consultas:['Consultas','Ficha completa e histórico'], efetivo:['Efetivo','Gestão do quadro de policiais']
       };
       const tituloAtual=(titulos[secao]||[secao])[0];
@@ -17151,10 +17156,33 @@
         </div>`;
     }
 
+    function corrigirTextoChecklistInterface(texto) {
+      if (typeof texto !== 'string') return texto;
+      return texto
+        .replace(/SITUÇÃO/g, 'SITUAÇÃO')
+        .replace(/PREFÍXO/g, 'PREFIXO')
+        .replace(/BATLHÃO/g, 'BATALHÃO');
+    }
+
+    function normalizarFormularioChecklistInterface(formulario) {
+      if (!formulario || !Array.isArray(formulario.campos)) return formulario;
+      formulario.campos.forEach(function(campo) {
+        ['label', 'ajuda', 'placeholder'].forEach(function(propriedade) {
+          campo[propriedade] = corrigirTextoChecklistInterface(campo[propriedade]);
+        });
+        if (Array.isArray(campo.opcoes)) {
+          campo.opcoes = campo.opcoes.map(corrigirTextoChecklistInterface);
+        }
+      });
+      return formulario;
+    }
+
     async function carregarFormularioUsuario(modulo) {
       try {
         const resposta = await api('obterFormulario', estado.token, modulo);
-        estado.formularios[modulo] = resposta.formulario;
+        estado.formularios[modulo] = modulo === 'CHECKLIST'
+          ? normalizarFormularioChecklistInterface(resposta.formulario)
+          : resposta.formulario;
         if (modulo === 'CHECKLIST') renderizarChecklistVeicular();
         if (modulo === 'PERMUTAS') renderizarPermutaDinamica();
       } catch (erro) { tratarErro(erro); }
@@ -21884,7 +21912,9 @@
       const aviso = $('pendenciasRelatorioGuarda');
       aviso.classList.toggle('oculto',!pendencias.length);
       aviso.innerHTML = pendencias.length
-        ? '<strong>Relatório ainda incompleto.</strong><br>Faltam: ' + escaparHtml(pendencias.slice(0,8).join(', ')) + (pendencias.length>8?' e mais '+(pendencias.length-8)+'.':'.')
+        ? '<strong>Relatório ainda incompleto.</strong><span>Revise os campos pendentes:</span><ul class="lista-pendencias-relatorio">' +
+          pendencias.map(function(item) { return '<li>' + escaparHtml(item) + '</li>'; }).join('') +
+          '</ul>'
         : '';
     }
 
