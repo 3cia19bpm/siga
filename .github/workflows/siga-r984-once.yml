@@ -1,0 +1,43 @@
+name: SIGA R9.8.4 update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/siga-r984-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply R9.8.4 patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .siga-update/r984-01.patch \
+              .siga-update/r984-02.patch \
+              .siga-update/r984-03.patch \
+              .siga-update/r984-04.patch \
+              .siga-update/r984-05.patch > /tmp/siga-r984.patch
+          git apply --check /tmp/siga-r984.patch
+          git apply /tmp/siga-r984.patch
+          rm -rf .siga-update
+          rm -f .github/workflows/siga-r984-once.yml
+
+      - name: Commit R9.8.4
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat: atualizar SIGA para R9.8.4'
+          git push origin HEAD:main
