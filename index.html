@@ -12611,11 +12611,6 @@
       #secao-banco-horas .credito-proprio-identidade { padding:10px 12px; }
     }
 
-    @media(max-width:560px) {
-      #secao-banco-horas .grade-justificativas-banco { grid-template-columns:1fr; }
-      #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(3,minmax(0,1fr)); }
-    }
-
     @media(max-width:360px) {
       #secao-banco-horas .grade-registro-credito-banco {
         grid-template-columns:minmax(0,1.34fr) minmax(88px,.66fr)!important;
@@ -12623,7 +12618,6 @@
       }
       #secao-banco-horas .grade-registro-credito-banco input { font-size:13px!important; }
       #secao-banco-horas .grade-registro-credito-banco input[type="date"] { font-size:12.5px!important; }
-      #secao-banco-horas .seletor-horas-presets { grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
 
 
@@ -12686,8 +12680,27 @@
       margin:0 0 16px;padding:13px 14px;border:1px solid #d4ded1;border-left:4px solid #607756;border-radius:16px;background:linear-gradient(145deg,#fbfcfa,#f3f7f1);
     }
     #secao-banco-horas .credito-proprio-identidade strong { font-size:14px;letter-spacing:.01em; }
-    #secao-banco-horas .credito-proprio-identidade small { font-size:10.5px; }
+    #secao-banco-horas .credito-proprio-identidade small { display:none!important; }
     #secao-banco-horas .credito-proprio-identidade .status { flex:0 0 auto;background:#e9eee6;color:#536451; }
+    #secao-banco-horas .aviso-registro-credito-banco { display:none!important; }
+    #secao-banco-horas .botao-toggle-painel-banco {
+      display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border:1px solid #d3dbd0;border-radius:999px;
+      background:#f6f8f4;color:#526252;font:inherit;font-size:12px;font-weight:900;letter-spacing:.08em;cursor:pointer;text-transform:uppercase;
+    }
+    #secao-banco-horas .botao-toggle-painel-banco svg { width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease; }
+    #secao-banco-horas .botao-toggle-painel-banco.recolhido svg { transform:rotate(-90deg); }
+    #secao-banco-horas .campo-seletor-horas-icone { background:transparent;border:1px solid #d7ded4; }
+    #secao-banco-horas .campo-justificativa-credito-banco { margin-top:2px; }
+    #secao-banco-horas .select-justificativa-banco { position:relative; }
+    #secao-banco-horas .select-justificativa-banco select {
+      width:100%;height:54px;min-height:54px;padding:0 46px 0 14px;border:1px solid #cfd9cc;border-radius:14px;background:#fff;color:#183923;
+      font:inherit;font-size:15px;font-weight:650;appearance:none;-webkit-appearance:none;cursor:pointer;
+    }
+    #secao-banco-horas .select-justificativa-banco select:invalid { color:#8b978d;font-weight:550; }
+    #secao-banco-horas .select-justificativa-banco::after {
+      content:'';position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:2px solid #60725b;border-bottom:2px solid #60725b;
+      transform:translateY(-68%) rotate(45deg);pointer-events:none;
+    }
 
     #secao-banco-horas .subsecao-form-banco { margin:19px 0 11px;padding-top:1px; }
     #secao-banco-horas .subsecao-form-banco span { display:block;color:#6e7c70;font-size:9px;font-weight:950;letter-spacing:.15em; }
@@ -12844,35 +12857,35 @@
     }
 
     #secao-banco-horas .modal-seletor-horas-credito {
-      width:min(100%,490px);padding:18px;overflow:visible;border-radius:28px;box-shadow:0 28px 70px rgba(17,34,22,.22);
+      width:min(100%,430px);padding:16px;overflow:visible;border-radius:26px;box-shadow:0 22px 56px rgba(17,34,22,.20);
     }
     #secao-banco-horas .seletor-horas-topo {
       display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;
     }
     #secao-banco-horas .seletor-horas-topo h3 {
-      margin:4px 0 0;color:#173622;font-size:21px;line-height:1.08;letter-spacing:-.025em;
+      margin:4px 0 0;color:#173622;font-size:19px;line-height:1.08;letter-spacing:-.025em;
     }
     #secao-banco-horas .seletor-horas-display {
-      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;margin-bottom:12px;
-      padding:14px 15px;border:1px solid #d6dfd3;border-radius:20px;background:linear-gradient(145deg,#f9fbf8,#eef4eb);
+      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;margin-bottom:10px;
+      padding:12px 14px;border:1px solid #d6dfd3;border-radius:18px;background:linear-gradient(145deg,#f9fbf8,#eef4eb);
     }
     #secao-banco-horas .seletor-horas-display small,
     #secao-banco-horas .seletor-horas-display strong,
     #secao-banco-horas .seletor-horas-display span { display:block; }
     #secao-banco-horas .seletor-horas-display small { color:#71806f;font-size:9px;font-weight:900;letter-spacing:.12em; }
     #secao-banco-horas .seletor-horas-display strong {
-      margin-top:4px;color:#173622;font-size:28px;line-height:1;font-weight:900;letter-spacing:-.035em;font-variant-numeric:tabular-nums;
+      margin-top:4px;color:#173622;font-size:24px;line-height:1;font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
     }
-    #secao-banco-horas .seletor-horas-display span { margin-top:5px;color:#748176;font-size:10.5px;line-height:1.3; }
+    #secao-banco-horas .seletor-horas-display span { margin-top:4px;color:#748176;font-size:10px;line-height:1.28; }
     #secao-banco-horas .seletor-horas-display-icone {
-      width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:#fff;border:1px solid #d8e1d5;color:#4e6649;
+      width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#fff;border:1px solid #d8e1d5;color:#4e6649;
     }
     #secao-banco-horas .seletor-horas-display-icone svg {
       width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
     }
 
     #secao-banco-horas .seletor-horas-ajuste {
-      display:grid;gap:10px;padding:13px;border:1px solid #d8e0d6;border-radius:18px;background:#fff;
+      display:grid;gap:9px;padding:12px;border:1px solid #d8e0d6;border-radius:18px;background:#fff;
     }
     #secao-banco-horas .seletor-horas-linha {
       display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding-bottom:11px;border-bottom:1px solid #edf0eb;
@@ -12882,18 +12895,18 @@
       display:block;color:#657361;font-size:9px;font-weight:900;letter-spacing:.12em;
     }
     #secao-banco-horas .seletor-horas-linha strong {
-      display:block;margin-top:3px;color:#173622;font-size:27px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;
+      display:block;margin-top:3px;color:#173622;font-size:25px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;
     }
-    #secao-banco-horas .seletor-horas-stepper { display:grid;grid-template-columns:44px 44px;gap:8px; }
+    #secao-banco-horas .seletor-horas-stepper { display:grid;grid-template-columns:46px 46px;gap:8px; }
     #secao-banco-horas .seletor-horas-stepper button {
-      width:44px;height:44px;border:1px solid #cbd7c8;border-radius:13px;background:#f4f7f2;color:#21402a;
-      font-size:26px;font-weight:650;line-height:1;cursor:pointer;
+      width:46px;height:46px;border:1px solid #cbd7c8;border-radius:14px;background:#f4f7f2;color:#21402a;
+      font-size:28px;font-weight:650;line-height:1;cursor:pointer;
     }
     #secao-banco-horas .seletor-horas-stepper button:disabled { opacity:.38;cursor:not-allowed; }
     #secao-banco-horas .seletor-horas-minutos > small { margin-bottom:8px; }
     #secao-banco-horas .seletor-minutos-opcoes { display:grid;grid-template-columns:repeat(4,1fr);gap:7px; }
     #secao-banco-horas .seletor-minutos-opcoes button {
-      min-height:42px;border:1px solid #d1dbcf;border-radius:12px;background:#f7f9f6;color:#536151;
+      min-height:44px;border:1px solid #d1dbcf;border-radius:13px;background:#f7f9f6;color:#536151;
       font-size:13px;font-weight:850;cursor:pointer;font-variant-numeric:tabular-nums;
     }
     #secao-banco-horas .seletor-minutos-opcoes button.ativo {
@@ -13490,11 +13503,9 @@
                 <span id="rotuloRegistroCreditoBancoHoras" class="rotulo-suave">MEU BANCO DE HORAS</span>
                 <h3 id="tituloRegistroCreditoBancoHoras" style="margin:4px 0 0">Registrar crédito</h3>
               </div>
-              <span class="status status-neutro">REGISTRO EM LIVRO</span>
+              <button id="toggleRegistroCreditoBancoHoras" class="botao-toggle-painel-banco" type="button" onclick="alternarPainelRegistroCreditoBancoHoras()" aria-expanded="true" aria-controls="formCreditoBancoHoras"><span>ESCONDER</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10.5l5 5 5-5"/></svg></button>
             </div>
-            <div id="avisoRegistroCreditoBancoHoras" class="mensagem info visivel aviso-banco-horas aviso-registro-credito-banco">
-              Informe os dados exatamente como constam no livro. A baixa será realizada somente pelo P1 após a conferência documental.
-            </div>
+            <div id="avisoRegistroCreditoBancoHoras" class="mensagem info visivel aviso-banco-horas aviso-registro-credito-banco oculto"></div>
             <form id="formCreditoBancoHoras" onsubmit="registrarCreditoBancoHorasApp(event)">
               <div id="campoPolicialCreditoBancoHoras" class="campo campo-busca-banco-horas oculto">
                 <label for="pesquisaPolicialBancoHoras">Policial</label>
@@ -13521,17 +13532,18 @@
               <div class="subsecao-form-banco subsecao-motivo-banco"><span>MOTIVO DO CRÉDITO</span><p>Classifique a origem das horas para facilitar conferência e auditoria.</p></div>
               <div class="campo campo-justificativa-credito-banco">
                 <label for="justificativaCreditoBancoHoras">Justificativa</label>
-                <input id="justificativaCreditoBancoHoras" type="hidden" value="">
-                <div id="resumoJustificativaCreditoBancoHoras" class="resumo-justificativa-banco sem-valor" aria-live="polite">Selecione o motivo do crédito</div>
-                <div id="gradeJustificativasCreditoBancoHoras" class="grade-justificativas-banco" role="group" aria-label="Opções de justificativa">
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="PROLONGAMENTO_SERVICO" onclick="selecionarJustificativaCreditoBancoHoras('PROLONGAMENTO_SERVICO','Prolongamento de serviço')">Prolongamento de serviço</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="SERVICO_EXTRAORDINARIO" onclick="selecionarJustificativaCreditoBancoHoras('SERVICO_EXTRAORDINARIO','Serviço extraordinário / convocação')">Serviço extraordinário / convocação</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="REUNIAO_INSTITUCIONAL" onclick="selecionarJustificativaCreditoBancoHoras('REUNIAO_INSTITUCIONAL','Reunião institucional')">Reunião institucional</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="INSTRUCAO_TREINAMENTO" onclick="selecionarJustificativaCreditoBancoHoras('INSTRUCAO_TREINAMENTO','Instrução / treinamento')">Instrução / treinamento</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="OPERACAO_APOIO" onclick="selecionarJustificativaCreditoBancoHoras('OPERACAO_APOIO','Operação / apoio operacional')">Operação / apoio operacional</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="ATIVIDADE_ADMINISTRATIVA" onclick="selecionarJustificativaCreditoBancoHoras('ATIVIDADE_ADMINISTRATIVA','Atividade administrativa')">Atividade administrativa</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="EVENTO_SOLENIDADE" onclick="selecionarJustificativaCreditoBancoHoras('EVENTO_SOLENIDADE','Evento / solenidade')">Evento / solenidade</button>
-                  <button type="button" class="opcao-justificativa-banco" data-justificativa="OUTRO" onclick="selecionarJustificativaCreditoBancoHoras('OUTRO','Outro')">Outro</button>
+                <div class="select-justificativa-banco">
+                  <select id="justificativaCreditoBancoHoras" required onchange="atualizarJustificativaCreditoBancoHoras()">
+                    <option value="" selected disabled>Selecione o motivo do crédito</option>
+                    <option value="PROLONGAMENTO_SERVICO">Prolongamento de serviço</option>
+                    <option value="SERVICO_EXTRAORDINARIO">Serviço extraordinário / convocação</option>
+                    <option value="REUNIAO_INSTITUCIONAL">Reunião institucional</option>
+                    <option value="INSTRUCAO_TREINAMENTO">Instrução / treinamento</option>
+                    <option value="OPERACAO_APOIO">Operação / apoio operacional</option>
+                    <option value="ATIVIDADE_ADMINISTRATIVA">Atividade administrativa</option>
+                    <option value="EVENTO_SOLENIDADE">Evento / solenidade</option>
+                    <option value="OUTRO">Outro</option>
+                  </select>
                 </div>
                 <small class="ajuda-campo-banco">Selecione o motivo que originou as horas excedentes.</small>
               </div>
@@ -13584,13 +13596,6 @@
                 </div>
               </div>
 
-              <div class="seletor-horas-presets" aria-label="Atalhos de duração">
-                <button type="button" data-preset-minutos="60" onclick="definirDuracaoCreditoRapida(60)">1h</button>
-                <button type="button" data-preset-minutos="120" onclick="definirDuracaoCreditoRapida(120)">2h</button>
-                <button type="button" data-preset-minutos="240" onclick="definirDuracaoCreditoRapida(240)">4h</button>
-                <button type="button" data-preset-minutos="360" onclick="definirDuracaoCreditoRapida(360)">6h</button>
-                <button type="button" data-preset-minutos="480" onclick="definirDuracaoCreditoRapida(480)">8h</button>
-              </div>
 
               <div class="seletor-horas-acoes">
                 <button class="botao botao-secundario" type="button" onclick="fecharSeletorHorasCredito()">CANCELAR</button>
@@ -15984,6 +15989,16 @@
       return ['SOLDADO','CABO','3º SARGENTO','2º SARGENTO','1º SARGENTO'].includes(posto);
     }
 
+    function abreviarPostoGraduacaoCliente(posto) {
+      const valor = String(posto || '').trim().toUpperCase();
+      const mapa = {
+        'SOLDADO':'SD','CABO':'CB','3º SARGENTO':'3º SGT','2º SARGENTO':'2º SGT','1º SARGENTO':'1º SGT',
+        'SUBTENENTE':'ST','ASPIRANTE A OFICIAL':'ASP OF','2º TENENTE':'2º TEN','1º TENENTE':'1º TEN',
+        'CAPITÃO':'CAP','MAJOR':'MAJ','TENENTE-CORONEL':'TC','CORONEL':'CEL'
+      };
+      return mapa[valor] || String(posto || '').trim();
+    }
+
     function atualizarNumeralCadastro() {
       const campo = $('cadastroNumeral');
       if (!campo) return;
@@ -17392,25 +17407,34 @@
       if (modoGuarda) {
         if (rotulo) rotulo.textContent = 'CORPO DA GUARDA';
         if (titulo) titulo.textContent = 'Registrar crédito do policial';
-        if (aviso) aviso.textContent = 'Localize o policial e registre data, duração, justificativa e referência do livro. A baixa continua exclusiva do P1.';
+        if (aviso) { aviso.textContent = ''; aviso.classList.add('oculto'); }
         if (botao) botao.textContent = 'CREDITAR AO POLICIAL';
       } else {
         estado.policialBancoHoras = null;
         if ($('resultadosPolicialBancoHoras')) $('resultadosPolicialBancoHoras').innerHTML = '';
         if (rotulo) rotulo.textContent = 'MEU BANCO DE HORAS';
         if (titulo) titulo.textContent = 'Registrar meu crédito';
-        if (aviso) aviso.textContent = 'Registre data, duração, justificativa e referência do livro. O crédito entra no seu extrato; a baixa permanece exclusiva do P1.';
+        if (aviso) { aviso.textContent = ''; aviso.classList.add('oculto'); }
         if (botao) botao.textContent = 'REGISTRAR MEU CRÉDITO';
         const identidade = $('identidadeCreditoProprioBancoHoras');
         if (identidade) {
           const usuarioAtual = estado.usuario || {};
           const postoAtual = String(usuarioAtual.postoGraduacao || '').trim();
+          const postoAbrev = typeof abreviarPostoGraduacaoCliente === 'function' ? abreviarPostoGraduacaoCliente(postoAtual) : postoAtual;
           const numeralAtual = (typeof postoUsaNumeral === 'function' && !postoUsaNumeral(postoAtual)) ? '' : String(usuarioAtual.numeral || '').trim();
           const nomeAtual = String(usuarioAtual.nomeGuerra || usuarioAtual.nomeCompleto || usuarioAtual.identificacao || '').trim();
-          const principalAtual = escaparHtml([postoAtual, numeralAtual, nomeAtual].filter(Boolean).join(' ').trim() || identificacaoPolicialExibicao(usuarioAtual));
-          const matriculaAtual = formatarMatriculaFuncional(usuarioAtual.matricula);
-          identidade.innerHTML = `<div><strong>${principalAtual}</strong>${matriculaAtual !== '—' ? `<small>M.F.: ${escaparHtml(matriculaAtual)}</small>` : ''}<span>Crédito vinculado automaticamente ao seu cadastro</span></div><span class="status status-neutro">VOCÊ</span>`;
+          const principalAtual = escaparHtml([postoAbrev, numeralAtual, nomeAtual].filter(Boolean).join(' ').trim() || identificacaoPolicialExibicao(usuarioAtual));
+          identidade.innerHTML = `<div><strong>${principalAtual}</strong><span>Crédito vinculado automaticamente ao seu cadastro</span></div><span class="status status-neutro">VOCÊ</span>`;
         }
+      }
+      const formulario = $('formCreditoBancoHoras');
+      const toggle = $('toggleRegistroCreditoBancoHoras');
+      if (formulario && toggle && formulario.classList.contains('oculto')) {
+        formulario.classList.remove('oculto');
+        toggle.classList.remove('recolhido');
+        toggle.setAttribute('aria-expanded', 'true');
+        const textoBotao = toggle.querySelector('span');
+        if (textoBotao) textoBotao.textContent = 'ESCONDER';
       }
     }
 
@@ -17549,44 +17573,19 @@
     }
 
     function selecionarJustificativaCreditoBancoHoras(codigo, rotulo) {
-      const campo = $('justificativaCreditoBancoHoras');
-      const resumo = $('resumoJustificativaCreditoBancoHoras');
-      if (campo) campo.value = String(codigo || '');
-      document.querySelectorAll('[data-justificativa]').forEach(function(botao) {
-        const ativo = String(botao.dataset.justificativa || '') === String(codigo || '');
-        botao.classList.toggle('ativa', ativo);
-        botao.setAttribute('aria-pressed', ativo ? 'true' : 'false');
-      });
-      if (resumo) {
-        if (codigo && rotulo) {
-          resumo.textContent = rotulo;
-          resumo.classList.remove('sem-valor');
-        } else {
-          resumo.textContent = 'Selecione o motivo do crédito';
-          resumo.classList.add('sem-valor');
-        }
-      }
+      const seletor = $('justificativaCreditoBancoHoras');
+      if (!seletor) return;
+      seletor.value = String(codigo || '');
       atualizarJustificativaCreditoBancoHoras();
     }
 
     function atualizarJustificativaCreditoBancoHoras() {
-      const campo = $('justificativaCreditoBancoHoras');
+      const seletor = $('justificativaCreditoBancoHoras');
       const detalhe = $('observacaoCreditoBancoHoras');
       const estadoDetalhe = $('estadoDetalhamentoCreditoBancoHoras');
       const ajuda = $('ajudaDetalhamentoCreditoBancoHoras');
-      const codigo = campo ? String(campo.value || '').trim() : '';
-      document.querySelectorAll('[data-justificativa]').forEach(function(botao) {
-        const ativo = String(botao.dataset.justificativa || '') === codigo;
-        botao.classList.toggle('ativa', ativo);
-        botao.setAttribute('aria-pressed', ativo ? 'true' : 'false');
-      });
-      const resumo = $('resumoJustificativaCreditoBancoHoras');
-      if (resumo && !codigo) {
-        resumo.textContent = 'Selecione o motivo do crédito';
-        resumo.classList.add('sem-valor');
-      }
-      if (!detalhe) return;
-      const outro = codigo === 'OUTRO';
+      if (!seletor || !detalhe) return;
+      const outro = String(seletor.value || '') === 'OUTRO';
       detalhe.required = outro;
       if (estadoDetalhe) {
         estadoDetalhe.textContent = outro ? 'obrigatório' : 'opcional';
@@ -17598,6 +17597,18 @@
         ajuda.textContent = outro ? 'Como foi selecionado “Outro”, descreva o motivo para permitir a conferência posterior.' : 'Use este campo apenas quando precisar complementar a justificativa.';
         ajuda.classList.toggle('destaque', outro);
       }
+    }
+
+    function alternarPainelRegistroCreditoBancoHoras() {
+      const formulario = $('formCreditoBancoHoras');
+      const botao = $('toggleRegistroCreditoBancoHoras');
+      if (!formulario || !botao) return;
+      const recolher = !formulario.classList.contains('oculto');
+      formulario.classList.toggle('oculto', recolher);
+      botao.classList.toggle('recolhido', recolher);
+      botao.setAttribute('aria-expanded', recolher ? 'false' : 'true');
+      const texto = botao.querySelector('span');
+      if (texto) texto.textContent = recolher ? 'MOSTRAR' : 'ESCONDER';
     }
 
     document.addEventListener('keydown', function(evento) {
@@ -17752,7 +17763,7 @@
       const detalhamentoCredito = $('observacaoCreditoBancoHoras') ? String($('observacaoCreditoBancoHoras').value || '').trim() : '';
       if (!justificativaCredito) {
         toast('Selecione a justificativa do crédito.', 'aviso');
-        document.querySelector('[data-justificativa]')?.focus();
+        $('justificativaCreditoBancoHoras')?.focus();
         return;
       }
       if (justificativaCredito === 'OUTRO' && !detalhamentoCredito) {
@@ -17778,7 +17789,7 @@
         $('formCreditoBancoHoras').reset();
         $('dataCreditoBancoHoras').value = dataHojeIso();
         limparHorasCreditoBancoHoras();
-        selecionarJustificativaCreditoBancoHoras('', '');
+        if ($('justificativaCreditoBancoHoras')) $('justificativaCreditoBancoHoras').value = '';
         atualizarJustificativaCreditoBancoHoras();
         estado.chaveCreditoBancoHoras = '';
         if (modoGuarda) limparPolicialBancoHoras();
