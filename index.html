@@ -3,6 +3,7 @@
 <head>
   <base target="_top">
   <meta charset="UTF-8">
+  <title>SIGA — Sistema Integrado de Gestão Administrativa</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <meta name="theme-color" content="#172b1e">
   <meta name="application-name" content="SIGA">
@@ -13645,49 +13646,49 @@
 
       <nav id="menuUsuario" class="menu-lateral">
         <div class="menu-grupo-titulo">MEU SERVIÇO</div>
-        <button class="menu-item ativo" data-secao="inicio" onclick="navegar('inicio')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-inicio"></use></svg></span><span>Início</span></button>
-        <button class="menu-item" data-secao="calendario" onclick="navegar('calendario')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-calendario"></use></svg></span><span>Calendário</span></button>
-        <button class="menu-item" data-secao="checklist" onclick="navegar('checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
-        <button class="menu-item" data-secao="permutas" onclick="navegar('permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
-        <button class="menu-item" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
+        <button type="button" class="menu-item ativo" data-secao="inicio" onclick="navegar('inicio')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-inicio"></use></svg></span><span>Início</span></button>
+        <button type="button" class="menu-item" data-secao="calendario" onclick="navegar('calendario')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-calendario"></use></svg></span><span>Calendário</span></button>
+        <button type="button" class="menu-item" data-secao="checklist" onclick="navegar('checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
+        <button type="button" class="menu-item" data-secao="permutas" onclick="navegar('permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
+        <button type="button" class="menu-item" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
 
         <div class="menu-grupo-titulo somente-guarda oculto">CORPO DA GUARDA</div>
-        <button class="menu-item somente-guarda oculto" data-secao="guarda" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
-        <button class="menu-item somente-guarda oculto" data-secao="relatorio-guarda" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório operacional</span></button>
+        <button type="button" class="menu-item somente-guarda oculto" data-secao="guarda" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
+        <button type="button" class="menu-item somente-guarda oculto" data-secao="relatorio-guarda" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório operacional</span></button>
 
         <div class="menu-grupo-titulo">ACOMPANHAMENTO</div>
-        <button class="menu-item" data-secao="relatorios" onclick="navegar('relatorios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatórios</span></button>
-        <button class="menu-item" data-secao="perfil" onclick="navegar('perfil')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-usuario"></use></svg></span><span>Meu perfil</span></button>
+        <button type="button" class="menu-item" data-secao="relatorios" onclick="navegar('relatorios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatórios</span></button>
+        <button type="button" class="menu-item" data-secao="perfil" onclick="navegar('perfil')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-usuario"></use></svg></span><span>Meu perfil</span></button>
 
         <div class="menu-espacador"></div>
-        <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
+        <button type="button" class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
       <nav id="menuAdmin" class="menu-lateral oculto">
         <div class="menu-grupo-titulo">GESTÃO</div>
-        <button class="menu-item ativo" data-secao="painel-admin" onclick="navegar('painel-admin')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-painel"></use></svg></span><span>Visão geral</span></button>
-        <button class="menu-item" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
+        <button type="button" class="menu-item ativo" data-secao="painel-admin" onclick="navegar('painel-admin')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-painel"></use></svg></span><span>Visão geral</span></button>
+        <button type="button" class="menu-item" data-secao="banco-horas" onclick="navegar('banco-horas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-banco-horas"></use></svg></span><span>Banco de horas</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="P1">P1 • PESSOAL</div>
-        <button class="menu-item" data-secao="admin-permutas" data-permissao="PERMUTAS" onclick="navegar('admin-permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
-        <button class="menu-item" data-secao="admin-policiais" data-permissao="POLICIAIS" onclick="navegar('admin-policiais')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Policiais</span><span id="badgeSolicitacoesPerfilP1" class="menu-badge oculto">0</span></button>
+        <button type="button" class="menu-item" data-secao="admin-permutas" data-permissao="PERMUTAS" onclick="navegar('admin-permutas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-permuta"></use></svg></span><span>Permutas</span></button>
+        <button type="button" class="menu-item" data-secao="admin-policiais" data-permissao="POLICIAIS" onclick="navegar('admin-policiais')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Policiais</span><span id="badgeSolicitacoesPerfilP1" class="menu-badge oculto">0</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="P4">P4 • FROTA</div>
-        <button class="menu-item" data-secao="admin-checklist" data-permissao="CHECKLIST" onclick="navegar('admin-checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
-        <button class="menu-item" data-secao="p4-alertas" data-permissao="ALERTAS_P4" onclick="navegar('p4-alertas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-alerta"></use></svg></span><span>Cautelas</span><span id="badgeAlertasP4" class="menu-badge oculto">0</span></button>
+        <button type="button" class="menu-item" data-secao="admin-checklist" data-permissao="CHECKLIST" onclick="navegar('admin-checklist')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-checklist"></use></svg></span><span>Checklist</span></button>
+        <button type="button" class="menu-item" data-secao="p4-alertas" data-permissao="ALERTAS_P4" onclick="navegar('p4-alertas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-alerta"></use></svg></span><span>Cautelas</span><span id="badgeAlertasP4" class="menu-badge oculto">0</span></button>
 
         <div class="menu-grupo-titulo" data-grupo="GUARDA">CORPO DA GUARDA</div>
-        <button class="menu-item" data-secao="guarda" data-permissao="GUARDA" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
-        <button class="menu-item" data-secao="relatorio-guarda" data-permissao="RELATORIO_GUARDA" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório da Guarda</span></button>
+        <button type="button" class="menu-item" data-secao="guarda" data-permissao="GUARDA" onclick="navegar('guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-guarda"></use></svg></span><span>Registro do serviço</span></button>
+        <button type="button" class="menu-item" data-secao="relatorio-guarda" data-permissao="RELATORIO_GUARDA" onclick="navegar('relatorio-guarda')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-relatorio"></use></svg></span><span>Relatório da Guarda</span></button>
 
         <div class="menu-grupo-titulo">ADMINISTRAÇÃO</div>
-        <button class="menu-item" data-secao="formularios" data-permissao="FORMULARIOS" onclick="navegar('formularios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-editar"></use></svg></span><span>Formulários</span></button>
-        <button class="menu-item" data-secao="consultas" onclick="navegar('consultas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-pesquisa"></use></svg></span><span>Consultas</span></button>
-        <button class="menu-item" data-secao="efetivo" onclick="navegar('efetivo')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Efetivo</span></button>
-        <button class="menu-item" data-secao="setores" data-permissao="SETORES" onclick="navegar('setores')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-setores"></use></svg></span><span>Setores e acessos</span></button>
+        <button type="button" class="menu-item" data-secao="formularios" data-permissao="FORMULARIOS" onclick="navegar('formularios')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-editar"></use></svg></span><span>Formulários</span></button>
+        <button type="button" class="menu-item" data-secao="consultas" onclick="navegar('consultas')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-pesquisa"></use></svg></span><span>Consultas</span></button>
+        <button type="button" class="menu-item" data-secao="efetivo" onclick="navegar('efetivo')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-efetivo"></use></svg></span><span>Efetivo</span></button>
+        <button type="button" class="menu-item" data-secao="setores" data-permissao="SETORES" onclick="navegar('setores')"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-setores"></use></svg></span><span>Setores e acessos</span></button>
 
         <div class="menu-espacador"></div>
-        <button class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
+        <button type="button" class="menu-item menu-sair" onclick="sair()"><span class="menu-icone"><svg class="icone-svg"><use href="#icone-sair"></use></svg></span><span>Sair</span></button>
       </nav>
 
       <footer class="sidebar-rodape">3ª CIA / 19º BPM<br>Versão 5.9.0 • R9.8.5</footer>
@@ -15753,6 +15754,7 @@
     const SIGA_PONTE = (() => {
       const URL_WEB_APP = 'https://script.google.com/macros/s/AKfycbw6T9SxeS4indsxALG32fxN-8TPPpHVokcNySBTTMu_NuSzdy4LMUWzGAh_4EsRhd_G/exec';
       const ORIGEM_GITHUB = 'https://3cia19bpm.github.io';
+      const VERSAO_PONTE = '5.9.0-r9.8.5-auditoria-1';
       const pendentes = new Map();
       const pings = new Map();
       let porta = null;
@@ -15880,7 +15882,7 @@
           iframe.title = 'Conexão segura do SIGA';
           iframe.setAttribute('aria-hidden', 'true');
           iframe.setAttribute('tabindex', '-1');
-          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=5.9.0-r9.6.2';
+          iframe.src = URL_WEB_APP + '?modo=ponte&chave=' + encodeURIComponent(chave) + '&v=' + encodeURIComponent(VERSAO_PONTE);
           iframeAtual = iframe;
           document.body.appendChild(iframe);
           timer = setTimeout(() => falhar('Não foi possível conectar ao serviço do SIGA. Verifique a internet e tente novamente.'), 30000);
@@ -16990,21 +16992,35 @@
       return secao;
     }
 
+    function secaoInicialCliente() {
+      return estado.usuario && estado.usuario.administrador && !ehGuardaLogada()
+        ? 'painel-admin'
+        : 'inicio';
+    }
+
+    function secaoDisponivelCliente(secao) {
+      if (!$('secao-' + secao)) return false;
+      const itens = Array.from(document.querySelectorAll('.menu-item[data-secao]'))
+        .filter(function(item) { return item.dataset.secao === secao; });
+      return !itens.length || itens.some(function(item) { return !item.closest('.oculto'); });
+    }
+
     function navegar(secao) {
       if (estado.token && estado.usuario && !usuarioAcessoElegivelCliente(estado.usuario)) {
         encerrarSessaoAutomaticamente(mensagemGovernancaCliente(estado.usuario));
         return;
       }
+      secao = String(secao || '').trim();
+      if (!secaoDisponivelCliente(secao)) secao = secaoInicialCliente();
+      const alvo = $('secao-' + secao);
+      if (!alvo) return;
       try { if (estado.token) sessionStorage.setItem(CHAVE_SECAO_SIGA, secao); } catch (erro) {}
       document.querySelectorAll('.secao').forEach(function(item) {
         item.classList.remove('ativa');
         item.setAttribute('aria-hidden','true');
       });
-      const alvo = $('secao-' + secao);
-      if (alvo) {
-        alvo.classList.add('ativa');
-        alvo.setAttribute('aria-hidden','false');
-      }
+      alvo.classList.add('ativa');
+      alvo.setAttribute('aria-hidden','false');
       document.querySelectorAll('.menu-item[data-secao]').forEach(function(item) {
         const ativo = item.dataset.secao === secao;
         item.classList.toggle('ativo', ativo);
